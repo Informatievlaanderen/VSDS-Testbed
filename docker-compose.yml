@@ -50,7 +50,8 @@ services:
       # This is the key to decrypt the initialisation data archive (see below).
       - DATA_ARCHIVE_KEY=ldes
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
-      - AUTOMATION_API_ENABLED=true
+      - AUTOMATION_API_ENABLED=true  
+      - THEME=ec
     volumes:
       - gitb-repo:/gitb-repository
       # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
@@ -62,6 +63,15 @@ services:
         condition: service_healthy
       gitb-srv:
         condition: service_started
+
+  # Replace blue with yellow :)
+  gitb-ui-proxy:
+    build: proxy
+    volumes:
+     - ./proxy/overrides:/usr/local/apache2/htdocs/
+     - ${PWD}/my-httpd.conf /usr/local/apache2/conf/httpd.conf
+    ports:
+     - "9001:80"        
   #
   # Test Bed core components - END.
   #

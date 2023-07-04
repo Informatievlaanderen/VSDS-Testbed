@@ -1,0 +1,64 @@
+@font-face {
+  font-family: Flanders Art Sans;
+  src: url(/api/theme/FlandersArtSans-Light.woff2);
+}
+html body {
+  font-family:Flanders Art Sans,sans-serif;
+}
+body .html-modal h1, body .html-modal h2, body a, body h3, body h4, body h5 {
+  color: #333332;
+}
+body .btn-primary, body .pagination > .active > a {
+ background-color: #003BB0;
+}
+body .header nav ul.nav-main li.active a,
+body .header nav ul.nav-main li.dropdown.open a.dropdown-toggle,
+body .header nav ul.nav-main li.dropdown:hover a,
+body .header nav ul.nav-main li > a:hover,
+body .header nav ul.nav-main ul.dropdown-menu {
+  color: #fff;
+  background-color: #003BB0 !important;
+}
+body .header nav.mega-menu ul.nav-main li.mega-menu-item ul.dropdown-menu {
+  border-top-color: #003BB0;
+}
+body .nav-tabs > li.active > a {
+  color: #333332 !important;
+}
+body .btn-primary:hover,
+body .pagination>.active>a:hover {
+ border-color: #003BB0;
+ background-color: #003BB0;
+}
+section.page-top {
+    background-color: #FFE615;
+    border-bottom: 5px solid #FFE615;
+    margin-bottom: 35px;
+    min-height: 50px;
+    padding: 0;
+    padding: 20px 0;
+    position: relative;
+    text-align: left;
+}
+
+section.page-top h2 {
+    display: inline-block;
+    font-weight: 200;
+    margin: 0 0 -25px;
+    min-height: 37px;
+    line-height: 46px;
+    padding: 0 0 17px;
+    position: relative;
+}
+
+footer {
+    background-color: #FFFFFF;
+    border-top: 1px #cbd2da solid;
+    font-size: 0.9em;
+    position: relative;
+    clear: both;
+}
+
+footer img {
+    height: 50px;
+}
