@@ -1,0 +1,16 @@
+mongock:
+    migration-scan-package: VSDS
+springdoc:
+    swagger-ui:
+        path: /v1/swagger
+ldes-server:
+    host-name: "http://localhost:8080"
+management:
+    tracing:
+        enabled: false
+spring:
+  data:
+    mongodb:
+        database: ldes
+        host: ldes-mongodb
+        port: 27017

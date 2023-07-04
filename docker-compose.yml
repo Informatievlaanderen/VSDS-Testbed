@@ -1,0 +1,106 @@
+version: '2.1'
+
+# These volumes record all persistent data for the Test Bed instance.
+volumes:
+  gitb-repo:
+  gitb-dbdata:
+
+services:
+  #
+  # Test Bed core components - START.
+  #
+  gitb-redis:
+    # Internal component used to store users' UI sessions.
+    image: redis:6.2.11
+    restart: unless-stopped
+  gitb-mysql:
+    # The Test Bed's DB. 
+    image: isaitb/gitb-mysql:latest
+    restart: unless-stopped
+    volumes:
+      - gitb-dbdata:/var/lib/mysql
+    # We use a healthcheck to make sure the DB is up and running before we try to connect to it (this could
+    # take a few seconds after the container is up and running). 
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute \"SHOW DATABASES;\""
+      interval: 3s
+      retries: 10
+  gitb-srv:
+    # The test engine that executed the test sessions.
+    image: isaitb/gitb-srv:nightly
+    restart: unless-stopped
+    environment:
+      # This is used to define how external services (the test-services component) will make callbacks on the 
+      # test engine. The address here must be what the test-services component should use for the calls.
+      # If you deploy the test-services outside the docker-compose service you would need to adapt this. For
+      # example you would add a port mapping for port 8080 (this is currently not mapped to the host) and then
+      # refer to an address such as "localhost".
+      # In the case of the PoC the only scenario we used callbacks in is when we post log messages from the
+      # test-services component back to the test engine.
+      - gitb.messaging.callbackURL=http://gitb-srv:8080/itbsrv/MessagingClient
+  gitb-ui:
+    # The Test Bed's UI.
+    image: isaitb/gitb-ui:nightly
+    restart: unless-stopped
+    # This is the only Test Bed component for which we currently add a host port mapping. If port 9000 on your
+    # host is taken just replace "9000:9000" with say "9001:9000".
+    ports:
+      - "9000:9000"
+    environment:
+      # This is the key to decrypt the initialisation data archive (see below).
+      - DATA_ARCHIVE_KEY=ldes
+      # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
+      - AUTOMATION_API_ENABLED=true
+    volumes:
+      - gitb-repo:/gitb-repository
+      # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
+      - ./config/data/:/gitb-repository/data/in/:rw      
+    depends_on:
+      gitb-redis:
+        condition: service_started
+      gitb-mysql:
+        condition: service_healthy
+      gitb-srv:
+        condition: service_started
+  #
+  # Test Bed core components - END.
+  #
+  test-services:
+    # The test-services component are the extension services supporting our test cases. Note how we have a "build" definition
+    # here as we will build the component from the sources provided in directory "./test-services".
+    # This service is integrated via SOAP with the Test Bed via its API WSDLs at:
+    # - Validation: http://test-services:8181/ldes/services/validation?wsdl
+    # - Processing: http://test-services:8181/ldes/services/process?wsdl
+    # - Messaging: http://test-services:8181/ldes/services/messaging?wsdl
+    build:
+      context: ./test-services
+    restart: unless-stopped
+  shacl-validator:
+    # A SHACL validator instance, configured to validate content against user-provided shapes. This could also be configured
+    # with predefined shapes and customised to be exposed to users as a standalone validation service. The validator's 
+    # configuration file is at ./config/shacl-validator/any/config.properties.
+    # This service is integrated via SOAP with the Test Bed via its API WSDL at http://shacl-validator:8080/shacl/soap/any/validation?wsdl.
+    image: isaitb/shacl-validator:latest
+    restart: unless-stopped
+    volumes:
+      - ./config/shacl-validator:/config
+    environment:
+      - validator.resourceRoot=/config
+  # 
+  # PoC specific containers for the LDES server - START
+  #
+  # These are added here for the PoC's installation convenience to act as a SUT. Eventually these would be removed from this docker-compose file.
+  # When removing them remember to adapt the systems' configuration in the Test Bed UI to point to the new address of ldes-server.
+  ldes-server:
+    image: ldes/ldes-server:1.1.0-SNAPSHOT
+    environment:
+    - SPRING_CONFIG_LOCATION=/config/
+    volumes:
+    - ./config/ldes-server/ldes-server.yml:/config/application.yml:ro
+    depends_on:
+    - ldes-mongodb
+  ldes-mongodb:
+    image: mongo:6.0.4
+  # 
+  # PoC specific containers for the LDES server - END
+  #

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptlet id="fetchData" xmlns="http://www.gitb.com/tdl/v1/">
+    <!--
+        These are the required input parameters for the scriptlet that need to be set in the "call" step.
+        Note that if applicable you can also set these with default values to make their definition optional.
+    -->
+    <params>
+        <var name="endpoint" type="string"/>
+        <var name="endpointType" type="string"/>
+    </params>    
+    <steps>
+        <!-- See how log statements can include context data as well. You can use any XPath you want in the log steps. -->
+        <log>"Fetch stream data using endpoint " || $endpoint || "..."</log>
+        <send id="fetch" desc="Fetch data" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+            <input name="contentType">"application/turtle"</input>
+            <input name="endpoint">$endpoint</input>
+        </send>
+        <log>"Crawling the endpoint based on the returned stream data..."</log>
+        <process id="crawl" output="crawledData" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="streamData">$fetch{response}</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="endpointType">$endpointType</input>
+        </process>
+        <log>"Crawling finished."</log>
+    </steps>
+    <output name="data">$crawledData</output>
+</scriptlet>

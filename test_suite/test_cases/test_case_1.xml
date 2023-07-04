@@ -1,0 +1,67 @@
+<testcase id="ts1_tc1" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <gitb:name>[TC1] Time-based relation consistency</gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description>When using relations such as tree:LessThanRelation or tree:GreaterThanRelation, the time literals need to be compared according to these three possible data types: xsd:date, xsd:dateTime or xsd:dateTimeStamp.</gitb:description>
+        <!-- 
+            You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
+            HTML content to include in the referenced file.
+        -->
+        <gitb:documentation import="docs/test_case_1.html"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="LDESServer" role="SUT"/>
+        <gitb:actor id="DataProvider"/>
+    </actors>
+    <!-- 
+        Setting "stopOnError" to true will stop the test session as soon as an error is encountered. By default test sessions will continue regardless of errors.
+    -->
+    <steps stopOnError="true">
+        <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
+        <!-- 
+            Scriptlets are reusable sets of test steps with optional inputs and outputs used via a "call" step. When referring to it in the "path" use
+            the relative path of the scriptlet file considering the root of the test suite (the same applies for documentation and artifact imports).
+            Note that scriptlets can also be reused across test suites and even specifications - you only need to refer to the other test suite's identifier
+            (which should be unique) when calling it.
+        -->
+        <call id="step1" path="scriptlets/ingestDataset.xml"/>
+        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
+            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
+            <input name="endpoint">$SYSTEM{endpointByTime}</input>
+            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
+            <input name="endpointType">'byTime'</input>
+        </call>
+        <!-- Step 3: Check relation timestamp consistency. -->
+        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <verify id="step3" desc="Validate relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name="content">$crawledData</input>
+            <input name="contentType">"application/turtle"</input>
+        </verify>
+    </steps>
+    <!-- Definition of final summary message. -->
+    <output>
+        <success>
+            <default>"Test session completed successfully."</default>
+        </success>
+        <failure>
+            <case>
+                <!-- 
+                    The STEP_STATUS map is a special purpose map you can use to query the status of specific steps. You typically use this in 
+                    an output section (like here) to see what failed.
+                -->
+                <cond>$STEP_STATUS{step1} = 'ERROR'</cond>
+                <message>"An error occurred while posting the test dataset to your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"Inconsistencies found when validating your time-based page relations."</message>
+            </case>
+            <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
+        </failure>
+    </output>
+</testcase>
