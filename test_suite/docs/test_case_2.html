@@ -1,25 +1,25 @@
-<p><span style="font-size: 14pt;"><strong>[TC2] Member retrieval</strong></span></p>
-<p>The purpose of this test case is to ensure that entities linked from tree:view MUST be an entry point to retrieve all members of the collection.</p>
-<p><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/ts1_tc2.png" alt="" width="622" height="445" /></p>
+<p><span style="font-size: 14pt;"><strong>[TC2] TreeNode to TreeCollection</strong></span></p>
+<p>The purpose of this test case is to ensure when the current page is a tree:Node, there MUST be a property linking the current page URL to the URI of the tree:Collection.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/ts1_tc3.png" alt="" width="622" height="445" /></p>
 <p>This test case foresees the following steps:</p>
 <table style="border-collapse: collapse; width: 100%; height: 92px;">
 <tbody>
-<tr style="height: 23px;">
-<td style="width: 4.79339%; text-align: center; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Step</strong></td>
-<td style="width: 95.2066%; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Description</strong></td>
-</tr>
-<tr style="height: 23px;">
-<td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">1</td>
-<td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">Data provider posts KBO dataset to the LDES Server (SUT) using the endpoint for ingestion (if not skipped).</td>
-</tr>
-<tr style="height: 23px;">
-<td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">2</td>
-<td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB fetches the processed data from the endpoint of the LDES Server (by location).</td>
-</tr>
-<tr style="height: 23px;">
-<td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">3</td>
-<td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB crawls the fetched data and validates. The validation checks that the number of members returned match the provided test dataset.</td>
-</tr>
+    <tr style="height: 23px;">
+        <td style="width: 4.79339%; text-align: center; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Step</strong></td>
+        <td style="width: 95.2066%; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Description</strong></td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">1</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">Data provider posts KBO dataset to the LDES Server (SUT) using the endpoint for ingestion (if not skipped).</td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">2</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB fetches the processed data from the LDES server's access endpoint.</td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">3</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB crawls the fetched data and validates via SHACL shapes the returned data to ensure that when the current page is a tree:Node, there MUST be a property linking the current page URL to the URI of the tree:Collection.</td>
+        </tr>
 </tbody>
 </table>
 <p>&nbsp;</p>
