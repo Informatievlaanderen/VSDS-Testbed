@@ -1,0 +1,22 @@
+#
+# SPEC for Tree Spec
+# Must test case - 4
+# SPEC Conform:
+# A tree:Relation MUST have one tree:node object of the type tree:Node.
+#
+# Verify:
+# Each tree:Relation has one tree:node object of the type tree:Node.
+#
+
+@prefix tree: <http://example.com/tree#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tree: <https://w3id.org/tree#> .
+
+tree:RelationHasOneTreeNodePath
+  a sh:NodeShape ;
+  sh:targetClass tree:Relation ;
+  sh:property [
+    sh:path tree:node ;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:minCount 1;
+  ] .
