@@ -35,6 +35,7 @@
         <!-- Step 3: Check relation timestamp consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
         <verify id="step3" desc="Validate relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"time-based relations"</input>
             <input name="content">$crawledData</input>
             <input name="contentType">"application/turtle"</input>
         </verify>

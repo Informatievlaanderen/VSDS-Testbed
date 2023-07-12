@@ -89,16 +89,12 @@
                        }"]]></input>
         </process>
 
-        <!-- 
-            Use XPath (the GITB TDL's basic expression language) to count the query results. The "source" attribute can be used if you want to run the XPath
-            expression on certain XML content (not always the case but useful here).
-        -->
         <assign to="memberCount" source="$resultTreeNode">count(/ns:sparql/ns:results/ns:result)</assign>
         <!-- Validate that the number of results. -->
-         <verify id="step4" desc="Compare String" handler="$DOMAIN{validationServiceAddress}">
-            <input name="model1">$resultTreeNode</input>
-            <input name="model2">$resultTreeNodeIRI</input>
-            <input name="contentType">"application/turtle"</input>
+        <verify id="step4" desc="Compare RDF by customized service - compare two XMLs in a logical way" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"RDF Comparison"</input>
+            <input name="model1">$collectTreeNode</input>
+            <input name="model2">$collectTreeNode</input>
         </verify>
     </steps>
     <!-- Definition of final summary message. -->
