@@ -4,11 +4,14 @@ import be.vlaanderen.ldes.gitb.TestBedLogger;
 import java.io.ByteArrayInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.springframework.stereotype.Component;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-import org.w3c.dom.*;
-import org.w3c.dom.Document;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handle the comparison of two RDF graphs in a XML format.
@@ -30,14 +33,15 @@ public class RDFComparisonHandler {
    * @return True if the two RDF graphs are logically equal, false otherwise.
    */
 
-  public boolean compareXMLUris(
+  public List<String> compareXMLUris(
     String xml1,
     String xml2,
     TestBedLogger logger
   ) {
+    var errorMessages = new ArrayList<String>();
     LOG.debug("Compare two RDF graphs in XML format");
-    xml1 = removeFirstLine(xml1);
-    xml2 = removeFirstLine(xml2);
+    LOG.debug("First string {}", xml1);
+    LOG.debug("First string {}", xml2);
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
@@ -45,12 +49,17 @@ public class RDFComparisonHandler {
       Document doc2 = builder.parse(new ByteArrayInputStream(xml2.getBytes()));
       NodeList uriList1 = doc1.getElementsByTagName("uri");
       NodeList uriList2 = doc2.getElementsByTagName("uri");
-      System.out.println(compareNodeLists(uriList1, uriList2));
-      return compareNodeLists(uriList1, uriList2);
+      if(!compareNodeLists(uriList1, uriList2)){
+      errorMessages.add(String.format("%s\n", xml1));
+      errorMessages.add(String.format("%s\n", xml1));
+      errorMessages.add(String.format("These two SPARQL resultS are not logically same, which means not each relation's tree:node is pointing to a datatype tree:Node"));};
     } catch (Exception e) {
       e.printStackTrace();
-      return false;
+      errorMessages.add(String.format("%s\n", xml1));
+      errorMessages.add(String.format("%s\n", xml1));
+      errorMessages.add(String.format("These two SPARQL resultS are not logically same, which means not each relation's tree:node is pointing to a datatype tree:Node"));
     }
+    return errorMessages;
   }
 
   private boolean compareNodeLists(NodeList nodeList1, NodeList nodeList2) {
@@ -83,14 +92,5 @@ public class RDFComparisonHandler {
     }
 
     return true;
-  }
-
-  private String removeFirstLine(String input) {
-    int index = input.indexOf('\n');
-    if (index != -1 && index + 1 < input.length()) {
-      return input.substring(index + 1);
-    } else {
-      return "";
-    }
   }
 }

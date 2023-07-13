@@ -146,17 +146,36 @@ public class ValidationServiceImpl implements ValidationService {
           getReplyToAddressFromHeaders(wsContext).orElse(null)
         );
         // Carry out the validation.
-        var comparisonResult = rdfComparisonHandler.compareXMLUris(
-          model1,
-          model2,
-          logger
-        );
-        // Create the validation report.
-        var report = createReport(TestResultType.SUCCESS);
-        if (!comparisonResult) {}
-        report.setResult(TestResultType.FAILURE);
-        response.setReport(report);
-        return response;
+        var errorMessages =  rdfComparisonHandler.compareXMLUris(
+                model1,
+                model2,
+                logger
+              );
+              // Create the validation report.
+              var report = createReport(TestResultType.SUCCESS);
+              if (!errorMessages.isEmpty()) {
+                report.setResult(TestResultType.FAILURE);
+                // Create the report's items. Set the "counters" and add the individual report items.
+                report
+                  .getCounters()
+                  .setNrOfErrors(BigInteger.valueOf(errorMessages.size()));
+                report.setReports(new TestAssertionGroupReportsType());
+                for (var errorMessage : errorMessages) {
+                  var itemContent = new BAR();
+                  itemContent.setDescription(errorMessage);
+                  // Add as an error. you can also add warnings and information messages.
+                  report
+                    .getReports()
+                    .getInfoOrWarningOrError()
+                    .add(
+                      objectFactory.createTestAssertionGroupReportsTypeError(
+                        itemContent
+                      )
+                    );
+                }
+                response.setReport(report);
+                return response;
+              }
       }
     }
     return response;
