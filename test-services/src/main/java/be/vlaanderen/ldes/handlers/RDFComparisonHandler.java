@@ -50,9 +50,12 @@ public class RDFComparisonHandler {
       NodeList uriList1 = doc1.getElementsByTagName("uri");
       NodeList uriList2 = doc2.getElementsByTagName("uri");
       if(!compareNodeLists(uriList1, uriList2)){
-      errorMessages.add(String.format("%s\n", xml1));
-      errorMessages.add(String.format("%s\n", xml1));
-      errorMessages.add(String.format("These two SPARQL resultS are not logically same, which means not each relation's tree:node is pointing to a datatype tree:Node"));};
+    	  NodeList difference = getNodeListDifference(uriList1, uriList2);
+          // Print the nodes in the difference list
+          for (int i = 0; i < difference.getLength(); i++) {
+              Node node = difference.item(i);
+              errorMessages.add(String.format("%s\n",node));
+          }}
     } catch (Exception e) {
       e.printStackTrace();
       errorMessages.add(String.format("%s\n", xml1));
@@ -92,5 +95,30 @@ public class RDFComparisonHandler {
     }
 
     return true;
+  }
+  private NodeList getNodeListDifference(NodeList list1, NodeList list2) {
+      // Create a new NodeList to store the difference
+      NodeList difference = ((Node) list1).getOwnerDocument().createElement("Difference").getChildNodes();
+
+      // Iterate over nodes in list1 and add them to the difference list if they are not present in list2
+      for (int i = 0; i < list1.getLength(); i++) {
+          Node node = list1.item(i);
+          if (!containsNode(list2, node)) {
+              ((Node) difference).appendChild(node.cloneNode(true));
+          }
+      }
+
+      return difference;
+  }
+
+  private boolean containsNode(NodeList nodeList, Node node) {
+      // Iterate over nodes in the NodeList and check if the given node is present
+      for (int i = 0; i < nodeList.getLength(); i++) {
+          Node currentNode = nodeList.item(i);
+          if (currentNode.isEqualNode(node)) {
+              return true;
+          }
+      }
+      return false;
   }
 }
