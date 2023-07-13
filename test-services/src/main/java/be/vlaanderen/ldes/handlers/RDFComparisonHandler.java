@@ -1,30 +1,14 @@
 package be.vlaanderen.ldes.handlers;
+
 import be.vlaanderen.ldes.gitb.TestBedLogger;
 import java.io.ByteArrayInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.springframework.stereotype.Component;
-import org.w3c.dom.Document;
-import org.w3c.dom.*;
-import be.vlaanderen.ldes.gitb.TestBedLogger;
-import com.gitb.core.LogLevel;
-import org.apache.jena.graph.Factory;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.riot.RDFLanguages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
-import java.io.StringReader;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import org.w3c.dom.*;
+import org.w3c.dom.Document;
 
 /**
  * Handle the comparison of two RDF graphs in a XML format.
@@ -52,8 +36,8 @@ public class RDFComparisonHandler {
     TestBedLogger logger
   ) {
     LOG.debug("Compare two RDF graphs in XML format");
-    LOG.debug("First string {}", xml1);
-    LOG.debug("First string {}", xml2);
+    xml1 = removeFirstLine(xml1);
+    xml2 = removeFirstLine(xml2);
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
@@ -61,6 +45,7 @@ public class RDFComparisonHandler {
       Document doc2 = builder.parse(new ByteArrayInputStream(xml2.getBytes()));
       NodeList uriList1 = doc1.getElementsByTagName("uri");
       NodeList uriList2 = doc2.getElementsByTagName("uri");
+      System.out.println(compareNodeLists(uriList1, uriList2));
       return compareNodeLists(uriList1, uriList2);
     } catch (Exception e) {
       e.printStackTrace();
@@ -98,5 +83,14 @@ public class RDFComparisonHandler {
     }
 
     return true;
+  }
+
+  private String removeFirstLine(String input) {
+    int index = input.indexOf('\n');
+    if (index != -1 && index + 1 < input.length()) {
+      return input.substring(index + 1);
+    } else {
+      return "";
+    }
   }
 }

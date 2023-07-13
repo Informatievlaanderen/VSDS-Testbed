@@ -154,7 +154,7 @@ public class ValidationServiceImpl implements ValidationService {
         // Create the validation report.
         var report = createReport(TestResultType.SUCCESS);
         if (!comparisonResult) {}
-
+        report.setResult(TestResultType.FAILURE);
         response.setReport(report);
         return response;
       }

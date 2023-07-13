@@ -20,8 +20,8 @@
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
         <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <input name="endpointType">'byLocation'</input>
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <input name="endpointType">'byName'</input>
         </call>
 
          <!-- Step 3: In the crawled graph, each tree:Relation must have a tree:node -->    
@@ -65,7 +65,7 @@
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                  PREFIX legal: <http://www.w3.org/ns/legal#> 
                  PREFIX tree: <https://w3id.org/tree#> 
-                 select DISTINCT ?treenode where {
+                 select ?treenode where {
                        ?s tree:node ?treenode.
                        }"]]></input>
         </process>
@@ -81,20 +81,18 @@
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                  PREFIX legal: <http://www.w3.org/ns/legal#> 
                  PREFIX tree: <https://w3id.org/tree#> 
-                 select DISTINCT ?treenode where {
+                 select ?treenode where {
                        ?k tree:node ?treenode. 
                        ?s rdf:type tree:Node.
-                       ?s rdf:subject ?treenode.
-                       
+                       ?s rdf:subject ?treenode.                       
                        }"]]></input>
         </process>
 
-        <assign to="memberCount" source="$resultTreeNode">count(/ns:sparql/ns:results/ns:result)</assign>
-        <!-- Validate that the number of results. -->
+        <!-- Validate that two SPAQL query outputs are same. -->
         <verify id="step4" desc="Compare RDF by customized service - compare two XMLs in a logical way" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"RDF Comparison"</input>
-            <input name="model1">$collectTreeNode</input>
-            <input name="model2">$collectTreeNode</input>
+            <input name="model1">$resultTreeNode</input>
+            <input name="model2">$resultTreeNodeIRI</input>
         </verify>
     </steps>
     <!-- Definition of final summary message. -->
