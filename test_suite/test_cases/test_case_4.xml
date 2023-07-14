@@ -44,7 +44,7 @@
         <assign to="shape1{ruleSet}">$processedShapes</assign>
         <assign to="shape1{ruleSyntax}">"application/turtle"</assign> 
         <assign to="shapesToUse" append="true">$shape1</assign>       
-        <verify id="step3" desc="Validate the crawled graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
+        <verify id="step3" desc=" Validate if each tree:Relation has a tree:node on the crawled graph " handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledData</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
@@ -52,14 +52,13 @@
             <input name="externalRules">$shapesToUse</input>
         </verify>
 
-        <!-- Step 4: The number of output LDES members must equal the number of input LDES members. -->
         <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
-        <log>"Execute SPARQL query to have all the values of tree node..."</log>
+        <log>"Execute SPARQL query to have all the object of tree node..."</log>
         <!-- 
             Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
             you can choose to display them by setting the "hidden" attribute to false.
         -->
-        <process id="collectTreeNode" hidden="false" output="resultTreeNode" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
+        <process id="collectTreeNode" hidden="true" output="resultTreeNode" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
             <input name="content">$crawledData</input>
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -70,12 +69,12 @@
                        }"]]></input>
         </process>
 
-        <log>"Execute SPARQL query to have all IRI with a type is a treeNode..."</log>
+        <log>"Execute SPARQL query to have objects of tree:node in a tree:Relation which are also typed as tree:Node..."</log>
         <!-- 
             Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
             you can choose to display them by setting the "hidden" attribute to false.
         -->
-        <process id="collectTreeNodeIRI" hidden="false" output="resultTreeNodeIRI" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
+        <process id="collectTreeNodeIRI" hidden="true" output="resultTreeNodeIRI" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
             <input name="content">$crawledData</input>
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -88,8 +87,8 @@
                        }"]]></input>
         </process>
 
-        <!-- Validate that two SPAQL query outputs are same. -->
-        <verify id="step4" desc="Compare RDF by customized service - compare two XMLs in a logical way" handler="$DOMAIN{validationServiceAddress}">
+        <!-- Validate if two SPAQL query outputs are logically same same. -->
+        <verify id="step4" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"RDF Comparison"</input>
             <input name="model1">$resultTreeNode</input>
             <input name="model2">$resultTreeNodeIRI</input>
@@ -115,7 +114,7 @@
             </case>
               <case>
                 <cond>$STEP_STATUS{step4} = 'false'</cond>
-                <message>"Not each object of tree:node has a datatype tree:Node"</message>
+                <message>"Not each object of tree:node is typed as tree:Node"</message>
             </case>
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>

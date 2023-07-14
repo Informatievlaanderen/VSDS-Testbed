@@ -21,6 +21,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * Implementation of the GITB validation API to handle custom validations.
@@ -73,13 +76,18 @@ public class ValidationServiceImpl implements ValidationService {
      * what validation to do.
      */
     var response = new ValidationResponse();
+    List<String> errorMessages = new ArrayList<>();
+
     LOG.info(Utils.getRequiredString(validateRequest.getInput(), "type"));
-    switch (Utils.getRequiredString(validateRequest.getInput(), "type")) {
-      case "time-based relations" -> {
-        LOG.info(
+    LOG.info(
           "Requested validation from test session [{}]",
           validateRequest.getSessionId()
         );
+
+    // Determine what type of validation is requested.
+    switch (Utils.getRequiredString(validateRequest.getInput(), "type")) {
+      case "time-based relations" -> {
+       
         // Get the expected inputs.
         var content = Utils.getRequiredString(
           validateRequest.getInput(),
@@ -95,36 +103,11 @@ public class ValidationServiceImpl implements ValidationService {
           getReplyToAddressFromHeaders(wsContext).orElse(null)
         );
         // Carry out the validation.
-        var errorMessages = relationTimestampValidationHandler.validate(
+        errorMessages = relationTimestampValidationHandler.validate(
           content,
           contentType,
           logger
-        );
-        // Create the validation report.
-        var report = createReport(TestResultType.SUCCESS);
-        if (!errorMessages.isEmpty()) {
-          report.setResult(TestResultType.FAILURE);
-          // Create the report's items. Set the "counters" and add the individual report items.
-          report
-            .getCounters()
-            .setNrOfErrors(BigInteger.valueOf(errorMessages.size()));
-          report.setReports(new TestAssertionGroupReportsType());
-          for (var errorMessage : errorMessages) {
-            var itemContent = new BAR();
-            itemContent.setDescription(errorMessage);
-            // Add as an error. you can also add warnings and information messages.
-            report
-              .getReports()
-              .getInfoOrWarningOrError()
-              .add(
-                objectFactory.createTestAssertionGroupReportsTypeError(
-                  itemContent
-                )
-              );
-          }
-          response.setReport(report);
-          return response;
-        }
+        );       
       }
       case "RDF Comparison" -> {
         LOG.info(
@@ -146,12 +129,14 @@ public class ValidationServiceImpl implements ValidationService {
           getReplyToAddressFromHeaders(wsContext).orElse(null)
         );
         // Carry out the validation.
-        var errorMessages =  rdfComparisonHandler.compareXMLUris(
+        errorMessages =  rdfComparisonHandler.compareXMLUris(
                 model1,
                 model2,
                 logger
-              );
-              // Create the validation report.
+              );           
+      }
+    }
+       // Create the validation report.
               var report = createReport(TestResultType.SUCCESS);
               if (!errorMessages.isEmpty()) {
                 report.setResult(TestResultType.FAILURE);
@@ -176,8 +161,6 @@ public class ValidationServiceImpl implements ValidationService {
                 response.setReport(report);
                 return response;
               }
-      }
-    }
     return response;
   }
 
