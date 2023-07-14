@@ -7,18 +7,18 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-time" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-time" ;
     ns1:has_contents [ a ns3:EventStream ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns3:timestampPath dcterms:issued ;
             ns3:versionOfPath dcterms:isVersionOf ;
-            ns2:view <http://localhost:8080/kbo/by-time> ],
+            ns2:view <http://ldes-server:8080/kbo/by-time> ],
         [ a ns2:Node ;
-            rdf:subject <http://localhost:8080/kbo/by-time> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time> ;
             ns2:relation [ a ns2:Relation ;
-                    ns2:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ] ],
+                    ns2:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ] ],
         [ a sh:NodeShape ;
-            rdf:subject <http://localhost:8080/kbo/shape> ;
+            rdf:subject <http://ldes-server:8080/kbo/shape> ;
             sh:deactivated true ;
             sh:nodeShape [ sh:closed true ;
                     sh:propertyShape [ ] ] ] ;
@@ -59,7 +59,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.099388677580767 51.02802455)"^^geo:wktLiteral ;
             rdf:subject ns3:72b4f5cd5b37b937cd68 ;
@@ -3632,10 +3632,10 @@
             rdf:subject ns3:2127745181 ;
             ns2:Address ns3:fbf8d9b2292a279b8433 ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ;
             ns4:relation [ a ns4:GreaterThanOrEqualToRelation ;
-                    ns4:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
+                    ns4:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
                     ns4:path dcterms:created ;
                     ns4:value "2023-06-26T13:12:08.949000+00:00"^^xsd:dateTime ] ],
         [ a org:Site,
@@ -4633,7 +4633,7 @@
             rdf:subject ns3:2127754188 ;
             ns2:Address ns3:ecaf0478d0b6dcd5af3a ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns3:0202239951.2022.11,
                 ns3:0400378485.2022.11 ],
         [ a ns2:Address ;
@@ -6993,7 +6993,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z" ;
     ns2:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (5.5092156 50.9405572)"^^geo:wktLiteral ;
             rdf:subject ns3:b63391125982112d94fa ;
@@ -7025,7 +7025,7 @@
                 "089/365623" ;
             ns1:Address ns3:8bd3bcc78c6789d2322d ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0401277914.2022.11,
                 ns3:0401574852.2022.11 ],
         [ a org:Site,
@@ -7083,14 +7083,14 @@
                 ns3:2319223676 ;
             ns3:status ns3:Status_AC ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
             ns5:relation [ a ns5:GreaterThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.155000+00:00"^^xsd:dateTime ],
                 [ a ns5:LessThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.546Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:08.546000+00:00"^^xsd:dateTime ] ],
         [ a ns1:Address ;
@@ -7250,7 +7250,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z" ;
     ns1:has_contents [ a ns3:Activity ;
             rdf:subject ns3:2003_74879 ;
             ns5:companyActivity ns3:Nace2003_74879 ;
@@ -7341,14 +7341,14 @@
                 "Actief"@NL ;
             ns3:codeValue "AC" ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
             ns4:relation [ a ns4:GreaterThanOrEqualToRelation ;
-                    ns4:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
+                    ns4:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
                     ns4:path dcterms:created ;
                     ns4:value "2023-06-26T13:12:09.277000+00:00"^^xsd:dateTime ],
                 [ a ns4:LessThanOrEqualToRelation ;
-                    ns4:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
+                    ns4:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:08.949Z> ;
                     ns4:path dcterms:created ;
                     ns4:value "2023-06-26T13:12:08.949000+00:00"^^xsd:dateTime ] ],
         [ a org:Site,
@@ -7357,7 +7357,7 @@
             rdf:subject ns3:2102008707 ;
             ns2:Address ns3:ad6f7c6e1a796ad7697a ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns3:0403053608.2022.11,
                 ns3:0403091220.2022.11 ],
         [ a org:Site,
@@ -7440,7 +7440,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z" ;
     ns3:has_contents [ a ns4:Activity ;
             rdf:subject ns4:2003_65231 ;
             ns2:companyActivity ns4:Nace2003_65231 ;
@@ -7502,14 +7502,14 @@
             rdf:subject ns4:2152440787 ;
             ns1:Address ns4:876c1f999920f7f6c460 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
             ns5:relation [ a ns5:GreaterThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.473000+00:00"^^xsd:dateTime ],
                 [ a ns5:LessThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.155Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.155000+00:00"^^xsd:dateTime ] ],
         [ a ns1:Address ;
@@ -7599,7 +7599,7 @@
             ns1:postCode "2000" ;
             ns1:postName "Antwerpen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403219397.2022.11,
                 ns4:0403227515.2022.11 ],
         [ a org:Site,
@@ -7843,7 +7843,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z" ;
     ns3:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
             rdf:subject ns6:1843c2cb3f6ac21cf789 ;
@@ -7867,14 +7867,14 @@
             ns4:companyActivity ns6:Nace2008_45113 ;
             ns6:classification ns6:Classification_SECO ],
         [ a ns1:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
             ns1:relation [ a ns1:GreaterThanOrEqualToRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
                     ns1:path dcterms:created ;
                     ns1:value "2023-06-26T13:12:09.586000+00:00"^^xsd:dateTime ],
                 [ a ns1:LessThanOrEqualToRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.277Z> ;
                     ns1:path dcterms:created ;
                     ns1:value "2023-06-26T13:12:09.277000+00:00"^^xsd:dateTime ] ],
         [ a ns6:Activity ;
@@ -7894,7 +7894,7 @@
             ns4:companyActivity ns6:Nace2008_64200 ;
             ns6:classification ns6:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns1:member ns6:0403448140.2022.11,
                 ns6:0404616494.2022.11 ],
         [ a ns6:Activity ;
@@ -7995,16 +7995,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z" ;
     ns2:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
             ns5:relation [ a ns5:GreaterThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.715000+00:00"^^xsd:dateTime ],
                 [ a ns5:LessThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.473Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.473000+00:00"^^xsd:dateTime ] ],
         [ a ns4:Activity ;
@@ -8052,7 +8052,7 @@
             rdf:subject ns4:2002957057 ;
             ns1:Address ns4:b938574ab6950ee31bb7 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0407040209.2022.11,
                 ns4:0417199869.2022.11 ],
         [ a ns3:legalEntity,
@@ -8128,9 +8128,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z" ;
     ns1:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns3:member ns2:0417497106.2022.11,
                 ns2:0426184049.2022.11 ],
         [ a org:Site,
@@ -8293,14 +8293,14 @@
             ns4:postCode "3000" ;
             ns4:postName "Leuven" ],
         [ a ns3:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
             ns3:relation [ a ns3:GreaterThanOrEqualToRelation ;
-                    ns3:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
+                    ns3:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
                     ns3:path dcterms:created ;
                     ns3:value "2023-06-26T13:12:09.823000+00:00"^^xsd:dateTime ],
                 [ a ns3:LessThanOrEqualToRelation ;
-                    ns3:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
+                    ns3:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.586Z> ;
                     ns3:path dcterms:created ;
                     ns3:value "2023-06-26T13:12:09.586000+00:00"^^xsd:dateTime ] ],
         [ a ns2:Activity ;
@@ -8362,7 +8362,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z" ;
     ns1:has_contents [ a ns3:Activity ;
             rdf:subject ns3:2008_64200 ;
             ns4:companyActivity ns3:Nace2008_64200 ;
@@ -8400,7 +8400,7 @@
             ns2:postCode "2800" ;
             ns2:postName "Mechelen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0451406524.2022.11,
                 ns3:0466460429.2022.11 ],
         [ a org:Site,
@@ -8453,14 +8453,14 @@
             ns4:companyActivity ns3:Nace2008_72190 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
             ns5:relation [ a ns5:GreaterThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.936000+00:00"^^xsd:dateTime ],
                 [ a ns5:LessThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.715Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.715000+00:00"^^xsd:dateTime ] ],
         [ a ns3:Code ;
@@ -8537,7 +8537,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z" ;
     ns2:has_contents [ a ns4:Address ;
             geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
             rdf:subject ns1:5ce2e40e4d5fceb92279 ;
@@ -8614,7 +8614,7 @@
             ns4:postCode "3600" ;
             ns4:postName "Genk" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0476388378.2022.11,
                 ns1:0818292196.2022.11 ],
         [ a org:Site,
@@ -8713,14 +8713,14 @@
             rdf:subject ns1:2148610772 ;
             ns4:Address ns1:ae0ea5415faa7953fbc8 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
             ns5:relation [ a ns5:GreaterThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:10.065000+00:00"^^xsd:dateTime ],
                 [ a ns5:LessThanOrEqualToRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.823Z> ;
                     ns5:path dcterms:created ;
                     ns5:value "2023-06-26T13:12:09.823000+00:00"^^xsd:dateTime ] ],
         [ a ns4:Address ;
@@ -8818,7 +8818,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z" ;
     ns2:has_contents [ a ns3:Activity ;
             rdf:subject ns3:2003_74151 ;
             ns1:companyActivity ns3:Nace2003_74151 ;
@@ -8910,10 +8910,10 @@
             ns5:postCode "1040" ;
             ns5:postName "Etterbeek" ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:10.065Z> ;
             ns4:relation [ a ns4:LessThanOrEqualToRelation ;
-                    ns4:node <http://localhost:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
+                    ns4:node <http://ldes-server:8080/kbo/by-time?created=2023-06-26T13:12:09.936Z> ;
                     ns4:path dcterms:created ;
                     ns4:value "2023-06-26T13:12:09.936000+00:00"^^xsd:dateTime ] ],
         [ a ns3:Activity ;
@@ -8933,7 +8933,7 @@
             ns5:postCode "1040" ;
             ns5:postName "Etterbeek" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns3:0877248501.2022.11,
                 ns3:0887216042.2022.11 ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;

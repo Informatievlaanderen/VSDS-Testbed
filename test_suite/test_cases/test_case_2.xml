@@ -28,7 +28,10 @@
             the template's values. Note that we use Freemarker so you besides simple placeholder replacements (like we do in this
             case), you can also generate more complex data using conditionals, looping etc.
         -->
-        <assign to="parameters{targetNode}">$SYSTEM{endpointAccess}</assign>
+        <assign to="parameters{endpointByLocation}">$SYSTEM{endpointByLocation}</assign>
+        <assign to="parameters{endpointByTime}">$SYSTEM{endpointByTime}</assign>
+         <assign to="parameters{endpointByName}">$SYSTEM{endpointByName}</assign>
+        <assign to="parameters{LdesStreamUrl}">$SYSTEM{endpointAccess}</assign>
         <process output="processedShapes" handler="TemplateProcessor">
             <input name="parameters">$parameters</input>
             <input name="template">$shapesTemplate</input>
@@ -51,7 +54,7 @@
          -->
         <assign to="shapesToUse" append="true">$shape1</assign>
         <verify id="step3" desc="Validate view page" handler="$DOMAIN{shaclValidatorServiceAddress}">
-            <input name="contentToValidate">$step2{response}</input>
+            <input name="contentToValidate">$crawledData</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>

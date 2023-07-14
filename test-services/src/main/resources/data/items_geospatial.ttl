@@ -7,21 +7,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location" ;
     ns1:has_contents [ a ns2:Node ;
-            rdf:subject <http://localhost:8080/kbo/by-location> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location> ;
             ns2:relation [ a ns2:Relation ;
-                    ns2:node <http://localhost:8080/kbo/by-location?tile=0/0/0> ] ],
+                    ns2:node <http://ldes-server:8080/kbo/by-location?tile=0/0/0> ] ],
         [ a sh:NodeShape ;
-            rdf:subject <http://localhost:8080/kbo/shape> ;
+            rdf:subject <http://ldes-server:8080/kbo/shape> ;
             sh:deactivated true ;
             sh:nodeShape [ sh:closed true ;
                     sh:propertyShape [ ] ] ],
         [ a ns3:EventStream ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns3:timestampPath dcterms:issued ;
             ns3:versionOfPath dcterms:isVersionOf ;
-            ns2:view <http://localhost:8080/kbo/by-location> ] ;
+            ns2:view <http://ldes-server:8080/kbo/by-location> ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
             ns1:headerValue "Access-Control-Request-Method" ],
@@ -54,216 +54,216 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=0/0/0" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=0/0/0" ;
     ns2:has_contents [ a ns1:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=0/0/0> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=0/0/0> ;
             ns1:relation [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16811/10986> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16811/10986> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.7021484375 50.88917404890331, 4.7021484375 50.8822431111397, 4.691162109375 50.8822431111397, 4.691162109375 50.88917404890331, 4.7021484375 50.88917404890331))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16778/11044> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16778/11044> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.339599609375 50.485473545785, 4.339599609375 50.47848271564206, 4.32861328125 50.47848271564206, 4.32861328125 50.485473545785, 4.339599609375 50.485473545785))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16785/10941> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16785/10941> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.41650390625 51.19999983412069, 4.41650390625 51.19311524464586, 4.405517578125 51.19311524464586, 4.405517578125 51.19999983412069, 4.41650390625 51.19999983412069))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16885/10978> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16885/10978> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.51513671875 50.94458443495011, 5.51513671875 50.93766174471311, 5.504150390625 50.93766174471311, 5.504150390625 50.94458443495011, 5.51513671875 50.94458443495011))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16719/10966> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16719/10966> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.69140625 51.0275763378024, 3.69140625 51.02066601255811, 3.680419921875 51.02066601255811, 3.680419921875 51.0275763378024, 3.69140625 51.0275763378024))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16722/10968> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16722/10968> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.724365234375 51.01375465718819, 3.724365234375 51.00684227163968, 3.71337890625 51.00684227163968, 3.71337890625 51.01375465718819, 3.724365234375 51.01375465718819))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16828/11046> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16828/11046> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.888916015625 50.47149085139956, 4.888916015625 50.464497953008646, 4.8779296875 50.464497953008646, 4.8779296875 50.47149085139956, 4.888916015625 50.47149085139956))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16784/10938> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16784/10938> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.405517578125 51.2206474303833, 4.405517578125 51.213765926935004, 4.39453125 51.213765926935004, 4.39453125 51.2206474303833, 4.405517578125 51.2206474303833))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16795/11054> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16795/11054> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.5263671875 50.41551870402676, 4.5263671875 50.40851753069728, 4.515380859375 50.40851753069728, 4.515380859375 50.41551870402676, 4.5263671875 50.41551870402676))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16773/10975> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16773/10975> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.28466796875 50.9653463216377, 4.28466796875 50.95842672335991, 4.273681640625 50.95842672335991, 4.273681640625 50.9653463216377, 4.28466796875 50.9653463216377))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16885/10971> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16885/10971> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.51513671875 50.99301440979521, 5.51513671875 50.98609893339354, 5.504150390625 50.98609893339354, 5.504150390625 50.99301440979521, 5.51513671875 50.99301440979521))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16813/10943> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16813/10943> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.72412109375 51.186229626386826, 4.72412109375 51.17934297928927, 4.713134765625 51.17934297928927, 4.713134765625 51.186229626386826, 4.72412109375 51.186229626386826))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16780/10995> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16780/10995> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.361572265625 50.82675848236328, 4.361572265625 50.81981826215653, 4.3505859375 50.81981826215653, 4.3505859375 50.82675848236328, 4.361572265625 50.82675848236328))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16736/10954> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16736/10954> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.878173828125 51.11041991029263, 3.878173828125 51.10352194240417, 3.8671875 51.10352194240417, 3.8671875 51.11041991029263, 3.878173828125 51.11041991029263))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16784/10984> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16784/10984> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.405517578125 50.903032831112576, 4.405517578125 50.89610395554359, 4.39453125 50.89610395554359, 4.39453125 50.903032831112576, 4.405517578125 50.903032831112576))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16776/10994> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16776/10994> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.317626953125 50.833697670980705, 4.317626953125 50.82675848236328, 4.306640625 50.82675848236328, 4.306640625 50.833697670980705, 4.317626953125 50.833697670980705))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16780/10991> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16780/10991> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.361572265625 50.85450904781294, 4.361572265625 50.84757295365388, 4.3505859375 50.84757295365388, 4.3505859375 50.85450904781294, 4.361572265625 50.85450904781294))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16785/10937> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16785/10937> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.41650390625 51.22752790526499, 4.41650390625 51.2206474303833, 4.405517578125 51.2206474303833, 4.405517578125 51.22752790526499, 4.41650390625 51.22752790526499))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16812/10987> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16812/10987> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.713134765625 50.8822431111397, 4.713134765625 50.87531114220076, 4.7021484375 50.87531114220076, 4.7021484375 50.8822431111397, 4.713134765625 50.8822431111397))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16785/10939> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16785/10939> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.41650390625 51.213765926935004, 4.41650390625 51.20688339486561, 4.405517578125 51.20688339486561, 4.405517578125 51.213765926935004, 4.41650390625 51.213765926935004))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16812/10986> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16812/10986> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.713134765625 50.88917404890331, 4.713134765625 50.8822431111397, 4.7021484375 50.8822431111397, 4.7021484375 50.88917404890331, 4.713134765625 50.88917404890331))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16790/10968> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16790/10968> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.471435546875 51.01375465718819, 4.471435546875 51.00684227163968, 4.46044921875 51.00684227163968, 4.46044921875 51.01375465718819, 4.471435546875 51.01375465718819))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16666/10976> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16666/10976> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.109130859375 50.95842672335991, 3.109130859375 50.951506094481566, 3.09814453125 50.951506094481566, 3.09814453125 50.95842672335991, 3.109130859375 50.95842672335991))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16782/10987> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16782/10987> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.383544921875 50.8822431111397, 4.383544921875 50.87531114220076, 4.37255859375 50.87531114220076, 4.37255859375 50.8822431111397, 4.383544921875 50.8822431111397))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16788/10942> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16788/10942> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.449462890625 51.19311524464586, 4.449462890625 51.186229626386826, 4.4384765625 51.186229626386826, 4.4384765625 51.19311524464586, 4.449462890625 51.19311524464586))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16827/10944> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16827/10944> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.8779296875 51.17934297928927, 4.8779296875 51.17245530329899, 4.866943359375 51.17245530329899, 4.866943359375 51.17934297928927, 4.8779296875 51.17934297928927))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16786/10939> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16786/10939> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.427490234375 51.213765926935004, 4.427490234375 51.20688339486561, 4.41650390625 51.20688339486561, 4.41650390625 51.213765926935004, 4.427490234375 51.213765926935004))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16787/10992> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16787/10992> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.4384765625 50.84757295365388, 4.4384765625 50.84063582806036, 4.427490234375 50.84063582806036, 4.427490234375 50.84757295365388, 4.4384765625 50.84757295365388))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16783/10986> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16783/10986> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.39453125 50.88917404890331, 4.39453125 50.8822431111397, 4.383544921875 50.8822431111397, 4.383544921875 50.88917404890331, 4.39453125 50.88917404890331))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16871/10980> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16871/10980> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.361328125 50.930738023718185, 5.361328125 50.92381327191293, 5.350341796875 50.92381327191293, 5.350341796875 50.930738023718185, 5.361328125 50.930738023718185))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16677/10986> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16677/10986> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.22998046875 50.88917404890331, 3.22998046875 50.8822431111397, 3.218994140625 50.8822431111397, 3.218994140625 50.88917404890331, 3.22998046875 50.88917404890331))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16779/10990> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16779/10990> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.3505859375 50.86144411058924, 4.3505859375 50.85450904781294, 4.339599609375 50.85450904781294, 4.339599609375 50.86144411058924, 4.3505859375 50.86144411058924))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16813/11041> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16813/11041> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.72412109375 50.5064398321055, 4.72412109375 50.499452103967734, 4.713134765625 50.499452103967734, 4.713134765625 50.5064398321055, 4.72412109375 50.5064398321055))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16789/10935> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16789/10935> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.46044921875 51.24128576954668, 4.46044921875 51.234407351634594, 4.449462890625 51.234407351634594, 4.449462890625 51.24128576954668, 4.46044921875 51.24128576954668))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16829/10943> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16829/10943> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.89990234375 51.186229626386826, 4.89990234375 51.17934297928927, 4.888916015625 51.17934297928927, 4.888916015625 51.186229626386826, 4.89990234375 51.186229626386826))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16899/11016> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16899/11016> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.6689453125 50.68079714532164, 5.6689453125 50.673835249921346, 5.657958984375 50.673835249921346, 5.657958984375 50.68079714532164, 5.6689453125 50.68079714532164))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16882/10978> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16882/10978> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.482177734375 50.94458443495011, 5.482177734375 50.93766174471311, 5.47119140625 50.93766174471311, 5.47119140625 50.94458443495011, 5.482177734375 50.94458443495011))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16809/10986> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16809/10986> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.68017578125 50.88917404890331, 4.68017578125 50.8822431111397, 4.669189453125 50.8822431111397, 4.669189453125 50.88917404890331, 4.68017578125 50.88917404890331))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16781/10993> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16781/10993> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.37255859375 50.84063582806036, 4.37255859375 50.833697670980705, 4.361572265625 50.833697670980705, 4.361572265625 50.84063582806036, 4.37255859375 50.84063582806036))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16778/10945> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16778/10945> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.339599609375 51.17245530329899, 4.339599609375 51.16556659836183, 4.32861328125 51.16556659836183, 4.32861328125 51.17245530329899, 4.339599609375 51.17245530329899))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16711/10989> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16711/10989> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((3.603515625 50.86837814203456, 3.603515625 50.86144411058924, 3.592529296875 50.86144411058924, 3.592529296875 50.86837814203456, 3.603515625 50.86837814203456))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16783/10993> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16783/10993> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.39453125 50.84063582806036, 4.39453125 50.833697670980705, 4.383544921875 50.833697670980705, 4.383544921875 50.84063582806036, 4.39453125 50.84063582806036))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16789/10962> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16789/10962> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.46044921875 51.05520733858495, 4.46044921875 51.04830113331225, 4.449462890625 51.04830113331225, 4.449462890625 51.05520733858495, 4.46044921875 51.05520733858495))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16808/11049> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16808/11049> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.669189453125 50.45050905358659, 4.669189453125 50.44351305245805, 4.658203125 50.44351305245805, 4.658203125 50.45050905358659, 4.669189453125 50.45050905358659))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16790/10969> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16790/10969> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.471435546875 51.00684227163968, 4.471435546875 50.99992885585966, 4.46044921875 50.99992885585966, 4.46044921875 51.00684227163968, 4.471435546875 51.00684227163968))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16780/10992> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16780/10992> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.361572265625 50.84757295365388, 4.361572265625 50.84063582806036, 4.3505859375 50.84063582806036, 4.3505859375 50.84757295365388, 4.361572265625 50.84757295365388))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16781/10992> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16781/10992> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.37255859375 50.84757295365388, 4.37255859375 50.84063582806036, 4.361572265625 50.84063582806036, 4.361572265625 50.84757295365388, 4.37255859375 50.84757295365388))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16773/10996> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16773/10996> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.28466796875 50.81981826215653, 4.28466796875 50.812877010308966, 4.273681640625 50.812877010308966, 4.273681640625 50.81981826215653, 4.28466796875 50.81981826215653))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16813/10987> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16813/10987> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.72412109375 50.8822431111397, 4.72412109375 50.87531114220076, 4.713134765625 50.87531114220076, 4.713134765625 50.8822431111397, 4.72412109375 50.8822431111397))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16899/11116> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16899/11116> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.6689453125 49.97948776108648, 5.6689453125 49.97242235423708, 5.657958984375 49.97242235423708, 5.657958984375 49.97948776108648, 5.6689453125 49.97948776108648))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16774/10923> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16774/10923> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((4.295654296875 51.32374658474385, 4.295654296875 51.316880504045855, 4.28466796875 51.316880504045855, 4.28466796875 51.32374658474385, 4.295654296875 51.32374658474385))"^^geo:wktLiteral ],
                 [ a ns1:GeospatiallyContainsRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-location?tile=15/16895/11020> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-location?tile=15/16895/11020> ;
                     ns1:path geo:asWKT ;
                     ns1:value "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((5.625 50.65294336725708, 5.625 50.64597734071359, 5.614013671875 50.64597734071359, 5.614013671875 50.65294336725708, 5.625 50.65294336725708))"^^geo:wktLiteral ] ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
@@ -303,7 +303,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16784/10984" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16784/10984" ;
     ns3:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.2858073 51.3233867)"^^geo:wktLiteral ;
             rdf:subject ns4:b93ac46cd7d4f894eb96 ;
@@ -391,11 +391,11 @@
                 ns4:2102009497 ;
             ns4:status ns4:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403091220.2022.11 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16784/10984> ] ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16784/10984> ] ;
     ns3:has_headers [ a ns3:HTTPHeader ;
             ns3:headerName "Vary" ;
             ns3:headerValue "Access-Control-Request-Method" ],
@@ -433,10 +433,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16780/10995" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16780/10995" ;
     ns1:has_contents [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16780/10995> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16780/10995> ],
         [ a ns3:Activity ;
             rdf:subject ns3:2008_45113 ;
             ns2:companyActivity ns3:Nace2008_45113 ;
@@ -467,7 +467,7 @@
             ns3:establishment ns3:2144913983 ;
             ns3:status ns3:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns3:0403448140.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -537,10 +537,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16773/10975" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16773/10975" ;
     ns2:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16773/10975> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16773/10975> ],
         [ a ns4:Activity ;
             rdf:subject ns4:2008_68203 ;
             ns3:companyActivity ns4:Nace2008_68203 ;
@@ -582,7 +582,7 @@
             ns1:postCode "1861" ;
             ns1:postName "Meise" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0417199869.2022.11 ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
             ns2:headerName "Vary" ;
@@ -622,7 +622,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16795/11054" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16795/11054" ;
     ns2:has_contents [ a ns4:Address ;
             geo:asWKT "POINT (5.477029544396573 50.94246365)"^^geo:wktLiteral ;
             rdf:subject ns3:8bd3bcc78c6789d2322d ;
@@ -632,7 +632,7 @@
             ns4:postCode "3600" ;
             ns4:postName "Genk" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns1:member ns3:0401277914.2022.11 ],
         [ a ns3:Activity ;
             rdf:subject ns3:2003_27100 ;
@@ -656,8 +656,8 @@
             ns5:companyActivity ns3:Nace2008_24100 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a ns1:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16795/11054> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16795/11054> ],
         [ a ns3:Code ;
             rdf:subject ns3:Status_AC ;
             ns3:codeDescription "Actif"@FR,
@@ -749,7 +749,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16736/10954" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16736/10954" ;
     ns4:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.7192926 50.5000106)"^^geo:wktLiteral ;
             rdf:subject ns3:cba7a23662a28ea3fcfa ;
@@ -847,8 +847,8 @@
             ns2:companyActivity ns3:Nace2008_64200 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16736/10954> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16736/10954> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (5.5084855 50.9880327)"^^geo:wktLiteral ;
             rdf:subject ns3:55bc46ab5cb62d20f730 ;
@@ -933,7 +933,7 @@
             rdf:subject ns3:2148609881 ;
             ns1:Address ns3:d2b9e40ed6dcbe0720fc ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0476388378.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -992,7 +992,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16885/10971" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16885/10971" ;
     ns2:has_contents [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -1052,7 +1052,7 @@
             rdf:subject ns3:2148609188 ;
             ns1:Address ns3:50ae52e361273bd0c7ef ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0476388378.2022.11 ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.453974382282359 51.23932245)"^^geo:wktLiteral ;
@@ -1063,8 +1063,8 @@
             ns1:postCode "2170" ;
             ns1:postName "Antwerpen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16885/10971> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16885/10971> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (3.2262626 50.8883529)"^^geo:wktLiteral ;
             rdf:subject ns3:16cbb0043f961fdde615 ;
@@ -1235,7 +1235,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16828/11046" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16828/11046" ;
     ns2:has_contents [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2008-08-19"^^xsd:date ;
@@ -1356,7 +1356,7 @@
                 ns1:2322992226 ;
             ns1:status ns1:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403227515.2022.11 ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
@@ -1367,8 +1367,8 @@
             ns3:postCode "2800" ;
             ns3:postName "Mechelen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16828/11046> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16828/11046> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
             rdf:subject ns1:cbd62742dd4d7fdc0c85 ;
@@ -1569,7 +1569,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16784/10938" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16784/10938" ;
     ns1:has_contents [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
@@ -1689,7 +1689,7 @@
             rdf:subject ns3:2217795825 ;
             ns2:Address ns3:3003a821952231707cc7 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403227515.2022.11 ],
         [ a ns3:Activity ;
             rdf:subject ns3:2008_70100 ;
@@ -1725,8 +1725,8 @@
             ns2:postCode "2800" ;
             ns2:postName "Mechelen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16784/10938> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16784/10938> ],
         [ a ns3:Activity ;
             rdf:subject ns3:2003_65120 ;
             ns4:companyActivity ns3:Nace2003_65120 ;
@@ -1903,7 +1903,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16722/10968" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16722/10968" ;
     ns1:has_contents [ a ns4:legalEntity,
                 ns2:Enterprise ;
             dcterms:isVersionOf ns2:0818292196 ;
@@ -1916,8 +1916,8 @@
             ns2:establishment ns2:2182789911 ;
             ns2:status ns2:Status_AC ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16722/10968> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16722/10968> ],
         [ a ns2:Activity ;
             rdf:subject ns2:2008_72110 ;
             ns4:companyActivity ns2:Nace2008_72110 ;
@@ -1928,7 +1928,7 @@
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0818292196.2022.11 ],
         [ a ns3:Address ;
             geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
@@ -1981,7 +1981,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16719/10966" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16719/10966" ;
     ns2:has_contents [ a ns1:Activity ;
             rdf:subject ns1:2008_64190 ;
             ns3:companyActivity ns1:Nace2008_64190 ;
@@ -1992,8 +1992,8 @@
             rdf:subject ns1:2217795825 ;
             ns4:Address ns1:3003a821952231707cc7 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16719/10966> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16719/10966> ],
         [ a ns4:Address ;
             geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
             rdf:subject ns1:cbd62742dd4d7fdc0c85 ;
@@ -2019,7 +2019,7 @@
             ns4:postCode "1000" ;
             ns4:postName "Brussel" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403227515.2022.11 ],
         [ a ns4:Address ;
             geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
@@ -2315,7 +2315,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16773/10996" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16773/10996" ;
     ns3:has_contents [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
@@ -2343,11 +2343,11 @@
             ns5:postCode "1070" ;
             ns5:postName "Anderlecht" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns2:0403053608.2022.11 ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16773/10996> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16773/10996> ],
         [ a ns1:legalEntity,
                 ns2:Enterprise ;
             dcterms:isVersionOf ns2:0403053608 ;
@@ -2413,7 +2413,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16781/10992" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16781/10992" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
             rdf:subject ns3:876c1f999920f7f6c460 ;
@@ -2520,8 +2520,8 @@
             ns2:postCode "3000" ;
             ns2:postName "Leuven" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16781/10992> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16781/10992> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "1998-10-05"^^xsd:date ;
@@ -2624,7 +2624,7 @@
             ns4:companyActivity ns3:Nace2003_65234 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403219397.2022.11,
                 ns3:0403227515.2022.11 ],
         [ a ns2:Address ;
@@ -2807,15 +2807,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16785/10941" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16785/10941" ;
     ns2:has_contents [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
             ns1:codeDescription "Actif"@FR,
                 "Actief"@NL ;
             ns1:codeValue "AC" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16785/10941> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16785/10941> ],
         [ a ns1:Activity ;
             rdf:subject ns1:2003_74151 ;
             ns4:companyActivity ns1:Nace2003_74151 ;
@@ -2826,7 +2826,7 @@
             ns4:companyActivity ns1:Nace2003_74142 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0887216042.2022.11 ],
         [ a ns1:Activity ;
             rdf:subject ns1:2003_74124 ;
@@ -2906,7 +2906,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16774/10923" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16774/10923" ;
     ns1:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.2858073 51.3233867)"^^geo:wktLiteral ;
             rdf:subject ns2:b93ac46cd7d4f894eb96 ;
@@ -2916,7 +2916,7 @@
             ns3:postCode "2040" ;
             ns3:postName "Antwerpen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns2:0403091220.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
@@ -2988,8 +2988,8 @@
             ns3:postCode "5190" ;
             ns3:postName "Jemeppe-sur-Sambre" ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16774/10923> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16774/10923> ],
         [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
@@ -3037,7 +3037,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16885/10978" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16885/10978" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.5223714 50.4099313)"^^geo:wktLiteral ;
             rdf:subject ns3:9abaa753536e393cc6a2 ;
@@ -3076,10 +3076,10 @@
             ns5:companyActivity ns3:Nace2003_27310 ;
             ns3:classification ns3:Classification_SECO ],
         [ a ns6:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16885/10978> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16885/10978> ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns6:member ns3:0401277914.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -3164,7 +3164,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16899/11116" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16899/11116" ;
     ns2:has_contents [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -3203,7 +3203,7 @@
             rdf:subject ns3:2222080948 ;
             ns1:Address ns3:386c1b2e2b7b262496c8 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0476388378.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -3308,8 +3308,8 @@
             rdf:subject ns3:2148608297 ;
             ns1:Address ns3:55bc46ab5cb62d20f730 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16899/11116> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16899/11116> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -3407,7 +3407,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16778/11044" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16778/11044" ;
     ns2:has_contents [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2009-01-09"^^xsd:date ;
@@ -3419,7 +3419,7 @@
             rdf:subject ns1:2148610772 ;
             ns3:Address ns1:ae0ea5415faa7953fbc8 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0476388378.2022.11 ],
         [ a org:Site,
                 ns1:Establishment ;
@@ -3594,8 +3594,8 @@
             rdf:subject ns1:2232598817 ;
             ns3:Address ns1:13b174a12c8e25d27c01 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16778/11044> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16778/11044> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.3538179 50.8428965)"^^geo:wktLiteral ;
             rdf:subject ns1:ea9aa3a651fca5e1643b ;
@@ -3650,7 +3650,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16895/11020" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16895/11020" ;
     ns2:has_contents [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2014-06-22"^^xsd:date ;
@@ -3719,14 +3719,14 @@
             ns1:postCode "6181" ;
             ns1:postName "Courcelles" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16895/11020> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16895/11020> ],
         [ a ns3:Activity ;
             rdf:subject ns3:2008_64200 ;
             ns4:companyActivity ns3:Nace2008_64200 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0476388378.2022.11 ],
         [ a ns1:Address ;
             geo:asWKT "POINT (3.2262626 50.8883529)"^^geo:wktLiteral ;
@@ -3893,7 +3893,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16780/10992" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16780/10992" ;
     ns3:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
             rdf:subject ns2:cdc6fbe2282c7583bce0 ;
@@ -3921,7 +3921,7 @@
             rdf:subject ns2:2155795702 ;
             ns1:Address ns2:d764f3ba2da243aa7967 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0403227515.2022.11,
                 ns2:0417497106.2022.11,
                 ns2:0451406524.2022.11,
@@ -4262,8 +4262,8 @@
             rdf:subject ns2:2143775323 ;
             ns1:Address ns2:224da66f0f40131b9df0 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16780/10992> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16780/10992> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
             rdf:subject ns2:957d88645b7b38444a02 ;
@@ -4565,10 +4565,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16808/11049" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16808/11049" ;
     ns2:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16808/11049> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16808/11049> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (3.5962061 50.8633438)"^^geo:wktLiteral ;
             rdf:subject ns3:c5a1618ae7e906c7c262 ;
@@ -4656,7 +4656,7 @@
             rdf:subject ns3:2102008905 ;
             ns1:Address ns3:b93ac46cd7d4f894eb96 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403091220.2022.11 ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
             ns2:headerName "Content-Disposition" ;
@@ -4695,7 +4695,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16789/10962" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16789/10962" ;
     ns3:has_contents [ a ns2:Activity ;
             rdf:subject ns2:2008_72110 ;
             ns4:companyActivity ns2:Nace2008_72110 ;
@@ -4735,7 +4735,7 @@
                 ns2:2300081024 ;
             ns2:status ns2:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0466460429.2022.11 ],
         [ a ns2:Activity ;
             rdf:subject ns2:2003_73100 ;
@@ -4762,8 +4762,8 @@
             ns1:postCode "2800" ;
             ns1:postName "Mechelen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16789/10962> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16789/10962> ],
         [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2020-01-22"^^xsd:date ;
@@ -4832,9 +4832,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16783/10993" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16783/10993" ;
     ns1:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns2:0877248501.2022.11 ],
         [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
@@ -4842,8 +4842,8 @@
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16783/10993> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16783/10993> ],
         [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2018-05-22"^^xsd:date ;
@@ -4932,7 +4932,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16711/10989" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16711/10989" ;
     ns2:has_contents [ a ns3:Activity ;
             rdf:subject ns3:2008_70100 ;
             ns4:companyActivity ns3:Nace2008_70100 ;
@@ -4984,11 +4984,11 @@
             ns1:postCode "1120" ;
             ns1:postName "Brussel" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403091220.2022.11 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16711/10989> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16711/10989> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "1900-01-01"^^xsd:date ;
@@ -5062,7 +5062,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16778/10945" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16778/10945" ;
     ns4:has_contents [ a ns3:Activity ;
             rdf:subject ns3:2008_24450 ;
             ns1:companyActivity ns3:Nace2008_24450 ;
@@ -5174,7 +5174,7 @@
             ns1:companyActivity ns3:Nace2003_27431 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0401574852.2022.11 ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.893131165411165 51.18053655)"^^geo:wktLiteral ;
@@ -5193,8 +5193,8 @@
             ns2:postCode "2660" ;
             ns2:postName "Antwerpen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16778/10945> ] ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16778/10945> ] ;
     ns4:has_headers [ a ns4:HTTPHeader ;
             ns4:headerName "Vary" ;
             ns4:headerValue "Access-Control-Request-Headers" ],
@@ -5232,7 +5232,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16781/10993" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16781/10993" ;
     ns1:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.3656554 50.8382125)"^^geo:wktLiteral ;
             rdf:subject ns4:d3b58e7b71c852385a38 ;
@@ -5259,8 +5259,8 @@
             ns2:companyActivity ns4:Nace2003_65231 ;
             ns4:classification ns4:Classification_MAIN ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16781/10993> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16781/10993> ],
         [ a ns2:legalEntity,
                 ns4:Enterprise ;
             dcterms:isVersionOf ns4:0407040209 ;
@@ -5289,7 +5289,7 @@
             ns2:companyActivity ns4:Nace2008_64200 ;
             ns4:classification ns4:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403219397.2022.11,
                 ns4:0407040209.2022.11 ],
         [ a org:Site,
@@ -5377,7 +5377,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16809/10986" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16809/10986" ;
     ns2:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
             rdf:subject ns1:0beeffde4fe17c2b8dc4 ;
@@ -5477,8 +5477,8 @@
             ns3:postCode "1080" ;
             ns3:postName "Sint-Jans-Molenbeek" ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16809/10986> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16809/10986> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
             rdf:subject ns1:2730d4171a45175182b8 ;
@@ -5590,7 +5590,7 @@
             ns3:postCode "1000" ;
             ns3:postName "Brussel" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns1:0403227515.2022.11 ],
         [ a org:Site,
                 ns1:Establishment ;
@@ -5712,13 +5712,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16882/10978" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16882/10978" ;
     ns2:has_contents [ a ns1:Activity ;
             rdf:subject ns1:2003_27100 ;
             ns5:companyActivity ns1:Nace2003_27100 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns6:member ns1:0401277914.2022.11 ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.5223714 50.4099313)"^^geo:wktLiteral ;
@@ -5800,8 +5800,8 @@
             ns5:companyActivity ns1:Nace2008_24100 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a ns6:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16882/10978> ] ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16882/10978> ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
             ns2:headerName "Vary" ;
             ns2:headerValue "Origin" ],
@@ -5839,7 +5839,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16899/11016" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16899/11016" ;
     ns2:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.7057969 50.8878139)"^^geo:wktLiteral ;
             rdf:subject ns3:2818fc37c2bd864a2e6d ;
@@ -5931,8 +5931,8 @@
                 ns3:2147842393 ;
             ns3:status ns3:Status_AC ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16899/11016> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16899/11016> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.3520311556288025 50.84713485)"^^geo:wktLiteral ;
             rdf:subject ns3:988cdc80b564690633f7 ;
@@ -5956,7 +5956,7 @@
             ns1:postCode "1070" ;
             ns1:postName "Anderlecht" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0417497106.2022.11 ],
         [ a ns1:Address ;
             geo:asWKT "POINT (5.6655704 50.6752898)"^^geo:wktLiteral ;
@@ -6008,13 +6008,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16829/10943" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16829/10943" ;
     ns1:has_contents [ a ns4:Activity ;
             rdf:subject ns4:2003_27431 ;
             ns3:companyActivity ns4:Nace2003_27431 ;
             ns4:classification ns4:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0401574852.2022.11 ],
         [ a ns4:Activity ;
             rdf:subject ns4:2008_20140 ;
@@ -6031,8 +6031,8 @@
             rdf:subject ns4:2105028474 ;
             ns2:Address ns4:96ac4a016d7c655f1ac5 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16829/10943> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16829/10943> ],
         [ a ns4:Activity ;
             rdf:subject ns4:2003_27432 ;
             ns3:companyActivity ns4:Nace2003_27432 ;
@@ -6178,7 +6178,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16677/10986" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16677/10986" ;
     ns3:has_contents [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
             ns1:codeDescription "Actif"@FR,
@@ -6269,8 +6269,8 @@
             rdf:subject ns1:2148610772 ;
             ns2:Address ns1:ae0ea5415faa7953fbc8 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16677/10986> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16677/10986> ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.453974382282359 51.23932245)"^^geo:wktLiteral ;
             rdf:subject ns1:d2b9e40ed6dcbe0720fc ;
@@ -6330,7 +6330,7 @@
             ns1:classification ns1:Classification_MAIN,
                 ns1:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0476388378.2022.11 ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.329467 50.4849879)"^^geo:wktLiteral ;
@@ -6421,15 +6421,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16813/11041" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16813/11041" ;
     ns2:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
             rdf:subject ns4:2148610376 ;
             ns1:Address ns4:cba7a23662a28ea3fcfa ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16813/11041> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16813/11041> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (5.5084855 50.9880327)"^^geo:wktLiteral ;
             rdf:subject ns4:55bc46ab5cb62d20f730 ;
@@ -6490,7 +6490,7 @@
             ns3:companyActivity ns4:Nace2003_40120 ;
             ns4:classification ns4:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0476388378.2022.11 ],
         [ a ns4:Code ;
             rdf:subject ns4:Status_AC ;
@@ -6664,10 +6664,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16783/10986" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16783/10986" ;
     ns1:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16783/10986> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16783/10986> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.3538179 50.8428965)"^^geo:wktLiteral ;
             rdf:subject ns2:ea9aa3a651fca5e1643b ;
@@ -6678,7 +6678,7 @@
             ns3:postCode "1000" ;
             ns3:postName "Brussel" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0476388378.2022.11 ],
         [ a ns3:Address ;
             geo:asWKT "POINT (5.5084855 50.9880327)"^^geo:wktLiteral ;
@@ -6907,7 +6907,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16871/10980" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16871/10980" ;
     ns2:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
             rdf:subject ns1:957d88645b7b38444a02 ;
@@ -7102,7 +7102,7 @@
             rdf:subject ns1:2217795825 ;
             ns3:Address ns1:3003a821952231707cc7 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403227515.2022.11 ],
         [ a org:Site,
                 ns1:Establishment ;
@@ -7202,8 +7202,8 @@
             ns3:postCode "3500" ;
             ns3:postName "Hasselt" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16871/10980> ] ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16871/10980> ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
             ns2:headerName "Content-Type" ;
             ns2:headerValue "text/turtle" ],
@@ -7241,7 +7241,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16779/10990" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16779/10990" ;
     ns2:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
             rdf:subject ns1:defb6da6597efd6640a0 ;
@@ -7401,7 +7401,7 @@
             rdf:subject ns1:2152452071 ;
             ns3:Address ns1:0beeffde4fe17c2b8dc4 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403227515.2022.11 ],
         [ a org:Site,
                 ns1:Establishment ;
@@ -7494,8 +7494,8 @@
             ns3:postCode "3000" ;
             ns3:postName "Leuven" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16779/10990> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16779/10990> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
             rdf:subject ns1:ab93acb3d3bc5928d356 ;
@@ -7576,10 +7576,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16785/10939" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16785/10939" ;
     ns4:has_contents [ a ns6:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16785/10939> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16785/10939> ],
         [ a ns1:Activity ;
             rdf:subject ns1:2003_74151 ;
             ns5:companyActivity ns1:Nace2003_74151 ;
@@ -7603,7 +7603,7 @@
             ns1:establishment ns1:2003342780 ;
             ns1:status ns1:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns6:member ns1:0404616494.2022.11 ],
         [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
@@ -7668,9 +7668,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16787/10992" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16787/10992" ;
     ns1:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0426184049.2022.11 ],
         [ a ns4:Code ;
             rdf:subject ns4:Status_AC ;
@@ -7712,8 +7712,8 @@
             ns3:companyActivity ns4:Nace2008_64999 ;
             ns4:classification ns4:Classification_SECO ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16787/10992> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16787/10992> ],
         [ a ns4:Activity ;
             rdf:subject ns4:2003_70322 ;
             ns3:companyActivity ns4:Nace2003_70322 ;
@@ -7771,7 +7771,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16827/10944" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16827/10944" ;
     ns3:has_contents [ a ns4:Activity ;
             rdf:subject ns4:2003_27432 ;
             ns5:companyActivity ns4:Nace2003_27432 ;
@@ -7798,7 +7798,7 @@
             ns5:companyActivity ns4:Nace2003_13200 ;
             ns4:classification ns4:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns2:member ns4:0401574852.2022.11 ],
         [ a org:Site,
                 ns4:Establishment ;
@@ -7857,8 +7857,8 @@
             ns1:postCode "2660" ;
             ns1:postName "Antwerpen" ],
         [ a ns2:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16827/10944> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16827/10944> ],
         [ a ns5:legalEntity,
                 ns4:Enterprise ;
             dcterms:isVersionOf ns4:0401574852 ;
@@ -7941,7 +7941,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16812/10986" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16812/10986" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.7013166 50.8856981)"^^geo:wktLiteral ;
             rdf:subject ns5:7ffeeda89bf05cf5d1bc ;
@@ -7987,7 +7987,7 @@
             rdf:subject ns5:2143775323 ;
             ns2:Address ns5:224da66f0f40131b9df0 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns3:member ns5:0417497106.2022.11 ],
         [ a org:Site,
                 ns5:Establishment ;
@@ -8066,8 +8066,8 @@
                 ns5:2147842393 ;
             ns5:status ns5:Status_AC ],
         [ a ns3:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16812/10986> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16812/10986> ],
         [ a ns5:Code ;
             rdf:subject ns5:Status_AC ;
             ns5:codeDescription "Actif"@FR,
@@ -8110,7 +8110,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16790/10968" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16790/10968" ;
     ns3:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
@@ -8385,7 +8385,7 @@
                 ns4:2322992226 ;
             ns4:status ns4:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403227515.2022.11 ],
         [ a ns4:Activity ;
             rdf:subject ns4:2008_64190 ;
@@ -8397,8 +8397,8 @@
             rdf:subject ns4:2152450487 ;
             ns1:Address ns4:cbd62742dd4d7fdc0c85 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16790/10968> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16790/10968> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
             rdf:subject ns4:058b43a6ce024a1c7226 ;
@@ -8444,7 +8444,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16782/10987" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16782/10987" ;
     ns3:has_contents [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -8472,7 +8472,7 @@
             rdf:subject ns2:2148609188 ;
             ns1:Address ns2:50ae52e361273bd0c7ef ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0476388378.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
@@ -8537,8 +8537,8 @@
             rdf:subject ns2:2148610376 ;
             ns1:Address ns2:cba7a23662a28ea3fcfa ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16782/10987> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16782/10987> ],
         [ a ns2:Activity ;
             rdf:subject ns2:2003_40120 ;
             ns4:companyActivity ns2:Nace2003_40120 ;
@@ -8687,7 +8687,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16788/10942" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16788/10942" ;
     ns3:has_contents [ a ns5:legalEntity,
                 ns2:Enterprise ;
             dcterms:isVersionOf ns2:0403227515 ;
@@ -8736,8 +8736,8 @@
             rdf:subject ns2:2155797383 ;
             ns1:Address ns2:957d88645b7b38444a02 ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16788/10942> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16788/10942> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
             rdf:subject ns2:bfb37a23a23c0f08ae15 ;
@@ -8948,7 +8948,7 @@
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns2:0403227515.2022.11 ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
@@ -9021,7 +9021,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16786/10939" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16786/10939" ;
     ns2:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2008-08-19"^^xsd:date ;
@@ -9061,8 +9061,8 @@
             ns1:postCode "3000" ;
             ns1:postName "Leuven" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16786/10939> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16786/10939> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
             rdf:subject ns4:7da822f315b3e993391d ;
@@ -9072,7 +9072,7 @@
             ns1:postCode "5000" ;
             ns1:postName "Namur" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403227515.2022.11 ],
         [ a org:Site,
                 ns4:Establishment ;
@@ -9355,7 +9355,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16776/10994" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16776/10994" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.7013166 50.8856981)"^^geo:wktLiteral ;
             rdf:subject ns3:7ffeeda89bf05cf5d1bc ;
@@ -9451,8 +9451,8 @@
             rdf:subject ns3:2143775125 ;
             ns2:Address ns3:988cdc80b564690633f7 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16776/10994> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16776/10994> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "1976-10-01"^^xsd:date ;
@@ -9475,7 +9475,7 @@
             ns2:postCode "3000" ;
             ns2:postName "Leuven" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0417497106.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -9524,7 +9524,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16789/10935" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16789/10935" ;
     ns4:has_contents [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2014-06-22"^^xsd:date ;
@@ -9611,7 +9611,7 @@
             ns3:postCode "2170" ;
             ns3:postName "Antwerpen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0476388378.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
@@ -9720,8 +9720,8 @@
             ns3:postCode "9080" ;
             ns3:postName "Lochristi" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16789/10935> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16789/10935> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.37646299060288 50.88157635)"^^geo:wktLiteral ;
             rdf:subject ns2:386c1b2e2b7b262496c8 ;
@@ -9767,7 +9767,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16790/10969" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16790/10969" ;
     ns2:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
@@ -9796,7 +9796,7 @@
             rdf:subject ns4:2155795702 ;
             ns1:Address ns4:d764f3ba2da243aa7967 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403227515.2022.11 ],
         [ a org:Site,
                 ns4:Establishment ;
@@ -9985,8 +9985,8 @@
             rdf:subject ns4:2172430905 ;
             ns1:Address ns4:bfb37a23a23c0f08ae15 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16790/10969> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16790/10969> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
             rdf:subject ns4:058b43a6ce024a1c7226 ;
@@ -10101,7 +10101,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16666/10976" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16666/10976" ;
     ns3:has_contents [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2013-03-28"^^xsd:date ;
@@ -10273,10 +10273,10 @@
             ns2:postCode "8800" ;
             ns2:postName "Roeselare" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16666/10976> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16666/10976> ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403227515.2022.11 ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
@@ -10435,7 +10435,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16813/10987" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16813/10987" ;
     ns1:has_contents [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2013-03-28"^^xsd:date ;
@@ -10455,7 +10455,7 @@
             ns2:postCode "2800" ;
             ns2:postName "Mechelen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403227515.2022.11 ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
@@ -10524,8 +10524,8 @@
             ns2:postCode "8800" ;
             ns2:postName "Roeselare" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16813/10987> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16813/10987> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
@@ -10769,7 +10769,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16780/10991" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16780/10991" ;
     ns2:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.875528 51.1769809)"^^geo:wktLiteral ;
             rdf:subject ns3:38b4ec8887b43213df3d ;
@@ -10779,8 +10779,8 @@
             ns1:postCode "2250" ;
             ns1:postName "Olen" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16780/10991> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16780/10991> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "2021-06-01"^^xsd:date ;
@@ -10883,7 +10883,7 @@
             ns1:postCode "2250" ;
             ns1:postName "Olen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0401574852.2022.11 ],
         [ a ns3:Activity ;
             rdf:subject ns3:2008_24410 ;
@@ -10939,7 +10939,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16785/10937" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16785/10937" ;
     ns3:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
@@ -10963,7 +10963,7 @@
             rdf:subject ns4:2127607601 ;
             ns1:Address ns4:a467dbbe772f2968ca42 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403227515.2022.11 ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
@@ -11103,8 +11103,8 @@
             rdf:subject ns4:2155797383 ;
             ns1:Address ns4:957d88645b7b38444a02 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16785/10937> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16785/10937> ],
         [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2006-08-17"^^xsd:date ;
@@ -11273,7 +11273,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16812/10987" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16812/10987" ;
     ns4:has_contents [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2008-08-19"^^xsd:date ;
@@ -11466,8 +11466,8 @@
             rdf:subject ns2:2127607601 ;
             ns3:Address ns2:a467dbbe772f2968ca42 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16812/10987> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16812/10987> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
             rdf:subject ns2:a467dbbe772f2968ca42 ;
@@ -11495,7 +11495,7 @@
             rdf:subject ns2:2152439304 ;
             ns3:Address ns2:cdc6fbe2282c7583bce0 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0403227515.2022.11 ],
         [ a ns2:Activity ;
             rdf:subject ns2:2008_70100 ;
@@ -11607,7 +11607,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16811/10986" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16811/10986" ;
     ns3:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.3121991 50.8269598)"^^geo:wktLiteral ;
             rdf:subject ns2:0f1f34cc28e060f22cfb ;
@@ -11617,7 +11617,7 @@
             ns1:postCode "1070" ;
             ns1:postName "Anderlecht" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0417497106.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
@@ -11653,8 +11653,8 @@
             ns1:postCode "3000" ;
             ns1:postName "Leuven" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16811/10986> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16811/10986> ],
         [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "1988-04-30"^^xsd:date ;
@@ -11776,7 +11776,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-location?tile=15/16813/10943" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-location?tile=15/16813/10943" ;
     ns4:has_contents [ a ns5:Code ;
             rdf:subject ns5:Status_AC ;
             ns5:codeDescription "Actif"@FR,
@@ -11788,8 +11788,8 @@
             rdf:subject ns5:2105028474 ;
             ns1:Address ns5:96ac4a016d7c655f1ac5 ],
         [ a ns2:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-location?tile=15/16813/10943> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-location?tile=15/16813/10943> ],
         [ a ns1:Address ;
             geo:asWKT "POINT (4.893131165411165 51.18053655)"^^geo:wktLiteral ;
             rdf:subject ns5:ef3ab0a78635faf387a5 ;
@@ -11882,7 +11882,7 @@
             ns3:companyActivity ns5:Nace2003_13200 ;
             ns5:classification ns5:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns2:member ns5:0401574852.2022.11 ],
         [ a ns5:Activity ;
             rdf:subject ns5:2003_27432 ;

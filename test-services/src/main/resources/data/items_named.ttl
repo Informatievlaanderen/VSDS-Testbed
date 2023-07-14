@@ -7,22 +7,22 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name" ;
     ns1:has_contents [ a ns2:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name> ;
             ns2:relation [ a ns2:Relation ;
-                    ns2:node <http://localhost:8080/kbo/by-name?substring=> ] ],
+                    ns2:node <http://ldes-server:8080/kbo/by-name?substring=> ] ],
         [ a sh:NodeShape ;
-            rdf:subject <http://localhost:8080/kbo/shape> ;
+            rdf:subject <http://ldes-server:8080/kbo/shape> ;
             sh:deactivated true ;
             sh:nodeShape [ sh:closed true ;
                     sh:propertyShape [ ] ] ],
         [ a ns3:EventStream ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns3:timestampPath dcterms:issued ;
             ns3:versionOfPath dcterms:isVersionOf ;
-            ns2:view <http://localhost:8080/kbo/by-name> ] ;
+            ns2:view <http://ldes-server:8080/kbo/by-name> ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
             ns1:headerValue "Origin" ],
@@ -60,7 +60,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-name?substring=" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=" ;
     ns4:has_contents [ a ns1:Activity ;
             rdf:subject ns1:2003_32202 ;
             ns3:companyActivity ns1:Nace2003_32202 ;
@@ -5754,7 +5754,7 @@
             rdf:subject ns1:2153242820 ;
             ns2:Address ns1:d1f39513a71f9016ca90 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0202239951.2022.11,
                 ns1:0400378485.2022.11 ],
         [ a org:Site,
@@ -6755,66 +6755,66 @@
             ns2:postCode "7800" ;
             ns2:postName "Ath" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=> ;
             ns5:relation [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=u> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=u> ;
                     ns5:path ns3:legalName ;
                     ns5:value "u" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=e> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=e> ;
                     ns5:path ns3:legalName ;
                     ns5:value "e" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=b> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=b> ;
                     ns5:path ns3:legalName ;
                     ns5:value "b" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=h> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=h> ;
                     ns5:path ns3:legalName ;
                     ns5:value "h" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=l> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=l> ;
                     ns5:path ns3:legalName ;
                     ns5:value "l" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=s> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=s> ;
                     ns5:path ns3:legalName ;
                     ns5:value "s" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=v> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=v> ;
                     ns5:path ns3:legalName ;
                     ns5:value "v" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=i> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=i> ;
                     ns5:path ns3:legalName ;
                     ns5:value "i" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=d> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=d> ;
                     ns5:path ns3:legalName ;
                     ns5:value "d" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=&> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=&> ;
                     ns5:path ns3:legalName ;
                     ns5:value "&" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=k> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=k> ;
                     ns5:path ns3:legalName ;
                     ns5:value "k" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=a> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=a> ;
                     ns5:path ns3:legalName ;
                     ns5:value "a" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=w> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=w> ;
                     ns5:path ns3:legalName ;
                     ns5:value "w" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=g> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=g> ;
                     ns5:path ns3:legalName ;
                     ns5:value "g" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=c> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=c> ;
                     ns5:path ns3:legalName ;
                     ns5:value "c" ] ],
         [ a ns2:Address ;
@@ -7049,9 +7049,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=u" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=u" ;
     ns2:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0401574852.2022.11,
                 ns3:0403053608.2022.11 ],
         [ a ns3:Activity ;
@@ -7103,8 +7103,8 @@
                 ns3:2319223676 ;
             ns3:status ns3:Status_AC ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=u> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=u> ],
         [ a org:Site,
                 ns3:Establishment ;
             dcterms:issued "1998-02-01"^^xsd:date ;
@@ -7269,7 +7269,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-name?substring=l" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=l" ;
     ns3:has_contents [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
@@ -7284,7 +7284,7 @@
             ns1:companyActivity ns2:Nace2008_64200 ;
             ns2:classification ns2:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0407040209.2022.11 ],
         [ a ns1:legalEntity,
                 ns2:Enterprise ;
@@ -7301,8 +7301,8 @@
             ns2:establishment ns2:2002957057 ;
             ns2:status ns2:Status_AC ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=l> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=l> ],
         [ a ns4:Address ;
             geo:asWKT "POINT (4.3655308 50.8397654)"^^geo:wktLiteral ;
             rdf:subject ns2:b938574ab6950ee31bb7 ;
@@ -7359,7 +7359,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=h" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=h" ;
     ns1:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
             rdf:subject ns2:1843c2cb3f6ac21cf789 ;
@@ -7404,10 +7404,10 @@
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
         [ a ns6:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=h> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=h> ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns6:member ns2:0404616494.2022.11 ],
         [ a ns2:Activity ;
             rdf:subject ns2:2003_74151 ;
@@ -7452,7 +7452,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=v" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=v" ;
     ns2:has_contents [ a ns5:Activity ;
             rdf:subject ns5:2008_64200 ;
             ns4:companyActivity ns5:Nace2008_64200 ;
@@ -7516,7 +7516,7 @@
             ns3:postCode "2000" ;
             ns3:postName "Antwerpen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns6:member ns5:0404616494.2022.11,
                 ns5:0887216042.2022.11 ],
         [ a ns5:Code ;
@@ -7534,8 +7534,8 @@
             ns5:classification ns5:Classification_MAIN,
                 ns5:Classification_SECO ],
         [ a ns6:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=v> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=v> ],
         [ a org:Site,
                 ns5:Establishment ;
             dcterms:issued "1924-12-01"^^xsd:date ;
@@ -7586,7 +7586,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=c" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=c" ;
     ns2:has_contents [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
             ns1:codeDescription "Actif"@FR,
@@ -7618,7 +7618,7 @@
             ns3:companyActivity ns1:Nace2008_64200 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns1:0403053608.2022.11,
                 ns1:0426184049.2022.11 ],
         [ a ns1:Activity ;
@@ -7680,8 +7680,8 @@
             ns3:companyActivity ns1:Nace2008_21201 ;
             ns1:classification ns1:Classification_SECO ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=c> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=c> ],
         [ a ns3:legalEntity,
                 ns1:Enterprise ;
             dcterms:isVersionOf ns1:0426184049 ;
@@ -7739,7 +7739,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=e" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=e" ;
     ns1:has_contents [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
@@ -7827,7 +7827,7 @@
             rdf:subject ns2:2222080948 ;
             ns4:Address ns2:386c1b2e2b7b262496c8 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0476388378.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
@@ -7884,8 +7884,8 @@
             ns3:companyActivity ns2:Nace2008_64200 ;
             ns2:classification ns2:Classification_MAIN ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=e> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=e> ],
         [ a org:Site,
                 ns2:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -7983,7 +7983,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=s" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=s" ;
     ns2:has_contents [ a org:Site,
                 ns5:Establishment ;
             dcterms:issued "2006-10-02"^^xsd:date ;
@@ -8031,18 +8031,18 @@
             ns3:companyActivity ns5:Nace2003_27310 ;
             ns5:classification ns5:Classification_SECO ],
         [ a ns1:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=s> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=s> ;
             ns1:relation [ a ns1:SubstringRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-name?substring=sa> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-name?substring=sa> ;
                     ns1:path ns3:legalName ;
                     ns1:value "sa" ],
                 [ a ns1:SubstringRelation ;
-                    ns1:node <http://localhost:8080/kbo/by-name?substring=so> ;
+                    ns1:node <http://ldes-server:8080/kbo/by-name?substring=so> ;
                     ns1:path ns3:legalName ;
                     ns1:value "so" ] ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns1:member ns5:0401277914.2022.11,
                 ns5:0403091220.2022.11 ],
         [ a ns3:legalEntity,
@@ -8201,7 +8201,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://localhost:8080/kbo/by-name?substring=b" ;
+    ns4:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=b" ;
     ns4:has_contents [ a ns2:Activity ;
             rdf:subject ns2:2008_21201 ;
             ns3:companyActivity ns2:Nace2008_21201 ;
@@ -8243,14 +8243,14 @@
             rdf:subject ns2:2155832423 ;
             ns1:Address ns2:9abaa753536e393cc6a2 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=b> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=b> ;
             ns5:relation [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=bu> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=bu> ;
                     ns5:path ns3:legalName ;
                     ns5:value "bu" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=br> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=br> ;
                     ns5:path ns3:legalName ;
                     ns5:value "br" ] ],
         [ a ns1:Address ;
@@ -8346,7 +8346,7 @@
                 ns2:2169037883 ;
             ns2:status ns2:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0401277914.2022.11,
                 ns2:0403053608.2022.11 ] ;
     ns4:has_headers [ a ns4:HTTPHeader ;
@@ -8387,7 +8387,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=a" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=a" ;
     ns1:has_contents [ a ns3:Address ;
             geo:asWKT "POINT (5.5092156 50.9405572)"^^geo:wktLiteral ;
             rdf:subject ns4:b63391125982112d94fa ;
@@ -8435,7 +8435,7 @@
             ns4:classification ns4:Classification_MAIN,
                 ns4:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0401277914.2022.11,
                 ns4:0404616494.2022.11 ],
         [ a ns4:Code ;
@@ -8511,22 +8511,22 @@
                 "089/365623" ;
             ns3:Address ns4:8bd3bcc78c6789d2322d ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=a> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=a> ;
             ns5:relation [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=ae> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=ae> ;
                     ns5:path ns2:legalName ;
                     ns5:value "ae" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=ar> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=ar> ;
                     ns5:path ns2:legalName ;
                     ns5:value "ar" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=ag> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=ag> ;
                     ns5:path ns2:legalName ;
                     ns5:value "ag" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=an> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=an> ;
                     ns5:path ns2:legalName ;
                     ns5:value "an" ] ],
         [ a ns4:Activity ;
@@ -8574,7 +8574,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=g" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=g" ;
     ns2:has_contents [ a ns1:Address ;
             geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
             rdf:subject ns4:bfb37a23a23c0f08ae15 ;
@@ -8706,14 +8706,14 @@
             rdf:subject ns4:2152440787 ;
             ns1:Address ns4:876c1f999920f7f6c460 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=g> ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=g> ;
             ns5:relation [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=ga> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=ga> ;
                     ns5:path ns3:legalName ;
                     ns5:value "ga" ],
                 [ a ns5:SubstringRelation ;
-                    ns5:node <http://localhost:8080/kbo/by-name?substring=gr> ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=gr> ;
                     ns5:path ns3:legalName ;
                     ns5:value "gr" ] ],
         [ a ns4:Activity ;
@@ -8844,7 +8844,7 @@
             ns3:companyActivity ns4:Nace2008_45194 ;
             ns4:classification ns4:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0403227515.2022.11,
                 ns4:0403448140.2022.11 ],
         [ a org:Site,
@@ -8972,7 +8972,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=w" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=w" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
             rdf:subject ns3:90bf93ec289a49764d95 ;
@@ -8983,7 +8983,7 @@
             ns2:postCode "1861" ;
             ns2:postName "Meise" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0417199869.2022.11 ],
         [ a org:Site,
                 ns3:Establishment ;
@@ -8991,8 +8991,8 @@
             rdf:subject ns3:2102213296 ;
             ns2:Address ns3:90bf93ec289a49764d95 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=w> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=w> ],
         [ a ns3:Code ;
             rdf:subject ns3:Status_AC ;
             ns3:codeDescription "Actif"@FR,
@@ -9056,13 +9056,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=d" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=d" ;
     ns1:has_contents [ a ns2:Activity ;
             rdf:subject ns2:2008_64200 ;
             ns3:companyActivity ns2:Nace2008_64200 ;
             ns2:classification ns2:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0403448140.2022.11 ],
         [ a ns3:legalEntity,
                 ns2:Enterprise ;
@@ -9112,8 +9112,8 @@
             rdf:subject ns2:2144913983 ;
             ns4:Address ns2:bb6c8ea511229875aa63 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=d> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=d> ],
         [ a ns4:Address ;
             geo:asWKT "POINT (4.360005 50.8220867)"^^geo:wktLiteral ;
             rdf:subject ns2:bb6c8ea511229875aa63 ;
@@ -9160,7 +9160,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=i" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=i" ;
     ns1:has_contents [ a ns2:legalEntity,
                 ns4:Enterprise ;
             dcterms:isVersionOf ns4:0417497106 ;
@@ -9272,7 +9272,7 @@
             ns2:companyActivity ns4:Nace2003_74151 ;
             ns4:classification ns4:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0417497106.2022.11 ],
         [ a org:Site,
                 ns4:Establishment ;
@@ -9280,8 +9280,8 @@
             rdf:subject ns4:2147197839 ;
             ns3:Address ns4:0f1f34cc28e060f22cfb ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=i> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=i> ],
         [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "1976-10-01"^^xsd:date ;
@@ -9329,7 +9329,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=k" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=k" ;
     ns1:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
             rdf:subject ns3:cdc6fbe2282c7583bce0 ;
@@ -9355,7 +9355,7 @@
             ns2:postCode "2018" ;
             ns2:postName "Antwerpen" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0403227515.2022.11 ],
         [ a ns4:legalEntity,
                 ns3:Enterprise ;
@@ -9584,8 +9584,8 @@
             ns2:postCode "9051" ;
             ns2:postName "Gent" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=k> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=k> ],
         [ a ns3:Code ;
             rdf:subject ns3:Status_AC ;
             ns3:codeDescription "Actif"@FR,
@@ -9663,7 +9663,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=so" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=so" ;
     ns2:has_contents [ a ns1:Activity ;
             rdf:subject ns1:2008_64200 ;
             ns3:companyActivity ns1:Nace2008_64200 ;
@@ -9678,8 +9678,8 @@
             ns3:companyActivity ns1:Nace2003_65234 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=so> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=so> ],
         [ a ns5:Address ;
             geo:asWKT "POINT (4.3656554 50.8382125)"^^geo:wktLiteral ;
             rdf:subject ns1:d3b58e7b71c852385a38 ;
@@ -9702,7 +9702,7 @@
             rdf:subject ns1:2004345741 ;
             ns5:Address ns1:d3b58e7b71c852385a38 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns1:0403219397.2022.11 ],
         [ a ns1:Activity ;
             rdf:subject ns1:2008_73200 ;
@@ -9775,10 +9775,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-name?substring=sa" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=sa" ;
     ns3:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=sa> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=sa> ],
         [ a ns2:Activity ;
             rdf:subject ns2:2008_64200 ;
             ns1:companyActivity ns2:Nace2008_64200 ;
@@ -9809,7 +9809,7 @@
             ns2:establishment ns2:2065760401 ;
             ns2:status ns2:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0451406524.2022.11 ],
         [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
@@ -9853,9 +9853,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=bu" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=bu" ;
     ns2:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0417497106.2022.11 ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.7070489 50.8865919)"^^geo:wktLiteral ;
@@ -9866,8 +9866,8 @@
             ns3:postCode "3000" ;
             ns3:postName "Leuven" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=bu> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=bu> ],
         [ a ns3:Address ;
             geo:asWKT "POINT (4.7057969 50.8878139)"^^geo:wktLiteral ;
             rdf:subject ns4:2818fc37c2bd864a2e6d ;
@@ -10022,7 +10022,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://localhost:8080/kbo/by-name?substring=br" ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=br" ;
     ns2:has_contents [ a ns5:Address ;
             geo:asWKT "POINT (4.3655308 50.8397654)"^^geo:wktLiteral ;
             rdf:subject ns1:b938574ab6950ee31bb7 ;
@@ -10056,11 +10056,11 @@
             ns3:companyActivity ns1:Nace2003_74151 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns4:member ns1:0407040209.2022.11 ],
         [ a ns4:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=br> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=br> ],
         [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
             ns1:codeDescription "Actif"@FR,
@@ -10111,7 +10111,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=ag" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ag" ;
     ns1:has_contents [ a ns3:legalEntity,
                 ns2:Enterprise ;
             dcterms:isVersionOf ns2:0451406524 ;
@@ -10142,11 +10142,11 @@
             rdf:subject ns2:2065760401 ;
             ns4:Address ns2:57df12d7229fb3447785 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0451406524.2022.11 ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=ag> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ag> ],
         [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
@@ -10189,7 +10189,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=gr" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=gr" ;
     ns1:has_contents [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2005-08-29"^^xsd:date ;
@@ -10213,7 +10213,7 @@
                 "Actief"@NL ;
             ns4:codeValue "AC" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns2:member ns4:0476388378.2022.11 ],
         [ a org:Site,
                 ns4:Establishment ;
@@ -10380,8 +10380,8 @@
             rdf:subject ns4:2148610772 ;
             ns3:Address ns4:ae0ea5415faa7953fbc8 ],
         [ a ns2:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=gr> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=gr> ],
         [ a org:Site,
                 ns4:Establishment ;
             dcterms:issued "2013-09-30"^^xsd:date ;
@@ -10432,7 +10432,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://localhost:8080/kbo/by-name?substring=an" ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=an" ;
     ns3:has_contents [ a ns2:Address ;
             geo:asWKT "POINT (5.6655704 50.6752898)"^^geo:wktLiteral ;
             rdf:subject ns4:efd0eb59b7075239577d ;
@@ -10457,7 +10457,7 @@
             rdf:subject ns4:2147842393 ;
             ns2:Address ns4:27f80d1d9d9c8c94b30b ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns4:0417497106.2022.11 ],
         [ a ns4:Activity ;
             rdf:subject ns4:2008_70100 ;
@@ -10486,8 +10486,8 @@
             ns2:postCode "1000" ;
             ns2:postName "Brussel" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=an> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=an> ],
         [ a ns1:legalEntity,
                 ns4:Enterprise ;
             dcterms:isVersionOf ns4:0417497106 ;
@@ -10601,10 +10601,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=ae" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ae" ;
     ns1:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=ae> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ae> ],
         [ a ns3:legalEntity,
                 ns2:Enterprise ;
             dcterms:isVersionOf ns2:0877248501 ;
@@ -10650,7 +10650,7 @@
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns2:0877248501.2022.11 ],
         [ a ns2:Activity ;
             rdf:subject ns2:2003_70203 ;
@@ -10701,9 +10701,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=ar" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ar" ;
     ns1:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0818292196.2022.11 ],
         [ a ns4:Address ;
             geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
@@ -10740,8 +10740,8 @@
                 "Actief"@NL ;
             ns3:codeValue "AC" ],
         [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=ar> ] ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ar> ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
             ns1:headerValue "Access-Control-Request-Method" ],
@@ -10779,10 +10779,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://localhost:8080/kbo/by-name?substring=ga" ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ga" ;
     ns1:has_contents [ a ns5:Node ;
-            dcterms:isPartOf <http://localhost:8080/kbo> ;
-            rdf:subject <http://localhost:8080/kbo/by-name?substring=ga> ],
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ga> ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.4527760796172355 51.054789299999996)"^^geo:wktLiteral ;
             rdf:subject ns3:37ad9aa8a825c7889443 ;
@@ -10831,7 +10831,7 @@
             rdf:subject ns3:2091954854 ;
             ns2:Address ns3:37ad9aa8a825c7889443 ],
         [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://localhost:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
             ns5:member ns3:0466460429.2022.11 ],
         [ a ns2:Address ;
             geo:asWKT "POINT (4.4589659 51.054942)"^^geo:wktLiteral ;
