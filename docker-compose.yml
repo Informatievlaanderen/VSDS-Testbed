@@ -102,7 +102,9 @@ services:
   # These are added here for the PoC's installation convenience to act as a SUT. Eventually these would be removed from this docker-compose file.
   # When removing them remember to adapt the systems' configuration in the Test Bed UI to point to the new address of ldes-server.
   ldes-server:
-    image: ldes/ldes-server:1.1.0-SNAPSHOT
+    image: ldes/ldes-server:1.2.0-SNAPSHOT
+    ports:
+          - 8080:8080
     environment:
     - SPRING_CONFIG_LOCATION=/config/
     volumes:
@@ -110,7 +112,11 @@ services:
     depends_on:
     - ldes-mongodb
   ldes-mongodb:
-    image: mongo:6.0.4
+    image: mongo:latest
+    ports:
+          - 27017:27017
+    
+
   # 
   # PoC specific containers for the LDES server - END
   #

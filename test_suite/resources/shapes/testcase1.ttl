@@ -21,7 +21,6 @@ tree:CollectionIsALDES a sh:NodeShape ;
       sh:hasValue ldes:EventStream ;
    ] .
 
-
 tree:CollectionHasView
 	a sh:NodeShape ;
 	sh:targetClass ldes:EventStream;
