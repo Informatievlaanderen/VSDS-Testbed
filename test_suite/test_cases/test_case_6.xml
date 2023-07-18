@@ -1,14 +1,17 @@
-<testcase id="ts1_tc8" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<testcase id="ts1_tc6" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC8] Geospatial Requirement </gitb:name>
+        <gitb:name>[TC6] No tree:path define fallback </gitb:name>
         <gitb:version>1.0</gitb:version>
-        <gitb:description>When using tree:GeospatiallyContainsRelation, the tree:path MUST refer to a literal containing a WKT string, such as geosparql:asWKT.</gitb:description>
+        <gitb:description> When no tree:path is defined,the tree:value MUST be compared to all members’ triples that can be compared to the tree:value as defined by the type of the relation (or when no members or collection are defined, on every triple in the page). When due to rdfs:range incompatibility, the object cannot be compared, the object will not be considered for comparison.</gitb:description>
         <!-- 
             You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
             HTML content to include in the referenced file.
         -->
-        <gitb:documentation import="docs/test_case_8.html"/>
+        <gitb:documentation import="docs/test_case_6.html"/>
     </metadata>
+    <imports>
+        <artifact type="binary" encoding="UTF-8" name="shapesTemplate">resources/shapes/testcase6.ttl</artifact>
+    </imports>  
     <actors>
         <gitb:actor id="LDESServer" role="SUT"/>
         <gitb:actor id="DataProvider"/>
@@ -32,37 +35,38 @@
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
         <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
             <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
             <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
-            <input name="endpointType">'byLocation'</input>
+            <input name="endpointType">'byName'</input>
         </call>
+        
+        <!-- Step 3: Validate the data against the shapes to see if a comparator relations is used in the string fragmentation -->
+        <process output="processedShapes" handler="TemplateProcessor">
+            <!-- <input name="parameters">$parameters</input> -->
+            <input name="template">$shapesTemplate</input>
+            <input name="syntax">'freemarker'</input>
+        </process>
 
-        <log>"Collecting all objects of tree:value of the tree:GeospatiallyContainsRelation..."</log>
-                <!-- 
-                    Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
-                    you can choose to display them by setting the "hidden" attribute to false.
-                -->
-                <process id="collect WKT format tree:value" output="resultSet" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect">
-                    <input name="content">$crawledData</input>
-                    <input name="contentType">"application/turtle"</input>
-                    <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-                PREFIX legal: <http://www.w3.org/ns/legal#> 
-                PREFIX tree: <https://w3id.org/tree#>
-                SELECT ?treevalue WHERE {
-                      ?subject rdf:type tree:GeospatiallyContainsRelation.
-                      ?subject tree:value ?treevalue .}"]]></input>
-                </process>      
-        <!-- Step 3: Verify if each tree:value is in a wkt format. -->
-        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
-        <verify id="step3" desc="Validate WKT Literal" handler="$DOMAIN{validationServiceAddress}">
-            <input name ="type">"SubstringRegexHandler"</input>
-            <input name="xmlResult">$resultSet</input>
-            <input name="regularExpression">"(\bPOINT\b|\bLINESTRING\b|\bPOLYGON\b|\bMULTIPOINT\b|\bMULTILINESTRING\b|\bMULTIPOLYGON\b)"</input>
+        <assign to="shape1{ruleSet}">$processedShapes</assign>
+        <assign to="shape1{ruleSyntax}">"application/turtle"</assign>
+        <!-- 
+            When assigning to a new variable ("shapesToUse") and add append="true" this can only be a list (only lists can be appended to).
+            Here we are creating a list named "shapesToUse" and adding as the first element the map "shape1" we created just before. We could add
+            more maps here if we wanted to add additional shape files for the validation.
+         -->
+        <!-- <assign to="shapesToUse" append="true">$shape1</assign> -->
+        <assign to="shapesToUse" append="true">$shape1</assign>
+        <verify id="step3" desc="Verify if tree:path is defined" handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledData</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
         </verify>
     </steps>
     <!-- Definition of final summary message. -->
     <output>
-        <success>
+        <success>  
             <default>"Test session completed successfully."</default>
         </success>
         <failure>
@@ -77,11 +81,11 @@
             <case>
                 <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
                 <message>"An error occurred when fetching the data from your endpoint."</message>
-            </case>
+            </case> 
             <case>
                 <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
-                <message>"Some tree:path is not referring to a WKT literal string or coontains WKT literal string"</message>
-            </case>
+                <message>"Prerequisites: When no tree:path is defined doesn't apply. TEST DOESN'T APPLY"</message>
+            </case>          
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>
     </output>

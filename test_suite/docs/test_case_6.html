@@ -1,0 +1,29 @@
+<p><span style="font-size: 14pt;"><strong>[TC 6] No tree:path define fallback. </strong></span></p>
+<p>The purpose of this test case is to ensure that When no tree:path is defined, the tree:value MUST be compared to all members’ triples that can be compared to the tree:value as defined by the
+    type of the relation (or when no members or collection are defined, on every triple in the page). When due to
+    rdfs:range incompatibility, the object cannot be compared, the object will not be considered for comparison.  </p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/ts1_tc2.png" alt="" width="622" height="445" /></p>
+<p>This test case foresees the following steps:</p>
+<table style="border-collapse: collapse; width: 100%; height: 92px;">
+<tbody>
+    <tr style="height: 23px;">
+        <td style="width: 4.79339%; text-align: center; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Step</strong></td>
+        <td style="width: 95.2066%; background-color: #ced4d9; height: 23px; border: 1px solid #34495e;"><strong>Description</strong></td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">1</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">Data provider posts KBO dataset to the LDES Server (SUT) using the endpoint for ingestion (if not skipped).</td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">2</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB fetches the processed data from the endpoint of the LDES Server (by location).</td>
+        </tr>
+        <tr style="height: 23px;">
+        <td style="width: 4.79339%; height: 23px; text-align: center; border: 1px solid #34495e;">3</td>
+        <td style="width: 95.2066%; height: 23px; border: 1px solid #34495e;">The ITB crawls the fetched data and validates. The validation checks that when no tree:path is defined, the tree:value MUST be compared to all members’ triple.</td>
+        </tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>Test data: </strong>The <a href="resources/bel20.zip" target="_blank" rel="noopener">KBO BEL 20 dataset</a> will be posted to your ingestion endpoint as part of the first step. If you don't want to do this per-test session you can do the setup separately before executing tests. In this case ensure that the relevant system configuration property is appropriately set to skip the automatic setup step.</p>
+<p><strong>Additional resources:</strong> [<a href="https://treecg.github.io/specification/#introduction" target="_blank" rel="noopener noreferrer nofollow">TREE specification</a>] [<a href="https://semiceu.github.io/LinkedDataEventStreams/" target="_blank" rel="noopener noreferrer nofollow">LDES specification</a>]</p>

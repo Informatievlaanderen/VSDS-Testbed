@@ -32,6 +32,8 @@
 	<testcase id="ts1_tc2"/>
 	<testcase id="ts1_tc3"/>
 	<testcase id="ts1_tc4"/>
+	<testcase id="ts1_tc6"/>
+	<testcase id="ts1_tc7"/>
 	<testcase id="ts1_tc8"/>
 	<testcase id="ts1_tc9"/>
 </testsuite>
