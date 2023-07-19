@@ -54,10 +54,10 @@
                 </process>      
         <!-- Step 3: Verify if each tree:value is in a wkt format. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <log>"Validating if all objects of tree:value of the tree:GeospatiallyContainsRelation is a WKT literal"</log>
         <verify id="step3" desc="Validate WKT Literal" handler="$DOMAIN{validationServiceAddress}">
-            <input name ="type">"SubstringRegexHandler"</input>
+            <input name ="type">"WktSubstringRegexHandler"</input>
             <input name="xmlResult">$resultSet</input>
-            <input name="regularExpression">"(\bPOINT\b|\bLINESTRING\b|\bPOLYGON\b|\bMULTIPOINT\b|\bMULTILINESTRING\b|\bMULTIPOLYGON\b)"</input>
         </verify>
     </steps>
     <!-- Definition of final summary message. -->

@@ -26,20 +26,40 @@
         -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
+        <log>"Fetch Geospatial fragmentation graph.."</log>
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
             <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
             <input name="endpoint">$SYSTEM{endpointByLocation}</input>
             <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
             <input name="endpointType">'byLocation'</input>
         </call>
-        <!-- Step 3: Check relation timestamp consistency. -->
+
+        <log>"Fetch time-based fragmentation graph.."</log>
+        <call id="step3" path="scriptlets/fetchData.xml" output="crawledDataTime">
+            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
+            <input name="endpoint">$SYSTEM{endpointByTime}</input>
+            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
+            <input name="endpointType">'byTime'</input>
+        </call> 
+
+        <!-- Step 4: Check geospatial relation consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
-        <verify id="step3" desc="Validate relations" handler="$DOMAIN{validationServiceAddress}">
+        <log>"Validating all GeospatiallyContainsRelations.."</log>
+        <verify id="step4" desc="Validate geospatial relations" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"geospatial relations"</input>
-            <input name="content">$crawledData</input>
+            <input name="content">$crawledDataGeo</input>
+            <input name="contentType">"application/turtle"</input>
+        </verify>
+
+        <!-- Step 5: Check relation timestamp consistency. -->
+        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <verify id="step5" desc="Validate time-based relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"time-based relations"</input>
+            <input name="content">$crawledDataTime</input>
             <input name="contentType">"application/turtle"</input>
         </verify>
     </steps>
+
     <!-- Definition of final summary message. -->
     <output>
         <success>
@@ -58,8 +78,18 @@
                 <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
                 <message>"An error occurred when fetching the data from your endpoint."</message>
             </case>
-            <case>
+              <case>
                 <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+
+            <case>
+                <cond>$STEP_STATUS{step4} = 'ERROR'</cond>
+                <message>"Inconsistencies found when validating your geo-based page relations."</message>
+            </case>
+            
+            <case>
+                <cond>$STEP_STATUS{step5} = 'ERROR'</cond>
                 <message>"Inconsistencies found when validating your time-based page relations."</message>
             </case>
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>

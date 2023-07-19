@@ -1,11 +1,9 @@
 package be.vlaanderen.ldes.handlers;
 import be.vlaanderen.ldes.gitb.TestBedLogger;
-
 import com.gitb.core.LogLevel;
-
-import org.apache.jena.base.Sys;
 import org.apache.jena.graph.Factory;
 import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFLanguages;
@@ -52,21 +50,18 @@ public class RelationGeospatialValidationHandler {
             // Lookup the members of page referred to by a relation.
             var members = getPageMembers(inputModel, relation.relatedPage());
             for (var member: members) {
-                // Look up the value of the member property referred to by the relation.
-                System.out.println("member: " + member);
-                var memberValue = getMemberValue(inputModel, member, relation.relationPath());
-                System.out.println("memberValue: " + memberValue);
-                if (memberValue.isPresent()) {
-                    var memberWKT = extractWKT(memberValue.get());
+                // Look up the value of the member property referred to by the relation.               
+                var memberValues = getMemberValue(inputModel, member, relation.relationPath());
+                if (memberValues.isPresent()) {
                     var isValid = switch (relation.relationType()) {                    
-                        case GeospatiallyContainsRelation -> doesContain(extractWKT(relation.relationValue()), memberWKT);                     
+                        case GeospatiallyContainsRelation -> doesContain(extractWKT(relation.relationValue()), memberValues.get());                     
                     };
                     if (isValid) {
-                        String message = String.format("Member [%s] value [%s] passed check [%s] for relation value [%s].", member, memberWKT, relation.relationType(), relation.relationValue());
+                        String message = String.format("Member [%s] passed check [%s] for relation value [%s].", member, relation.relationType(), relation.relationValue());
                         logger.log(String.format(message), LogLevel.DEBUG);
                         LOG.debug(message);
                     } else {
-                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines an invalid value [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, memberWKT, relation.relationPath(), relation.relationValue()));
+                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] doesnt contain a valid value for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, relation.relationPath(), relation.relationValue()));
                         // errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines an invalid value [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), memberWKT, relation.relationPath(), relation.relationValue()));
                     }
                 } else {
@@ -74,7 +69,6 @@ public class RelationGeospatialValidationHandler {
                 }
             }
         }
-        //System.out.println("errorMessages: " + errorMessages);
         return errorMessages;
     }
 
@@ -84,6 +78,7 @@ public class RelationGeospatialValidationHandler {
      * @param inputModel The input model.
      * @return The relations.
      */
+
     private List<RelationData> getRelationsToCheck(Model inputModel) {
         var results = new ArrayList<RelationData>();
         String query = """
@@ -149,18 +144,15 @@ public class RelationGeospatialValidationHandler {
 
     public static String extractWKT(String input) {
         // Define the regular expression pattern to match th(e WKT part
-        Pattern pattern = Pattern.compile("POLYGON\\s*\\(\\(.*?\\)\\)|POINT\\s*\\(.*?\\)");
-        //Pattern pattern = Pattern.compile("(POINT\\s*\\([^)]+\\))\\^\\^http://www\\.opengis\\.net/ont/geosparql#wktLiteral");
-
+        Pattern pattern = Pattern.compile("POLYGON\\s*\\(\\(.*?\\)\\)|POINT\\s*\\(.*?\\)|LINESTRING\\s*\\(.*?\\)|MULTIPOLYGON\\s*\\(\\(.*?\\)\\)|MULTIPOINT\\s*\\(.*?\\)|MULTILINESTRING\\s*\\(.*?\\)|GEOMETRYCOLLECTION\\s*\\(.*?\\)");
+        // Create a matcher for the input string
         Matcher matcher = pattern.matcher(input);
 
         // Check if a match is found and extract the WKT part
         if (matcher.find()) {
             String wktPart = matcher.group();
-            System.out.println("Extracted WKT: " + wktPart);
             return wktPart;
         } else {
-            System.out.println("No WKT part found in the input string.");
             return null;
         }
     }
@@ -173,10 +165,8 @@ public class RelationGeospatialValidationHandler {
      * @param property The property name to lookup.
      * @return The property value (if found).
      */
-    private Optional<String> getMemberValue(Model inputModel, String memberSubject, String property) {
-        System.out.println("memberSubject: " + memberSubject);
-        System.out.println("property: " + property);
-        // System.out.println("inputModel: " + inputModel);
+    private Optional<List<String>> getMemberValue(Model inputModel, String memberSubject, String property) {
+        //Current query is hardcoded for the structure of the current Crawled dataset.
         var memberValueQuery = String.format("""
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX legal: <http://www.w3.org/ns/legal#>
@@ -186,11 +176,17 @@ public class RelationGeospatialValidationHandler {
                 ?Member n1:has_contents [<%s> ?MemberValue].
             }
         """, memberSubject,property);
-       // System.out.println("memberVlaue: " + memberValueQuery);
-        try (var queryExecution = QueryExecutionFactory.create(memberValueQuery, inputModel)) {
+                  
+       try (var queryExecution = QueryExecutionFactory.create(memberValueQuery, inputModel)) {
             var resultSet = queryExecution.execSelect();
             if (resultSet.hasNext()) {
-                return Optional.of(resultSet.next().get("MemberValue").toString());
+                List<String> returnSet = new ArrayList<>();
+                while (resultSet.hasNext()) {
+                    // Access individual query solution
+                    QuerySolution solution = resultSet.nextSolution();                    
+                    returnSet.add(solution.get("MemberValue").toString());    
+                }
+                return Optional.of(returnSet);
             }
         }
         return Optional.empty();
@@ -229,30 +225,32 @@ public class RelationGeospatialValidationHandler {
 
     }
 
-    public static boolean doesContain(String wkt1, String wkt2) {
-        System.out.println("wkt1: " + wkt1);
-        System.out.println("wkt2: " + wkt2);
-        // wkt1 = "POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))";
-        // wkt2 = "POINT(5 5)";
-        wkt1 = "POLYGON ((4.339599609375 51.17245530329899, 4.339599609375 51.16556659836183, 4.32861328125 51.16556659836183, 4.32861328125 51.17245530329899, 4.339599609375 51.17245530329899))";
-        wkt2 = "POINT (4.3583312 50.850838)";
-        WKTReader reader = new WKTReader();
+    /**
+     * Check if the first WKT geometry contains any of the geometries in the second WKT geometry set.
+     *
+     * @param wkt1 The first WKT geometry.
+     * @param wktSet The WKT geometry Set.
+     * @return True if the first geometry contains any of the geometries in the second geometry set.
+     */
+
+
+    private boolean doesContain(String wkt1, List<String> wktSet) {
+        WKTReader reader = new WKTReader();      
         try {
             // Parse the WKT strings into JTS Geometry objects
-            Geometry geometry1 = reader.read(wkt1);
-            Geometry geometry2 = reader.read(wkt2);
-            // System.out.println("geometry1: " + geometry1);
-            // System.out.println("geometry2: " + geometry2);    
-            // Check if the first geometry contains the second geometry\
-            System.out.println("geometry1.contains(geometry2): " + geometry1.contains(geometry2));
-            return geometry1.contains(geometry2);
-        } catch (ParseException e) {
+            Geometry geometry1 = reader.read(wkt1);        
+            // Check if the first geometry contains the second geometry
+            for(String wkt2 : wktSet){
+                Geometry geometry2 = reader.read(wkt2);    
+                if(geometry1.contains(geometry2)){
+                    return true;
+            }}
+        } 
+        catch (ParseException e) {
             e.printStackTrace();
             // Handle parsing exceptions if needed
         }
-
         return false;
     }
-
 
 }

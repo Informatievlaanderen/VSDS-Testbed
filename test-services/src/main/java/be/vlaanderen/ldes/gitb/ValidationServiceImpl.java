@@ -4,7 +4,8 @@ import static be.vlaanderen.ldes.Utils.getReplyToAddressFromHeaders;
 import be.vlaanderen.ldes.Utils;
 import be.vlaanderen.ldes.handlers.RDFComparisonHandler;
 import be.vlaanderen.ldes.handlers.RelationTimestampValidationHandler;
-import be.vlaanderen.ldes.handlers.SubstringRegexHandler;
+import be.vlaanderen.ldes.handlers.WKTSubstringRegexHandler;
+import be.vlaanderen.ldes.handlers.RelationGeospatialValidationHandler;
 import com.gitb.core.LogLevel;
 import com.gitb.tr.BAR;
 import com.gitb.tr.ObjectFactory;
@@ -40,7 +41,9 @@ public class ValidationServiceImpl implements ValidationService {
   @Autowired
   private RDFComparisonHandler rdfComparisonHandler;
   @Autowired
-  private SubstringRegexHandler substringRegexHandler;
+  private WKTSubstringRegexHandler wktSubstringRegexHandler;
+  @Autowired
+  private RelationGeospatialValidationHandler relationGeospatialValidationHandler;
 
   @Resource
   private WebServiceContext wsContext;
@@ -109,6 +112,31 @@ public class ValidationServiceImpl implements ValidationService {
           logger
         );       
       }
+
+       case "geospatial relations" -> {
+       
+        // Get the expected inputs.
+        var content = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "content"
+        );
+        var contentType = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "contentType"
+        );
+        // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
+        var logger = new ValidationServiceLogger(
+          validateRequest.getSessionId(),
+          getReplyToAddressFromHeaders(wsContext).orElse(null)
+        );
+        // Carry out the validation.
+        errorMessages = relationGeospatialValidationHandler.validate(
+          content,
+          contentType,
+          logger
+        );       
+      }
+
       case "RDF Comparison" -> {
         LOG.info(
           "Requested validation from test session [{}]",
@@ -135,7 +163,7 @@ public class ValidationServiceImpl implements ValidationService {
                 logger
               );           
       }
-      case "SubstringRegexHandler" -> {
+      case "WktSubstringRegexHandler" -> {
         LOG.info(
           "Requested validation from test session [{}]",
           validateRequest.getSessionId()
@@ -144,12 +172,7 @@ public class ValidationServiceImpl implements ValidationService {
         var xmlResult = Utils.getRequiredString(
           validateRequest.getInput(),
           "xmlResult"
-        );
-          String regularExpression = Utils.getRequiredString(
-          validateRequest.getInput(),
-          "regularExpression"        );      
-        
-        //regularExpression = "\\bPOINT\\s*\\(|\\bLINESTRING\\s*\\(|\\bPOLYGON\\s*\\(|\\bMULTIPOINT\\s*\\(|\\bMULTILINESTRING\\s*\\(|\\bMULTIPOLYGON\\s*\\(";
+        );        
         // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
         System.out.println(errorMessages);   
         var logger = new ValidationServiceLogger(
@@ -157,9 +180,8 @@ public class ValidationServiceImpl implements ValidationService {
           getReplyToAddressFromHeaders(wsContext).orElse(null)
         );
         // Carry out the validation.
-        errorMessages = substringRegexHandler.validateRegList(
+        errorMessages = wktSubstringRegexHandler.validateRegList(
                 xmlResult,
-                regularExpression,
                 logger
               );   
         System.out.println(errorMessages);        

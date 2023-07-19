@@ -16,7 +16,7 @@ import org.w3c.dom.NodeList;
 import org.slf4j.Logger;
 
 @Component
-public class SubstringRegexHandler {    
+public class WKTSubstringRegexHandler {    
 private static final Logger LOG = LoggerFactory.getLogger(
             RelationTimestampValidationHandler.class
     );
@@ -25,30 +25,26 @@ private static final Logger LOG = LoggerFactory.getLogger(
      * Check if the input string contains a substring that matches the provided regex.
      *
      * @param inputString The input string to check.
-     * @param regex The regex to match.
      * @return True if the input string contains a substring that matches the provided regex, false otherwise.
      */
 
-    private boolean containsSubstringWithRegex(String inputString, String regex) {
-        // System.out.println(inputString);
-        // System.out.println(regex);
-        Pattern pattern = Pattern.compile(regex);
+    private boolean containsSubstringWithRegex(String inputString) {
+        System.out.println(inputString);
+        Pattern pattern = Pattern.compile("POLYGON\\s*\\(\\(.*?\\)\\)|POINT\\s*\\(.*?\\)|LINESTRING\\s*\\(.*?\\)|MULTIPOLYGON\\s*\\(\\(.*?\\)\\)|MULTIPOINT\\s*\\(.*?\\)|MULTILINESTRING\\s*\\(.*?\\)|GEOMETRYCOLLECTION\\s*\\(.*?\\)");
         Matcher matcher = pattern.matcher(inputString);
         return matcher.find();
     }
 
     /**
-     * Validate if the object of tree:node of a tree:Relation also has a type tree:Node
+     * Validate if the input string contains a substring is a WKT Literal.
      *
-     * @param xml The XML document, sparql select output.
-     * @param regEXPRString The regular expression to match.
-     * @param logger The logger to use.
-     * @return A list of error messages.
+     * @param xml The input string to check.
+     * @return A list of error messages if the input string doesn't contain a substring that matches the required regex for a WKT Literal.
      */
+
 
     public List<String> validateRegList(
                     String xml,
-                    String regEXPRString,
                     TestBedLogger logger
             ) {
 
@@ -60,15 +56,18 @@ private static final Logger LOG = LoggerFactory.getLogger(
                     Document doc1 = builder.parse(new ByteArrayInputStream(xml.getBytes()));
                     // Get the list of URI's in the two documents
                     NodeList uriList1 = doc1.getElementsByTagName("literal");    
-                    LOG.debug("Validating if the object of tree:node of a tree:Relation also has a type tree:Node "); 
-                    logger.log(String.format("Validating if the object of tree:node of a tree:Relation also has a type tree:Node "), LogLevel.DEBUG);           
-                    // System.out.println("Node: " + uriList1.item(0).getTextContent());
-                    // Compare the two lists of URI's
+                    LOG.debug("Validating if the tree:value contains a WKT Literal"); 
+                    logger.log(String.format("Validating if the tree:value contains a WKT Literal"), LogLevel.DEBUG);           
                     for (int i = 0; i < uriList1.getLength(); i++) {
-                    if (!containsSubstringWithRegex(uriList1.item(i).getTextContent(), regEXPRString)) {
-                        String message = String.format("Current value [%s] does not match the regular expression [%s]", uriList1.item(i).getTextContent(), regEXPRString);
+                    if (!containsSubstringWithRegex(uriList1.item(i).getTextContent())) {
+                        String message = String.format("Current value [%s] doesn't contains a WKT Literal inside", uriList1.item(i).getTextContent());
                         errorMessages.add(message);
                         logger.log(message, LogLevel.ERROR);
+                        } else
+                        {
+                            String message = String.format("Current value [%s] contains a WKT Literal inside", uriList1.item(i).getTextContent());
+                            logger.log(String.format(message), LogLevel.DEBUG);
+                            LOG.debug(message);
                         }
                     }
                 } catch (Exception e) {
