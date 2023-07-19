@@ -53,7 +53,7 @@
             more maps here if we wanted to add additional shape files for the validation.
          -->
         <assign to="shapesToUse" append="true">$shape1</assign>
-        <verify id="step3" desc="Validate view page" handler="$DOMAIN{shaclValidatorServiceAddress}">
+        <verify id="step3" desc="Validate crawled graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledData</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>

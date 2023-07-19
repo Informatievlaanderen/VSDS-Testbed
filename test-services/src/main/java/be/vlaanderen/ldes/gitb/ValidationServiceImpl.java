@@ -6,6 +6,7 @@ import be.vlaanderen.ldes.handlers.RDFComparisonHandler;
 import be.vlaanderen.ldes.handlers.RelationTimestampValidationHandler;
 import be.vlaanderen.ldes.handlers.WKTSubstringRegexHandler;
 import be.vlaanderen.ldes.handlers.RelationGeospatialValidationHandler;
+import be.vlaanderen.ldes.handlers.RelationStringValidationHandler;
 import com.gitb.core.LogLevel;
 import com.gitb.tr.BAR;
 import com.gitb.tr.ObjectFactory;
@@ -17,6 +18,7 @@ import jakarta.annotation.Resource;
 import jakarta.xml.ws.WebServiceContext;
 import java.math.BigInteger;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.jena.sparql.function.library.print;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,8 @@ public class ValidationServiceImpl implements ValidationService {
   private WKTSubstringRegexHandler wktSubstringRegexHandler;
   @Autowired
   private RelationGeospatialValidationHandler relationGeospatialValidationHandler;
+  @Autowired
+  private RelationStringValidationHandler relationStringValidationHandler;
 
   @Resource
   private WebServiceContext wsContext;
@@ -136,6 +140,31 @@ public class ValidationServiceImpl implements ValidationService {
           logger
         );       
       }
+
+      case "string relations" -> {
+       
+        // Get the expected inputs.
+        var content = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "content"
+        );
+        var contentType = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "contentType"
+        );
+        // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
+        var logger = new ValidationServiceLogger(
+          validateRequest.getSessionId(),
+          getReplyToAddressFromHeaders(wsContext).orElse(null)
+        );
+        // Carry out the validation.
+        errorMessages = relationStringValidationHandler.validate(
+          content,
+          contentType,
+          logger
+        );       
+      }
+
 
       case "RDF Comparison" -> {
         LOG.info(

@@ -16,7 +16,7 @@
     <!-- 
         Setting "stopOnError" to true will stop the test session as soon as an error is encountered. By default test sessions will continue regardless of errors.
     -->
-    <steps stopOnError="true">
+    <steps stopOnError="false">
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <!-- 
             Scriptlets are reusable sets of test steps with optional inputs and outputs used via a "call" step. When referring to it in the "path" use
@@ -41,6 +41,7 @@
             <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
             <input name="endpointType">'byTime'</input>
         </call> 
+        
 
         <!-- Step 4: Check geospatial relation consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
@@ -56,6 +57,23 @@
         <verify id="step5" desc="Validate time-based relations" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"time-based relations"</input>
             <input name="content">$crawledDataTime</input>
+            <input name="contentType">"application/turtle"</input>
+        </verify>
+
+        <log>"Fetch String fragmentation graph.."</log>
+        <call id="step6" path="scriptlets/fetchData.xml" output="crawledDataString">
+            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
+            <input name="endpointType">'byName'</input>
+        </call> 
+
+        <!-- Step 7: Check relation timestamp consistency. -->
+        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <log>"Validating all String Relations.."</log>
+        <verify id="step7" desc="Validate string relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"string relations"</input>
+            <input name="content">$crawledDataString</input>
             <input name="contentType">"application/turtle"</input>
         </verify>
     </steps>
@@ -91,6 +109,10 @@
             <case>
                 <cond>$STEP_STATUS{step5} = 'ERROR'</cond>
                 <message>"Inconsistencies found when validating your time-based page relations."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step7} = 'ERROR'</cond>
+                <message>"Inconsistencies found when validating your string page relations."</message>
             </case>
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>

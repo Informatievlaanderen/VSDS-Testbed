@@ -87,7 +87,7 @@
                        }"]]></input>
         </process>
 
-        <!-- Validate if two SPAQL query outputs are logically same same. -->
+        <!-- Validate if two SPAQL query outputs are logically same. -->
         <verify id="step4" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"RDF Comparison"</input>
             <input name="model1">$resultTreeNode</input>
