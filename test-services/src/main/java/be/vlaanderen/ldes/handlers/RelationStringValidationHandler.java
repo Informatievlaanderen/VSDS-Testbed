@@ -4,6 +4,7 @@ import be.vlaanderen.ldes.gitb.TestBedLogger;
 import com.gitb.core.LogLevel;
 import org.apache.jena.graph.Factory;
 import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFLanguages;
@@ -49,23 +50,24 @@ public class RelationStringValidationHandler {
                 // Look up the value of the member property referred to by the relation.
                 var memberValue = getMemberValue(inputModel, member, relation.relationPath());
                 if (memberValue.isPresent()) {
-                    var memberString = memberValue.get();
-                    var isValid = switch (relation.relationType()) {
-                        case PrefixRelation -> memberString.startsWith(relation.relationValue());
-                        case SubstringRelation -> memberString.contains(relation.relationValue());
-                        case SuffixRelation -> memberString.endsWith(relation.relationValue());
-                        case EqualToRelation -> relation.relationValue().compareTo(member) == 0;
-                        case GreaterThanRelation -> relation.relationValue().compareTo(member) > 0;
-                        case GreaterThanOrEqualToRelation -> relation.relationValue().compareTo(member) >= 0;
-                        case LessThanRelation -> relation.relationValue().compareTo(member) <= 0;
-                        case LessThanOrEqualToRelation ->relation.relationValue().compareTo(member) <= 0;
+                    var memberStringList = memberValue.get();
+                    Boolean isValid = false;
+                    switch (relation.relationType()) {
+                        case PrefixRelation -> {for (String memberString: memberStringList) {if(memberString.startsWith(relation.relationValue())){isValid = true;}}}
+                        case SubstringRelation ->{for (String memberString: memberStringList) {if(memberString.contains(relation.relationValue())){isValid = true;}}} 
+                        case SuffixRelation -> {for (String memberString: memberStringList) {if(memberString.endsWith(relation.relationValue())){isValid = true;}}}  
+                        case EqualToRelation -> {for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) == 0){isValid = true;}}}   
+                        case GreaterThanRelation -> {for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) > 0){isValid = true;}}} 
+                        case GreaterThanOrEqualToRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) > 0){isValid = true;}}} 
+                        case LessThanRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) < 0){isValid = true;}}} 
+                        case LessThanOrEqualToRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) <= 0){isValid = true;}}} 
                     };
                     if (isValid) {
-                        String message = String.format("Member [%s] value [%s] passed check [%s] for relation value [%s].", member, memberString, relation.relationType(), relation.relationValue());
+                        String message = String.format("Member [%s] passed check [%s] for relation value [%s].", member, relation.relationType(), relation.relationValue());
                         logger.log(String.format(message), LogLevel.DEBUG);
                         LOG.debug(message);
                     } else {
-                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines an invalid value [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, memberString, relation.relationPath(), relation.relationValue()));
+                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] doesn't contain a valid value for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, relation.relationPath(), relation.relationValue()));
                     }
                 } else {
                     errorMessages.add(String.format("Page [%s] relates to page [%s], but member [%s] does not define the expected relation property [%s].", relation.page(), relation.relatedPage(), member, relation.relationPath()));
@@ -152,7 +154,7 @@ public class RelationStringValidationHandler {
      * @param property The property name to lookup.
      * @return The property value (if found).
      */
-    private Optional<String> getMemberValue(Model inputModel, String memberSubject, String property) {
+    private Optional<List<String>> getMemberValue(Model inputModel, String memberSubject, String property) {
         var memberValueQuery = String.format("""
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             select ?MemberValue where {
@@ -164,8 +166,14 @@ public class RelationStringValidationHandler {
         try (var queryExecution = QueryExecutionFactory.create(memberValueQuery, inputModel)) {
             var resultSet = queryExecution.execSelect();
             if (resultSet.hasNext()) {
-                return Optional.of(resultSet.next().get("MemberValue").toString());
-            }
+               List<String> returnSet = new ArrayList<>();
+                while (resultSet.hasNext()) {
+                    // Access individual query solution
+                    QuerySolution solution = resultSet.nextSolution();                    
+                    returnSet.add(solution.get("MemberValue").toString());    
+                }
+                return Optional.of(returnSet);
+             }            
         }
         return Optional.empty();
     }
