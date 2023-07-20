@@ -18,7 +18,6 @@ import jakarta.annotation.Resource;
 import jakarta.xml.ws.WebServiceContext;
 import java.math.BigInteger;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.apache.jena.sparql.function.library.print;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

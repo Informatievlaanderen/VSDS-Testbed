@@ -266,4 +266,18 @@ public final class Utils {
         return Optional.ofNullable(getHeaderValue(context, name, (header) -> ((Element) header.getObject()).getTextContent().trim()));
     }
 
+    public static String convertListToString(List<String> inputList) {
+        // Convert the list to a set to remove duplicates
+        Set<String> uniqueSet = new HashSet<>(inputList);
+
+        // Convert the set back to a list
+        List<String> uniqueList = new ArrayList<>(uniqueSet);
+
+        // Create a string by joining the elements of the list using the ';' separator
+        String result = String.join(";\n", uniqueList);
+
+        return result;
+    }
+
 }
+

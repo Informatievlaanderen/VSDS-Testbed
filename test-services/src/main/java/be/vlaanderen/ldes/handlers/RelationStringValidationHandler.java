@@ -1,4 +1,5 @@
 package be.vlaanderen.ldes.handlers;
+import static be.vlaanderen.ldes.Utils.*;
 
 import be.vlaanderen.ldes.gitb.TestBedLogger;
 import com.gitb.core.LogLevel;
@@ -11,7 +12,6 @@ import org.apache.jena.riot.RDFLanguages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,28 +46,28 @@ public class RelationStringValidationHandler {
             LOG.debug("Validating relation {}", relation);
             // Lookup the members of page referred to by a relation.
             var members = getPageMembers(inputModel, relation.relatedPage());
+            var validValues = new ArrayList<String>();
             for (var member: members) {
                 // Look up the value of the member property referred to by the relation.
-                var memberValue = getMemberValue(inputModel, member, relation.relationPath());
-                if (memberValue.isPresent()) {
-                    var memberStringList = memberValue.get();
-                    Boolean isValid = false;
+                var memberValues = getMemberValue(inputModel, member, relation.relationPath());
+                if (memberValues.isPresent()) {
+                    Boolean isValid = false;                    
                     switch (relation.relationType()) {
-                        case PrefixRelation -> {for (String memberString: memberStringList) {if(memberString.startsWith(relation.relationValue())){isValid = true;}}}
-                        case SubstringRelation ->{for (String memberString: memberStringList) {if(memberString.contains(relation.relationValue())){isValid = true;}}} 
-                        case SuffixRelation -> {for (String memberString: memberStringList) {if(memberString.endsWith(relation.relationValue())){isValid = true;}}}  
-                        case EqualToRelation -> {for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) == 0){isValid = true;}}}   
-                        case GreaterThanRelation -> {for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) > 0){isValid = true;}}} 
-                        case GreaterThanOrEqualToRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) > 0){isValid = true;}}} 
-                        case LessThanRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) < 0){isValid = true;}}} 
-                        case LessThanOrEqualToRelation ->{for (String memberString: memberStringList) {if(relation.relationValue().compareTo(memberString) <= 0){isValid = true;}}} 
+                        case PrefixRelation -> {for (String memberValue: memberValues.get()) {if(memberValue.startsWith(relation.relationValue())){isValid = true; validValues.add(memberValue);}}}
+                        case SubstringRelation ->{for (String memberValue: memberValues.get()) {if(memberValue.contains(relation.relationValue())){isValid = true;validValues.add(memberValue);}}} 
+                        case SuffixRelation -> {for (String memberValue: memberValues.get()) {if(memberValue.endsWith(relation.relationValue())){isValid = true;validValues.add(memberValue);}}}  
+                        case EqualToRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) == 0){isValid = true;validValues.add(memberValue);}}}   
+                        case GreaterThanRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > 0){isValid = true;validValues.add(memberValue);}}} 
+                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > 0){isValid = true;validValues.add(memberValue);}}} 
+                        case LessThanRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) < 0){isValid = true;validValues.add(memberValue);}}} 
+                        case LessThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) <= 0){isValid = true;validValues.add(memberValue);}}} 
                     };
                     if (isValid) {
-                        String message = String.format("Member [%s] passed check [%s] for relation value [%s].", member, relation.relationType(), relation.relationValue());
+                        String message = String.format("Member [%s] passed check [%s] for relation value [%s] with valid value(s):\n%s.", member, relation.relationType(), relation.relationValue(), convertListToString(validValues));
                         logger.log(String.format(message), LogLevel.DEBUG);
                         LOG.debug(message);
                     } else {
-                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] doesn't contain a valid value for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, relation.relationPath(), relation.relationValue()));
+                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines invalid value(s):\n [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, convertListToString(memberValues.get()), relation.relationPath(), relation.relationValue()));
                     }
                 } else {
                     errorMessages.add(String.format("Page [%s] relates to page [%s], but member [%s] does not define the expected relation property [%s].", relation.page(), relation.relatedPage(), member, relation.relationPath()));

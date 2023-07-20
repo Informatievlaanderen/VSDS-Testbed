@@ -1,4 +1,5 @@
 package be.vlaanderen.ldes.handlers;
+import static be.vlaanderen.ldes.Utils.*;
 import be.vlaanderen.ldes.gitb.TestBedLogger;
 import com.gitb.core.LogLevel;
 import org.apache.jena.graph.Factory;
@@ -40,6 +41,7 @@ public class RelationGeospatialValidationHandler {
     public List<String> validate(String content, String contentType, TestBedLogger logger) {
         var errorMessages = new ArrayList<String>();
         var inputModel = ModelFactory.createModelForGraph(Factory.createDefaultGraph());
+        var validValues = new ArrayList<String>();
         try (var reader = new StringReader(content)) {
             inputModel.read(reader, null, RDFLanguages.contentTypeToLang(contentType).getName());
         }
@@ -52,17 +54,18 @@ public class RelationGeospatialValidationHandler {
             for (var member: members) {
                 // Look up the value of the member property referred to by the relation.               
                 var memberValues = getMemberValue(inputModel, member, relation.relationPath());
+                var isValid = false;
                 if (memberValues.isPresent()) {
-                    var isValid = switch (relation.relationType()) {                    
-                        case GeospatiallyContainsRelation -> doesContain(extractWKT(relation.relationValue()), memberValues.get());                     
+                    switch (relation.relationType()) {                    
+                        case GeospatiallyContainsRelation -> {if(!doesContain(extractWKT(relation.relationValue()), memberValues.get()).isEmpty()){isValid = true;validValues.addAll(doesContain(extractWKT(relation.relationValue()), memberValues.get()));}}              
                     };
                     if (isValid) {
-                        String message = String.format("Member [%s] passed check [%s] for relation value [%s].", member, relation.relationType(), relation.relationValue());
+                        String message = String.format("Member [%s] passed check [%s] for relation value [%s] with valid value(s):\n%s.", member, relation.relationType(), relation.relationValue(), convertListToString(validValues));
                         logger.log(String.format(message), LogLevel.DEBUG);
                         LOG.debug(message);
                     } else {
-                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] doesnt contain a valid value for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, relation.relationPath(), relation.relationValue()));
-                        // errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines an invalid value [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), memberWKT, relation.relationPath(), relation.relationValue()));
+                        //errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] doesnt contain a valid value for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, relation.relationPath(), relation.relationValue()));
+                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines invalid value(s):\n [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, convertListToString(members), relation.relationPath(), relation.relationValue()));
                     }
                 } else {
                     errorMessages.add(String.format("Page [%s] relates to page [%s], but member [%s] does not define the expected relation property [%s].", relation.page(), relation.relatedPage(), member, relation.relationPath()));
@@ -234,8 +237,9 @@ public class RelationGeospatialValidationHandler {
      */
 
 
-    private boolean doesContain(String wkt1, List<String> wktSet) {
+    private List<String> doesContain(String wkt1, List<String> wktSet) {
         WKTReader reader = new WKTReader();      
+        List<String> validValues = new ArrayList<>();
         try {
             // Parse the WKT strings into JTS Geometry objects
             Geometry geometry1 = reader.read(wkt1);        
@@ -243,14 +247,14 @@ public class RelationGeospatialValidationHandler {
             for(String wkt2 : wktSet){
                 Geometry geometry2 = reader.read(wkt2);    
                 if(geometry1.contains(geometry2)){
-                    return true;
+                    validValues.add(wkt2);                
             }}
         } 
         catch (ParseException e) {
             e.printStackTrace();
             // Handle parsing exceptions if needed
         }
-        return false;
+        return validValues;
     }
 
 }
