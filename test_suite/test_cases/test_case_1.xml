@@ -12,7 +12,7 @@
         <gitb:actor id="LDESServer" role="SUT"/>
         <gitb:actor id="DataProvider"/>
     </actors>
-    <steps stopOnError="true">
+    <steps stopOnError="false">
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Access the endpoint of the LDES server. -->

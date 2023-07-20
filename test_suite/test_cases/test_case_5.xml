@@ -25,7 +25,7 @@
             (which should be unique) when calling it.
         -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
-        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
+        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
         <log>"Fetch Geospatial fragmentation graph.."</log>
         <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
             <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
@@ -33,25 +33,26 @@
             <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
             <input name="endpointType">'byLocation'</input>
         </call>
+        
 
+        <!-- Step 3: Check geospatial relation consistency. -->
+        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <log>"Validating all GeospatiallyContainsRelations.."</log>
+        <verify id="step3" desc="Validate geospatial relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"geospatial relations"</input>
+            <input name="content">$crawledDataGeo</input>
+            <input name="contentType">"application/turtle"</input>
+        </verify>
+        
+        <!-- Step 4: Fetch the processed data from the endpoint of the LDES Server (by time). -->
         <log>"Fetch time-based fragmentation graph.."</log>
-        <call id="step3" path="scriptlets/fetchData.xml" output="crawledDataTime">
+        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
             <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
             <input name="endpoint">$SYSTEM{endpointByTime}</input>
             <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
             <input name="endpointType">'byTime'</input>
         </call> 
-        
-
-        <!-- Step 4: Check geospatial relation consistency. -->
-        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
-        <log>"Validating all GeospatiallyContainsRelations.."</log>
-        <verify id="step4" desc="Validate geospatial relations" handler="$DOMAIN{validationServiceAddress}">
-            <input name ="type">"geospatial relations"</input>
-            <input name="content">$crawledDataGeo</input>
-            <input name="contentType">"application/turtle"</input>
-        </verify>
-
+    
         <!-- Step 5: Check relation timestamp consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
         <verify id="step5" desc="Validate time-based relations" handler="$DOMAIN{validationServiceAddress}">

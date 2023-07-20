@@ -15,13 +15,13 @@
     <namespaces>
        <ns prefix="ns">http://www.w3.org/2005/sparql-results#</ns>
     </namespaces>    
-    <steps stopOnError="true">
+    <steps stopOnError="false">
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <input name="endpointType">'byName'</input>
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
+            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
+            <input name="endpointType">'byLocation'</input>
         </call>
 
          <!-- Step 3: In the crawled graph, each tree:Relation must have a tree:node -->    
@@ -44,8 +44,8 @@
         <assign to="shape1{ruleSet}">$processedShapes</assign>
         <assign to="shape1{ruleSyntax}">"application/turtle"</assign> 
         <assign to="shapesToUse" append="true">$shape1</assign>       
-        <verify id="step3" desc=" Validate if each tree:Relation has a tree:node on the crawled graph " handler="$DOMAIN{shaclValidatorServiceAddress}">
-            <input name="contentToValidate">$crawledData</input>
+        <verify id="step3" desc=" Validate if each tree:Relation has a tree:node on the crawled geospatial fragmentation graph " handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataGeo</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
@@ -58,8 +58,8 @@
             Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
             you can choose to display them by setting the "hidden" attribute to false.
         -->
-        <process id="collectTreeNode" hidden="true" output="resultTreeNode" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
-            <input name="content">$crawledData</input>
+        <process id="collectTreeNode" hidden="true" output="resultTreeNodeGeo" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
+            <input name="content">$crawledDataGeo</input>
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                  PREFIX legal: <http://www.w3.org/ns/legal#> 
@@ -74,8 +74,8 @@
             Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
             you can choose to display them by setting the "hidden" attribute to false.
         -->
-        <process id="collectTreeNodeIRI" hidden="true" output="resultTreeNodeIRI" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
-            <input name="content">$crawledData</input>
+        <process id="collectTreeNodeIRI" hidden="true" output="resultTreeNodeIRIGeo" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
+            <input name="content">$crawledDataGeo</input>
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                  PREFIX legal: <http://www.w3.org/ns/legal#> 
@@ -88,11 +88,141 @@
         </process>
 
         <!-- Validate if two SPAQL query outputs are logically same. -->
-        <verify id="step4" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node" handler="$DOMAIN{validationServiceAddress}">
+        <verify id="step4" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node for geospatial fragementation" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"RDF Comparison"</input>
-            <input name="model1">$resultTreeNode</input>
-            <input name="model2">$resultTreeNodeIRI</input>
+            <input name="model1">$resultTreeNodeGeo</input>
+            <input name="model2">$resultTreeNodeIRIGeo</input>
         </verify>
+
+
+
+
+
+        <!-- Step 5: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
+        <call id="step5" path="scriptlets/fetchData.xml" output="crawledDataTime">
+            <input name="endpoint">$SYSTEM{endpointByTime}</input>
+            <input name="endpointType">'byTime'</input>
+        </call>
+
+         <!-- Step 7: In the crawled graph, each tree:Relation must have a tree:node -->    
+         
+        <log>"Execute SHACL validator to verify that each tree:Relation has a tree:node"</log>
+                  
+        <verify id="step6" desc=" Validate if each tree:Relation has a tree:node on the crawled time-based graph " handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataTime</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+
+        <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
+        <log>"Execute SPARQL query to have all the object of tree node..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectTreeNode" hidden="true" output="resultTreeNodeTime" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
+            <input name="content">$crawledDataTime</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                 PREFIX legal: <http://www.w3.org/ns/legal#> 
+                 PREFIX tree: <https://w3id.org/tree#> 
+                 select ?treenode where {
+                       ?s tree:node ?treenode.
+                       }"]]></input>
+        </process>
+
+        <log>"Execute SPARQL query to have objects of tree:node in a tree:Relation which are also typed as tree:Node..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectTreeNodeIRI" hidden="true" output="resultTreeNodeIRITime" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
+            <input name="content">$crawledDataTime</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                 PREFIX legal: <http://www.w3.org/ns/legal#> 
+                 PREFIX tree: <https://w3id.org/tree#> 
+                 select ?treenode where {
+                       ?k tree:node ?treenode. 
+                       ?s rdf:type tree:Node.
+                       ?s rdf:subject ?treenode.                       
+                       }"]]></input>
+        </process>
+
+        <!-- Validate if two SPAQL query outputs are logically same. -->
+        <verify id="step7" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node for Timespatial fragementation" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"RDF Comparison"</input>
+            <input name="model1">$resultTreeNodeTime</input>
+            <input name="model2">$resultTreeNodeIRITime</input>
+        </verify>
+
+
+
+       <!-- Step 9: Fetch the processed data from the endpoint of the LDES Server (by String). -->
+        <call id="step8" path="scriptlets/fetchData.xml" output="crawledDataString">
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <input name="endpointType">'byName'</input>
+        </call>
+
+         <!-- Step 10: In the crawled graph, each tree:Relation must have a tree:node -->    
+         
+        <log>"Execute SHACL validator to verify that each tree:Relation has a tree:node"</log>
+                  
+        <verify id="step9" desc=" Validate if each tree:Relation has a tree:node on the crawled String-based graph " handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataString</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+
+        <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
+        <log>"Execute SPARQL query to have all the object of tree node..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectTreeNode" hidden="true" output="resultTreeNodeString" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all the values of tree node...">
+            <input name="content">$crawledDataString</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                 PREFIX legal: <http://www.w3.org/ns/legal#> 
+                 PREFIX tree: <https://w3id.org/tree#> 
+                 select ?treenode where {
+                       ?s tree:node ?treenode.
+                       }"]]></input>
+        </process>
+
+        <log>"Execute SPARQL query to have objects of tree:node in a tree:Relation which are also typed as tree:Node..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectTreeNodeIRI" hidden="true" output="resultTreeNodeIRIString" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect" desc="Execute SPARQL query to have all IRI with a type is a treeNode...">
+            <input name="content">$crawledDataString</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA[" PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                 PREFIX legal: <http://www.w3.org/ns/legal#> 
+                 PREFIX tree: <https://w3id.org/tree#> 
+                 select ?treenode where {
+                       ?k tree:node ?treenode. 
+                       ?s rdf:type tree:Node.
+                       ?s rdf:subject ?treenode.                       
+                       }"]]></input>
+        </process>
+
+        <!-- Validate if two SPAQL query outputs are logically same. -->
+        <verify id="step10" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node for geospatial fragementation" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"RDF Comparison"</input>
+            <input name="model1">$resultTreeNodeString</input>
+            <input name="model2">$resultTreeNodeIRIString</input>
+        </verify>
+
+
+
+
     </steps>
     <!-- Definition of final summary message. -->
     <output>
@@ -106,16 +236,44 @@
             </case>
             <case>
                 <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
-                <message>"An error occurred when fetching the data from your endpoint."</message>
+                <message>"An error occurred when fetching the data from your endpoint [Geospatial]."</message>
             </case>
             <case>
                 <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
-                <message>"Not each tree:Relation has one tree:node"</message>
+                <message>"Not each tree:Relation has one tree:node [Geospatial]"</message>
             </case>
               <case>
                 <cond>$STEP_STATUS{step4} = 'false'</cond>
-                <message>"Not each object of tree:node is typed as tree:Node"</message>
+                <message>"Not each object of tree:node is typed as tree:Node [Geospatial]"</message>
             </case>
+
+                <case>
+                <cond>$STEP_STATUS{step5} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint. [Time-based]"</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step6} = 'ERROR'</cond>
+                <message>"Not each tree:Relation has one tree:node [Time-based]"</message>
+            </case>
+              <case>
+                <cond>$STEP_STATUS{step7} = 'false'</cond>
+                <message>"Not each object of tree:node is typed as tree:Node [Time-based]"</message>
+            </case>
+
+                <case>
+                <cond>$STEP_STATUS{step8} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint. [String-based]"</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step9} = 'ERROR'</cond>
+                <message>"Not each tree:Relation has one tree:node [String-based]"</message>
+            </case>
+              <case>
+                <cond>$STEP_STATUS{step10} = 'false'</cond>
+                <message>"Not each object of tree:node is typed as tree:Node [String-based]"</message>
+            </case>
+
+            
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>
     </output>

@@ -12,11 +12,11 @@
         <gitb:actor id="LDESServer" role="SUT"/>
         <gitb:actor id="DataProvider"/>
     </actors>
-    <steps stopOnError="true">
+    <steps stopOnError="false">
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
             <input name="endpoint">$SYSTEM{endpointByLocation}</input>
             <input name="endpointType">'byLocation'</input>
         </call>
@@ -30,7 +30,7 @@
         -->
         <assign to="parameters{endpointByLocation}">$SYSTEM{endpointByLocation}</assign>
         <assign to="parameters{endpointByTime}">$SYSTEM{endpointByTime}</assign>
-         <assign to="parameters{endpointByName}">$SYSTEM{endpointByName}</assign>
+        <assign to="parameters{endpointByName}">$SYSTEM{endpointByName}</assign>
         <assign to="parameters{LdesStreamUrl}">$SYSTEM{endpointAccess}</assign>
         <process output="processedShapes" handler="TemplateProcessor">
             <input name="parameters">$parameters</input>
@@ -53,8 +53,32 @@
             more maps here if we wanted to add additional shape files for the validation.
          -->
         <assign to="shapesToUse" append="true">$shape1</assign>
-        <verify id="step3" desc="Validate crawled graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
-            <input name="contentToValidate">$crawledData</input>
+        <verify id="step3" desc="Validate crawled geospatial graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataGeo</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+
+        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
+            <input name="endpoint">$SYSTEM{endpointByTime}</input>
+            <input name="endpointType">'byTime'</input>
+        </call>
+        <verify id="step5" desc="Validate crawled Time-based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataTime</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+
+        <call id="step6" path="scriptlets/fetchData.xml" output="crawledDataString">
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <input name="endpointType">'byName'</input>
+        </call>
+        <verify id="step7" desc="Validate crawled String based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$crawledDataString</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
@@ -77,6 +101,22 @@
             </case>
             <case>
                 <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"Your returned data failed to validate against the test case's assertions."</message>
+            </case>
+             <case>
+                <cond>$STEP_STATUS{step4} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step5} = 'ERROR'</cond>
+                <message>"Your returned data failed to validate against the test case's assertions."</message>
+            </case>
+             <case>
+                <cond>$STEP_STATUS{step6} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step7} = 'ERROR'</cond>
                 <message>"Your returned data failed to validate against the test case's assertions."</message>
             </case>
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>

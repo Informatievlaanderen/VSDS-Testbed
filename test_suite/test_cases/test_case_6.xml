@@ -23,7 +23,7 @@
     <!-- 
         Setting "stopOnError" to true will stop the test session as soon as an error is encountered. By default test sessions will continue regardless of errors.
     -->
-    <steps stopOnError="true">
+    <steps stopOnError="false">
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <!-- 
             Scriptlets are reusable sets of test steps with optional inputs and outputs used via a "call" step. When referring to it in the "path" use
