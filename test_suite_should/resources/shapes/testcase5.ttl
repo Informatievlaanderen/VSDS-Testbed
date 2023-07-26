@@ -1,0 +1,20 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+
+# SPEC for Tree Spec
+# SHOULD test case - 14
+# SPEC Conform:
+# Every tree:Relation SHOULD have a tree:path,
+# indicating the path from the member to the object on which the tree:Relation applies.
+#
+# Each tree:Relation has one tree:path set.
+#
+
+tree:EachRelationHasOneTreePath
+	a sh:NodeShape ;
+    sh:targetClass tree:relation ;
+    sh:property [
+        sh:path tree:path ;
+        sh:minCount 1 ;
+    ] .
