@@ -1,30 +1,28 @@
-#
-# SPEC for Tree Spec Must test case - 1
-# SPEC Conform:
-# A node from which all members of a collection can be
-# discovered, can be found through a triple stating ex:C1 tree:view ex:N1 with ex:C1 being a tree:Collection and
-# ex:N1 being a tree:Node.
-#
-# Verify: LDES Server does the fragment and provides a tree:view in the output LDES collection.
-#
-
 @prefix po:  <http://itb.ec.europa.eu/sample/po#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix tree: <https://w3id.org/tree#> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
 @prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-tree:CollectionIsALDES a sh:NodeShape ;
-   sh:targetNode <${targetNode}> ;
-   sh:property [
-      sh:path rdf:type;
-      sh:hasValue ldes:EventStream ;
-   ] .
+# SPEC for Tree Spec
+# SHOULD test case - 3
+# SPEC Conform:
+# Therefore a data publisher SHOULD annotate a tree:Collection
+# instance with a SHACL shape. The tree:shape points to a SHACL description of the shape (sh:NodeShape).
+#
+# Verify:
+# There is a SHACL shape attached to the graph.
 
-tree:CollectionHasView
-	a sh:NodeShape ;
-	sh:targetClass ldes:EventStream;
+tree:ShaclAnnotation  a sh:NodeShape ;
+    sh:targetClass tree:Collection ;
     sh:property [
-      sh:path  tree:view;
-      sh:minCount 1 ;
+        sh:path tree:shape ;
+        sh:node tree:ShaclShape;
+        sh:minCount 1 ;
     ] .
+
+tree:ShaclShape a sh:NodeShape ;
+    sh:property [
+                sh:path rdf:type;
+                sh:in (sh:NodeShape sh:PropertyShape );
+                ].

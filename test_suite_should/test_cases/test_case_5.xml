@@ -2,7 +2,7 @@
     <metadata>
         <gitb:name>[TC5] tree:Relation’s tree:path</gitb:name>
         <gitb:version>1.0</gitb:version>
-        <gitb:description>Every tree:Relation SHOULD have a tree:path,  indicating the path from the member to the object on which the tree:Relation applies.</gitb:description>
+        <gitb:description>Every tree:Relation SHOULD have a tree:path,indicating the path from the member to the object on which the tree:Relation applies.</gitb:description>
         <gitb:documentation import="docs/test_case_5.html"/>
     </metadata>
     <imports>

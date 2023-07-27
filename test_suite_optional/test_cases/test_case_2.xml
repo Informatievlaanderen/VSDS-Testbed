@@ -1,6 +1,6 @@
 <testcase id="ts3_tc2" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC2] Multiple tree:vie </gitb:name>
+        <gitb:name>[TC2] Multiple tree:view </gitb:name>
         <gitb:version>1.0</gitb:version>
         <gitb:description>Multiple tree:view links MAY be provided.</gitb:description>
         <gitb:documentation import="docs/test_case_2.html"/>
