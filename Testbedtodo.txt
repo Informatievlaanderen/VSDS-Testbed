@@ -1,6 +1,0 @@
-Todo:
-1. How to modify the PNG in the doc
-2. How to set pre requisite steps if apply the test continue, if not skip => neural result
-3. Springboot real time debug with testbed?
-4. The crawler? Call python or write in Java.
-5. Vague test cases => not useful
