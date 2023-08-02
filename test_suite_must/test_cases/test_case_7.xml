@@ -56,18 +56,40 @@
          -->
         <!-- <assign to="shapesToUse" append="true">$shape1</assign> -->
         <assign to="shapesToUse" append="true">$shape1</assign>
-        <verify id="step3" desc="Validate view page" handler="$DOMAIN{shaclValidatorServiceAddress}">
+        <verify id="step3" desc="Validate view page" handler="$DOMAIN{shaclValidatorServiceAddress}" hidden = "true">
             <input name="contentToValidate">$crawledData</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
             <input name="externalRules">$shapesToUse</input>
         </verify>
+
+        <if desc="Verify if Greater/Less/Equal comparison is used in current string fragmentaion">
+        <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+        <!--
+            Only the 'exit' step will be displayed and skipped if the condition is not matched.
+            This is achieved by setting 'hidden' explicitly to 'false'.
+        -->
+        <then hidden="false">
+        <verify id="step4" desc="Validate string relations" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"string relations"</input>
+            <input name="content">$crawledData</input>
+        <input name="contentType">"application/turtle"</input>
+        </verify>    
+        </then>
+        <else>
+        <exit desc="Greater/Less/Equal comparison is not used in current string fragmentaion implementation. TEST DOESN'T APPLY" success="true"/>
+        </else>
+        </if>
     </steps>
     <!-- Definition of final summary message. -->
     <output>
         <success>  
-            <default>"Test session completed successfully."</default>
+        <case>
+                <cond>$STEP_STATUS{step3} != 'ERROR'</cond>
+                <message>"Greater/Less/Equal comparison is not used in current string fragmentaion implementation - TEST DOESN'T APPLY"</message>
+        </case> 
+        <default>"Test session completed successfully."</default>
         </success>
         <failure>
             <case>
@@ -83,9 +105,9 @@
                 <message>"An error occurred when fetching the data from your endpoint."</message>
             </case> 
             <case>
-                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
-                <message>"Greater/Less/Equal comparison is not used in current string fragmentaion implementation - TEST DOESN'T APPLY"</message>
-            </case>          
+                <cond>$STEP_STATUS{step4} = 'ERROR'</cond>
+                <message>"Inconsistencies found when validating your string fragmentaion relations."</message>
+            </case>                      
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>
     </output>

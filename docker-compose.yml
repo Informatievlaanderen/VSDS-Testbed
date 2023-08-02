@@ -96,6 +96,8 @@ services:
       - ./config/shacl-validator:/config
     environment:
       - validator.resourceRoot=/config
+    ports:
+      - 8081:8080
   # 
   # PoC specific containers for the LDES server - START
   #

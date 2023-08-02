@@ -18,16 +18,24 @@
 @prefix example: <http://example.org/> .
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
 
-tree:SubstringRelation
+tree:NotComparisonSubstringRelation
   a sh:NodeShape ;
-  sh:targetClass tree:Relation ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:in (tree:GreaterThanRelation tree:GreaterThanOrEqualToRelation tree:LessThanRelation tree:LessThanOrEqualToRelation tree:EqualToRelation);
-    sh:minCount 1;
-  ] ;
+  sh:targetClass tree:GreaterThanRelation ;
+  sh:targetClass tree:GreaterThanOrEqualToRelation ;
+  sh:targetClass tree:LessThanRelation ;
+  sh:targetClass tree:LessThanOrEqualToRelation ;
+  sh:targetClass tree:EqualToRelation ;
   sh:property [
     sh:path tree:value;
     sh:datatype xsd:string;
     sh:minCount 1;
-                   ].
+                   ];
+  sh:not [
+		sh:property [
+    sh:path rdf:type ;
+    sh:in (tree:GreaterThanRelation tree:GreaterThanOrEqualToRelation tree:LessThanRelation tree:LessThanOrEqualToRelation tree:EqualToRelation);
+  ] ;
+	] .
+  
+
+  

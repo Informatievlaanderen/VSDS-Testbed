@@ -54,19 +54,40 @@
             Here we are creating a list named "shapesToUse" and adding as the first element the map "shape1" we created just before. We could add
             more maps here if we wanted to add additional shape files for the validation.
          -->
-        <!-- <assign to="shapesToUse" append="true">$shape1</assign> -->
         <assign to="shapesToUse" append="true">$shape1</assign>
-        <verify id="step3" desc="Verify if tree:path is defined" handler="$DOMAIN{shaclValidatorServiceAddress}">
+        <verify id="step3" desc="Verify if tree:path is defined" handler="$DOMAIN{shaclValidatorServiceAddress}" hidden="true">
             <input name="contentToValidate">$crawledData</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
             <input name="externalRules">$shapesToUse</input>
         </verify>
+
+        <if desc="Verify if the pre-condition [where no tree:path is defined, but a tree:value exists] is met">
+        <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+        <!--
+            Only the 'exit' step will be displayed and skipped if the condition is not matched.
+            This is achieved by setting 'hidden' explicitly to 'false'.
+        -->
+        <then hidden="false">
+        <verify id="step4" desc="Validate Relations #TODO" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"string relations"</input>
+            <input name="content">$crawledData</input>
+        <input name="contentType">"application/turtle"</input>
+        </verify>    
+        </then>
+        <else>
+        <exit desc="The pre-condition [where no tree:path is defined, but a tree:value exists] is not met - TEST DOESN'T APPLY." success="true"/>
+        </else>
+        </if>
     </steps>
     <!-- Definition of final summary message. -->
     <output>
         <success>  
+            <case>
+                <cond>$STEP_STATUS{step3} != 'ERROR'</cond>
+                <message>"The pre-condition [where no tree:path is defined, but a tree:value exists] is not met - TEST DOESN'T APPLY."</message>
+            </case> 
             <default>"Test session completed successfully."</default>
         </success>
         <failure>
@@ -81,11 +102,11 @@
             <case>
                 <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
                 <message>"An error occurred when fetching the data from your endpoint."</message>
-            </case> 
+            </case>      
             <case>
-                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
-                <message>"Prerequisites: When no tree:path is defined doesn't apply. TEST DOESN'T APPLY"</message>
-            </case>          
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>     
             <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
         </failure>
     </output>

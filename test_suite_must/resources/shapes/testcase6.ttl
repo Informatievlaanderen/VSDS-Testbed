@@ -22,13 +22,29 @@
 
 tree:NoTreePathButTreeValue
   a sh:NodeShape ;
-  sh:targetClass tree:Relation ;
-  sh:property [
-    sh:path tree:path;
-    sh:maxCount 0;
-                   ];
-   sh:property [
-    sh:path tree:value;
-    sh:minCount 1;
-                   ].
-
+  sh:targetClass tree:GreaterThanRelation ;
+  sh:targetClass tree:GreaterThanOrEqualToRelation ;
+  sh:targetClass tree:LessThanRelation ;
+  sh:targetClass tree:LessThanOrEqualToRelation ;
+  sh:targetClass tree:EqualToRelation ;
+  sh:xone (
+        [sh:property [
+          sh:path tree:value;
+          sh:minCount 1;
+                        ];
+        sh:property [
+          sh:path tree:path ;
+          sh:minCount 1;   
+          ] ;
+        ]
+        
+        [sh:property [
+          sh:path tree:value;
+          sh:maxCount 0;
+                        ];
+        sh:property [
+          sh:path tree:path ;
+          sh:maxCount 0;   
+          ] 
+        ]
+  )
