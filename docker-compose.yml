@@ -38,6 +38,8 @@ services:
       # In the case of the PoC the only scenario we used callbacks in is when we post log messages from the
       # test-services component back to the test engine.
       - gitb.messaging.callbackURL=http://gitb-srv:8080/itbsrv/MessagingClient
+    ports:
+      - "10001:8080"
   gitb-ui:
     # The Test Bed's UI.
     image: isaitb/gitb-ui:nightly

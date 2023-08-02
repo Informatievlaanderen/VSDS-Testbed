@@ -58,7 +58,7 @@ public class RelationStringValidationHandler {
                         case SuffixRelation -> {for (String memberValue: memberValues.get()) {if(memberValue.endsWith(relation.relationValue())){isValid = true;validValues.add(memberValue);}}}  
                         case EqualToRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) == 0){isValid = true;validValues.add(memberValue);}}}   
                         case GreaterThanRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > 0){isValid = true;validValues.add(memberValue);}}} 
-                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > 0){isValid = true;validValues.add(memberValue);}}} 
+                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > = 0){isValid = true;validValues.add(memberValue);}}}
                         case LessThanRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) < 0){isValid = true;validValues.add(memberValue);}}} 
                         case LessThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) <= 0){isValid = true;validValues.add(memberValue);}}} 
                     };

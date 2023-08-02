@@ -4,6 +4,7 @@ import be.vlaanderen.ldes.gitb.TestBedLogger;
 import com.gitb.core.LogLevel;
 import org.apache.jena.graph.Factory;
 import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFLanguages;
@@ -176,7 +177,7 @@ public class RelationTimestampValidationHandler {
      * @param property The property name to lookup.
      * @return The property value (if found).
      */
-    private Optional<String> getMemberValue(Model inputModel, String memberSubject, String property) {
+    private Optional<List<String>> getMemberValue(Model inputModel, String memberSubject, String property) {
         var memberValueQuery = String.format("""
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             select ?MemberValue where {
@@ -188,7 +189,13 @@ public class RelationTimestampValidationHandler {
         try (var queryExecution = QueryExecutionFactory.create(memberValueQuery, inputModel)) {
             var resultSet = queryExecution.execSelect();
             if (resultSet.hasNext()) {
-                return Optional.of(resultSet.next().get("MemberValue").toString());
+                List<String> returnSet = new ArrayList<>();
+                while (resultSet.hasNext()) {
+                    // Access individual query solution
+                    QuerySolution solution = resultSet.nextSolution();
+                    returnSet.add(solution.get("MemberValue").toString());
+                }
+                return Optional.of(returnSet);
             }
         }
         return Optional.empty();
