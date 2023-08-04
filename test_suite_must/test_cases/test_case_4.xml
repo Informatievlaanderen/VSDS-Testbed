@@ -214,7 +214,7 @@
         </process>
 
         <!-- Validate if two SPAQL query outputs are logically same. -->
-        <verify id="step10" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node for geospatial fragementation" handler="$DOMAIN{validationServiceAddress}">
+        <verify id="step10" desc=" Validate if tree:node of a tree:Relation is typed as tree:Node for String fragementation" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"RDF Comparison"</input>
             <input name="model1">$resultTreeNodeString</input>
             <input name="model2">$resultTreeNodeIRIString</input>
