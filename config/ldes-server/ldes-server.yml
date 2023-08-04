@@ -4,7 +4,7 @@ springdoc:
     swagger-ui:
         path: /v1/swagger
 ldes-server:
-    host-name: "http://ldes-server:8080"
+    host-name: "http://localhost:8080"
 management:
     tracing:
         enabled: false

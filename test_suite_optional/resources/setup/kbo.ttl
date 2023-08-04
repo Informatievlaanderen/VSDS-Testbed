@@ -12,12 +12,7 @@
 server:kbo a ldes:EventStream ;
 	ldes:timestampPath dcterms:issued;
 	ldes:versionOfPath dcterms:isVersionOf ;
-	custom:memberType legal:legalEntity;
 	tree:shape kbo:shape .
 
 kbo:shape a sh:NodeShape ;
-	sh:nodeShape [
-		sh:closed true ;
-		sh:propertyShape []
-		] ;
-	sh:deactivated true .
+	sh:targetClass legal:legalEntity .

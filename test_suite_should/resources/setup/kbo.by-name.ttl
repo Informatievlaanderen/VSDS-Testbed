@@ -14,6 +14,7 @@
 		tree:fragmentationStrategy ([
 			a tree:SubstringFragmentation ;
 			tree:memberLimit "2"^^xsd:integer ;
+			tree:caseSensitive true ;
 			tree:fragmentationPath legal:legalName ;
 		]) ;
 	] .

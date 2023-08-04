@@ -4,7 +4,6 @@
 @prefix ns3: <https://w3id.org/tree#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
     ns1:hasPageSource "http://ldes-server:8080/kbo/by-name" ;
@@ -14,44 +13,41 @@
             ns2:versionOfPath dcterms:isVersionOf ;
             ns3:view <http://ldes-server:8080/kbo/by-name> ],
         [ a ns3:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
             rdf:subject <http://ldes-server:8080/kbo/by-name> ;
             ns3:relation [ a ns3:Relation ;
                     ns3:node <http://ldes-server:8080/kbo/by-name?substring=> ] ],
         [ a sh:NodeShape ;
             rdf:subject <http://ldes-server:8080/kbo/shape> ;
-            sh:deactivated true ;
-            sh:nodeShape [ sh:closed true ;
-                    sh:propertyShape [ ] ] ] ;
+            sh:targetClass <http://www.w3.org/ns/legal#legalEntity> ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
             ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Type" ;
             ns1:headerValue "text/turtle" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
+            ns1:headerValue "Origin" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:32 GMT" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Etag" ;
             ns1:headerValue "\"bbe7542aab6a8c6da00df88a79b5eb24c751accf1b54e31bca3e0cb92fbc3eb9\"" ],
         [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Disposition" ;
             ns1:headerValue "inline" ] .
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://www.w3.org/ns/legal#> .
-@prefix ns2: <http://example.org/> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <http://www.w3.org/ns/legal#> .
 @prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
 @prefix ns4: <https://www.w3.org/ns/locn#> .
 @prefix ns5: <https://w3id.org/tree#> .
@@ -59,78 +55,214 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=p" ;
-    ns2:has_contents [ a ns5:Node ;
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=U" ;
+    ns1:has_contents [ a ns5:Node ;
             dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=p> ],
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=U> ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_24430 ;
+            ns2:companyActivity ns3:Nace2008_24430 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_21201 ;
+            ns2:companyActivity ns3:Nace2008_21201 ;
+            ns3:classification ns3:Classification_SECO ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.713745517254136 51.1819214)"^^geo:wktLiteral ;
+            rdf:subject ns3:a57c491e7b92f6e9be0b ;
+            ns3:addressType ns3:TypeOfAddress_BAET ;
+            ns4:fullAddress "Industrieweg 34, 2280 Grobbendonk, Belgium" ;
+            ns4:poBox "3" ;
+            ns4:postCode "2280" ;
+            ns4:postName "Grobbendonk" ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "2021-06-01"^^xsd:date ;
+            rdf:subject ns3:2319223676 ;
+            ns4:Address ns3:38b4ec8887b43213df3d ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1919-12-01"^^xsd:date ;
+            rdf:subject ns3:2105027979 ;
+            ns4:Address ns3:a38b155532fe3062214d ],
+        [ a ns2:legalEntity,
+                ns3:Enterprise ;
+            dcterms:isVersionOf ns3:0401574852 ;
+            rdf:subject ns3:0401574852.2022.11 ;
+            ns2:companyStatus ns3:JuridicalSituation_000 ;
+            ns2:companyType ns3:JuridicalForm_014 ;
+            ns2:legalName "UM",
+                "UMICORE" ;
+            ns2:registeredAddress ns3:a38b155532fe3062214d ;
+            ns3:activity ns3:2003_13200,
+                ns3:2003_27431,
+                ns3:2003_27432,
+                ns3:2008_20140,
+                ns3:2008_24410,
+                ns3:2008_24430,
+                ns3:2008_24450,
+                ns3:2008_70100 ;
+            ns3:establishment ns3:2105027979,
+                ns3:2105028474,
+                ns3:2105029959,
+                ns3:2273298433,
+                ns3:2319223676 ;
+            ns3:status ns3:Status_AC ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_20140 ;
+            ns2:companyActivity ns3:Nace2008_20140 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1989-12-28"^^xsd:date ;
+            rdf:subject ns3:2105028474 ;
+            ns4:Address ns3:96ac4a016d7c655f1ac5 ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_24410 ;
+            ns2:companyActivity ns3:Nace2008_24410 ;
+            ns3:classification ns3:Classification_SECO ],
         [ a <https://w3id.org/ldes#EventStream> ;
             rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns3:0417199869.2022.11 ],
+            ns5:member ns3:0401574852.2022.11,
+                ns3:0403053608.2022.11 ],
         [ a ns3:Activity ;
-            rdf:subject ns3:2003_70203 ;
-            ns1:companyActivity ns3:Nace2003_70203 ;
+            rdf:subject ns3:2008_82990 ;
+            ns2:companyActivity ns3:Nace2008_82990 ;
             ns3:classification ns3:Classification_MAIN ],
-        [ a ns4:Address ;
-            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
-            rdf:subject ns3:90bf93ec289a49764d95 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns4:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
-            ns4:poBox "None" ;
-            ns4:postCode "1861" ;
-            ns4:postName "Meise" ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_27432 ;
+            ns2:companyActivity ns3:Nace2003_27432 ;
+            ns3:classification ns3:Classification_SECO ],
         [ a ns3:Code ;
             rdf:subject ns3:Status_AC ;
             ns3:codeDescription "Actif"@FR,
                 "Actief"@NL ;
             ns3:codeValue "AC" ],
-        [ a ns1:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0417199869 ;
-            rdf:subject ns3:0417199869.2022.11 ;
-            ns1:companyStatus ns3:JuridicalSituation_000 ;
-            ns1:companyType ns3:JuridicalForm_014 ;
-            ns1:legalName "WAREHOUSES DE PAUW",
-                "WDP" ;
-            ns1:registeredAddress ns3:90bf93ec289a49764d95 ;
-            ns3:activity ns3:2003_70203,
-                ns3:2008_68203 ;
-            ns3:establishment ns3:2102213296 ;
-            ns3:status ns3:Status_AC ],
         [ a org:Site,
                 ns3:Establishment ;
-            dcterms:issued "1977-05-27"^^xsd:date ;
-            rdf:subject ns3:2102213296 ;
-            ns4:Address ns3:90bf93ec289a49764d95 ],
+            dcterms:issued "2018-02-20"^^xsd:date ;
+            rdf:subject ns3:2273298433 ;
+            ns4:Address ns3:a57c491e7b92f6e9be0b ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.893131165411165 51.18053655)"^^geo:wktLiteral ;
+            rdf:subject ns3:ef3ab0a78635faf387a5 ;
+            ns3:addressType ns3:TypeOfAddress_BAET ;
+            ns4:fullAddress "Watertorenstraat 33, 2250 Olen, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "2250" ;
+            ns4:postName "Olen" ],
         [ a ns3:Activity ;
-            rdf:subject ns3:2008_68203 ;
-            ns1:companyActivity ns3:Nace2008_68203 ;
-            ns3:classification ns3:Classification_MAIN ] ;
-    ns2:has_headers [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Access-Control-Request-Headers" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Etag" ;
-            ns2:headerValue "\"9e11e975b2698f9678737fb398323e1e67ab89ec35d3dd8077948f5d4f1e893c\"" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Origin" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Date" ;
-            ns2:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Content-Disposition" ;
-            ns2:headerValue "inline" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Content-Type" ;
-            ns2:headerValue "text/turtle" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Access-Control-Request-Method" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Cache-Control" ;
-            ns2:headerValue "public,max-age=60" ] .
+            rdf:subject ns3:2008_64200 ;
+            ns2:companyActivity ns3:Nace2008_64200 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_70100 ;
+            ns2:companyActivity ns3:Nace2008_70100 ;
+            ns3:classification ns3:Classification_SECO ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1990-02-01"^^xsd:date ;
+            rdf:subject ns3:2105029959 ;
+            ns4:Address ns3:ef3ab0a78635faf387a5 ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1998-02-01"^^xsd:date ;
+            rdf:subject ns3:2142567276 ;
+            ns4:Address ns3:6a4b10066ee5f892c094 ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_24450 ;
+            ns2:companyActivity ns3:Nace2008_24450 ;
+            ns3:classification ns3:Classification_SECO ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_74879 ;
+            ns2:companyActivity ns3:Nace2003_74879 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.334850070864558 51.16773455)"^^geo:wktLiteral ;
+            rdf:subject ns3:96ac4a016d7c655f1ac5 ;
+            ns3:addressType ns3:TypeOfAddress_BAET ;
+            ns4:fullAddress "Adolf Greinerstraat 14, 2660 Antwerpen, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "2660" ;
+            ns4:postName "Antwerpen" ],
+        [ a ns2:legalEntity,
+                ns3:Enterprise ;
+            dcterms:isVersionOf ns3:0403053608 ;
+            rdf:subject ns3:0403053608.2022.11 ;
+            ns2:companyStatus ns3:JuridicalSituation_000 ;
+            ns2:companyType ns3:JuridicalForm_014 ;
+            ns2:legalName "U C B" ;
+            ns2:registeredAddress ns3:6a4b10066ee5f892c094 ;
+            ns3:activity ns3:2003_74151,
+                ns3:2003_74879,
+                ns3:2008_21201,
+                ns3:2008_64200,
+                ns3:2008_82990 ;
+            ns3:establishment ns3:2142567276 ;
+            ns3:status ns3:Status_AC ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_27431 ;
+            ns2:companyActivity ns3:Nace2003_27431 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.875528 51.1769809)"^^geo:wktLiteral ;
+            rdf:subject ns3:38b4ec8887b43213df3d ;
+            ns3:addressType ns3:TypeOfAddress_BAET ;
+            ns4:fullAddress "Watertorenstraat 37A, 2250 Olen, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "2250" ;
+            ns4:postName "Olen" ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_74151 ;
+            ns2:companyActivity ns3:Nace2003_74151 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.275721857227438 50.8176796)"^^geo:wktLiteral ;
+            rdf:subject ns3:6a4b10066ee5f892c094 ;
+            ns3:addressType ns3:TypeOfAddress_BAET,
+                ns3:TypeOfAddress_REGO ;
+            ns4:fullAddress "Researchdreef 60, 1070 Anderlecht, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "1070" ;
+            ns4:postName "Anderlecht" ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_13200 ;
+            ns2:companyActivity ns3:Nace2003_13200 ;
+            ns3:classification ns3:Classification_SECO ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.3583312 50.850838)"^^geo:wktLiteral ;
+            rdf:subject ns3:a38b155532fe3062214d ;
+            ns3:addressType ns3:TypeOfAddress_BAET,
+                ns3:TypeOfAddress_REGO ;
+            ns4:fullAddress "Broekstraat 31, 1000 Brussel, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "1000" ;
+            ns4:postName "Brussel" ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"ab3e985ead0be80c1bc73f2c55fe862860e88bfbdd9f3dfee1bfb875f08cb381\"" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ] .
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
@@ -144,269 +276,1400 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns3:CrawledPage ;
-    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=k" ;
-    ns3:has_contents [ a ns2:Address ;
-            geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
-            rdf:subject ns1:7da822f315b3e993391d ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Avenue Albert 1er 60, 5000 Namur, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "5000" ;
-            ns2:postName "Namur" ],
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=W" ;
+    ns3:has_contents [ a ns1:Code ;
+            rdf:subject ns1:Status_AC ;
+            ns1:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns1:codeValue "AC" ],
+        [ a ns4:legalEntity,
+                ns1:Enterprise ;
+            dcterms:isVersionOf ns1:0417199869 ;
+            rdf:subject ns1:0417199869.2022.11 ;
+            ns4:companyStatus ns1:JuridicalSituation_000 ;
+            ns4:companyType ns1:JuridicalForm_014 ;
+            ns4:legalName "WAREHOUSES DE PAUW",
+                "WDP" ;
+            ns4:registeredAddress ns1:90bf93ec289a49764d95 ;
+            ns1:activity ns1:2003_70203,
+                ns1:2008_68203 ;
+            ns1:establishment ns1:2102213296 ;
+            ns1:status ns1:Status_AC ],
         [ a ns2:Address ;
-            geo:asWKT "POINT (3.686794511837455 51.0215496)"^^geo:wktLiteral ;
-            rdf:subject ns1:3003a821952231707cc7 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Kortrijksesteenweg 1100, 9051 Gent, Belgium" ;
+            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
+            rdf:subject ns1:90bf93ec289a49764d95 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns2:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
             ns2:poBox "None" ;
-            ns2:postCode "9051" ;
+            ns2:postCode "1861" ;
+            ns2:postName "Meise" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "1977-05-27"^^xsd:date ;
+            rdf:subject ns1:2102213296 ;
+            ns2:Address ns1:90bf93ec289a49764d95 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2003_70203 ;
+            ns4:companyActivity ns1:Nace2003_70203 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns1:0417199869.2022.11 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_68203 ;
+            ns4:companyActivity ns1:Nace2008_68203 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=W> ] ;
+    ns3:has_headers [ a ns3:HTTPHeader ;
+            ns3:headerName "Date" ;
+            ns3:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Disposition" ;
+            ns3:headerValue "inline" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Cache-Control" ;
+            ns3:headerValue "public,max-age=60" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Type" ;
+            ns3:headerValue "text/turtle" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Headers" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Origin" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Etag" ;
+            ns3:headerValue "\"ad4c07e893742074910a3ba5ff46879076979605879b966faa3c48b27854b443\"" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Method" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <https://www.w3.org/ns/locn#> .
+@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns4: <https://w3id.org/tree#> .
+@prefix ns5: <http://www.w3.org/ns/legal#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=a" ;
+    ns1:has_contents [ a ns3:Activity ;
+            rdf:subject ns3:2008_72110 ;
+            ns5:companyActivity ns3:Nace2008_72110 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns4:member ns3:0818292196.2022.11 ],
+        [ a ns2:Address ;
+            geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
+            rdf:subject ns3:5ce2e40e4d5fceb92279 ;
+            ns3:addressType ns3:TypeOfAddress_BAET,
+                ns3:TypeOfAddress_REGO ;
+            ns2:fullAddress "Industriepark-Zwijnaarde 7, 9052 Gent, Belgium" ;
+            ns2:poBox "None" ;
+            ns2:postCode "9052" ;
             ns2:postName "Gent" ],
+        [ a ns4:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=a> ],
+        [ a ns3:Code ;
+            rdf:subject ns3:Status_AC ;
+            ns3:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns3:codeValue "AC" ],
+        [ a ns5:legalEntity,
+                ns3:Enterprise ;
+            dcterms:isVersionOf ns3:0818292196 ;
+            rdf:subject ns3:0818292196.2022.11 ;
+            ns5:companyStatus ns3:JuridicalSituation_000 ;
+            ns5:companyType ns3:JuridicalForm_610 ;
+            ns5:legalName "argenx" ;
+            ns5:registeredAddress ns3:5ce2e40e4d5fceb92279 ;
+            ns3:activity ns3:2008_72110 ;
+            ns3:establishment ns3:2182789911 ;
+            ns3:status ns3:Status_AC ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "2009-09-28"^^xsd:date ;
+            rdf:subject ns3:2182789911 ;
+            ns2:Address ns3:5ce2e40e4d5fceb92279 ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"a787bf7c9a4f47c56e3d6647ee290fad24a032908a10dc0f0397c886c5507e98\"" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns4: <http://www.w3.org/ns/legal#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=P" ;
+    ns1:has_contents [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=P> ],
+        [ a ns4:legalEntity,
+                ns2:Enterprise ;
+            dcterms:isVersionOf ns2:0417199869 ;
+            rdf:subject ns2:0417199869.2022.11 ;
+            ns4:companyStatus ns2:JuridicalSituation_000 ;
+            ns4:companyType ns2:JuridicalForm_014 ;
+            ns4:legalName "WAREHOUSES DE PAUW",
+                "WDP" ;
+            ns4:registeredAddress ns2:90bf93ec289a49764d95 ;
+            ns2:activity ns2:2003_70203,
+                ns2:2008_68203 ;
+            ns2:establishment ns2:2102213296 ;
+            ns2:status ns2:Status_AC ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_68203 ;
+            ns4:companyActivity ns2:Nace2008_68203 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns2:Code ;
+            rdf:subject ns2:Status_AC ;
+            ns2:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns2:codeValue "AC" ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns2:0417199869.2022.11 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "1977-05-27"^^xsd:date ;
+            rdf:subject ns2:2102213296 ;
+            ns3:Address ns2:90bf93ec289a49764d95 ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_70203 ;
+            ns4:companyActivity ns2:Nace2003_70203 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
+            rdf:subject ns2:90bf93ec289a49764d95 ;
+            ns2:addressType ns2:TypeOfAddress_BAET,
+                ns2:TypeOfAddress_REGO ;
+            ns3:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1861" ;
+            ns3:postName "Meise" ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"110585d23388435c690040a268a5e4610610caa7ae5149237e4f6737aee87ac9\"" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <https://www.w3.org/ns/locn#> .
+@prefix ns3: <http://www.w3.org/ns/legal#> .
+@prefix ns4: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns5: <http://www.w3.org/2006/vcard/> .
+@prefix ns6: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=V" ;
+    ns1:has_contents [ a ns2:Address ;
+            geo:asWKT "POINT (4.4104638 51.1975987)"^^geo:wktLiteral ;
+            rdf:subject ns4:2ad9324271a74bba3baf ;
+            ns4:addressType ns4:TypeOfAddress_BAET,
+                ns4:TypeOfAddress_REGO ;
+            ns2:fullAddress "Generaal Lemanstraat 55, 2018 Antwerpen, Belgium" ;
+            ns2:poBox "4" ;
+            ns2:postCode "2018" ;
+            ns2:postName "Antwerpen" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74151 ;
+            ns3:companyActivity ns4:Nace2003_74151 ;
+            ns4:classification ns4:Classification_MAIN,
+                ns4:Classification_SECO ],
+        [ a ns6:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=V> ],
+        [ a ns3:legalEntity,
+                ns4:Enterprise ;
+            dcterms:isVersionOf ns4:0887216042 ;
+            rdf:subject ns4:0887216042.2022.11 ;
+            ns3:companyStatus ns4:JuridicalSituation_000 ;
+            ns3:companyType ns4:JuridicalForm_014 ;
+            ns3:legalName "VGP" ;
+            ns3:registeredAddress ns4:2ad9324271a74bba3baf ;
+            ns4:activity ns4:2003_74124,
+                ns4:2003_74142,
+                ns4:2003_74151,
+                ns4:2003_74879,
+                ns4:2008_64200 ;
+            ns4:establishment ns4:2160071917 ;
+            ns4:status ns4:Status_AC ],
+        [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "2007-02-06"^^xsd:date ;
+            rdf:subject ns4:2160071917 ;
+            ns2:Address ns4:2ad9324271a74bba3baf ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74124 ;
+            ns3:companyActivity ns4:Nace2003_74124 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_65231 ;
+            ns3:companyActivity ns4:Nace2003_65231 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "1924-12-01"^^xsd:date ;
+            rdf:subject ns4:2003342780 ;
+            ns5:email "info@avh.be" ;
+            ns5:tel "03/231.87.70" ;
+            ns5:url "www.avh.be" ;
+            ns2:Address ns4:1843c2cb3f6ac21cf789 ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74879 ;
+            ns3:companyActivity ns4:Nace2003_74879 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a ns2:Address ;
+            geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
+            rdf:subject ns4:1843c2cb3f6ac21cf789 ;
+            ns4:addressType ns4:TypeOfAddress_BAET,
+                ns4:TypeOfAddress_REGO ;
+            ns2:fullAddress "Begijnenvest 113, 2000 Antwerpen, Belgium" ;
+            ns2:poBox "None" ;
+            ns2:postCode "2000" ;
+            ns2:postName "Antwerpen" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_64200 ;
+            ns3:companyActivity ns4:Nace2008_64200 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Code ;
+            rdf:subject ns4:Status_AC ;
+            ns4:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns4:codeValue "AC" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74142 ;
+            ns3:companyActivity ns4:Nace2003_74142 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns6:member ns4:0404616494.2022.11,
+                ns4:0887216042.2022.11 ],
+        [ a ns3:legalEntity,
+                ns4:Enterprise ;
+            dcterms:isVersionOf ns4:0404616494 ;
+            rdf:subject ns4:0404616494.2022.11 ;
+            ns3:companyStatus ns4:JuridicalSituation_000 ;
+            ns3:companyType ns4:JuridicalForm_014 ;
+            ns3:legalName "ACKERMANS & VAN HAAREN" ;
+            ns3:registeredAddress ns4:1843c2cb3f6ac21cf789 ;
+            ns4:activity ns4:2003_65231,
+                ns4:2003_74151,
+                ns4:2008_64200 ;
+            ns4:establishment ns4:2003342780 ;
+            ns4:status ns4:Status_AC ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"68edd91bee1696d91f7758a90352a3a75d90c3ffacfc8504fc6d0d625cf8a84c\"" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/legal#> .
+@prefix ns2: <http://example.org/> .
+@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns4: <https://w3id.org/tree#> .
+@prefix ns5: <https://www.w3.org/ns/locn#> .
+@prefix ns6: <http://www.w3.org/2006/vcard/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns2:CrawledPage ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=H" ;
+    ns2:has_contents [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns4:member ns3:0404616494.2022.11 ],
+        [ a ns5:Address ;
+            geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
+            rdf:subject ns3:1843c2cb3f6ac21cf789 ;
+            ns3:addressType ns3:TypeOfAddress_BAET,
+                ns3:TypeOfAddress_REGO ;
+            ns5:fullAddress "Begijnenvest 113, 2000 Antwerpen, Belgium" ;
+            ns5:poBox "None" ;
+            ns5:postCode "2000" ;
+            ns5:postName "Antwerpen" ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2008_64200 ;
+            ns1:companyActivity ns3:Nace2008_64200 ;
+            ns3:classification ns3:Classification_MAIN ],
+        [ a ns4:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=H> ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1924-12-01"^^xsd:date ;
+            rdf:subject ns3:2003342780 ;
+            ns6:email "info@avh.be" ;
+            ns6:tel "03/231.87.70" ;
+            ns6:url "www.avh.be" ;
+            ns5:Address ns3:1843c2cb3f6ac21cf789 ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_74151 ;
+            ns1:companyActivity ns3:Nace2003_74151 ;
+            ns3:classification ns3:Classification_MAIN,
+                ns3:Classification_SECO ],
+        [ a ns3:Code ;
+            rdf:subject ns3:Status_AC ;
+            ns3:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns3:codeValue "AC" ],
+        [ a ns1:legalEntity,
+                ns3:Enterprise ;
+            dcterms:isVersionOf ns3:0404616494 ;
+            rdf:subject ns3:0404616494.2022.11 ;
+            ns1:companyStatus ns3:JuridicalSituation_000 ;
+            ns1:companyType ns3:JuridicalForm_014 ;
+            ns1:legalName "ACKERMANS & VAN HAAREN" ;
+            ns1:registeredAddress ns3:1843c2cb3f6ac21cf789 ;
+            ns3:activity ns3:2003_65231,
+                ns3:2003_74151,
+                ns3:2008_64200 ;
+            ns3:establishment ns3:2003342780 ;
+            ns3:status ns3:Status_AC ],
+        [ a ns3:Activity ;
+            rdf:subject ns3:2003_65231 ;
+            ns1:companyActivity ns3:Nace2003_65231 ;
+            ns3:classification ns3:Classification_MAIN ] ;
+    ns2:has_headers [ a ns2:HTTPHeader ;
+            ns2:headerName "Etag" ;
+            ns2:headerValue "\"310313276279cb2a6bfeca6b13a23f2dfcfff5f64496bf5e274c1d1904dadf61\"" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Date" ;
+            ns2:headerValue "Fri, 04 Aug 2023 08:47:35 GMT" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Access-Control-Request-Method" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Access-Control-Request-Headers" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Content-Disposition" ;
+            ns2:headerValue "inline" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Content-Type" ;
+            ns2:headerValue "text/turtle" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Cache-Control" ;
+            ns2:headerValue "public,max-age=60" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Origin" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns2: <https://www.w3.org/ns/locn#> .
+@prefix ns3: <http://example.org/> .
+@prefix ns4: <http://www.w3.org/ns/legal#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns3:CrawledPage ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=D" ;
+    ns3:has_contents [ a ns4:legalEntity,
+                ns1:Enterprise ;
+            dcterms:isVersionOf ns1:0403448140 ;
+            rdf:subject ns1:0403448140.2022.11 ;
+            ns4:companyStatus ns1:JuridicalSituation_000 ;
+            ns4:companyType ns1:JuridicalForm_014 ;
+            ns4:legalName "D'Ieteren Group" ;
+            ns4:registeredAddress ns1:bb6c8ea511229875aa63 ;
+            ns1:activity ns1:2003_50101,
+                ns1:2008_45111,
+                ns1:2008_45113,
+                ns1:2008_45194,
+                ns1:2008_45202,
+                ns1:2008_64200 ;
+            ns1:establishment ns1:2144913983 ;
+            ns1:status ns1:Status_AC ],
         [ a ns1:Activity ;
-            rdf:subject ns1:2003_65120 ;
-            ns4:companyActivity ns1:Nace2003_65120 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (3.1011004857238005 50.95721705)"^^geo:wktLiteral ;
-            rdf:subject ns1:d764f3ba2da243aa7967 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Ter Reigerie 1, 8800 Roeselare, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "8800" ;
-            ns2:postName "Roeselare" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "1998-10-05"^^xsd:date ;
-            rdf:subject ns1:2127571769 ;
-            ns2:Address ns1:4894047789ab0f161254 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
-            rdf:subject ns1:957d88645b7b38444a02 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Havenlaan 6, 1080 Sint-Jans-Molenbeek, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1080" ;
-            ns2:postName "Sint-Jans-Molenbeek" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "1935-02-01"^^xsd:date ;
-            rdf:subject ns1:2127607601 ;
-            ns2:Address ns1:a467dbbe772f2968ca42 ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152440787 ;
-            ns2:Address ns1:876c1f999920f7f6c460 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
-            rdf:subject ns1:91df141f6387713bbe08 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Wetenschapsstraat 23-25, 1000 Brussel, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1000" ;
-            ns2:postName "Brussel" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
-            rdf:subject ns1:bfb37a23a23c0f08ae15 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Professor Van Overstraetenplein 2, 3000 Leuven, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "3000" ;
-            ns2:postName "Leuven" ],
+            rdf:subject ns1:2008_45194 ;
+            ns4:companyActivity ns1:Nace2008_45194 ;
+            ns1:classification ns1:Classification_SECO ],
+        [ a ns4:legalEntity,
+                ns1:Enterprise ;
+            dcterms:isVersionOf ns1:0417199869 ;
+            rdf:subject ns1:0417199869.2022.11 ;
+            ns4:companyStatus ns1:JuridicalSituation_000 ;
+            ns4:companyType ns1:JuridicalForm_014 ;
+            ns4:legalName "WAREHOUSES DE PAUW",
+                "WDP" ;
+            ns4:registeredAddress ns1:90bf93ec289a49764d95 ;
+            ns1:activity ns1:2003_70203,
+                ns1:2008_68203 ;
+            ns1:establishment ns1:2102213296 ;
+            ns1:status ns1:Status_AC ],
         [ a ns1:Activity ;
-            rdf:subject ns1:2008_70100 ;
-            ns4:companyActivity ns1:Nace2008_70100 ;
-            ns1:classification ns1:Classification_MAIN ],
+            rdf:subject ns1:2008_45202 ;
+            ns4:companyActivity ns1:Nace2008_45202 ;
+            ns1:classification ns1:Classification_SECO ],
+        [ a ns2:Address ;
+            geo:asWKT "POINT (4.360005 50.8220867)"^^geo:wktLiteral ;
+            rdf:subject ns1:bb6c8ea511229875aa63 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns2:fullAddress "Maliestraat 50, 1050 Elsene, Belgium" ;
+            ns2:poBox "None" ;
+            ns2:postCode "1050" ;
+            ns2:postName "Elsene" ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=D> ],
         [ a org:Site,
                 ns1:Establishment ;
-            dcterms:issued "2018-07-18"^^xsd:date ;
-            rdf:subject ns1:2277810517 ;
-            ns2:Address ns1:2730d4171a45175182b8 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
-            rdf:subject ns1:0beeffde4fe17c2b8dc4 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Geerdegemdries 29, 2800 Mechelen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2800" ;
-            ns2:postName "Mechelen" ],
+            dcterms:issued "1977-05-27"^^xsd:date ;
+            rdf:subject ns1:2102213296 ;
+            ns2:Address ns1:90bf93ec289a49764d95 ],
         [ a ns1:Code ;
             rdf:subject ns1:Status_AC ;
             ns1:codeDescription "Actif"@FR,
                 "Actief"@NL ;
             ns1:codeValue "AC" ],
         [ a ns1:Activity ;
-            rdf:subject ns1:2008_64190 ;
-            ns4:companyActivity ns1:Nace2008_64190 ;
+            rdf:subject ns1:2003_70203 ;
+            ns4:companyActivity ns1:Nace2003_70203 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2003_50101 ;
+            ns4:companyActivity ns1:Nace2003_50101 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_68203 ;
+            ns4:companyActivity ns1:Nace2008_68203 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2005-01-27"^^xsd:date ;
+            rdf:subject ns1:2144913983 ;
+            ns2:Address ns1:bb6c8ea511229875aa63 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_45111 ;
+            ns4:companyActivity ns1:Nace2008_45111 ;
+            ns1:classification ns1:Classification_MAIN,
+                ns1:Classification_SECO ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_64200 ;
+            ns4:companyActivity ns1:Nace2008_64200 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns2:Address ;
+            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
+            rdf:subject ns1:90bf93ec289a49764d95 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns2:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
+            ns2:poBox "None" ;
+            ns2:postCode "1861" ;
+            ns2:postName "Meise" ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_45113 ;
+            ns4:companyActivity ns1:Nace2008_45113 ;
+            ns1:classification ns1:Classification_SECO ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns1:0403448140.2022.11,
+                ns1:0417199869.2022.11 ] ;
+    ns3:has_headers [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Headers" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Method" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Type" ;
+            ns3:headerValue "text/turtle" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Date" ;
+            ns3:headerValue "Fri, 04 Aug 2023 08:47:35 GMT" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Cache-Control" ;
+            ns3:headerValue "public,max-age=60" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Etag" ;
+            ns3:headerValue "\"0a0ebf2229339f615947367a15a1ea797f1d3586318e77dbc2780e07f6177bd2\"" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Disposition" ;
+            ns3:headerValue "inline" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Origin" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns4: <http://www.w3.org/ns/legal#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=K" ;
+    ns1:has_contents [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=K> ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
+            rdf:subject ns2:058b43a6ce024a1c7226 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Monseigneur Ladeuzeplein 15, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152450487 ;
+            ns3:Address ns2:cbd62742dd4d7fdc0c85 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+            rdf:subject ns2:4894047789ab0f161254 ;
+            ns2:addressType ns2:TypeOfAddress_BAET,
+                ns2:TypeOfAddress_REGO ;
+            ns3:fullAddress "Havenlaan 2, 1080 Sint-Jans-Molenbeek, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1080" ;
+            ns3:postName "Sint-Jans-Molenbeek" ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns2:0403227515.2022.11 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+            rdf:subject ns2:957d88645b7b38444a02 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Havenlaan 6, 1080 Sint-Jans-Molenbeek, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1080" ;
+            ns3:postName "Sint-Jans-Molenbeek" ],
+        [ a ns4:legalEntity,
+                ns2:Enterprise ;
+            dcterms:isVersionOf ns2:0403227515 ;
+            rdf:subject ns2:0403227515.2022.11 ;
+            ns4:companyStatus ns2:JuridicalSituation_000 ;
+            ns4:companyType ns2:JuridicalForm_014 ;
+            ns4:legalName "KBC Groep",
+                "KBC Group",
+                "KBC Groupe",
+                "KBC Gruppe" ;
+            ns4:registeredAddress ns2:4894047789ab0f161254 ;
+            ns2:activity ns2:2003_65120,
+                ns2:2003_65231,
+                ns2:2008_64190,
+                ns2:2008_70100 ;
+            ns2:establishment ns2:2127571769,
+                ns2:2127607601,
+                ns2:2152438611,
+                ns2:2152439304,
+                ns2:2152440787,
+                ns2:2152450487,
+                ns2:2152451081,
+                ns2:2152452071,
+                ns2:2152452467,
+                ns2:2152452962,
+                ns2:2155795702,
+                ns2:2155797383,
+                ns2:2172430905,
+                ns2:2217795825,
+                ns2:2241912795,
+                ns2:2277810517,
+                ns2:2278346688,
+                ns2:2322992226 ;
+            ns2:status ns2:Status_AC ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "1998-10-05"^^xsd:date ;
+            rdf:subject ns2:2127571769 ;
+            ns3:Address ns2:4894047789ab0f161254 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2008-08-19"^^xsd:date ;
+            rdf:subject ns2:2172430905 ;
+            ns3:Address ns2:bfb37a23a23c0f08ae15 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "1935-02-01"^^xsd:date ;
+            rdf:subject ns2:2127607601 ;
+            ns3:Address ns2:a467dbbe772f2968ca42 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
+            rdf:subject ns2:bfb37a23a23c0f08ae15 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Professor Van Overstraetenplein 2, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
+            rdf:subject ns2:ab93acb3d3bc5928d356 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Keizerstraat 10, 2000 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2000" ;
+            ns3:postName "Antwerpen" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
+            rdf:subject ns2:cbd62742dd4d7fdc0c85 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Brusselsesteenweg 100, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
+            rdf:subject ns2:defb6da6597efd6640a0 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Delacenseriestraat 1, 2018 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2018" ;
+            ns3:postName "Antwerpen" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2013-03-28"^^xsd:date ;
+            rdf:subject ns2:2217795825 ;
+            ns3:Address ns2:3003a821952231707cc7 ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_70100 ;
+            ns4:companyActivity ns2:Nace2008_70100 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_64190 ;
+            ns4:companyActivity ns2:Nace2008_64190 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152452071 ;
+            ns3:Address ns2:0beeffde4fe17c2b8dc4 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-08-17"^^xsd:date ;
+            rdf:subject ns2:2155797383 ;
+            ns3:Address ns2:957d88645b7b38444a02 ],
+        [ a ns2:Code ;
+            rdf:subject ns2:Status_AC ;
+            ns2:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns2:codeValue "AC" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152451081 ;
+            ns3:Address ns2:058b43a6ce024a1c7226 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2015-04-30"^^xsd:date ;
+            rdf:subject ns2:2241912795 ;
+            ns3:Address ns2:91df141f6387713bbe08 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (3.686794511837455 51.0215496)"^^geo:wktLiteral ;
+            rdf:subject ns2:3003a821952231707cc7 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Kortrijksesteenweg 1100, 9051 Gent, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "9051" ;
+            ns3:postName "Gent" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
+            rdf:subject ns2:cdc6fbe2282c7583bce0 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Schoenmarkt 35, 2000 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2000" ;
+            ns3:postName "Antwerpen" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
+            rdf:subject ns2:7da822f315b3e993391d ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Avenue Albert 1er 60, 5000 Namur, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "5000" ;
+            ns3:postName "Namur" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
+            rdf:subject ns2:a467dbbe772f2968ca42 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Gouverneur Verwilghensingel 100, 3500 Hasselt, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3500" ;
+            ns3:postName "Hasselt" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
+            rdf:subject ns2:876c1f999920f7f6c460 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Grote Markt 18, 1000 Brussel, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1000" ;
+            ns3:postName "Brussel" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2021-01-01"^^xsd:date ;
+            rdf:subject ns2:2322992226 ;
+            ns3:Address ns2:defb6da6597efd6640a0 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-08-17"^^xsd:date ;
+            rdf:subject ns2:2155795702 ;
+            ns3:Address ns2:d764f3ba2da243aa7967 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2018-07-18"^^xsd:date ;
+            rdf:subject ns2:2277810517 ;
+            ns3:Address ns2:2730d4171a45175182b8 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152452467 ;
+            ns3:Address ns2:d7680f0a2848c2a75fc5 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
+            rdf:subject ns2:0beeffde4fe17c2b8dc4 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Geerdegemdries 29, 2800 Mechelen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152440787 ;
+            ns3:Address ns2:876c1f999920f7f6c460 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152452962 ;
+            ns3:Address ns2:abff6f72501beb37dd6c ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.46939785 51.006352750000005)"^^geo:wktLiteral ;
+            rdf:subject ns2:d7680f0a2848c2a75fc5 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Geerdegemdries 28, 2800 Mechelen, Belgium" ;
+            ns3:poBox "1" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
+            rdf:subject ns2:2730d4171a45175182b8 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Roderveldlaan 4, 2600 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2600" ;
+            ns3:postName "Antwerpen" ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_65120 ;
+            ns4:companyActivity ns2:Nace2003_65120 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152439304 ;
+            ns3:Address ns2:cdc6fbe2282c7583bce0 ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_65231 ;
+            ns4:companyActivity ns2:Nace2003_65231 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns2:2152438611 ;
+            ns3:Address ns2:ab93acb3d3bc5928d356 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
+            rdf:subject ns2:91df141f6387713bbe08 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Wetenschapsstraat 23-25, 1000 Brussel, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1000" ;
+            ns3:postName "Brussel" ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "2018-04-01"^^xsd:date ;
+            rdf:subject ns2:2278346688 ;
+            ns3:Address ns2:7da822f315b3e993391d ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
+            rdf:subject ns2:abff6f72501beb37dd6c ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Egide Walschaertsstraat 3, 2800 Mechelen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (3.1011004857238005 50.95721705)"^^geo:wktLiteral ;
+            rdf:subject ns2:d764f3ba2da243aa7967 ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns3:fullAddress "Ter Reigerie 1, 8800 Roeselare, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "8800" ;
+            ns3:postName "Roeselare" ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:35 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"f8543d3ca29997ce1416899efb7fb7c82e38d2443ddcba4ac6e26d16cacb7c77\"" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/ns/legal#> .
+@prefix ns2: <http://example.org/> .
+@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns4: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns2:CrawledPage ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=C" ;
+    ns2:has_contents [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "1984-03-01"^^xsd:date ;
+            rdf:subject ns4:2037846769 ;
+            ns3:Address ns4:c13abd7474627a0311ef ],
+        [ a ns1:legalEntity,
+                ns4:Enterprise ;
+            dcterms:isVersionOf ns4:0426184049 ;
+            rdf:subject ns4:0426184049.2022.11 ;
+            ns1:companyStatus ns4:JuridicalSituation_000 ;
+            ns1:companyType ns4:JuridicalForm_014 ;
+            ns1:legalName "Cofinimmo" ;
+            ns1:registeredAddress ns4:c13abd7474627a0311ef ;
+            ns4:activity ns4:2003_70113,
+                ns4:2003_70322,
+                ns4:2008_64999,
+                ns4:2008_68100,
+                ns4:2008_68201,
+                ns4:2008_70220 ;
+            ns4:establishment ns4:2037846769 ;
+            ns4:status ns4:Status_AC ],
+        [ a ns1:legalEntity,
+                ns4:Enterprise ;
+            dcterms:isVersionOf ns4:0403053608 ;
+            rdf:subject ns4:0403053608.2022.11 ;
+            ns1:companyStatus ns4:JuridicalSituation_000 ;
+            ns1:companyType ns4:JuridicalForm_014 ;
+            ns1:legalName "U C B" ;
+            ns1:registeredAddress ns4:6a4b10066ee5f892c094 ;
+            ns4:activity ns4:2003_74151,
+                ns4:2003_74879,
+                ns4:2008_21201,
+                ns4:2008_64200,
+                ns4:2008_82990 ;
+            ns4:establishment ns4:2142567276 ;
+            ns4:status ns4:Status_AC ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_70322 ;
+            ns1:companyActivity ns4:Nace2003_70322 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.4363198 50.841018)"^^geo:wktLiteral ;
+            rdf:subject ns4:c13abd7474627a0311ef ;
+            ns4:addressType ns4:TypeOfAddress_BAET,
+                ns4:TypeOfAddress_REGO ;
+            ns3:fullAddress "Woluwedal 58, 1200 Sint-Lambrechts-Woluwe, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1200" ;
+            ns3:postName "Sint-Lambrechts-Woluwe" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.275721857227438 50.8176796)"^^geo:wktLiteral ;
+            rdf:subject ns4:6a4b10066ee5f892c094 ;
+            ns4:addressType ns4:TypeOfAddress_BAET,
+                ns4:TypeOfAddress_REGO ;
+            ns3:fullAddress "Researchdreef 60, 1070 Anderlecht, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1070" ;
+            ns3:postName "Anderlecht" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_70113 ;
+            ns1:companyActivity ns4:Nace2003_70113 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74151 ;
+            ns1:companyActivity ns4:Nace2003_74151 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_82990 ;
+            ns1:companyActivity ns4:Nace2008_82990 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_68201 ;
+            ns1:companyActivity ns4:Nace2008_68201 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_64200 ;
+            ns1:companyActivity ns4:Nace2008_64200 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_70220 ;
+            ns1:companyActivity ns4:Nace2008_70220 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns4:0403053608.2022.11,
+                ns4:0426184049.2022.11 ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74879 ;
+            ns1:companyActivity ns4:Nace2003_74879 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_64999 ;
+            ns1:companyActivity ns4:Nace2008_64999 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=C> ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_68100 ;
+            ns1:companyActivity ns4:Nace2008_68100 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Code ;
+            rdf:subject ns4:Status_AC ;
+            ns4:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns4:codeValue "AC" ],
+        [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "1998-02-01"^^xsd:date ;
+            rdf:subject ns4:2142567276 ;
+            ns3:Address ns4:6a4b10066ee5f892c094 ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_21201 ;
+            ns1:companyActivity ns4:Nace2008_21201 ;
+            ns4:classification ns4:Classification_SECO ] ;
+    ns2:has_headers [ a ns2:HTTPHeader ;
+            ns2:headerName "Etag" ;
+            ns2:headerValue "\"ee732fb8b947ff17ef7be3adbdc87f2c71d514c9bbf391df7c148dde4fa22927\"" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Cache-Control" ;
+            ns2:headerValue "public,max-age=60" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Date" ;
+            ns2:headerValue "Fri, 04 Aug 2023 08:47:35 GMT" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Content-Disposition" ;
+            ns2:headerValue "inline" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Origin" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Access-Control-Request-Method" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Vary" ;
+            ns2:headerValue "Access-Control-Request-Headers" ],
+        [ a ns2:HTTPHeader ;
+            ns2:headerName "Content-Type" ;
+            ns2:headerValue "text/turtle" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns2: <http://example.org/> .
+@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns4: <http://www.w3.org/ns/legal#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns2:CrawledPage ;
+    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=G" ;
+    ns2:has_contents [ a ns3:Address ;
+            geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
+            rdf:subject ns1:ab93acb3d3bc5928d356 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Keizerstraat 10, 2000 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2000" ;
+            ns3:postName "Antwerpen" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2018-04-01"^^xsd:date ;
+            rdf:subject ns1:2278346688 ;
+            ns3:Address ns1:7da822f315b3e993391d ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
+            rdf:subject ns1:cdc6fbe2282c7583bce0 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Schoenmarkt 35, 2000 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2000" ;
+            ns3:postName "Antwerpen" ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns1:0403227515.2022.11,
+                ns1:0403448140.2022.11 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
+            rdf:subject ns1:a467dbbe772f2968ca42 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Gouverneur Verwilghensingel 100, 3500 Hasselt, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3500" ;
+            ns3:postName "Hasselt" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (3.1011004857238005 50.95721705)"^^geo:wktLiteral ;
+            rdf:subject ns1:d764f3ba2da243aa7967 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Ter Reigerie 1, 8800 Roeselare, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "8800" ;
+            ns3:postName "Roeselare" ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_70100 ;
+            ns4:companyActivity ns1:Nace2008_70100 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns1:Code ;
+            rdf:subject ns1:Status_AC ;
+            ns1:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns1:codeValue "AC" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.360005 50.8220867)"^^geo:wktLiteral ;
+            rdf:subject ns1:bb6c8ea511229875aa63 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns3:fullAddress "Maliestraat 50, 1050 Elsene, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1050" ;
+            ns3:postName "Elsene" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
+            rdf:subject ns1:91df141f6387713bbe08 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Wetenschapsstraat 23-25, 1000 Brussel, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1000" ;
+            ns3:postName "Brussel" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
+            rdf:subject ns1:058b43a6ce024a1c7226 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Monseigneur Ladeuzeplein 15, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2003_65120 ;
+            ns4:companyActivity ns1:Nace2003_65120 ;
             ns1:classification ns1:Classification_MAIN ],
         [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2006-08-17"^^xsd:date ;
             rdf:subject ns1:2155795702 ;
-            ns2:Address ns1:d764f3ba2da243aa7967 ],
+            ns3:Address ns1:d764f3ba2da243aa7967 ],
         [ a org:Site,
                 ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152438611 ;
-            ns2:Address ns1:ab93acb3d3bc5928d356 ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152452962 ;
-            ns2:Address ns1:abff6f72501beb37dd6c ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2021-01-01"^^xsd:date ;
-            rdf:subject ns1:2322992226 ;
-            ns2:Address ns1:defb6da6597efd6640a0 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
-            rdf:subject ns1:ab93acb3d3bc5928d356 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Keizerstraat 10, 2000 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2000" ;
-            ns2:postName "Antwerpen" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
-            rdf:subject ns1:876c1f999920f7f6c460 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Grote Markt 18, 1000 Brussel, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1000" ;
-            ns2:postName "Brussel" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.46939785 51.006352750000005)"^^geo:wktLiteral ;
-            rdf:subject ns1:d7680f0a2848c2a75fc5 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Geerdegemdries 28, 2800 Mechelen, Belgium" ;
-            ns2:poBox "1" ;
-            ns2:postCode "2800" ;
-            ns2:postName "Mechelen" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
-            rdf:subject ns1:2730d4171a45175182b8 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Roderveldlaan 4, 2600 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2600" ;
-            ns2:postName "Antwerpen" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2018-04-01"^^xsd:date ;
-            rdf:subject ns1:2278346688 ;
-            ns2:Address ns1:7da822f315b3e993391d ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152450487 ;
-            ns2:Address ns1:cbd62742dd4d7fdc0c85 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
-            rdf:subject ns1:abff6f72501beb37dd6c ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Egide Walschaertsstraat 3, 2800 Mechelen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2800" ;
-            ns2:postName "Mechelen" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2015-04-30"^^xsd:date ;
-            rdf:subject ns1:2241912795 ;
-            ns2:Address ns1:91df141f6387713bbe08 ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152439304 ;
-            ns2:Address ns1:cdc6fbe2282c7583bce0 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
-            rdf:subject ns1:058b43a6ce024a1c7226 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Monseigneur Ladeuzeplein 15, 3000 Leuven, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "3000" ;
-            ns2:postName "Leuven" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-08-17"^^xsd:date ;
-            rdf:subject ns1:2155797383 ;
-            ns2:Address ns1:957d88645b7b38444a02 ],
+            dcterms:issued "2018-07-18"^^xsd:date ;
+            rdf:subject ns1:2277810517 ;
+            ns3:Address ns1:2730d4171a45175182b8 ],
         [ a ns1:Activity ;
             rdf:subject ns1:2003_65231 ;
             ns4:companyActivity ns1:Nace2003_65231 ;
             ns1:classification ns1:Classification_MAIN ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=k> ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
-            rdf:subject ns1:4894047789ab0f161254 ;
-            ns1:addressType ns1:TypeOfAddress_BAET,
-                ns1:TypeOfAddress_REGO ;
-            ns2:fullAddress "Havenlaan 2, 1080 Sint-Jans-Molenbeek, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1080" ;
-            ns2:postName "Sint-Jans-Molenbeek" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
-            rdf:subject ns1:cdc6fbe2282c7583bce0 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Schoenmarkt 35, 2000 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2000" ;
-            ns2:postName "Antwerpen" ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns1:0403227515.2022.11 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
-            rdf:subject ns1:a467dbbe772f2968ca42 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Gouverneur Verwilghensingel 100, 3500 Hasselt, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "3500" ;
-            ns2:postName "Hasselt" ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152451081 ;
-            ns2:Address ns1:058b43a6ce024a1c7226 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
-            rdf:subject ns1:cbd62742dd4d7fdc0c85 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Brusselsesteenweg 100, 3000 Leuven, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "3000" ;
-            ns2:postName "Leuven" ],
         [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2008-08-19"^^xsd:date ;
             rdf:subject ns1:2172430905 ;
-            ns2:Address ns1:bfb37a23a23c0f08ae15 ],
+            ns3:Address ns1:bfb37a23a23c0f08ae15 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_45111 ;
+            ns4:companyActivity ns1:Nace2008_45111 ;
+            ns1:classification ns1:Classification_MAIN,
+                ns1:Classification_SECO ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
+            rdf:subject ns1:abff6f72501beb37dd6c ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Egide Walschaertsstraat 3, 2800 Mechelen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a ns4:legalEntity,
+                ns1:Enterprise ;
+            dcterms:isVersionOf ns1:0403448140 ;
+            rdf:subject ns1:0403448140.2022.11 ;
+            ns4:companyStatus ns1:JuridicalSituation_000 ;
+            ns4:companyType ns1:JuridicalForm_014 ;
+            ns4:legalName "D'Ieteren Group" ;
+            ns4:registeredAddress ns1:bb6c8ea511229875aa63 ;
+            ns1:activity ns1:2003_50101,
+                ns1:2008_45111,
+                ns1:2008_45113,
+                ns1:2008_45194,
+                ns1:2008_45202,
+                ns1:2008_64200 ;
+            ns1:establishment ns1:2144913983 ;
+            ns1:status ns1:Status_AC ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152452962 ;
+            ns3:Address ns1:abff6f72501beb37dd6c ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2003_50101 ;
+            ns4:companyActivity ns1:Nace2003_50101 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "1998-10-05"^^xsd:date ;
+            rdf:subject ns1:2127571769 ;
+            ns3:Address ns1:4894047789ab0f161254 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+            rdf:subject ns1:4894047789ab0f161254 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns3:fullAddress "Havenlaan 2, 1080 Sint-Jans-Molenbeek, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1080" ;
+            ns3:postName "Sint-Jans-Molenbeek" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
+            rdf:subject ns1:2730d4171a45175182b8 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Roderveldlaan 4, 2600 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2600" ;
+            ns3:postName "Antwerpen" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
+            rdf:subject ns1:defb6da6597efd6640a0 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Delacenseriestraat 1, 2018 Antwerpen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2018" ;
+            ns3:postName "Antwerpen" ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=G> ;
+            ns5:relation [ a ns5:SubstringRelation ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=GR> ;
+                    ns5:path ns4:legalName ;
+                    ns5:value "GR" ],
+                [ a ns5:SubstringRelation ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=GA> ;
+                    ns5:path ns4:legalName ;
+                    ns5:value "GA" ],
+                [ a ns5:SubstringRelation ;
+                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=GB> ;
+                    ns5:path ns4:legalName ;
+                    ns5:value "GB" ] ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (3.686794511837455 51.0215496)"^^geo:wktLiteral ;
+            rdf:subject ns1:3003a821952231707cc7 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Kortrijksesteenweg 1100, 9051 Gent, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "9051" ;
+            ns3:postName "Gent" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
+            rdf:subject ns1:bfb37a23a23c0f08ae15 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Professor Van Overstraetenplein 2, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.46939785 51.006352750000005)"^^geo:wktLiteral ;
+            rdf:subject ns1:d7680f0a2848c2a75fc5 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Geerdegemdries 28, 2800 Mechelen, Belgium" ;
+            ns3:poBox "1" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152440787 ;
+            ns3:Address ns1:876c1f999920f7f6c460 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
+            rdf:subject ns1:7da822f315b3e993391d ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Avenue Albert 1er 60, 5000 Namur, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "5000" ;
+            ns3:postName "Namur" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2015-04-30"^^xsd:date ;
+            rdf:subject ns1:2241912795 ;
+            ns3:Address ns1:91df141f6387713bbe08 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
+            rdf:subject ns1:876c1f999920f7f6c460 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Grote Markt 18, 1000 Brussel, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1000" ;
+            ns3:postName "Brussel" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-08-17"^^xsd:date ;
+            rdf:subject ns1:2155797383 ;
+            ns3:Address ns1:957d88645b7b38444a02 ],
         [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
             rdf:subject ns1:2152452467 ;
-            ns2:Address ns1:d7680f0a2848c2a75fc5 ],
-        [ a org:Site,
-                ns1:Establishment ;
-            dcterms:issued "2013-03-28"^^xsd:date ;
-            rdf:subject ns1:2217795825 ;
-            ns2:Address ns1:3003a821952231707cc7 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
-            rdf:subject ns1:defb6da6597efd6640a0 ;
-            ns1:addressType ns1:TypeOfAddress_BAET ;
-            ns2:fullAddress "Delacenseriestraat 1, 2018 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2018" ;
-            ns2:postName "Antwerpen" ],
+            ns3:Address ns1:d7680f0a2848c2a75fc5 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_64200 ;
+            ns4:companyActivity ns1:Nace2008_64200 ;
+            ns1:classification ns1:Classification_MAIN ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_45113 ;
+            ns4:companyActivity ns1:Nace2008_45113 ;
+            ns1:classification ns1:Classification_SECO ],
         [ a org:Site,
                 ns1:Establishment ;
             dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns1:2152452071 ;
-            ns2:Address ns1:0beeffde4fe17c2b8dc4 ],
+            rdf:subject ns1:2152451081 ;
+            ns3:Address ns1:058b43a6ce024a1c7226 ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_45202 ;
+            ns4:companyActivity ns1:Nace2008_45202 ;
+            ns1:classification ns1:Classification_SECO ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
+            rdf:subject ns1:cbd62742dd4d7fdc0c85 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Brusselsesteenweg 100, 3000 Leuven, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "3000" ;
+            ns3:postName "Leuven" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152438611 ;
+            ns3:Address ns1:ab93acb3d3bc5928d356 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+            rdf:subject ns1:957d88645b7b38444a02 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Havenlaan 6, 1080 Sint-Jans-Molenbeek, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1080" ;
+            ns3:postName "Sint-Jans-Molenbeek" ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
+            rdf:subject ns1:0beeffde4fe17c2b8dc4 ;
+            ns1:addressType ns1:TypeOfAddress_BAET ;
+            ns3:fullAddress "Geerdegemdries 29, 2800 Mechelen, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "2800" ;
+            ns3:postName "Mechelen" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152450487 ;
+            ns3:Address ns1:cbd62742dd4d7fdc0c85 ],
         [ a ns4:legalEntity,
                 ns1:Enterprise ;
             dcterms:isVersionOf ns1:0403227515 ;
@@ -440,1704 +1703,359 @@
                 ns1:2277810517,
                 ns1:2278346688,
                 ns1:2322992226 ;
-            ns1:status ns1:Status_AC ] ;
-    ns3:has_headers [ a ns3:HTTPHeader ;
-            ns3:headerName "Cache-Control" ;
-            ns3:headerValue "public,max-age=60" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Etag" ;
-            ns3:headerValue "\"db10cd089d304b77e42174c5e9a20a4a8e13807febb5c718b8c889eb0cb4b372\"" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Content-Disposition" ;
-            ns3:headerValue "inline" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Vary" ;
-            ns3:headerValue "Access-Control-Request-Headers" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Content-Type" ;
-            ns3:headerValue "text/turtle" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Date" ;
-            ns3:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Vary" ;
-            ns3:headerValue "Access-Control-Request-Method" ],
-        [ a ns3:HTTPHeader ;
-            ns3:headerName "Vary" ;
-            ns3:headerValue "Origin" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://www.w3.org/ns/locn#> .
-@prefix ns3: <http://www.w3.org/ns/legal#> .
-@prefix ns4: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=u" ;
-    ns1:has_contents [ a ns4:Activity ;
-            rdf:subject ns4:2008_70100 ;
-            ns3:companyActivity ns4:Nace2008_70100 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "1998-02-01"^^xsd:date ;
-            rdf:subject ns4:2142567276 ;
-            ns2:Address ns4:6a4b10066ee5f892c094 ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_21201 ;
-            ns3:companyActivity ns4:Nace2008_21201 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a ns3:legalEntity,
-                ns4:Enterprise ;
-            dcterms:isVersionOf ns4:0401574852 ;
-            rdf:subject ns4:0401574852.2022.11 ;
-            ns3:companyStatus ns4:JuridicalSituation_000 ;
-            ns3:companyType ns4:JuridicalForm_014 ;
-            ns3:legalName "UM",
-                "UMICORE" ;
-            ns3:registeredAddress ns4:a38b155532fe3062214d ;
-            ns4:activity ns4:2003_13200,
-                ns4:2003_27431,
-                ns4:2003_27432,
-                ns4:2008_20140,
-                ns4:2008_24410,
-                ns4:2008_24430,
-                ns4:2008_24450,
-                ns4:2008_70100 ;
-            ns4:establishment ns4:2105027979,
-                ns4:2105028474,
-                ns4:2105029959,
-                ns4:2273298433,
-                ns4:2319223676 ;
-            ns4:status ns4:Status_AC ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_13200 ;
-            ns3:companyActivity ns4:Nace2003_13200 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a ns4:Code ;
-            rdf:subject ns4:Status_AC ;
-            ns4:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns4:codeValue "AC" ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "1989-12-28"^^xsd:date ;
-            rdf:subject ns4:2105028474 ;
-            ns2:Address ns4:96ac4a016d7c655f1ac5 ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_74151 ;
-            ns3:companyActivity ns4:Nace2003_74151 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.713745517254136 51.1819214)"^^geo:wktLiteral ;
-            rdf:subject ns4:a57c491e7b92f6e9be0b ;
-            ns4:addressType ns4:TypeOfAddress_BAET ;
-            ns2:fullAddress "Industrieweg 34, 2280 Grobbendonk, Belgium" ;
-            ns2:poBox "3" ;
-            ns2:postCode "2280" ;
-            ns2:postName "Grobbendonk" ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_24410 ;
-            ns3:companyActivity ns4:Nace2008_24410 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a ns3:legalEntity,
-                ns4:Enterprise ;
-            dcterms:isVersionOf ns4:0403053608 ;
-            rdf:subject ns4:0403053608.2022.11 ;
-            ns3:companyStatus ns4:JuridicalSituation_000 ;
-            ns3:companyType ns4:JuridicalForm_014 ;
-            ns3:legalName "U C B" ;
-            ns3:registeredAddress ns4:6a4b10066ee5f892c094 ;
-            ns4:activity ns4:2003_74151,
-                ns4:2003_74879,
-                ns4:2008_21201,
-                ns4:2008_64200,
-                ns4:2008_82990 ;
-            ns4:establishment ns4:2142567276 ;
-            ns4:status ns4:Status_AC ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_27431 ;
-            ns3:companyActivity ns4:Nace2003_27431 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_74879 ;
-            ns3:companyActivity ns4:Nace2003_74879 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_64200 ;
-            ns3:companyActivity ns4:Nace2008_64200 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "1990-02-01"^^xsd:date ;
-            rdf:subject ns4:2105029959 ;
-            ns2:Address ns4:ef3ab0a78635faf387a5 ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=u> ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "2021-06-01"^^xsd:date ;
-            rdf:subject ns4:2319223676 ;
-            ns2:Address ns4:38b4ec8887b43213df3d ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.275721857227438 50.8176796)"^^geo:wktLiteral ;
-            rdf:subject ns4:6a4b10066ee5f892c094 ;
-            ns4:addressType ns4:TypeOfAddress_BAET,
-                ns4:TypeOfAddress_REGO ;
-            ns2:fullAddress "Researchdreef 60, 1070 Anderlecht, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1070" ;
-            ns2:postName "Anderlecht" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.893131165411165 51.18053655)"^^geo:wktLiteral ;
-            rdf:subject ns4:ef3ab0a78635faf387a5 ;
-            ns4:addressType ns4:TypeOfAddress_BAET ;
-            ns2:fullAddress "Watertorenstraat 33, 2250 Olen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2250" ;
-            ns2:postName "Olen" ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_82990 ;
-            ns3:companyActivity ns4:Nace2008_82990 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_20140 ;
-            ns3:companyActivity ns4:Nace2008_20140 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_27432 ;
-            ns3:companyActivity ns4:Nace2003_27432 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns4:0401574852.2022.11,
-                ns4:0403053608.2022.11 ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3583312 50.850838)"^^geo:wktLiteral ;
-            rdf:subject ns4:a38b155532fe3062214d ;
-            ns4:addressType ns4:TypeOfAddress_BAET,
-                ns4:TypeOfAddress_REGO ;
-            ns2:fullAddress "Broekstraat 31, 1000 Brussel, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1000" ;
-            ns2:postName "Brussel" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.875528 51.1769809)"^^geo:wktLiteral ;
-            rdf:subject ns4:38b4ec8887b43213df3d ;
-            ns4:addressType ns4:TypeOfAddress_BAET ;
-            ns2:fullAddress "Watertorenstraat 37A, 2250 Olen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2250" ;
-            ns2:postName "Olen" ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "1919-12-01"^^xsd:date ;
-            rdf:subject ns4:2105027979 ;
-            ns2:Address ns4:a38b155532fe3062214d ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_24430 ;
-            ns3:companyActivity ns4:Nace2008_24430 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_24450 ;
-            ns3:companyActivity ns4:Nace2008_24450 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.334850070864558 51.16773455)"^^geo:wktLiteral ;
-            rdf:subject ns4:96ac4a016d7c655f1ac5 ;
-            ns4:addressType ns4:TypeOfAddress_BAET ;
-            ns2:fullAddress "Adolf Greinerstraat 14, 2660 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2660" ;
-            ns2:postName "Antwerpen" ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "2018-02-20"^^xsd:date ;
-            rdf:subject ns4:2273298433 ;
-            ns2:Address ns4:a57c491e7b92f6e9be0b ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"a241053dcc225569f68a92d4ffcaf1d85cb893d8a2021e8f07e46eab53bd2406\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns2: <http://example.org/> .
-@prefix ns3: <http://www.w3.org/ns/legal#> .
-@prefix ns4: <https://www.w3.org/ns/locn#> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=c" ;
-    ns2:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns1:0403053608.2022.11,
-                ns1:0426184049.2022.11 ],
-        [ a ns3:legalEntity,
-                ns1:Enterprise ;
-            dcterms:isVersionOf ns1:0426184049 ;
-            rdf:subject ns1:0426184049.2022.11 ;
-            ns3:companyStatus ns1:JuridicalSituation_000 ;
-            ns3:companyType ns1:JuridicalForm_014 ;
-            ns3:legalName "Cofinimmo" ;
-            ns3:registeredAddress ns1:c13abd7474627a0311ef ;
-            ns1:activity ns1:2003_70113,
-                ns1:2003_70322,
-                ns1:2008_64999,
-                ns1:2008_68100,
-                ns1:2008_68201,
-                ns1:2008_70220 ;
-            ns1:establishment ns1:2037846769 ;
             ns1:status ns1:Status_AC ],
-        [ a ns4:Address ;
-            geo:asWKT "POINT (4.4363198 50.841018)"^^geo:wktLiteral ;
-            rdf:subject ns1:c13abd7474627a0311ef ;
-            ns1:addressType ns1:TypeOfAddress_BAET,
-                ns1:TypeOfAddress_REGO ;
-            ns4:fullAddress "Woluwedal 58, 1200 Sint-Lambrechts-Woluwe, Belgium" ;
-            ns4:poBox "None" ;
-            ns4:postCode "1200" ;
-            ns4:postName "Sint-Lambrechts-Woluwe" ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152452071 ;
+            ns3:Address ns1:0beeffde4fe17c2b8dc4 ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2006-03-24"^^xsd:date ;
+            rdf:subject ns1:2152439304 ;
+            ns3:Address ns1:cdc6fbe2282c7583bce0 ],
         [ a ns1:Activity ;
-            rdf:subject ns1:2008_64999 ;
-            ns3:companyActivity ns1:Nace2008_64999 ;
+            rdf:subject ns1:2008_45194 ;
+            ns4:companyActivity ns1:Nace2008_45194 ;
             ns1:classification ns1:Classification_SECO ],
         [ a org:Site,
                 ns1:Establishment ;
-            dcterms:issued "1984-03-01"^^xsd:date ;
-            rdf:subject ns1:2037846769 ;
-            ns4:Address ns1:c13abd7474627a0311ef ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2008_68201 ;
-            ns3:companyActivity ns1:Nace2008_68201 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns4:Address ;
-            geo:asWKT "POINT (4.275721857227438 50.8176796)"^^geo:wktLiteral ;
-            rdf:subject ns1:6a4b10066ee5f892c094 ;
-            ns1:addressType ns1:TypeOfAddress_BAET,
-                ns1:TypeOfAddress_REGO ;
-            ns4:fullAddress "Researchdreef 60, 1070 Anderlecht, Belgium" ;
-            ns4:poBox "None" ;
-            ns4:postCode "1070" ;
-            ns4:postName "Anderlecht" ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2008_21201 ;
-            ns3:companyActivity ns1:Nace2008_21201 ;
-            ns1:classification ns1:Classification_SECO ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2003_70113 ;
-            ns3:companyActivity ns1:Nace2003_70113 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2008_70220 ;
-            ns3:companyActivity ns1:Nace2008_70220 ;
-            ns1:classification ns1:Classification_SECO ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2008_68100 ;
-            ns3:companyActivity ns1:Nace2008_68100 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2003_74879 ;
-            ns3:companyActivity ns1:Nace2003_74879 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns1:Code ;
-            rdf:subject ns1:Status_AC ;
-            ns1:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns1:codeValue "AC" ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2008_64200 ;
-            ns3:companyActivity ns1:Nace2008_64200 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2003_70322 ;
-            ns3:companyActivity ns1:Nace2003_70322 ;
-            ns1:classification ns1:Classification_MAIN ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=c> ],
+            dcterms:issued "1935-02-01"^^xsd:date ;
+            rdf:subject ns1:2127607601 ;
+            ns3:Address ns1:a467dbbe772f2968ca42 ],
         [ a org:Site,
                 ns1:Establishment ;
-            dcterms:issued "1998-02-01"^^xsd:date ;
-            rdf:subject ns1:2142567276 ;
-            ns4:Address ns1:6a4b10066ee5f892c094 ],
+            dcterms:issued "2005-01-27"^^xsd:date ;
+            rdf:subject ns1:2144913983 ;
+            ns3:Address ns1:bb6c8ea511229875aa63 ],
         [ a ns1:Activity ;
-            rdf:subject ns1:2008_82990 ;
-            ns3:companyActivity ns1:Nace2008_82990 ;
+            rdf:subject ns1:2008_64190 ;
+            ns4:companyActivity ns1:Nace2008_64190 ;
             ns1:classification ns1:Classification_MAIN ],
-        [ a ns3:legalEntity,
-                ns1:Enterprise ;
-            dcterms:isVersionOf ns1:0403053608 ;
-            rdf:subject ns1:0403053608.2022.11 ;
-            ns3:companyStatus ns1:JuridicalSituation_000 ;
-            ns3:companyType ns1:JuridicalForm_014 ;
-            ns3:legalName "U C B" ;
-            ns3:registeredAddress ns1:6a4b10066ee5f892c094 ;
-            ns1:activity ns1:2003_74151,
-                ns1:2003_74879,
-                ns1:2008_21201,
-                ns1:2008_64200,
-                ns1:2008_82990 ;
-            ns1:establishment ns1:2142567276 ;
-            ns1:status ns1:Status_AC ],
-        [ a ns1:Activity ;
-            rdf:subject ns1:2003_74151 ;
-            ns3:companyActivity ns1:Nace2003_74151 ;
-            ns1:classification ns1:Classification_MAIN ] ;
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2013-03-28"^^xsd:date ;
+            rdf:subject ns1:2217795825 ;
+            ns3:Address ns1:3003a821952231707cc7 ],
+        [ a org:Site,
+                ns1:Establishment ;
+            dcterms:issued "2021-01-01"^^xsd:date ;
+            rdf:subject ns1:2322992226 ;
+            ns3:Address ns1:defb6da6597efd6640a0 ] ;
     ns2:has_headers [ a ns2:HTTPHeader ;
-            ns2:headerName "Date" ;
-            ns2:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Origin" ],
+            ns2:headerName "Cache-Control" ;
+            ns2:headerValue "public,max-age=60" ],
         [ a ns2:HTTPHeader ;
             ns2:headerName "Vary" ;
             ns2:headerValue "Access-Control-Request-Headers" ],
         [ a ns2:HTTPHeader ;
-            ns2:headerName "Etag" ;
-            ns2:headerValue "\"ce989fea9df5800b047a4fef453bb53364f5cfde4109ad32a4eabfd09897d0ce\"" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Cache-Control" ;
-            ns2:headerValue "public,max-age=60" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Content-Disposition" ;
-            ns2:headerValue "inline" ],
-        [ a ns2:HTTPHeader ;
             ns2:headerName "Vary" ;
             ns2:headerValue "Access-Control-Request-Method" ],
         [ a ns2:HTTPHeader ;
-            ns2:headerName "Content-Type" ;
-            ns2:headerValue "text/turtle" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns3: <https://www.w3.org/ns/locn#> .
-@prefix ns4: <http://www.w3.org/ns/legal#> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=w" ;
-    ns1:has_contents [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns2:0417199869.2022.11 ],
-        [ a ns3:Address ;
-            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
-            rdf:subject ns2:90bf93ec289a49764d95 ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns3:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
-            ns3:poBox "None" ;
-            ns3:postCode "1861" ;
-            ns3:postName "Meise" ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_68203 ;
-            ns4:companyActivity ns2:Nace2008_68203 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns2:Code ;
-            rdf:subject ns2:Status_AC ;
-            ns2:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns2:codeValue "AC" ],
-        [ a ns4:legalEntity,
-                ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0417199869 ;
-            rdf:subject ns2:0417199869.2022.11 ;
-            ns4:companyStatus ns2:JuridicalSituation_000 ;
-            ns4:companyType ns2:JuridicalForm_014 ;
-            ns4:legalName "WAREHOUSES DE PAUW",
-                "WDP" ;
-            ns4:registeredAddress ns2:90bf93ec289a49764d95 ;
-            ns2:activity ns2:2003_70203,
-                ns2:2008_68203 ;
-            ns2:establishment ns2:2102213296 ;
-            ns2:status ns2:Status_AC ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_70203 ;
-            ns4:companyActivity ns2:Nace2003_70203 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=w> ],
-        [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "1977-05-27"^^xsd:date ;
-            rdf:subject ns2:2102213296 ;
-            ns3:Address ns2:90bf93ec289a49764d95 ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"7b1249b1cfdf2b151a622b11bd4823fc7a58930b282956e168766885833d896c\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://www.w3.org/ns/locn#> .
-@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns4: <http://www.w3.org/ns/legal#> .
-@prefix ns5: <http://www.w3.org/2006/vcard/> .
-@prefix ns6: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=h" ;
-    ns1:has_contents [ a ns3:Activity ;
-            rdf:subject ns3:2008_64200 ;
-            ns4:companyActivity ns3:Nace2008_64200 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_65231 ;
-            ns4:companyActivity ns3:Nace2003_65231 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns6:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=h> ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
-            rdf:subject ns3:1843c2cb3f6ac21cf789 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns2:fullAddress "Begijnenvest 113, 2000 Antwerpen, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "2000" ;
-            ns2:postName "Antwerpen" ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns6:member ns3:0404616494.2022.11 ],
-        [ a ns3:Code ;
-            rdf:subject ns3:Status_AC ;
-            ns3:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns3:codeValue "AC" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "1924-12-01"^^xsd:date ;
-            rdf:subject ns3:2003342780 ;
-            ns5:email "info@avh.be" ;
-            ns5:tel "03/231.87.70" ;
-            ns5:url "www.avh.be" ;
-            ns2:Address ns3:1843c2cb3f6ac21cf789 ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_74151 ;
-            ns4:companyActivity ns3:Nace2003_74151 ;
-            ns3:classification ns3:Classification_MAIN,
-                ns3:Classification_SECO ],
-        [ a ns4:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0404616494 ;
-            rdf:subject ns3:0404616494.2022.11 ;
-            ns4:companyStatus ns3:JuridicalSituation_000 ;
-            ns4:companyType ns3:JuridicalForm_014 ;
-            ns4:legalName "ACKERMANS & VAN HAAREN" ;
-            ns4:registeredAddress ns3:1843c2cb3f6ac21cf789 ;
-            ns3:activity ns3:2003_65231,
-                ns3:2003_74151,
-                ns3:2008_64200 ;
-            ns3:establishment ns3:2003342780 ;
-            ns3:status ns3:Status_AC ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"eafedc039c34f7d2eb7df3df9ffd74fb3012cb9f39e099fef80c78e149779f98\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <https://w3id.org/tree#> .
-@prefix ns2: <http://example.org/> .
-@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns4: <http://www.w3.org/ns/legal#> .
-@prefix ns5: <https://www.w3.org/ns/locn#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns2:CrawledPage ;
-    ns2:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=d" ;
-    ns2:has_contents [ a ns3:Activity ;
-            rdf:subject ns3:2008_45202 ;
-            ns4:companyActivity ns3:Nace2008_45202 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns1:member ns3:0403448140.2022.11,
-                ns3:0417199869.2022.11 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "1977-05-27"^^xsd:date ;
-            rdf:subject ns3:2102213296 ;
-            ns5:Address ns3:90bf93ec289a49764d95 ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_68203 ;
-            ns4:companyActivity ns3:Nace2008_68203 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns4:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0403448140 ;
-            rdf:subject ns3:0403448140.2022.11 ;
-            ns4:companyStatus ns3:JuridicalSituation_000 ;
-            ns4:companyType ns3:JuridicalForm_014 ;
-            ns4:legalName "D'Ieteren Group" ;
-            ns4:registeredAddress ns3:bb6c8ea511229875aa63 ;
-            ns3:activity ns3:2003_50101,
-                ns3:2008_45111,
-                ns3:2008_45113,
-                ns3:2008_45194,
-                ns3:2008_45202,
-                ns3:2008_64200 ;
-            ns3:establishment ns3:2144913983 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns5:Address ;
-            geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
-            rdf:subject ns3:90bf93ec289a49764d95 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns5:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
-            ns5:poBox "None" ;
-            ns5:postCode "1861" ;
-            ns5:postName "Meise" ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45113 ;
-            ns4:companyActivity ns3:Nace2008_45113 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2005-01-27"^^xsd:date ;
-            rdf:subject ns3:2144913983 ;
-            ns5:Address ns3:bb6c8ea511229875aa63 ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_64200 ;
-            ns4:companyActivity ns3:Nace2008_64200 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45194 ;
-            ns4:companyActivity ns3:Nace2008_45194 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_70203 ;
-            ns4:companyActivity ns3:Nace2003_70203 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns3:Code ;
-            rdf:subject ns3:Status_AC ;
-            ns3:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns3:codeValue "AC" ],
-        [ a ns4:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0417199869 ;
-            rdf:subject ns3:0417199869.2022.11 ;
-            ns4:companyStatus ns3:JuridicalSituation_000 ;
-            ns4:companyType ns3:JuridicalForm_014 ;
-            ns4:legalName "WAREHOUSES DE PAUW",
-                "WDP" ;
-            ns4:registeredAddress ns3:90bf93ec289a49764d95 ;
-            ns3:activity ns3:2003_70203,
-                ns3:2008_68203 ;
-            ns3:establishment ns3:2102213296 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_50101 ;
-            ns4:companyActivity ns3:Nace2003_50101 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns1:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=d> ],
-        [ a ns5:Address ;
-            geo:asWKT "POINT (4.360005 50.8220867)"^^geo:wktLiteral ;
-            rdf:subject ns3:bb6c8ea511229875aa63 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns5:fullAddress "Maliestraat 50, 1050 Elsene, Belgium" ;
-            ns5:poBox "None" ;
-            ns5:postCode "1050" ;
-            ns5:postName "Elsene" ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45111 ;
-            ns4:companyActivity ns3:Nace2008_45111 ;
-            ns3:classification ns3:Classification_MAIN,
-                ns3:Classification_SECO ] ;
-    ns2:has_headers [ a ns2:HTTPHeader ;
+            ns2:headerName "Etag" ;
+            ns2:headerValue "\"0960c386c06c06975a68689ee8f5662b7e4cbbbe5cddfd785ba09f914437d4b6\"" ],
+        [ a ns2:HTTPHeader ;
             ns2:headerName "Content-Disposition" ;
             ns2:headerValue "inline" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Etag" ;
-            ns2:headerValue "\"a883ed742be82aadb562c674e6e756821f648dfe5b35ddb7033729d48113c90d\"" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Cache-Control" ;
-            ns2:headerValue "public,max-age=60" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Access-Control-Request-Method" ],
-        [ a ns2:HTTPHeader ;
-            ns2:headerName "Vary" ;
-            ns2:headerValue "Origin" ],
         [ a ns2:HTTPHeader ;
             ns2:headerName "Content-Type" ;
             ns2:headerValue "text/turtle" ],
         [ a ns2:HTTPHeader ;
             ns2:headerName "Date" ;
-            ns2:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
+            ns2:headerValue "Fri, 04 Aug 2023 08:47:33 GMT" ],
         [ a ns2:HTTPHeader ;
             ns2:headerName "Vary" ;
-            ns2:headerValue "Access-Control-Request-Headers" ] .
+            ns2:headerValue "Origin" ] .
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns3: <http://www.w3.org/ns/legal#> .
-@prefix ns4: <https://www.w3.org/ns/locn#> .
-@prefix ns5: <http://www.w3.org/2006/vcard/> .
-@prefix ns6: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=v" ;
-    ns1:has_contents [ a ns3:legalEntity,
-                ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0887216042 ;
-            rdf:subject ns2:0887216042.2022.11 ;
-            ns3:companyStatus ns2:JuridicalSituation_000 ;
-            ns3:companyType ns2:JuridicalForm_014 ;
-            ns3:legalName "VGP" ;
-            ns3:registeredAddress ns2:2ad9324271a74bba3baf ;
-            ns2:activity ns2:2003_74124,
-                ns2:2003_74142,
-                ns2:2003_74151,
-                ns2:2003_74879,
-                ns2:2008_64200 ;
-            ns2:establishment ns2:2160071917 ;
-            ns2:status ns2:Status_AC ],
-        [ a ns3:legalEntity,
-                ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0404616494 ;
-            rdf:subject ns2:0404616494.2022.11 ;
-            ns3:companyStatus ns2:JuridicalSituation_000 ;
-            ns3:companyType ns2:JuridicalForm_014 ;
-            ns3:legalName "ACKERMANS & VAN HAAREN" ;
-            ns3:registeredAddress ns2:1843c2cb3f6ac21cf789 ;
-            ns2:activity ns2:2003_65231,
-                ns2:2003_74151,
-                ns2:2008_64200 ;
-            ns2:establishment ns2:2003342780 ;
-            ns2:status ns2:Status_AC ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_65231 ;
-            ns3:companyActivity ns2:Nace2003_65231 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns6:member ns2:0404616494.2022.11,
-                ns2:0887216042.2022.11 ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_74879 ;
-            ns3:companyActivity ns2:Nace2003_74879 ;
-            ns2:classification ns2:Classification_SECO ],
-        [ a ns4:Address ;
-            geo:asWKT "POINT (4.406393329910549 51.212274300000004)"^^geo:wktLiteral ;
-            rdf:subject ns2:1843c2cb3f6ac21cf789 ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns4:fullAddress "Begijnenvest 113, 2000 Antwerpen, Belgium" ;
-            ns4:poBox "None" ;
-            ns4:postCode "2000" ;
-            ns4:postName "Antwerpen" ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_64200 ;
-            ns3:companyActivity ns2:Nace2008_64200 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_74151 ;
-            ns3:companyActivity ns2:Nace2003_74151 ;
-            ns2:classification ns2:Classification_MAIN,
-                ns2:Classification_SECO ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_74124 ;
-            ns3:companyActivity ns2:Nace2003_74124 ;
-            ns2:classification ns2:Classification_SECO ],
-        [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "1924-12-01"^^xsd:date ;
-            rdf:subject ns2:2003342780 ;
-            ns5:email "info@avh.be" ;
-            ns5:tel "03/231.87.70" ;
-            ns5:url "www.avh.be" ;
-            ns4:Address ns2:1843c2cb3f6ac21cf789 ],
-        [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "2007-02-06"^^xsd:date ;
-            rdf:subject ns2:2160071917 ;
-            ns4:Address ns2:2ad9324271a74bba3baf ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_74142 ;
-            ns3:companyActivity ns2:Nace2003_74142 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns6:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=v> ],
-        [ a ns2:Code ;
-            rdf:subject ns2:Status_AC ;
-            ns2:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns2:codeValue "AC" ],
-        [ a ns4:Address ;
-            geo:asWKT "POINT (4.4104638 51.1975987)"^^geo:wktLiteral ;
-            rdf:subject ns2:2ad9324271a74bba3baf ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns4:fullAddress "Generaal Lemanstraat 55, 2018 Antwerpen, Belgium" ;
-            ns4:poBox "4" ;
-            ns4:postCode "2018" ;
-            ns4:postName "Antwerpen" ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"0fa6af04715cf854127307c07504e652f28764025ab4adef6916b6ec55522603\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <https://www.w3.org/ns/locn#> .
-@prefix ns2: <http://www.w3.org/ns/legal#> .
-@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns4: <http://example.org/> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns4:CrawledPage ;
-    ns4:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=g" ;
-    ns4:has_contents [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "1998-10-05"^^xsd:date ;
-            rdf:subject ns3:2127571769 ;
-            ns1:Address ns3:4894047789ab0f161254 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152452962 ;
-            ns1:Address ns3:abff6f72501beb37dd6c ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
-            rdf:subject ns3:cbd62742dd4d7fdc0c85 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Brusselsesteenweg 100, 3000 Leuven, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "3000" ;
-            ns1:postName "Leuven" ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_65231 ;
-            ns2:companyActivity ns3:Nace2003_65231 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152451081 ;
-            ns1:Address ns3:058b43a6ce024a1c7226 ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (3.1011004857238005 50.95721705)"^^geo:wktLiteral ;
-            rdf:subject ns3:d764f3ba2da243aa7967 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Ter Reigerie 1, 8800 Roeselare, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "8800" ;
-            ns1:postName "Roeselare" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
-            rdf:subject ns3:058b43a6ce024a1c7226 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Monseigneur Ladeuzeplein 15, 3000 Leuven, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "3000" ;
-            ns1:postName "Leuven" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2008-08-19"^^xsd:date ;
-            rdf:subject ns3:2172430905 ;
-            ns1:Address ns3:bfb37a23a23c0f08ae15 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-08-17"^^xsd:date ;
-            rdf:subject ns3:2155795702 ;
-            ns1:Address ns3:d764f3ba2da243aa7967 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2005-01-27"^^xsd:date ;
-            rdf:subject ns3:2144913983 ;
-            ns1:Address ns3:bb6c8ea511229875aa63 ],
-        [ a ns2:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0403448140 ;
-            rdf:subject ns3:0403448140.2022.11 ;
-            ns2:companyStatus ns3:JuridicalSituation_000 ;
-            ns2:companyType ns3:JuridicalForm_014 ;
-            ns2:legalName "D'Ieteren Group" ;
-            ns2:registeredAddress ns3:bb6c8ea511229875aa63 ;
-            ns3:activity ns3:2003_50101,
-                ns3:2008_45111,
-                ns3:2008_45113,
-                ns3:2008_45194,
-                ns3:2008_45202,
-                ns3:2008_64200 ;
-            ns3:establishment ns3:2144913983 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45111 ;
-            ns2:companyActivity ns3:Nace2008_45111 ;
-            ns3:classification ns3:Classification_MAIN,
-                ns3:Classification_SECO ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (3.686794511837455 51.0215496)"^^geo:wktLiteral ;
-            rdf:subject ns3:3003a821952231707cc7 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Kortrijksesteenweg 1100, 9051 Gent, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "9051" ;
-            ns1:postName "Gent" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2013-03-28"^^xsd:date ;
-            rdf:subject ns3:2217795825 ;
-            ns1:Address ns3:3003a821952231707cc7 ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
-            rdf:subject ns3:0beeffde4fe17c2b8dc4 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Geerdegemdries 29, 2800 Mechelen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2800" ;
-            ns1:postName "Mechelen" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152438611 ;
-            ns1:Address ns3:ab93acb3d3bc5928d356 ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
-            rdf:subject ns3:91df141f6387713bbe08 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Wetenschapsstraat 23-25, 1000 Brussel, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "1000" ;
-            ns1:postName "Brussel" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.360005 50.8220867)"^^geo:wktLiteral ;
-            rdf:subject ns3:bb6c8ea511229875aa63 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns1:fullAddress "Maliestraat 50, 1050 Elsene, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "1050" ;
-            ns1:postName "Elsene" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
-            rdf:subject ns3:bfb37a23a23c0f08ae15 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Professor Van Overstraetenplein 2, 3000 Leuven, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "3000" ;
-            ns1:postName "Leuven" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
-            rdf:subject ns3:ab93acb3d3bc5928d356 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Keizerstraat 10, 2000 Antwerpen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2000" ;
-            ns1:postName "Antwerpen" ],
-        [ a ns3:Code ;
-            rdf:subject ns3:Status_AC ;
-            ns3:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns3:codeValue "AC" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
-            rdf:subject ns3:7da822f315b3e993391d ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Avenue Albert 1er 60, 5000 Namur, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "5000" ;
-            ns1:postName "Namur" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
-            rdf:subject ns3:defb6da6597efd6640a0 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Delacenseriestraat 1, 2018 Antwerpen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2018" ;
-            ns1:postName "Antwerpen" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-08-17"^^xsd:date ;
-            rdf:subject ns3:2155797383 ;
-            ns1:Address ns3:957d88645b7b38444a02 ],
-        [ a ns2:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0403227515 ;
-            rdf:subject ns3:0403227515.2022.11 ;
-            ns2:companyStatus ns3:JuridicalSituation_000 ;
-            ns2:companyType ns3:JuridicalForm_014 ;
-            ns2:legalName "KBC Groep",
-                "KBC Group",
-                "KBC Groupe",
-                "KBC Gruppe" ;
-            ns2:registeredAddress ns3:4894047789ab0f161254 ;
-            ns3:activity ns3:2003_65120,
-                ns3:2003_65231,
-                ns3:2008_64190,
-                ns3:2008_70100 ;
-            ns3:establishment ns3:2127571769,
-                ns3:2127607601,
-                ns3:2152438611,
-                ns3:2152439304,
-                ns3:2152440787,
-                ns3:2152450487,
-                ns3:2152451081,
-                ns3:2152452071,
-                ns3:2152452467,
-                ns3:2152452962,
-                ns3:2155795702,
-                ns3:2155797383,
-                ns3:2172430905,
-                ns3:2217795825,
-                ns3:2241912795,
-                ns3:2277810517,
-                ns3:2278346688,
-                ns3:2322992226 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_70100 ;
-            ns2:companyActivity ns3:Nace2008_70100 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.46939785 51.006352750000005)"^^geo:wktLiteral ;
-            rdf:subject ns3:d7680f0a2848c2a75fc5 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Geerdegemdries 28, 2800 Mechelen, Belgium" ;
-            ns1:poBox "1" ;
-            ns1:postCode "2800" ;
-            ns1:postName "Mechelen" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
-            rdf:subject ns3:cdc6fbe2282c7583bce0 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Schoenmarkt 35, 2000 Antwerpen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2000" ;
-            ns1:postName "Antwerpen" ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=g> ;
-            ns5:relation [ a ns5:SubstringRelation ;
-                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=gr> ;
-                    ns5:path ns2:legalName ;
-                    ns5:value "gr" ],
-                [ a ns5:SubstringRelation ;
-                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=ga> ;
-                    ns5:path ns2:legalName ;
-                    ns5:value "ga" ],
-                [ a ns5:SubstringRelation ;
-                    ns5:node <http://ldes-server:8080/kbo/by-name?substring=gb> ;
-                    ns5:path ns2:legalName ;
-                    ns5:value "gb" ] ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
-            rdf:subject ns3:a467dbbe772f2968ca42 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Gouverneur Verwilghensingel 100, 3500 Hasselt, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "3500" ;
-            ns1:postName "Hasselt" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
-            rdf:subject ns3:876c1f999920f7f6c460 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Grote Markt 18, 1000 Brussel, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "1000" ;
-            ns1:postName "Brussel" ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
-            rdf:subject ns3:4894047789ab0f161254 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns1:fullAddress "Havenlaan 2, 1080 Sint-Jans-Molenbeek, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "1080" ;
-            ns1:postName "Sint-Jans-Molenbeek" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "1935-02-01"^^xsd:date ;
-            rdf:subject ns3:2127607601 ;
-            ns1:Address ns3:a467dbbe772f2968ca42 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152439304 ;
-            ns1:Address ns3:cdc6fbe2282c7583bce0 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152452071 ;
-            ns1:Address ns3:0beeffde4fe17c2b8dc4 ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_65120 ;
-            ns2:companyActivity ns3:Nace2003_65120 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152450487 ;
-            ns1:Address ns3:cbd62742dd4d7fdc0c85 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2015-04-30"^^xsd:date ;
-            rdf:subject ns3:2241912795 ;
-            ns1:Address ns3:91df141f6387713bbe08 ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
-            rdf:subject ns3:957d88645b7b38444a02 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Havenlaan 6, 1080 Sint-Jans-Molenbeek, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "1080" ;
-            ns1:postName "Sint-Jans-Molenbeek" ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_50101 ;
-            ns2:companyActivity ns3:Nace2003_50101 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_64200 ;
-            ns2:companyActivity ns3:Nace2008_64200 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45113 ;
-            ns2:companyActivity ns3:Nace2008_45113 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152452467 ;
-            ns1:Address ns3:d7680f0a2848c2a75fc5 ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_64190 ;
-            ns2:companyActivity ns3:Nace2008_64190 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2018-04-01"^^xsd:date ;
-            rdf:subject ns3:2278346688 ;
-            ns1:Address ns3:7da822f315b3e993391d ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45202 ;
-            ns2:companyActivity ns3:Nace2008_45202 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
-            rdf:subject ns3:abff6f72501beb37dd6c ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Egide Walschaertsstraat 3, 2800 Mechelen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2800" ;
-            ns1:postName "Mechelen" ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_45194 ;
-            ns2:companyActivity ns3:Nace2008_45194 ;
-            ns3:classification ns3:Classification_SECO ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns3:0403227515.2022.11,
-                ns3:0403448140.2022.11 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2018-07-18"^^xsd:date ;
-            rdf:subject ns3:2277810517 ;
-            ns1:Address ns3:2730d4171a45175182b8 ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2021-01-01"^^xsd:date ;
-            rdf:subject ns3:2322992226 ;
-            ns1:Address ns3:defb6da6597efd6640a0 ],
-        [ a ns1:Address ;
-            geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
-            rdf:subject ns3:2730d4171a45175182b8 ;
-            ns3:addressType ns3:TypeOfAddress_BAET ;
-            ns1:fullAddress "Roderveldlaan 4, 2600 Antwerpen, Belgium" ;
-            ns1:poBox "None" ;
-            ns1:postCode "2600" ;
-            ns1:postName "Antwerpen" ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2006-03-24"^^xsd:date ;
-            rdf:subject ns3:2152440787 ;
-            ns1:Address ns3:876c1f999920f7f6c460 ] ;
-    ns4:has_headers [ a ns4:HTTPHeader ;
-            ns4:headerName "Content-Type" ;
-            ns4:headerValue "text/turtle" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Content-Disposition" ;
-            ns4:headerValue "inline" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Vary" ;
-            ns4:headerValue "Access-Control-Request-Method" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Vary" ;
-            ns4:headerValue "Access-Control-Request-Headers" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Etag" ;
-            ns4:headerValue "\"376c5e442bbd575da6c3761c1e1f027705d2abfe0bf8ef35f2c4f7657995b2d0\"" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Vary" ;
-            ns4:headerValue "Origin" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Cache-Control" ;
-            ns4:headerValue "public,max-age=60" ],
-        [ a ns4:HTTPHeader ;
-            ns4:headerName "Date" ;
-            ns4:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
+@prefix ns1: <https://kbopub.economie.fgov.be/kbo#> .
 @prefix ns2: <https://www.w3.org/ns/locn#> .
-@prefix ns3: <http://www.w3.org/ns/legal#> .
-@prefix ns4: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ae" ;
-    ns1:has_contents [ a ns4:Activity ;
-            rdf:subject ns4:2008_68201 ;
-            ns3:companyActivity ns4:Nace2008_68201 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_70201 ;
-            ns3:companyActivity ns4:Nace2003_70201 ;
-            ns4:classification ns4:Classification_MAIN ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2003_70203 ;
-            ns3:companyActivity ns4:Nace2003_70203 ;
-            ns4:classification ns4:Classification_SECO ],
-        [ a ns4:Code ;
-            rdf:subject ns4:Status_AC ;
-            ns4:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns4:codeValue "AC" ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3835679 50.8397798)"^^geo:wktLiteral ;
-            rdf:subject ns4:09e327511d79f1a1e594 ;
-            ns4:addressType ns4:TypeOfAddress_REGO ;
-            ns2:fullAddress "Belliardstraat 40, 1040 Etterbeek, Belgium" ;
-            ns2:poBox "11" ;
-            ns2:postCode "1040" ;
-            ns2:postName "Etterbeek" ],
-        [ a ns3:legalEntity,
-                ns4:Enterprise ;
-            dcterms:isVersionOf ns4:0877248501 ;
-            rdf:subject ns4:0877248501.2022.11 ;
-            ns3:companyStatus ns4:JuridicalSituation_000 ;
-            ns3:companyType ns4:JuridicalForm_014 ;
-            ns3:legalName "AEDIFICA" ;
-            ns3:registeredAddress ns4:09e327511d79f1a1e594 ;
-            ns4:activity ns4:2003_70201,
-                ns4:2003_70203,
-                ns4:2008_68201,
-                ns4:2008_68203 ;
-            ns4:establishment ns4:2277343234 ;
-            ns4:status ns4:Status_AC ],
-        [ a ns2:Address ;
-            geo:asWKT "POINT (4.3835679 50.8397798)"^^geo:wktLiteral ;
-            rdf:subject ns4:6e3aaeedd7bd029f057b ;
-            ns4:addressType ns4:TypeOfAddress_BAET ;
-            ns2:fullAddress "Belliardstraat 40, 1040 Etterbeek, Belgium" ;
-            ns2:poBox "None" ;
-            ns2:postCode "1040" ;
-            ns2:postName "Etterbeek" ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ae> ],
-        [ a org:Site,
-                ns4:Establishment ;
-            dcterms:issued "2018-05-22"^^xsd:date ;
-            rdf:subject ns4:2277343234 ;
-            ns2:Address ns4:6e3aaeedd7bd029f057b ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns4:0877248501.2022.11 ],
-        [ a ns4:Activity ;
-            rdf:subject ns4:2008_68203 ;
-            ns3:companyActivity ns4:Nace2008_68203 ;
-            ns4:classification ns4:Classification_SECO ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"9df72da34503230a0db973efcac1856ef20751c839b74cb1769574cae81c1f14\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns3: <http://www.w3.org/ns/legal#> .
-@prefix ns4: <https://www.w3.org/ns/locn#> .
-@prefix ns5: <https://w3id.org/tree#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ag" ;
-    ns1:has_contents [ a ns4:Address ;
-            geo:asWKT "POINT (4.3582669 50.8473115)"^^geo:wktLiteral ;
-            rdf:subject ns2:57df12d7229fb3447785 ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns4:fullAddress "Markiesstraat 1, 1000 Brussel, Belgium" ;
-            ns4:poBox "None" ;
-            ns4:postCode "1000" ;
-            ns4:postName "Brussel" ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ag> ],
-        [ a ns2:Code ;
-            rdf:subject ns2:Status_AC ;
-            ns2:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns2:codeValue "AC" ],
-        [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "1994-02-25"^^xsd:date ;
-            rdf:subject ns2:2065760401 ;
-            ns4:Address ns2:57df12d7229fb3447785 ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_64200 ;
-            ns3:companyActivity ns2:Nace2008_64200 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns3:legalEntity,
-                ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0451406524 ;
-            rdf:subject ns2:0451406524.2022.11 ;
-            ns3:companyStatus ns2:JuridicalSituation_000 ;
-            ns3:companyType ns2:JuridicalForm_014 ;
-            ns3:legalName "AGEAS SA/NV" ;
-            ns3:registeredAddress ns2:57df12d7229fb3447785 ;
-            ns2:activity ns2:2008_64200 ;
-            ns2:establishment ns2:2065760401 ;
-            ns2:status ns2:Status_AC ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns2:0451406524.2022.11 ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"b80057c047e6bd4086d3224c5c9d3807c1e7d6eac7676ff1537e8399aa51674e\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <http://www.w3.org/ns/legal#> .
-@prefix ns3: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns4: <https://w3id.org/tree#> .
-@prefix ns5: <https://www.w3.org/ns/locn#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=ar" ;
-    ns1:has_contents [ a ns4:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=ar> ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2008_72110 ;
-            ns2:companyActivity ns3:Nace2008_72110 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "2009-09-28"^^xsd:date ;
-            rdf:subject ns3:2182789911 ;
-            ns5:Address ns3:5ce2e40e4d5fceb92279 ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns4:member ns3:0818292196.2022.11 ],
-        [ a ns5:Address ;
-            geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
-            rdf:subject ns3:5ce2e40e4d5fceb92279 ;
-            ns3:addressType ns3:TypeOfAddress_BAET,
-                ns3:TypeOfAddress_REGO ;
-            ns5:fullAddress "Industriepark-Zwijnaarde 7, 9052 Gent, Belgium" ;
-            ns5:poBox "None" ;
-            ns5:postCode "9052" ;
-            ns5:postName "Gent" ],
-        [ a ns2:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0818292196 ;
-            rdf:subject ns3:0818292196.2022.11 ;
-            ns2:companyStatus ns3:JuridicalSituation_000 ;
-            ns2:companyType ns3:JuridicalForm_610 ;
-            ns2:legalName "argenx" ;
-            ns2:registeredAddress ns3:5ce2e40e4d5fceb92279 ;
-            ns3:activity ns3:2008_72110 ;
-            ns3:establishment ns3:2182789911 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns3:Code ;
-            rdf:subject ns3:Status_AC ;
-            ns3:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns3:codeValue "AC" ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"f394c9250e6a58eda9e15861aa133ac789dad400bff3b5c09f68bfe7974074f9\"" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ] .
-
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
-@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns3: <http://example.org/> .
 @prefix ns4: <https://w3id.org/tree#> .
 @prefix ns5: <http://www.w3.org/ns/legal#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=so" ;
-    ns1:has_contents [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "1956-12-01"^^xsd:date ;
-            rdf:subject ns2:2004345741 ;
-            ns3:Address ns2:d3b58e7b71c852385a38 ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_73200 ;
-            ns5:companyActivity ns2:Nace2008_73200 ;
-            ns2:classification ns2:Classification_SECO ],
-        [ a ns3:Address ;
-            geo:asWKT "POINT (4.3706622 50.8430215)"^^geo:wktLiteral ;
-            rdf:subject ns2:95c924ee623221ff9055 ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns3:fullAddress "Nijverheidsstraat 31, 1040 Brussel, Belgium" ;
-            ns3:poBox "None" ;
-            ns3:postCode "1040" ;
-            ns3:postName "Brussel" ],
-        [ a ns2:Code ;
-            rdf:subject ns2:Status_AC ;
-            ns2:codeDescription "Actif"@FR,
-                "Actief"@NL ;
-            ns2:codeValue "AC" ],
+[] a ns3:CrawledPage ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=AG" ;
+    ns3:has_contents [ a ns5:legalEntity,
+                ns1:Enterprise ;
+            dcterms:isVersionOf ns1:0451406524 ;
+            rdf:subject ns1:0451406524.2022.11 ;
+            ns5:companyStatus ns1:JuridicalSituation_000 ;
+            ns5:companyType ns1:JuridicalForm_014 ;
+            ns5:legalName "AGEAS SA/NV" ;
+            ns5:registeredAddress ns1:57df12d7229fb3447785 ;
+            ns1:activity ns1:2008_64200 ;
+            ns1:establishment ns1:2065760401 ;
+            ns1:status ns1:Status_AC ],
+        [ a ns2:Address ;
+            geo:asWKT "POINT (4.3582669 50.8473115)"^^geo:wktLiteral ;
+            rdf:subject ns1:57df12d7229fb3447785 ;
+            ns1:addressType ns1:TypeOfAddress_BAET,
+                ns1:TypeOfAddress_REGO ;
+            ns2:fullAddress "Markiesstraat 1, 1000 Brussel, Belgium" ;
+            ns2:poBox "None" ;
+            ns2:postCode "1000" ;
+            ns2:postName "Brussel" ],
+        [ a ns1:Activity ;
+            rdf:subject ns1:2008_64200 ;
+            ns5:companyActivity ns1:Nace2008_64200 ;
+            ns1:classification ns1:Classification_MAIN ],
         [ a org:Site,
-                ns2:Establishment ;
-            dcterms:issued "1956-12-28"^^xsd:date ;
-            rdf:subject ns2:2153392278 ;
-            ns3:Address ns2:95c924ee623221ff9055 ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_74131 ;
-            ns5:companyActivity ns2:Nace2003_74131 ;
-            ns2:classification ns2:Classification_SECO ],
-        [ a ns3:Address ;
-            geo:asWKT "POINT (4.3656554 50.8382125)"^^geo:wktLiteral ;
-            rdf:subject ns2:d3b58e7b71c852385a38 ;
-            ns2:addressType ns2:TypeOfAddress_BAET ;
-            ns3:fullAddress "Napelsstraat 38, 1050 Elsene, Belgium" ;
-            ns3:poBox "None" ;
-            ns3:postCode "1050" ;
-            ns3:postName "Elsene" ],
-        [ a ns4:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=so> ],
-        [ a ns5:legalEntity,
-                ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0403219397 ;
-            rdf:subject ns2:0403219397.2022.11 ;
-            ns5:companyStatus ns2:JuridicalSituation_000 ;
-            ns5:companyType ns2:JuridicalForm_014 ;
-            ns5:legalName "Sofina" ;
-            ns5:registeredAddress ns2:95c924ee623221ff9055 ;
-            ns2:activity ns2:2003_65231,
-                ns2:2003_65234,
-                ns2:2003_74131,
-                ns2:2008_64200,
-                ns2:2008_73200 ;
-            ns2:establishment ns2:2004345741,
-                ns2:2153392278 ;
-            ns2:status ns2:Status_AC ],
+                ns1:Establishment ;
+            dcterms:issued "1994-02-25"^^xsd:date ;
+            rdf:subject ns1:2065760401 ;
+            ns2:Address ns1:57df12d7229fb3447785 ],
+        [ a ns1:Code ;
+            rdf:subject ns1:Status_AC ;
+            ns1:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns1:codeValue "AC" ],
         [ a <https://w3id.org/ldes#EventStream> ;
             rdf:subject <http://ldes-server:8080/kbo> ;
-            ns4:member ns2:0403219397.2022.11 ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_65234 ;
-            ns5:companyActivity ns2:Nace2003_65234 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_64200 ;
-            ns5:companyActivity ns2:Nace2008_64200 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2003_65231 ;
-            ns5:companyActivity ns2:Nace2003_65231 ;
-            ns2:classification ns2:Classification_MAIN ] ;
-    ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Disposition" ;
-            ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"eae4071545b9784fc583ce58b89bbd0d1d1b4dcfc8d299882873a052fded8010\"" ] .
+            ns4:member ns1:0451406524.2022.11 ],
+        [ a ns4:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=AG> ] ;
+    ns3:has_headers [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Type" ;
+            ns3:headerValue "text/turtle" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Cache-Control" ;
+            ns3:headerValue "public,max-age=60" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Date" ;
+            ns3:headerValue "Fri, 04 Aug 2023 08:47:36 GMT" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Disposition" ;
+            ns3:headerValue "inline" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Origin" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Etag" ;
+            ns3:headerValue "\"00ec928389dc056c0e2a1e690d636ab9135b9639eb67b28daf33338fa25251eb\"" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Headers" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Method" ] .
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix ns1: <http://example.org/> .
+@prefix ns1: <https://www.w3.org/ns/locn#> .
 @prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
-@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns3: <http://example.org/> .
 @prefix ns4: <http://www.w3.org/ns/legal#> .
 @prefix ns5: <https://w3id.org/tree#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=sa" ;
-    ns1:has_contents [ a ns4:legalEntity,
+[] a ns3:CrawledPage ;
+    ns3:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=AE" ;
+    ns3:has_contents [ a ns4:legalEntity,
                 ns2:Enterprise ;
-            dcterms:isVersionOf ns2:0451406524 ;
-            rdf:subject ns2:0451406524.2022.11 ;
+            dcterms:isVersionOf ns2:0877248501 ;
+            rdf:subject ns2:0877248501.2022.11 ;
             ns4:companyStatus ns2:JuridicalSituation_000 ;
             ns4:companyType ns2:JuridicalForm_014 ;
-            ns4:legalName "AGEAS SA/NV" ;
-            ns4:registeredAddress ns2:57df12d7229fb3447785 ;
-            ns2:activity ns2:2008_64200 ;
-            ns2:establishment ns2:2065760401 ;
+            ns4:legalName "AEDIFICA" ;
+            ns4:registeredAddress ns2:09e327511d79f1a1e594 ;
+            ns2:activity ns2:2003_70201,
+                ns2:2003_70203,
+                ns2:2008_68201,
+                ns2:2008_68203 ;
+            ns2:establishment ns2:2277343234 ;
             ns2:status ns2:Status_AC ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=sa> ],
         [ a ns2:Code ;
             rdf:subject ns2:Status_AC ;
             ns2:codeDescription "Actif"@FR,
                 "Actief"@NL ;
             ns2:codeValue "AC" ],
-        [ a ns2:Activity ;
-            rdf:subject ns2:2008_64200 ;
-            ns4:companyActivity ns2:Nace2008_64200 ;
-            ns2:classification ns2:Classification_MAIN ],
-        [ a <https://w3id.org/ldes#EventStream> ;
-            rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns2:0451406524.2022.11 ],
         [ a org:Site,
                 ns2:Establishment ;
-            dcterms:issued "1994-02-25"^^xsd:date ;
-            rdf:subject ns2:2065760401 ;
-            ns3:Address ns2:57df12d7229fb3447785 ],
+            dcterms:issued "2018-05-22"^^xsd:date ;
+            rdf:subject ns2:2277343234 ;
+            ns1:Address ns2:6e3aaeedd7bd029f057b ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_70203 ;
+            ns4:companyActivity ns2:Nace2003_70203 ;
+            ns2:classification ns2:Classification_SECO ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_70201 ;
+            ns4:companyActivity ns2:Nace2003_70201 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_68201 ;
+            ns4:companyActivity ns2:Nace2008_68201 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns1:Address ;
+            geo:asWKT "POINT (4.3835679 50.8397798)"^^geo:wktLiteral ;
+            rdf:subject ns2:6e3aaeedd7bd029f057b ;
+            ns2:addressType ns2:TypeOfAddress_BAET ;
+            ns1:fullAddress "Belliardstraat 40, 1040 Etterbeek, Belgium" ;
+            ns1:poBox "None" ;
+            ns1:postCode "1040" ;
+            ns1:postName "Etterbeek" ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_68203 ;
+            ns4:companyActivity ns2:Nace2008_68203 ;
+            ns2:classification ns2:Classification_SECO ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns2:0877248501.2022.11 ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=AE> ],
+        [ a ns1:Address ;
+            geo:asWKT "POINT (4.3835679 50.8397798)"^^geo:wktLiteral ;
+            rdf:subject ns2:09e327511d79f1a1e594 ;
+            ns2:addressType ns2:TypeOfAddress_REGO ;
+            ns1:fullAddress "Belliardstraat 40, 1040 Etterbeek, Belgium" ;
+            ns1:poBox "11" ;
+            ns1:postCode "1040" ;
+            ns1:postName "Etterbeek" ] ;
+    ns3:has_headers [ a ns3:HTTPHeader ;
+            ns3:headerName "Date" ;
+            ns3:headerValue "Fri, 04 Aug 2023 08:47:36 GMT" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Origin" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Method" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Disposition" ;
+            ns3:headerValue "inline" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Content-Type" ;
+            ns3:headerValue "text/turtle" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Cache-Control" ;
+            ns3:headerValue "public,max-age=60" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Vary" ;
+            ns3:headerValue "Access-Control-Request-Headers" ],
+        [ a ns3:HTTPHeader ;
+            ns3:headerName "Etag" ;
+            ns3:headerValue "\"bfc245d6168f6fd727ab0603ac57efd83b4103991f2bc6be138214a1075fd1e8\"" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <http://www.w3.org/ns/legal#> .
+@prefix ns3: <https://www.w3.org/ns/locn#> .
+@prefix ns4: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=So" ;
+    ns1:has_contents [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=So> ],
         [ a ns3:Address ;
-            geo:asWKT "POINT (4.3582669 50.8473115)"^^geo:wktLiteral ;
-            rdf:subject ns2:57df12d7229fb3447785 ;
-            ns2:addressType ns2:TypeOfAddress_BAET,
-                ns2:TypeOfAddress_REGO ;
-            ns3:fullAddress "Markiesstraat 1, 1000 Brussel, Belgium" ;
+            geo:asWKT "POINT (4.3656554 50.8382125)"^^geo:wktLiteral ;
+            rdf:subject ns4:d3b58e7b71c852385a38 ;
+            ns4:addressType ns4:TypeOfAddress_BAET ;
+            ns3:fullAddress "Napelsstraat 38, 1050 Elsene, Belgium" ;
             ns3:poBox "None" ;
-            ns3:postCode "1000" ;
-            ns3:postName "Brussel" ] ;
+            ns3:postCode "1050" ;
+            ns3:postName "Elsene" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_65231 ;
+            ns2:companyActivity ns4:Nace2003_65231 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_73200 ;
+            ns2:companyActivity ns4:Nace2008_73200 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_74131 ;
+            ns2:companyActivity ns4:Nace2003_74131 ;
+            ns4:classification ns4:Classification_SECO ],
+        [ a ns2:legalEntity,
+                ns4:Enterprise ;
+            dcterms:isVersionOf ns4:0403219397 ;
+            rdf:subject ns4:0403219397.2022.11 ;
+            ns2:companyStatus ns4:JuridicalSituation_000 ;
+            ns2:companyType ns4:JuridicalForm_014 ;
+            ns2:legalName "Sofina" ;
+            ns2:registeredAddress ns4:95c924ee623221ff9055 ;
+            ns4:activity ns4:2003_65231,
+                ns4:2003_65234,
+                ns4:2003_74131,
+                ns4:2008_64200,
+                ns4:2008_73200 ;
+            ns4:establishment ns4:2004345741,
+                ns4:2153392278 ;
+            ns4:status ns4:Status_AC ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2003_65234 ;
+            ns2:companyActivity ns4:Nace2003_65234 ;
+            ns4:classification ns4:Classification_MAIN ],
+        [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "1956-12-28"^^xsd:date ;
+            rdf:subject ns4:2153392278 ;
+            ns3:Address ns4:95c924ee623221ff9055 ],
+        [ a ns4:Code ;
+            rdf:subject ns4:Status_AC ;
+            ns4:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns4:codeValue "AC" ],
+        [ a org:Site,
+                ns4:Establishment ;
+            dcterms:issued "1956-12-01"^^xsd:date ;
+            rdf:subject ns4:2004345741 ;
+            ns3:Address ns4:d3b58e7b71c852385a38 ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns4:0403219397.2022.11 ],
+        [ a ns3:Address ;
+            geo:asWKT "POINT (4.3706622 50.8430215)"^^geo:wktLiteral ;
+            rdf:subject ns4:95c924ee623221ff9055 ;
+            ns4:addressType ns4:TypeOfAddress_BAET,
+                ns4:TypeOfAddress_REGO ;
+            ns3:fullAddress "Nijverheidsstraat 31, 1040 Brussel, Belgium" ;
+            ns3:poBox "None" ;
+            ns3:postCode "1040" ;
+            ns3:postName "Brussel" ],
+        [ a ns4:Activity ;
+            rdf:subject ns4:2008_64200 ;
+            ns2:companyActivity ns4:Nace2008_64200 ;
+            ns4:classification ns4:Classification_MAIN ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
-        [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Disposition" ;
             ns1:headerValue "inline" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:42 GMT" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Cache-Control" ;
-            ns1:headerValue "public,max-age=60" ],
-        [ a ns1:HTTPHeader ;
-            ns1:headerName "Vary" ;
-            ns1:headerValue "Origin" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Type" ;
             ns1:headerValue "text/turtle" ],
         [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
             ns1:headerName "Etag" ;
-            ns1:headerValue "\"28ce9093e07f76d82824c6c36552dcbe9ec8b2761b2d72bd2237dbf9171e3153\"" ] .
+            ns1:headerValue "\"f79ddf135fe23deed095f5991ba8d9a5df363a7e6febe1ac8fed86ef5d3df041\"" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:36 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ] .
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
@@ -2151,64 +2069,56 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ns1:CrawledPage ;
-    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=gb" ;
-    ns1:has_contents [ a ns3:Activity ;
-            rdf:subject ns3:2008_64200 ;
-            ns2:companyActivity ns3:Nace2008_64200 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a ns2:legalEntity,
-                ns3:Enterprise ;
-            dcterms:isVersionOf ns3:0407040209 ;
-            rdf:subject ns3:0407040209.2022.11 ;
-            ns2:companyStatus ns3:JuridicalSituation_000 ;
-            ns2:companyType ns3:JuridicalForm_014 ;
-            ns2:legalName "GBL",
-                "GROUPE BRUXELLES LAMBERT - GROEP BRUSSEL LAMBERT" ;
-            ns2:registeredAddress ns3:b938574ab6950ee31bb7 ;
-            ns3:activity ns3:2003_65234,
-                ns3:2003_74151,
-                ns3:2008_64200 ;
-            ns3:establishment ns3:2002957057 ;
-            ns3:status ns3:Status_AC ],
-        [ a ns5:Node ;
-            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
-            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=gb> ],
-        [ a ns3:Activity ;
-            rdf:subject ns3:2003_65234 ;
-            ns2:companyActivity ns3:Nace2003_65234 ;
-            ns3:classification ns3:Classification_MAIN ],
-        [ a org:Site,
-                ns3:Establishment ;
-            dcterms:issued "1902-01-01"^^xsd:date ;
-            rdf:subject ns3:2002957057 ;
-            ns4:Address ns3:b938574ab6950ee31bb7 ],
-        [ a ns3:Code ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=SA" ;
+    ns1:has_contents [ a ns3:Code ;
             rdf:subject ns3:Status_AC ;
             ns3:codeDescription "Actif"@FR,
                 "Actief"@NL ;
             ns3:codeValue "AC" ],
+        [ a org:Site,
+                ns3:Establishment ;
+            dcterms:issued "1994-02-25"^^xsd:date ;
+            rdf:subject ns3:2065760401 ;
+            ns4:Address ns3:57df12d7229fb3447785 ],
         [ a ns3:Activity ;
-            rdf:subject ns3:2003_74151 ;
-            ns2:companyActivity ns3:Nace2003_74151 ;
+            rdf:subject ns3:2008_64200 ;
+            ns2:companyActivity ns3:Nace2008_64200 ;
             ns3:classification ns3:Classification_MAIN ],
         [ a ns4:Address ;
-            geo:asWKT "POINT (4.3655308 50.8397654)"^^geo:wktLiteral ;
-            rdf:subject ns3:b938574ab6950ee31bb7 ;
+            geo:asWKT "POINT (4.3582669 50.8473115)"^^geo:wktLiteral ;
+            rdf:subject ns3:57df12d7229fb3447785 ;
             ns3:addressType ns3:TypeOfAddress_BAET,
                 ns3:TypeOfAddress_REGO ;
-            ns4:fullAddress "Marnixlaan 24, 1000 Brussel, Belgium" ;
+            ns4:fullAddress "Markiesstraat 1, 1000 Brussel, Belgium" ;
             ns4:poBox "None" ;
             ns4:postCode "1000" ;
             ns4:postName "Brussel" ],
+        [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=SA> ],
+        [ a ns2:legalEntity,
+                ns3:Enterprise ;
+            dcterms:isVersionOf ns3:0451406524 ;
+            rdf:subject ns3:0451406524.2022.11 ;
+            ns2:companyStatus ns3:JuridicalSituation_000 ;
+            ns2:companyType ns3:JuridicalForm_014 ;
+            ns2:legalName "AGEAS SA/NV" ;
+            ns2:registeredAddress ns3:57df12d7229fb3447785 ;
+            ns3:activity ns3:2008_64200 ;
+            ns3:establishment ns3:2065760401 ;
+            ns3:status ns3:Status_AC ],
         [ a <https://w3id.org/ldes#EventStream> ;
             rdf:subject <http://ldes-server:8080/kbo> ;
-            ns5:member ns3:0407040209.2022.11 ] ;
+            ns5:member ns3:0451406524.2022.11 ] ;
     ns1:has_headers [ a ns1:HTTPHeader ;
-            ns1:headerName "Date" ;
-            ns1:headerValue "Thu, 20 Jul 2023 15:19:43 GMT" ],
+            ns1:headerName "Content-Type" ;
+            ns1:headerValue "text/turtle" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Headers" ],
+            ns1:headerValue "Access-Control-Request-Method" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"4f959d84875f946d7be22ebec82d4e749bf3b8ad68315455f206e883ce94a320\"" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Cache-Control" ;
             ns1:headerValue "public,max-age=60" ],
@@ -2217,14 +2127,100 @@
             ns1:headerValue "Origin" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Vary" ;
-            ns1:headerValue "Access-Control-Request-Method" ],
+            ns1:headerValue "Access-Control-Request-Headers" ],
         [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Disposition" ;
             ns1:headerValue "inline" ],
         [ a ns1:HTTPHeader ;
-            ns1:headerName "Etag" ;
-            ns1:headerValue "\"a00ccb1e010ce47476e6ca7f16aeb2a5fe4b0350741b36f760c1174ac87e4298\"" ],
-        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:36 GMT" ] .
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://example.org/> .
+@prefix ns2: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix ns3: <http://www.w3.org/ns/legal#> .
+@prefix ns4: <https://www.w3.org/ns/locn#> .
+@prefix ns5: <https://w3id.org/tree#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:CrawledPage ;
+    ns1:hasPageSource "http://ldes-server:8080/kbo/by-name?substring=GB" ;
+    ns1:has_contents [ a ns5:Node ;
+            dcterms:isPartOf <http://ldes-server:8080/kbo> ;
+            rdf:subject <http://ldes-server:8080/kbo/by-name?substring=GB> ],
+        [ a ns2:Code ;
+            rdf:subject ns2:Status_AC ;
+            ns2:codeDescription "Actif"@FR,
+                "Actief"@NL ;
+            ns2:codeValue "AC" ],
+        [ a ns3:legalEntity,
+                ns2:Enterprise ;
+            dcterms:isVersionOf ns2:0407040209 ;
+            rdf:subject ns2:0407040209.2022.11 ;
+            ns3:companyStatus ns2:JuridicalSituation_000 ;
+            ns3:companyType ns2:JuridicalForm_014 ;
+            ns3:legalName "GBL",
+                "GROUPE BRUXELLES LAMBERT - GROEP BRUSSEL LAMBERT" ;
+            ns3:registeredAddress ns2:b938574ab6950ee31bb7 ;
+            ns2:activity ns2:2003_65234,
+                ns2:2003_74151,
+                ns2:2008_64200 ;
+            ns2:establishment ns2:2002957057 ;
+            ns2:status ns2:Status_AC ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2008_64200 ;
+            ns3:companyActivity ns2:Nace2008_64200 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns4:Address ;
+            geo:asWKT "POINT (4.3655308 50.8397654)"^^geo:wktLiteral ;
+            rdf:subject ns2:b938574ab6950ee31bb7 ;
+            ns2:addressType ns2:TypeOfAddress_BAET,
+                ns2:TypeOfAddress_REGO ;
+            ns4:fullAddress "Marnixlaan 24, 1000 Brussel, Belgium" ;
+            ns4:poBox "None" ;
+            ns4:postCode "1000" ;
+            ns4:postName "Brussel" ],
+        [ a <https://w3id.org/ldes#EventStream> ;
+            rdf:subject <http://ldes-server:8080/kbo> ;
+            ns5:member ns2:0407040209.2022.11 ],
+        [ a org:Site,
+                ns2:Establishment ;
+            dcterms:issued "1902-01-01"^^xsd:date ;
+            rdf:subject ns2:2002957057 ;
+            ns4:Address ns2:b938574ab6950ee31bb7 ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_74151 ;
+            ns3:companyActivity ns2:Nace2003_74151 ;
+            ns2:classification ns2:Classification_MAIN ],
+        [ a ns2:Activity ;
+            rdf:subject ns2:2003_65234 ;
+            ns3:companyActivity ns2:Nace2003_65234 ;
+            ns2:classification ns2:Classification_MAIN ] ;
+    ns1:has_headers [ a ns1:HTTPHeader ;
             ns1:headerName "Content-Type" ;
-            ns1:headerValue "text/turtle" ] .
+            ns1:headerValue "text/turtle" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Etag" ;
+            ns1:headerValue "\"f7e33673d921d7f553a1195589e9613fe933143ffe893360643fca3275bb8f60\"" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Content-Disposition" ;
+            ns1:headerValue "inline" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Origin" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Date" ;
+            ns1:headerValue "Fri, 04 Aug 2023 08:47:36 GMT" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Headers" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Cache-Control" ;
+            ns1:headerValue "public,max-age=60" ],
+        [ a ns1:HTTPHeader ;
+            ns1:headerName "Vary" ;
+            ns1:headerValue "Access-Control-Request-Method" ] .
 

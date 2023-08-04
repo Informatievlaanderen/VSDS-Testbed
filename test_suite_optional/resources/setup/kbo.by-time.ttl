@@ -12,15 +12,8 @@
 </kbo/by-time> a tree:Node ;
   tree:viewDescription [ a tree:ViewDescription ;
     tree:fragmentationStrategy ([
-		a tree:TimebasedFragmentation ;
-		tree:memberLimit "2"^^xsd:integer ;
-		tree:fragmentationPath dcterms:created ;  ;
+	  	a tree:HierarchicalTimeBasedFragmentation ;
+     	tree:maxGranularity "second" ;
+		tree:fragmentationPath dcterms:issued ;
 	]) ;
 ] .
-
-#</kbo/by-time> tree:viewDescription [
-#    ldes:retentionPolicy [
-#        a ldes:DurationAgoPolicy  ;
-#        tree:value "PT2M"^^xsd:duration ;
-#    ] ;
-#					   ] .

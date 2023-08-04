@@ -1,5 +1,4 @@
 package be.vlaanderen.ldes.handlers;
-import static be.vlaanderen.ldes.Utils.*;
 
 import be.vlaanderen.ldes.gitb.TestBedLogger;
 import com.gitb.core.LogLevel;
@@ -12,10 +11,13 @@ import org.apache.jena.riot.RDFLanguages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static be.vlaanderen.ldes.Utils.convertListToString;
 
 /**
  * Handle validations of String relations.
@@ -58,7 +60,7 @@ public class RelationStringValidationHandler {
                         case SuffixRelation -> {for (String memberValue: memberValues.get()) {if(memberValue.endsWith(relation.relationValue())){isValid = true;validValues.add(memberValue);}}}  
                         case EqualToRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) == 0){isValid = true;validValues.add(memberValue);}}}   
                         case GreaterThanRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > 0){isValid = true;validValues.add(memberValue);}}} 
-                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) > = 0){isValid = true;validValues.add(memberValue);}}}
+                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) >= 0){isValid = true;validValues.add(memberValue);}}}
                         case LessThanRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) < 0){isValid = true;validValues.add(memberValue);}}} 
                         case LessThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().compareTo(memberValue) <= 0){isValid = true;validValues.add(memberValue);}}} 
                     };

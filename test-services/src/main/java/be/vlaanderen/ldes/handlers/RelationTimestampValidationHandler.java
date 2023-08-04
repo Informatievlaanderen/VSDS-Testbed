@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static be.vlaanderen.ldes.Utils.convertListToString;
+
 /**
  * Handle validations of time-based relations.
  */
@@ -51,22 +53,22 @@ public class RelationTimestampValidationHandler {
             var members = getPageMembers(inputModel, relation.relatedPage());
             for (var member: members) {
                 // Look up the value of the member property referred to by the relation.
-                var memberValue = getMemberValue(inputModel, member, relation.relationPath());
-                if (memberValue.isPresent()) {
-                    var memberDate = toDate(memberValue.get());
-                    var isValid = switch (relation.relationType()) {
-                        case EqualToRelation -> relation.relationValue().isEqual(memberDate);
-                        case GreaterThanRelation -> relation.relationValue().isAfter(memberDate);
-                        case GreaterThanOrEqualToRelation -> relation.relationValue().isAfter(memberDate) || relation.relationValue().isEqual(memberDate);
-                        case LessThanRelation -> relation.relationValue().isBefore(memberDate);
-                        case LessThanOrEqualToRelation -> relation.relationValue().isBefore(memberDate) || relation.relationValue().isEqual(memberDate);
-                    };
+                var memberValues = getMemberValue(inputModel, member, relation.relationPath());
+                var validValues = new ArrayList<String>();
+                if (memberValues.isPresent()) {
+                    Boolean isValid = false;
+                    switch (relation.relationType()) {                        
+                        case EqualToRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().isEqual(toDate(memberValue))){isValid = true; validValues.add(memberValue);}}}
+                        case GreaterThanRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().isAfter(toDate(memberValue))){isValid = true; validValues.add(memberValue);}}}
+                        case GreaterThanOrEqualToRelation ->{for (String memberValue: memberValues.get()) {if( relation.relationValue().isAfter(toDate(memberValue)) || relation.relationValue().isEqual(toDate(memberValue))){isValid = true; validValues.add(memberValue);}}}
+                        case LessThanRelation ->{for (String memberValue: memberValues.get()) {if(relation.relationValue().isBefore(toDate(memberValue))){isValid = true;validValues.add(memberValue);}}}
+                        case LessThanOrEqualToRelation -> {for (String memberValue: memberValues.get()) {if(relation.relationValue().isBefore(toDate(memberValue)) || relation.relationValue().isEqual(toDate(memberValue))){isValid = true;validValues.add(memberValue);}}}                    };
                     if (isValid) {
-                        String message = String.format("Member [%s] value [%s] passed check [%s] for relation value [%s].", member, memberDate, relation.relationType(), relation.relationValue());
+                        String message = String.format("Member [%s] passed check [%s] for relation value [%s] with valid value(s):\n%s.", member, relation.relationType(), relation.relationValue(), convertListToString(validValues));
                         logger.log(String.format(message), LogLevel.DEBUG);
                         LOG.debug(message);
                     } else {
-                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines an invalid value [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, memberDate, relation.relationPath(), relation.relationValue()));
+                        errorMessages.add(String.format("Page [%s] has a [%s] relation with page [%s], but member [%s] defines invalid value(s):\n [%s] for property [%s] considering the relation's value of [%s].", relation.page(), relation.relationType(), relation.relatedPage(), member, convertListToString(memberValues.get()), relation.relationPath(), relation.relationValue()));
                     }
                 } else {
                     errorMessages.add(String.format("Page [%s] relates to page [%s], but member [%s] does not define the expected relation property [%s].", relation.page(), relation.relatedPage(), member, relation.relationPath()));
