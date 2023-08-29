@@ -1,8 +1,8 @@
 package be.vlaanderen.ldes.gitb;
 
-import be.vlaanderen.ldes.EndpointTypeEnum;
 import be.vlaanderen.ldes.Utils;
 import be.vlaanderen.ldes.handlers.CrawlHandler;
+import be.vlaanderen.ldes.handlers.Crawler;
 import be.vlaanderen.ldes.handlers.SparqlQueryHandler;
 import com.gitb.core.ValueEmbeddingEnumeration;
 import com.gitb.ps.Void;
@@ -10,12 +10,23 @@ import com.gitb.ps.*;
 import com.gitb.tr.TestResultType;
 import jakarta.annotation.Resource;
 import jakarta.xml.ws.WebServiceContext;
+import org.apache.commons.io.IOUtils;
+import org.apache.jena.atlas.logging.Log;
+import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static be.vlaanderen.ldes.Utils.createAnyContentSimple;
 import static be.vlaanderen.ldes.Utils.getRequiredString;
@@ -73,11 +84,48 @@ public class ProcessingServiceImpl implements ProcessingService {
                 // Get the expected inputs.
                 var streamData = getRequiredString(processRequest.getInput(), "streamData");
                 var contentType = getRequiredString(processRequest.getInput(), "contentType");
+
                 var endpointType = getRequiredString(processRequest.getInput(), "endpointType");
-                // Trigger the processing.
-                var result = crawlHandler.crawl(streamData, contentType, EndpointTypeEnum.fromType(endpointType));
-                // Produce the resulting report.
-                response.getOutput().add(createAnyContentSimple("result", result, ValueEmbeddingEnumeration.STRING));
+
+                Model stream = ModelFactory
+                        .createDefaultModel()
+                        // @todo Use content type header of http response?
+                        .read(IOUtils.toInputStream(streamData, "UTF-8"), null, "TURTLE");
+                List<String> relations = new ArrayList<>();
+                // @todo Select correct view when multiple views are available.
+                String queryString = """
+                    PREFIX tree: <https://w3id.org/tree#>
+                    SELECT DISTINCT ?relation
+                    WHERE {
+                        ?node a tree:Node .
+                        ?node tree:relation/tree:node ?relation.
+                    }
+                    """ ;
+                Query query = QueryFactory.create(queryString) ;
+                try (QueryExecution qexec = QueryExecutionFactory.create(query, stream)) {
+                    ResultSet results = qexec.execSelect() ;
+                    while (results.hasNext()) {
+                        org.apache.jena.rdf.model.Resource relation = results.nextSolution().getResource("relation") ;
+                        relations.add(relation.getURI());
+                    }
+                }
+                AtomicReference<Boolean> hasCrawled = new AtomicReference<>(false);
+                relations.forEach((String ViewURI) -> {
+                    LOG.info("Received processing call for test session [{}].", processRequest.getSessionId());
+                    if (ViewURI.contains(endpointType)) {
+                        hasCrawled.set(true);
+                        Crawler crawler = new Crawler(ViewURI);
+                        LOG.info("Now crawling the View [{}]", ViewURI);
+                        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                        RDFDataMgr.write(outputStream, crawler.run().getGraph(), Lang.TURTLE);
+                        // Produce the resulting report.
+                        response.getOutput().add(createAnyContentSimple("result", outputStream.toString(), ValueEmbeddingEnumeration.STRING));
+                    }
+                });
+                if (!hasCrawled.get()) {
+                    response.setReport(Utils.createReport(TestResultType.FAILURE));
+                    LOG.error( "No matching view found in eventstream for [{}]", endpointType);
+                }
             }
             case "sparqlSelect" -> {
                 /*
