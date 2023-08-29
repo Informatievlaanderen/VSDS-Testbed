@@ -1,0 +1,162 @@
+<testcase id="ts1_tc3" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <gitb:name>[TC3] Member retrieval</gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description>Every entity linked from tree:view MUST be an entry point to retrieve all members of the collection.</gitb:description>
+        <gitb:documentation import="docs/test_case_3.html"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="LDESServer" role="SUT"/>
+        <gitb:actor id="DataProvider"/>
+    </actors>
+    <namespaces>
+       <ns prefix="ns">http://www.w3.org/2005/sparql-results#</ns>
+    </namespaces>    
+    <steps stopOnError="false">
+        <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
+        <call id="step1" path="scriptlets/ingestDataset.xml"/>
+        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
+            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
+            <input name="endpointType">'byLocation'</input>
+        </call>
+        <!-- Step 3: The number of output LDES members must equal the number of input LDES members. -->
+        <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
+        <log>"Collecting the distinct members from the crawled data..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectMembers" output="resultSetGeo" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect">
+            <input name="content">$crawledDataGeo</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX legal: <http://www.w3.org/ns/legal#> 
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
+}"]]></input>
+        </process>
+        <!-- 
+            Use XPath (the GITB TDL's basic expression language) to count the query results. The "source" attribute can be used if you want to run the XPath
+            expression on certain XML content (not always the case but useful here).
+        -->
+        <assign to="memberCount" source="$resultSetGeo">count(/ns:sparql/ns:results/ns:result)</assign>
+        <!-- Validate that the number of results. -->
+        <verify id="step3" handler="NumberValidator" desc="Validate geospatial view endpoint">
+            <input name="actualnumber">$memberCount</input>
+            <input name="expectednumber">'20'</input>
+        </verify>
+
+
+
+
+
+        <!-- Step 4: Fetch the processed data from the endpoint of the LDES Server (by String). -->
+        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataString">
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <input name="endpointType">'byName'</input>
+        </call>
+        <!-- Step 5: The number of output LDES members must equal the number of input LDES members. -->
+        <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
+        <log>"Collecting the distinct members from the crawled data..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectMembers" output="resultSetString" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect">
+            <input name="content">$crawledDataString</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX legal: <http://www.w3.org/ns/legal#> 
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
+}"]]></input>
+        </process>
+        <!-- 
+            Use XPath (the GITB TDL's basic expression language) to count the query results. The "source" attribute can be used if you want to run the XPath
+            expression on certain XML content (not always the case but useful here).
+        -->
+        <assign to="memberCount" source="$resultSetString">count(/ns:sparql/ns:results/ns:result)</assign>
+        <!-- Validate that the number of results. -->
+        <verify id="step5" handler="NumberValidator" desc="Validate String-based view endpoint">
+            <input name="actualnumber">$memberCount</input>
+            <input name="expectednumber">'20'</input>
+        </verify>
+
+
+    <!-- Step 6: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
+        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
+            <input name="endpoint">$SYSTEM{endpointByTime}</input>
+            <input name="endpointType">'byTime'</input>
+        </call>
+        <!-- Step 5: The number of output LDES members must equal the number of input LDES members. -->
+        <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
+        <log>"Collecting the distinct members from the crawled data..."</log>
+        <!-- 
+            Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+            you can choose to display them by setting the "hidden" attribute to false.
+        -->
+        <process id="collectMembers" output="resultSetTime" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect">
+            <input name="content">$crawledDataTime</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX legal: <http://www.w3.org/ns/legal#> 
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
+}"]]></input>
+        </process>
+        <!-- 
+            Use XPath (the GITB TDL's basic expression language) to count the query results. The "source" attribute can be used if you want to run the XPath
+            expression on certain XML content (not always the case but useful here).
+        -->
+        <assign to="memberCount" source="$resultSetTime">count(/ns:sparql/ns:results/ns:result)</assign>
+        <!-- Validate that the number of results. -->
+        <verify id="step5" handler="NumberValidator" desc="Validate Time-based view endpoint">
+            <input name="actualnumber">$memberCount</input>
+            <input name="expectednumber">'20'</input>
+        </verify>
+
+
+
+    </steps>
+    <!-- Definition of final summary message. -->
+    <output>
+        <success>
+            <default>"Test session completed successfully."</default>
+        </success>
+        <failure>
+            <case>
+                <cond>$STEP_STATUS{step1} = 'ERROR'</cond>
+                <message>"An error occurred while posting the test dataset to your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"You did not return the expected number of members."</message>
+            </case>
+                     <case>
+                <cond>$STEP_STATUS{step4} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step5} = 'ERROR'</cond>
+                <message>"You did not return the expected number of members."</message>
+            </case>
+                     <case>
+                <cond>$STEP_STATUS{step6} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step7} = 'ERROR'</cond>
+                <message>"You did not return the expected number of members."</message>
+            </case>
+            <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
+        </failure>
+    </output>
+</testcase>

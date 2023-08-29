@@ -1,0 +1,113 @@
+<testcase id="ts1_tc6" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <gitb:name>[TC6] No tree:path define fallback </gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description> When no tree:path is defined,the tree:value MUST be compared to all members’ triples that can be compared to the tree:value as defined by the type of the relation (or when no members or collection are defined, on every triple in the page). When due to rdfs:range incompatibility, the object cannot be compared, the object will not be considered for comparison.</gitb:description>
+        <!-- 
+            You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
+            HTML content to include in the referenced file.
+        -->
+        <gitb:documentation import="docs/test_case_6.html"/>
+    </metadata>
+    <imports>
+        <artifact type="binary" encoding="UTF-8" name="shapesTemplate">resources/shapes/testcase6.ttl</artifact>
+    </imports>  
+    <actors>
+        <gitb:actor id="LDESServer" role="SUT"/>
+        <gitb:actor id="DataProvider"/>
+    </actors>
+    <namespaces>
+       <ns prefix="ns">http://www.w3.org/2005/sparql-results#</ns>
+       <ns prefix="tree">https://w3id.org/tree#</ns>
+    </namespaces>    
+    <!-- 
+        Setting "stopOnError" to true will stop the test session as soon as an error is encountered. By default test sessions will continue regardless of errors.
+    -->
+    <steps stopOnError="false">
+        <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
+        <!-- 
+            Scriptlets are reusable sets of test steps with optional inputs and outputs used via a "call" step. When referring to it in the "path" use
+            the relative path of the scriptlet file considering the root of the test suite (the same applies for documentation and artifact imports).
+            Note that scriptlets can also be reused across test suites and even specifications - you only need to refer to the other test suite's identifier
+            (which should be unique) when calling it.
+        -->
+        <call id="step1" path="scriptlets/ingestDataset.xml"/>
+        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
+            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
+            <input name="endpoint">$SYSTEM{endpointByName}</input>
+            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
+            <input name="endpointType">'byName'</input>
+        </call>
+        
+        <!-- Step 3: Validate the data against the shapes to see if a comparator relations is used in the string fragmentation -->
+        <process output="processedShapes" handler="TemplateProcessor">
+            <!-- <input name="parameters">$parameters</input> -->
+            <input name="template">$shapesTemplate</input>
+            <input name="syntax">'freemarker'</input>
+        </process>
+
+        <assign to="shape1{ruleSet}">$processedShapes</assign>
+        <assign to="shape1{ruleSyntax}">"application/turtle"</assign>
+        <!-- 
+            When assigning to a new variable ("shapesToUse") and add append="true" this can only be a list (only lists can be appended to).
+            Here we are creating a list named "shapesToUse" and adding as the first element the map "shape1" we created just before. We could add
+            more maps here if we wanted to add additional shape files for the validation.
+         -->
+        <assign to="shapesToUse" append="true">$shape1</assign>
+        <verify id="step3" desc="Verify if tree:path is defined" handler="$DOMAIN{shaclValidatorServiceAddress}" hidden="true">
+            <input name="contentToValidate">$crawledData</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+
+        <if desc="Verify if the pre-condition [where no tree:path is defined, but a tree:value exists] is met">
+        <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+        <!--
+            Only the 'exit' step will be displayed and skipped if the condition is not matched.
+            This is achieved by setting 'hidden' explicitly to 'false'.
+        -->
+        <then hidden="false">
+        <verify id="step4" desc="Validate Relations #TODO" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"string relations"</input>
+            <input name="content">$crawledData</input>
+        <input name="contentType">"application/turtle"</input>
+        </verify>    
+        </then>
+        <else>
+        <exit desc="The pre-condition [where no tree:path is defined, but a tree:value exists] is not met - TEST DOESN'T APPLY." success="true"/>
+        </else>
+        </if>
+    </steps>
+    <!-- Definition of final summary message. -->
+    <output>
+        <success>  
+            <case>
+                <cond>$STEP_STATUS{step3} != 'ERROR'</cond>
+                <message>"The pre-condition [where no tree:path is defined, but a tree:value exists] is not met - TEST DOESN'T APPLY."</message>
+            </case> 
+            <default>"Test session completed successfully."</default>
+        </success>
+        <failure>
+            <case>
+                <!-- 
+                    The STEP_STATUS map is a special purpose map you can use to query the status of specific steps. You typically use this in 
+                    an output section (like here) to see what failed.
+                -->
+                <cond>$STEP_STATUS{step1} = 'ERROR'</cond>
+                <message>"An error occurred while posting the test dataset to your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>      
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>     
+            <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
+        </failure>
+    </output>
+</testcase>

@@ -1,0 +1,41 @@
+#Todo
+
+# SPEC for Tree Spec
+# Must test case - 20
+# SPEC Conform:
+# Also the comparator relations such as tree:GreaterThanRelation can be used.
+# The strings MUST then be compared according to case-sensitive unicode ordering.
+# Verify:
+# The evaluation based on the tree:value of the tree:path is complaint to case-sensitive unicode ordering
+
+
+
+@prefix tree: <http://example.com/tree#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix example: <http://example.org/> .
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+tree:NotComparisonSubstringRelation
+  a sh:NodeShape ;
+  sh:targetClass tree:GreaterThanRelation ;
+  sh:targetClass tree:GreaterThanOrEqualToRelation ;
+  sh:targetClass tree:LessThanRelation ;
+  sh:targetClass tree:LessThanOrEqualToRelation ;
+  sh:targetClass tree:EqualToRelation ;
+  sh:property [
+    sh:path tree:value;
+    sh:datatype xsd:string;
+    sh:minCount 1;
+                   ];
+  sh:not [
+		sh:property [
+    sh:path rdf:type ;
+    sh:in (tree:GreaterThanRelation tree:GreaterThanOrEqualToRelation tree:LessThanRelation tree:LessThanOrEqualToRelation tree:EqualToRelation);
+  ] ;
+	] .
+  
+
+  

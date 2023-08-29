@@ -1,0 +1,28 @@
+@prefix po:  <http://itb.ec.europa.eu/sample/po#> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# SPEC for Tree Spec
+# SHOULD test case - 3
+# SPEC Conform:
+# Therefore a data publisher SHOULD annotate a tree:Collection
+# instance with a SHACL shape. The tree:shape points to a SHACL description of the shape (sh:NodeShape).
+#
+# Verify:
+# There is a SHACL shape attached to the graph.
+
+tree:ShaclAnnotation  a sh:NodeShape ;
+    sh:targetClass tree:Collection ;
+    sh:property [
+        sh:path tree:shape ;
+        sh:node tree:ShaclShape;
+        sh:minCount 1 ;
+    ] .
+
+tree:ShaclShape a sh:NodeShape ;
+    sh:property [
+                sh:path rdf:type;
+                sh:in (sh:NodeShape sh:PropertyShape );
+                ].

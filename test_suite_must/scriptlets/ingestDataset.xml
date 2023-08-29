@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptlet id="ingestDataset" xmlns="http://www.gitb.com/tdl/v1/">
+    <!-- 
+        I would advise to import everything as "binary" which effectively means "files". For non-binary artifacts the test engine
+        will attempt to treat them as templates but its best to avoid this and do it explicitly when you want to (see the 
+        TemplateProcessor) in test case 3.
+    -->
+    <imports>
+        <artifact type="binary" encoding="UTF-8" name="datasets">resources/setup/bel20.zip</artifact>
+        <artifact type="binary" encoding="UTF-8" name="streamDefinition">resources/setup/kbo.ttl</artifact>
+        <artifact type="binary" encoding="UTF-8" name="viewLocationDefinition">resources/setup/kbo.by-location.ttl</artifact>
+        <artifact type="binary" encoding="UTF-8" name="viewNameDefinition">resources/setup/kbo.by-name.ttl</artifact>
+        <artifact type="binary" encoding="UTF-8" name="viewPageDefinition">resources/setup/kbo.by-page.ttl</artifact>
+        <artifact type="binary" encoding="UTF-8" name="viewTimeDefinition">resources/setup/kbo.by-time.ttl</artifact>
+    </imports>
+    <steps>
+        <!-- A hidden "if" step with an explicitly non-hidden "then" will hide only the step's boundary container. -->
+        <if title="Setup" hidden="true" desc="Ingest test data (if needed)">
+            <cond>$SYSTEM{ingestPerTestSession} = 'Y'</cond>
+            <then hidden="false">
+                <!--
+                    The "group" step is a nice way of grouping related steps and applying some common characteristics. For example you could set
+                    the whole group as "hidden" or change the "stopOnError" semantics (if e.g. the group contains a sequence of "verify" steps that you want to
+                    execute in full regardless of their results). In this case we say the it should appear as collapsed by default as we don't want
+                    to put the focus on the data ingestion steps.
+                -->
+                <group title="Setup" desc="Ingest data if needed" collapsed="true">
+                    <log>"Configuring stream..."</log>
+                    <!--
+                        The "from" and "to" just define the involved actors and the direction of the communication arrow between them.
+                     -->
+                    <send id="setupStream" desc="Configure stream" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"post"</input>
+                        <input name="content">$streamDefinition</input>
+                        <input name="contentName">"kbo.ttl"</input>
+                        <input name="contentType">"text/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointStreamAdmin}</input>
+                    </send>
+                    <!-- Notice here how you can call a scriptlet from within another scriptlet. -->
+                    <call path="scriptlets/wait.xml" input="2000"/>
+                    <log>"Configuring page-based view..."</log>
+                    <send id="setupPageBasedView" desc="Configure page-based view" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"post"</input>
+                        <input name="content">$viewPageDefinition</input>
+                        <input name="contentName">"kbo.by-page.ttl"</input>
+                        <input name="contentType">"text/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointViewAdmin}</input>
+                    </send>
+                    <call path="scriptlets/wait.xml" input="2000"/>
+                    <log>"Configuring time-based view..."</log>
+                    <send id="setupTimeBasedView" desc="Configure time-based view" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"post"</input>
+                        <input name="content">$viewTimeDefinition</input>
+                        <input name="contentName">"kbo.by-time.ttl"</input>
+                        <input name="contentType">"text/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointViewAdmin}</input>
+                    </send>
+                    <call path="scriptlets/wait.xml" input="2000"/>
+                    <log>"Configuring location-based view..."</log>
+                    <send id="setupLocationBasedView" desc="Configure location-based view" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"post"</input>
+                        <input name="content">$viewLocationDefinition</input>
+                        <input name="contentName">"kbo.by-location.ttl"</input>
+                        <input name="contentType">"text/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointViewAdmin}</input>
+                    </send>
+                    <call path="scriptlets/wait.xml" input="2000"/>
+                    <log>"Configuring name-based view..."</log>
+                    <send id="setupNameBasedView" desc="Configure name-based view" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"post"</input>
+                        <input name="content">$viewNameDefinition</input>
+                        <input name="contentName">"kbo.by-name.ttl"</input>
+                        <input name="contentType">"text/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointViewAdmin}</input>
+                    </send>
+                    <call path="scriptlets/wait.xml" input="2000"/>
+                    <log>"Ingesting dataset..."</log>
+                    <send id="ingestDataset" desc="Ingest datasets" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+                        <input name="type">"ingest"</input>
+                        <input name="datasets">$datasets</input>
+                        <input name="contentType">"application/turtle"</input>
+                        <input name="endpoint">$SYSTEM{endpointIngestion}</input>
+                    </send>
+                    <log>'Test dataset ingested.'</log>
+                </group>
+            </then>
+        </if>
+    </steps>
+</scriptlet>

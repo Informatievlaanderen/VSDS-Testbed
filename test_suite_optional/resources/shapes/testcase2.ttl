@@ -1,0 +1,20 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+
+# SPEC for Tree Spec
+# OPTIONAL test case - 7
+# SPEC Conform:
+# Multiple tree:view links MAY be provided
+#
+# Verify:
+# Check that LDES Server supports multiple view links per collection
+#
+
+tree:SupportMultiView
+	a sh:NodeShape ;
+    sh:targetClass ldes:EventStream ;
+    sh:property [
+        sh:path tree:view;
+        sh:minCount 2 ;
+    ] .

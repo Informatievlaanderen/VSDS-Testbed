@@ -1,0 +1,20 @@
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix custom: <http://example.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix tree: <https://w3id.org/tree#>.
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix server: <http://localhost:8080/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix server: <http://localhost:8080/kbo/> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@base <http://localhost:8080> .
+
+</kbo/by-name> a tree:Node ;
+	tree:viewDescription [ a tree:ViewDescription ;
+		tree:fragmentationStrategy ([
+			a tree:SubstringFragmentation ;
+			tree:memberLimit "2"^^xsd:integer ;
+			tree:caseSensitive true ;
+			tree:fragmentationPath legal:legalName ;
+		]) ;
+	] .

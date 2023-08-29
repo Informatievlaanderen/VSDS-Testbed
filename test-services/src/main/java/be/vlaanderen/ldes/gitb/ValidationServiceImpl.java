@@ -1,11 +1,12 @@
 package be.vlaanderen.ldes.gitb;
-
 import static be.vlaanderen.ldes.Utils.createReport;
 import static be.vlaanderen.ldes.Utils.getReplyToAddressFromHeaders;
-
 import be.vlaanderen.ldes.Utils;
 import be.vlaanderen.ldes.handlers.RDFComparisonHandler;
 import be.vlaanderen.ldes.handlers.RelationTimestampValidationHandler;
+import be.vlaanderen.ldes.handlers.WKTSubstringRegexHandler;
+import be.vlaanderen.ldes.handlers.RelationGeospatialValidationHandler;
+import be.vlaanderen.ldes.handlers.RelationStringValidationHandler;
 import com.gitb.core.LogLevel;
 import com.gitb.tr.BAR;
 import com.gitb.tr.ObjectFactory;
@@ -38,9 +39,14 @@ public class ValidationServiceImpl implements ValidationService {
 
   @Autowired
   private RelationTimestampValidationHandler relationTimestampValidationHandler;
-
   @Autowired
   private RDFComparisonHandler rdfComparisonHandler;
+  @Autowired
+  private WKTSubstringRegexHandler wktSubstringRegexHandler;
+  @Autowired
+  private RelationGeospatialValidationHandler relationGeospatialValidationHandler;
+  @Autowired
+  private RelationStringValidationHandler relationStringValidationHandler;
 
   @Resource
   private WebServiceContext wsContext;
@@ -109,6 +115,56 @@ public class ValidationServiceImpl implements ValidationService {
           logger
         );       
       }
+
+       case "geospatial relations" -> {
+       
+        // Get the expected inputs.
+        var content = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "content"
+        );
+        var contentType = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "contentType"
+        );
+        // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
+        var logger = new ValidationServiceLogger(
+          validateRequest.getSessionId(),
+          getReplyToAddressFromHeaders(wsContext).orElse(null)
+        );
+        // Carry out the validation.
+        errorMessages = relationGeospatialValidationHandler.validate(
+          content,
+          contentType,
+          logger
+        );       
+      }
+
+      case "string relations" -> {
+       
+        // Get the expected inputs.
+        var content = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "content"
+        );
+        var contentType = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "contentType"
+        );
+        // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
+        var logger = new ValidationServiceLogger(
+          validateRequest.getSessionId(),
+          getReplyToAddressFromHeaders(wsContext).orElse(null)
+        );
+        // Carry out the validation.
+        errorMessages = relationStringValidationHandler.validate(
+          content,
+          contentType,
+          logger
+        );       
+      }
+
+
       case "RDF Comparison" -> {
         LOG.info(
           "Requested validation from test session [{}]",
@@ -135,6 +191,29 @@ public class ValidationServiceImpl implements ValidationService {
                 logger
               );           
       }
+      case "WktSubstringRegexHandler" -> {
+        LOG.info(
+          "Requested validation from test session [{}]",
+          validateRequest.getSessionId()
+        );
+        // Get the expected inputs.
+        var xmlResult = Utils.getRequiredString(
+          validateRequest.getInput(),
+          "xmlResult"
+        );        
+        // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
+        System.out.println(errorMessages);   
+        var logger = new ValidationServiceLogger(
+          validateRequest.getSessionId(),
+          getReplyToAddressFromHeaders(wsContext).orElse(null)
+        );
+        // Carry out the validation.
+        errorMessages = wktSubstringRegexHandler.validateRegList(
+                xmlResult,
+                logger
+              );   
+        System.out.println(errorMessages);        
+      }
     }
        // Create the validation report.
               var report = createReport(TestResultType.SUCCESS);
@@ -158,9 +237,9 @@ public class ValidationServiceImpl implements ValidationService {
                       )
                     );
                 }
-                response.setReport(report);
-                return response;
+             
               }
+    response.setReport(report);
     return response;
   }
 

@@ -1,0 +1,58 @@
+
+#
+# SPEC for Tree Spec
+# Must test case - 2
+# SPEC Conform:
+# When the current page is a tree:Node, there MUST be a property linking the current page URL to the URI of the tree:Collection.
+# Verify:
+# "Each tree:Node in the LDES Collection has a link between current page to tree:Collection."
+# "Or the Subject of Tree:Node is an object of a tree:view, it has path isPartOf to the LDES Stream"
+
+
+@prefix po:  <http://itb.ec.europa.eu/sample/po#> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+
+
+
+tree:ShapeWithOr
+    a sh:NodeShape ;
+    sh:or (
+        [ tree:NotViewNodeIsPartOf
+			a sh:NodeShape ;
+			sh:targetNode ?node;
+			sh:or (
+					[
+						sh:path terms:isPartOf  ;
+						sh:minCount 1 ;
+						sh:hasValue <${LdesStreamUrl}>;
+					]
+					[
+						sh:path rdf:subject  ;
+						sh:in ( <${endpointByLocation}> <${endpointByName}> <${endpointByTime}> );
+					]
+				);
+        ];
+        [ sh:targetNode ?nodeUri ;
+          sh:property [
+              sh:inversePath void:subset ;
+              sh:minCount 1 ;
+          ]
+        ]
+    ) ;
+
+	 sh:SPARQL [
+        sh:select """
+            SELECT ?node ?nodeUri
+            WHERE {
+                ?node a tree:Node .
+                ?node rdf:subject ?nodeUri .
+            }
+        """
+    ] .

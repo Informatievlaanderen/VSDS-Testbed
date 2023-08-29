@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptlet id="wait" xmlns="http://www.gitb.com/tdl/v1/">
+    <params>
+        <var name="duration" type="number"/>
+    </params>    
+    <steps>
+        <!-- Nice example here of string concatenation in XPath. -->
+        <log>"Waiting for " || $duration || " milliseconds..."</log>
+        <!--
+            Use of SimulatedMessaging and a hidden "receive" step is a bit non-intuitive but it is due to the lack of
+            a proper "delay" step that would be a processing step. We use "SimulatedMessaging" here as this is 
+            currently the only way of applying an arbitrary delay to a test session (in the correct way - adding something
+            like a Thread.sleep() in a test service is blocking operation that should be avoided).
+
+            The good thing about hiding this in a scriptlet is that the way the delay is implemented is hidden from the rest
+            of the test cases and need only be replaced in one spot if needed.
+        -->
+        <receive id="wait" desc="Wait" from="DataProvider" to="DataProvider" hidden="true" handler="SimulatedMessaging">
+            <input name="delay">$duration</input>
+        </receive>            
+        <log>"Finished waiting."</log>
+    </steps>
+</scriptlet>

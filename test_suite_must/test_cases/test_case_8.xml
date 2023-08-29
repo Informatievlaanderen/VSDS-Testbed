@@ -1,0 +1,88 @@
+<testcase id="ts1_tc8" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <gitb:name>[TC8] Geospatial Requirement </gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description>When using tree:GeospatiallyContainsRelation, the tree:path MUST refer to a literal containing a WKT string, such as geosparql:asWKT.</gitb:description>
+        <!-- 
+            You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
+            HTML content to include in the referenced file.
+        -->
+        <gitb:documentation import="docs/test_case_8.html"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="LDESServer" role="SUT"/>
+        <gitb:actor id="DataProvider"/>
+    </actors>
+    <namespaces>
+       <ns prefix="ns">http://www.w3.org/2005/sparql-results#</ns>
+       <ns prefix="tree">https://w3id.org/tree#</ns>
+    </namespaces>    
+    <!-- 
+        Setting "stopOnError" to true will stop the test session as soon as an error is encountered. By default test sessions will continue regardless of errors.
+    -->
+    <steps stopOnError="false">
+        <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
+        <!-- 
+            Scriptlets are reusable sets of test steps with optional inputs and outputs used via a "call" step. When referring to it in the "path" use
+            the relative path of the scriptlet file considering the root of the test suite (the same applies for documentation and artifact imports).
+            Note that scriptlets can also be reused across test suites and even specifications - you only need to refer to the other test suite's identifier
+            (which should be unique) when calling it.
+        -->
+        <call id="step1" path="scriptlets/ingestDataset.xml"/>
+        <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
+        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
+            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
+            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
+            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
+            <input name="endpointType">'byLocation'</input>
+        </call>
+
+        <log>"Collecting all objects of tree:value of the tree:GeospatiallyContainsRelation..."</log>
+                <!-- 
+                    Use the processing service from test-services to run a SPARQL select query. Note that processing steps are by default hidden but if you want
+                    you can choose to display them by setting the "hidden" attribute to false.
+                -->
+                <process id="collect WKT format tree:value" output="resultSet" handler="$DOMAIN{processingServiceAddress}" operation="sparqlSelect">
+                    <input name="content">$crawledData</input>
+                    <input name="contentType">"application/turtle"</input>
+                    <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX legal: <http://www.w3.org/ns/legal#> 
+                PREFIX tree: <https://w3id.org/tree#>
+                SELECT ?treevalue WHERE {
+                      ?subject rdf:type tree:GeospatiallyContainsRelation.
+                      ?subject tree:value ?treevalue .}"]]></input>
+                </process>      
+        <!-- Step 3: Verify if each tree:value is in a wkt format. -->
+        <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
+        <log>"Validating if all objects of tree:value of the tree:GeospatiallyContainsRelation is a WKT literal"</log>
+        <verify id="step3" desc="Validate WKT Literal" handler="$DOMAIN{validationServiceAddress}">
+            <input name ="type">"WktSubstringRegexHandler"</input>
+            <input name="xmlResult">$resultSet</input>
+        </verify>
+    </steps>
+    <!-- Definition of final summary message. -->
+    <output>
+        <success>
+            <default>"Test session completed successfully."</default>
+        </success>
+        <failure>
+            <case>
+                <!-- 
+                    The STEP_STATUS map is a special purpose map you can use to query the status of specific steps. You typically use this in 
+                    an output section (like here) to see what failed.
+                -->
+                <cond>$STEP_STATUS{step1} = 'ERROR'</cond>
+                <message>"An error occurred while posting the test dataset to your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"Some tree:path is not referring to a WKT literal string or coontains WKT literal string"</message>
+            </case>
+            <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
+        </failure>
+    </output>
+</testcase>

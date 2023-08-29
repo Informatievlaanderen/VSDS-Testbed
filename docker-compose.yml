@@ -38,6 +38,8 @@ services:
       # In the case of the PoC the only scenario we used callbacks in is when we post log messages from the
       # test-services component back to the test engine.
       - gitb.messaging.callbackURL=http://gitb-srv:8080/itbsrv/MessagingClient
+    ports:
+      - "10001:8080"
   gitb-ui:
     # The Test Bed's UI.
     image: isaitb/gitb-ui:nightly
@@ -96,13 +98,15 @@ services:
       - ./config/shacl-validator:/config
     environment:
       - validator.resourceRoot=/config
+    ports:
+      - 8081:8080
   # 
   # PoC specific containers for the LDES server - START
   #
   # These are added here for the PoC's installation convenience to act as a SUT. Eventually these would be removed from this docker-compose file.
   # When removing them remember to adapt the systems' configuration in the Test Bed UI to point to the new address of ldes-server.
   ldes-server:
-    image: ldes/ldes-server:1.2.0-SNAPSHOT
+    image: ldes/ldes-server:1.4.0-SNAPSHOT
     ports:
           - 8080:8080
     environment:

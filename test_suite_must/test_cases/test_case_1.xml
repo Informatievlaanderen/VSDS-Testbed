@@ -1,0 +1,81 @@
+<testcase id="ts1_tc1" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <gitb:name>[TC1] Member discovery</gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description>A node from which all members of a collection can be discovered, can be found through a triple stating ex:C1 tree:view ex:N1 with ex:C1 being a tree:Collection and ex:N1 being a tree:Node.</gitb:description>
+        <gitb:documentation import="docs/test_case_1.html"/>
+    </metadata>
+    <imports>
+        <artifact type="binary" encoding="UTF-8" name="shapesTemplate">resources/shapes/testcase1.ttl</artifact>
+    </imports>    
+    <actors>
+        <gitb:actor id="LDESServer" role="SUT"/>
+        <gitb:actor id="DataProvider"/>
+    </actors>
+    <steps stopOnError="false">
+        <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
+        <call id="step1" path="scriptlets/ingestDataset.xml"/>
+        <!-- Step 2: Access the endpoint of the LDES server. -->
+        <send id="step2" desc="Get view page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+            <input name="contentType">"application/turtle"</input>
+            <input name="endpoint">$SYSTEM{endpointAccess}</input>
+        </send>
+        <!-- Step 3: Validate the fetched view page of the LDES Server with SHACL. -->
+        <!-- 
+            We use here the TemplateProcessor (built-in processing handler) to generate the actual shapes to use. We load
+            the template (see "shapesTemplate" from the imports above) in which we will used the passed "parameters" to provide
+            the template's values. Note that we use Freemarker so you besides simple placeholder replacements (like we do in this
+            case), you can also generate more complex data using conditionals, looping etc.
+        -->
+        <assign to="parameters{targetNode}">$SYSTEM{endpointAccess}</assign>
+        <process output="processedShapes" handler="TemplateProcessor">
+            <input name="parameters">$parameters</input>
+            <input name="template">$shapesTemplate</input>
+            <input name="syntax">'freemarker'</input>
+        </process>
+        <!-- 
+            Here we use the SHACL validator to trigger a validation of RDF content using SHACL shapes (that we generate from the
+            template as explained above). The validator is configured to have a single supported validation type ("any" - assumed
+            by default) that requires shapes to provided as part of the input. This is through the "externalRules" input that
+            takes a list of maps, each map containing the "ruleSet" and "ruleSyntax". In this case we also request to "addInputToReport"
+            and "addRulesToReport" so that the validation report includes the validated content and the shapes used.
+        -->
+        <!-- When assigning to a variable "shape1" using a named key "ruleSet" the engine creates automatically a map ("shape1") with a key ("ruleSet"). -->
+        <assign to="shape1{ruleSet}">$processedShapes</assign>
+        <assign to="shape1{ruleSyntax}">"application/turtle"</assign>
+        <!-- 
+            When assigning to a new variable ("shapesToUse") and add append="true" this can only be a list (only lists can be appended to).
+            Here we are creating a list named "shapesToUse" and adding as the first element the map "shape1" we created just before. We could add
+            more maps here if we wanted to add additional shape files for the validation.
+         -->
+        <assign to="shapesToUse" append="true">$shape1</assign>
+        <verify id="step3" desc="Validate view page" handler="$DOMAIN{shaclValidatorServiceAddress}">
+            <input name="contentToValidate">$step2{response}</input>
+            <input name="contentSyntax">"application/turtle"</input>
+            <input name="addInputToReport">true()</input>
+            <input name="addRulesToReport">true()</input>
+            <input name="externalRules">$shapesToUse</input>
+        </verify>
+    </steps>
+    <!-- Definition of final summary message. -->
+    <output>
+        <success>
+            <default>"Test session completed successfully."</default>
+        </success>
+        <failure>
+            <case>
+                <cond>$STEP_STATUS{step1} = 'ERROR'</cond>
+                <message>"An error occurred while posting the test dataset to your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step2} = 'ERROR'</cond>
+                <message>"An error occurred when fetching the data from your endpoint."</message>
+            </case>
+            <case>
+                <cond>$STEP_STATUS{step3} = 'ERROR'</cond>
+                <message>"Your returned data failed to validate against the test case's assertions."</message>
+            </case>
+            <default>"Test session failed. Please check the failed step report and the test session log for details."</default>
+        </failure>
+    </output>
+</testcase>

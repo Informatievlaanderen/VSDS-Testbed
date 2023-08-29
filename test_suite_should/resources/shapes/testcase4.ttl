@@ -1,0 +1,29 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# SPEC for Tree Spec
+# SHOULD test case - 13
+# SPEC Conform:
+# The object of tree:value SHOULD be accompanied by a data type when it is a literal value.
+#
+# Verify:
+# Each tree:Relation's tree:value is accompanied by a data type when it is a literal value.
+#
+
+tree:ShapeRelation
+  a sh:NodeShape ;
+  sh:targetClass tree:Relation ;
+  sh:property [
+    sh:path tree:value ;
+    sh:or (
+      [
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+      ]
+      [
+        sh:nodeKind sh:IRI ;
+      ]
+    )
+  ] .
