@@ -24,3 +24,5 @@ To install and use the PoC follow these steps:
 	a. This command will pull all relevant images and build the image of the supporting test services from the included source project in [./test-services].
 
 	b. You will know that the Test Bed is ready to access by tailing the logs of the “gitb-ui” container. The first time you start this up it may take a couple of minutes as it will create the DB and populate everything using the PoC’s data. Once you see a message “Listening for HTTP on /0.0.0.0:9000” everything will be ready to use.
+
+5. Extract persisted export password: 12345
