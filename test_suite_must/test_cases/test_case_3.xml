@@ -16,10 +16,24 @@
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
+
+
+        <!-- Step 2: Access the endpoint of the LDES server, and crawl the whole graph -->
+        <send id="step2" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+            <input name="contentType">"application/turtle"</input>
             <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <input name="endpointType">'byLocation'</input>
-        </call>
+        </send>       
+        <process desc="crawl geo data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="endpointType">'by-location'</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="streamData">$step2{response}</input>
+        </process>
+
+
+
+
+
+         <!-- Step 3: Validate the fetched view page of the LDES Server with SHACL. -->
         <!-- Step 3: The number of output LDES members must equal the number of input LDES members. -->
         <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
         <log>"Collecting the distinct members from the crawled data..."</log>
@@ -32,9 +46,9 @@
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX legal: <http://www.w3.org/ns/legal#> 
-select DISTINCT ?VersionNumber where {
-        ?Company rdf:type legal:legalEntity .
-        ?Company rdf:subject ?VersionNumber.
+PREFIX tree: <https://w3id.org/tree#>
+select DISTINCT ?Member where {
+        ?Company tree:member ?Member .
 }"]]></input>
         </process>
         <!-- 
@@ -50,13 +64,18 @@ select DISTINCT ?VersionNumber where {
 
 
 
-
-
         <!-- Step 4: Fetch the processed data from the endpoint of the LDES Server (by String). -->
-        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataString">
+
+        <send id="step4" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+            <input name="contentType">"application/turtle"</input>
             <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <input name="endpointType">'byName'</input>
-        </call>
+        </send>       
+        <process desc="crawl geo data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="endpointType">'by-name'</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="streamData">$step4{response}</input>
+        </process>
+
         <!-- Step 5: The number of output LDES members must equal the number of input LDES members. -->
         <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
         <log>"Collecting the distinct members from the crawled data..."</log>
@@ -68,10 +87,10 @@ select DISTINCT ?VersionNumber where {
             <input name="content">$crawledDataString</input>
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX legal: <http://www.w3.org/ns/legal#> 
-select DISTINCT ?VersionNumber where {
-        ?Company rdf:type legal:legalEntity .
-        ?Company rdf:subject ?VersionNumber.
+PREFIX legal: <http://www.w3.org/ns/legal#>
+PREFIX tree: <https://w3id.org/tree#>
+select DISTINCT ?Member where {
+        ?Company tree:member ?Member .
 }"]]></input>
         </process>
         <!-- 
@@ -87,11 +106,17 @@ select DISTINCT ?VersionNumber where {
 
 
     <!-- Step 6: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
-        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
+    <send id="step6" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
+            <input name="contentType">"application/turtle"</input>
             <input name="endpoint">$SYSTEM{endpointByTime}</input>
-            <input name="endpointType">'byTime'</input>
-        </call>
-        <!-- Step 5: The number of output LDES members must equal the number of input LDES members. -->
+        </send>       
+        <process desc="crawl geo data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="endpointType">'by-time'</input>
+            <input name="contentType">"application/turtle"</input>
+            <input name="streamData">$step6{response}</input>
+        </process>
+
+        <!-- Step 7: The number of output LDES members must equal the number of input LDES members. -->
         <!-- You can use the "log" step as follows to add any kind of information in the test session log. You can also add to the log from test services. -->
         <log>"Collecting the distinct members from the crawled data..."</log>
         <!-- 
@@ -103,9 +128,9 @@ select DISTINCT ?VersionNumber where {
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX legal: <http://www.w3.org/ns/legal#> 
-select DISTINCT ?VersionNumber where {
-        ?Company rdf:type legal:legalEntity .
-        ?Company rdf:subject ?VersionNumber.
+PREFIX tree: <https://w3id.org/tree#>
+select DISTINCT ?Member where {
+        ?Company tree:member ?Member .
 }"]]></input>
         </process>
         <!-- 
@@ -114,7 +139,7 @@ select DISTINCT ?VersionNumber where {
         -->
         <assign to="memberCount" source="$resultSetTime">count(/ns:sparql/ns:results/ns:result)</assign>
         <!-- Validate that the number of results. -->
-        <verify id="step5" handler="NumberValidator" desc="Validate Time-based view endpoint">
+        <verify id="step7" handler="NumberValidator" desc="Validate Time-based view endpoint">
             <input name="actualnumber">$memberCount</input>
             <input name="expectednumber">'20'</input>
         </verify>
