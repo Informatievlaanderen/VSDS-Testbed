@@ -1,10 +1,9 @@
 package be.vlaanderen.ldes.handlers;
 
+import be.vlaanderen.ldes.CRAWL;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.vocabulary.RDF;
 
 
@@ -32,11 +31,9 @@ public class Crawler {
     public Crawler run() {
         while(!urlQueue.isEmpty()) {
             String pageUrl = urlQueue.remove();
-            //System.out.print("\nNow crawling: " + pageUrl);
             try {
                 Model page = crawlPage(pageUrl);
                 crawledGraph.add(page);
-                //RDFDataMgr.write(System.out, page, Lang.TURTLE) ;
             }
             catch (Exception e) {
                 throw new RuntimeException(e);
@@ -87,20 +84,26 @@ public class Crawler {
             Resource headerNode = processedGraph.createResource();
             Statement hasHeader = processedGraph.createStatement(
                     pageId,
-                    processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#heeftHeader"),
+                    CRAWL.hasHeader,
                     headerNode
             );
             processedGraph.add(hasHeader);
+            Statement headerType = processedGraph.createStatement(
+                    headerNode,
+                    RDF.type,
+                    CRAWL.Header
+            );
+            processedGraph.add(headerType);
             Statement hasHeaderName = processedGraph.createStatement(
                     headerNode,
-                    processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#headerNaam"),
+                    CRAWL.headerName,
                     processedGraph.createLiteral(headerName)
             );
             processedGraph.add(hasHeaderName);
             headerValueList.forEach((String headerValue) -> {
                 Statement hasHeaderValue = processedGraph.createStatement(
                         headerNode,
-                        processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#headerWaarde"),
+                        CRAWL.headerValue,
                         processedGraph.createLiteral(headerValue)
                 );
                 processedGraph.add(hasHeaderValue);
@@ -120,7 +123,7 @@ public class Crawler {
         subjectMap.forEach((String subject, Resource bNode)-> {
             Statement hasEntity = processedGraph.createStatement(
                     pageNode,
-                    processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#bevatEntiteit"),
+                    CRAWL.hasContents,
                     bNode
                     );
             processedGraph.add(hasEntity);
@@ -128,7 +131,7 @@ public class Crawler {
         Statement hasEntity = processedGraph.createStatement(
                 pageNode,
                 RDF.type,
-                processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#BezochtePagina")
+                CRAWL.CrawledPage
         );
         processedGraph.add(hasEntity);
         return pageNode;
@@ -139,7 +142,7 @@ public class Crawler {
             processedGraph.add(
                     processedGraph.createStatement(
                             bnode,
-                            processedGraph.createProperty("https://data.vlaanderen.be/ns/crawler#origineleIdentificator"),
+                            CRAWL.hasSubject,
                             processedGraph.createResource(subject)
                     ));
         });
