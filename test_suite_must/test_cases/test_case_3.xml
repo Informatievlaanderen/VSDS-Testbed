@@ -46,9 +46,10 @@
             <input name="contentType">"application/turtle"</input>
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX legal: <http://www.w3.org/ns/legal#> 
-PREFIX tree: <https://w3id.org/tree#>
-select DISTINCT ?Member where {
-        ?Company tree:member ?Member .
+PREFIX legal: <http://www.w3.org/ns/legal#>
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
 }"]]></input>
         </process>
         <!-- 
@@ -89,8 +90,9 @@ select DISTINCT ?Member where {
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX legal: <http://www.w3.org/ns/legal#>
 PREFIX tree: <https://w3id.org/tree#>
-select DISTINCT ?Member where {
-        ?Company tree:member ?Member .
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
 }"]]></input>
         </process>
         <!-- 
@@ -129,8 +131,9 @@ select DISTINCT ?Member where {
             <input name="query"><![CDATA["PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX legal: <http://www.w3.org/ns/legal#> 
 PREFIX tree: <https://w3id.org/tree#>
-select DISTINCT ?Member where {
-        ?Company tree:member ?Member .
+select DISTINCT ?VersionNumber where {
+        ?Company rdf:type legal:legalEntity .
+        ?Company rdf:subject ?VersionNumber.
 }"]]></input>
         </process>
         <!-- 
