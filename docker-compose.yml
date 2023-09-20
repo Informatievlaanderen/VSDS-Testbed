@@ -69,16 +69,16 @@ services:
         condition: service_started
 
   # Replace blue with yellow :)
-  gitb-ui-proxy:
-    build: proxy
-    volumes:
-     - ./proxy/overrides:/usr/local/apache2/htdocs/
-     - ${PWD}/my-httpd.conf /usr/local/apache2/conf/httpd.conf
-    ports:
-     - "9001:80"        
-  #
-  # Test Bed core components - END.
-  #
+#  gitb-ui-proxy:
+#    build: proxy
+#    volumes:
+#     - ./proxy/overrides:/usr/local/apache2/htdocs/
+#     - ${PWD}/my-httpd.conf /usr/local/apache2/conf/httpd.conf
+#    ports:
+#     - "9001:80"
+#  #
+#  # Test Bed core components - END.
+#  #
   test-services:
     # The test-services component are the extension services supporting our test cases. Note how we have a "build" definition
     # here as we will build the component from the sources provided in directory "./test-services".

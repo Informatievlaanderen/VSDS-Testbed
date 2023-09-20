@@ -22,7 +22,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -84,7 +89,6 @@ public class ProcessingServiceImpl implements ProcessingService {
                 // Get the expected inputs.
                 var streamData = getRequiredString(processRequest.getInput(), "streamData");
                 var contentType = getRequiredString(processRequest.getInput(), "contentType");
-
                 var endpointType = getRequiredString(processRequest.getInput(), "endpointType");
 
                 Model stream = ModelFactory
@@ -114,6 +118,7 @@ public class ProcessingServiceImpl implements ProcessingService {
                     LOG.info("Received processing call for test session [{}].", processRequest.getSessionId());
                     if (ViewURI.contains(endpointType)) {
                         hasCrawled.set(true);
+                        LOG.info("View URI [{}]", ViewURI);
                         Crawler crawler = new Crawler(ViewURI);
                         LOG.info("Now crawling the View [{}]", ViewURI);
                         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -135,6 +140,25 @@ public class ProcessingServiceImpl implements ProcessingService {
                 var content = getRequiredString(processRequest.getInput(), "content");
                 var contentType = getRequiredString(processRequest.getInput(), "contentType");
                 var query = getRequiredString(processRequest.getInput(), "query");
+
+                String filePath = "crawled.ttl";
+                    try {
+                    String content_a = content.toString();
+                    // Create a FileWriter object to write to the file
+                    FileWriter fileWriter = new FileWriter(filePath);
+
+                    // Wrap the FileWriter in a BufferedWriter for better performance
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    // Write the string to the file
+                    bufferedWriter.write(content_a);
+
+                    // Close the BufferedWriter to flush and close the file
+                    bufferedWriter.close();
+
+                    System.out.println("String has been written to the file successfully.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 // Trigger the processing.
                 var result = sparqlQueryHandler.select(content, contentType, query);
                 // Produce the resulting report.
