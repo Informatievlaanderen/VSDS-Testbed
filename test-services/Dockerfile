@@ -11,6 +11,6 @@ FROM eclipse-temurin:17-jre-alpine
 RUN mkdir /app
 COPY --from=builder /app/target/test-services.jar /app/app.jar
 RUN sh -c 'touch /app/app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Xmx2048m","-jar","/app/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Xmx4096m","-jar","/app/app.jar"]
 EXPOSE 8080
 WORKDIR /app
