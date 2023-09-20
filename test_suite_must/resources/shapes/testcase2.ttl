@@ -31,4 +31,9 @@ tree:NotViewNodeIsPartOf
 			sh:path rdf:subject  ;
 			sh:in ( <${endpointByLocation}> <${endpointByName}> <${endpointByTime}> );
 		]
+		[
+		    sh:inversePath void:subset;
+		    sh:minCount 1 ;
+            sh:hasValue <${LdesStreamUrl}>;
+		]
 	) .

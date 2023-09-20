@@ -16,10 +16,9 @@
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <input name="endpointType">'byLocation'</input>
-        </call>
+         <process desc="crawl geo data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
         <log>"Validating the TreeNode to TreeCollection relation with the crawled data..."</log>
         <!-- Step 3: Validate the fetched view page of the LDES Server with SHACL. -->
         <!-- 
@@ -54,7 +53,7 @@
          -->
         <assign to="shapesToUse" append="true">$shape1</assign>
         <verify id="step3" desc="Validate crawled geospatial graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
-            <input name="contentToValidate">$crawledDataGeo</input>
+            <input name="contentToValidate">$crawledDataTime</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
