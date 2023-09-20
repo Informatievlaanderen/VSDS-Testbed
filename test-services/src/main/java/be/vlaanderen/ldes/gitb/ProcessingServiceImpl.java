@@ -87,50 +87,14 @@ public class ProcessingServiceImpl implements ProcessingService {
                  * The "crawl" operation is used to crawl the endpoint and produce a complete graph.
                  */
                 // Get the expected inputs.
-                var streamData = getRequiredString(processRequest.getInput(), "streamData");
-                var contentType = getRequiredString(processRequest.getInput(), "contentType");
-                var endpointType = getRequiredString(processRequest.getInput(), "endpointType");
+                var ViewURI = getRequiredString(processRequest.getInput(), "viewURI");
 
-                Model stream = ModelFactory
-                        .createDefaultModel()
-                        // @todo Use content type header of http response?
-                        .read(IOUtils.toInputStream(streamData, "UTF-8"), null, "TURTLE");
-                List<String> relations = new ArrayList<>();
-                // @todo Select correct view when multiple views are available.
-                String queryString = """
-                    PREFIX tree: <https://w3id.org/tree#>
-                    SELECT DISTINCT ?relation
-                    WHERE {
-                        ?node a tree:Node .
-                        ?node tree:relation/tree:node ?relation.
-                    }
-                    """ ;
-                Query query = QueryFactory.create(queryString) ;
-                try (QueryExecution qexec = QueryExecutionFactory.create(query, stream)) {
-                    ResultSet results = qexec.execSelect() ;
-                    while (results.hasNext()) {
-                        org.apache.jena.rdf.model.Resource relation = results.nextSolution().getResource("relation") ;
-                        relations.add(relation.getURI());
-                    }
-                }
-                AtomicReference<Boolean> hasCrawled = new AtomicReference<>(false);
-                relations.forEach((String ViewURI) -> {
-                    LOG.info("Received processing call for test session [{}].", processRequest.getSessionId());
-                    if (ViewURI.contains(endpointType)) {
-                        hasCrawled.set(true);
-                        LOG.info("View URI [{}]", ViewURI);
-                        Crawler crawler = new Crawler(ViewURI);
-                        LOG.info("Now crawling the View [{}]", ViewURI);
-                        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                        RDFDataMgr.write(outputStream, crawler.run().getGraph(), Lang.TURTLE);
-                        // Produce the resulting report.
-                        response.getOutput().add(createAnyContentSimple("result", outputStream.toString(), ValueEmbeddingEnumeration.STRING));
-                    }
-                });
-                if (!hasCrawled.get()) {
-                    response.setReport(Utils.createReport(TestResultType.FAILURE));
-                    LOG.error( "No matching view found in eventstream for [{}]", endpointType);
-                }
+                Crawler crawler = new Crawler(ViewURI);
+                LOG.info("Now crawling the View [{}]", ViewURI);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                RDFDataMgr.write(outputStream, crawler.run().getGraph(), Lang.TURTLE);
+                // Produce the resulting report.
+                response.getOutput().add(createAnyContentSimple("result", outputStream.toString(), ValueEmbeddingEnumeration.STRING));
             }
             case "sparqlSelect" -> {
                 /*

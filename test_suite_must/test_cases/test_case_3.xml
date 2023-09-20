@@ -17,21 +17,9 @@
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
 
-
-        <!-- Step 2: Access the endpoint of the LDES server, and crawl the whole graph -->
-        <send id="step2" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
-            <input name="contentType">"application/turtle"</input>
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-        </send>       
         <process desc="crawl geo data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
-            <input name="endpointType">'by-location'</input>
-            <input name="contentType">"application/turtle"</input>
-            <input name="streamData">$step2{response}</input>
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
         </process>
-
-
-
-
 
          <!-- Step 3: Validate the fetched view page of the LDES Server with SHACL. -->
         <!-- Step 3: The number of output LDES members must equal the number of input LDES members. -->
@@ -66,15 +54,8 @@ select DISTINCT ?VersionNumber where {
 
 
         <!-- Step 4: Fetch the processed data from the endpoint of the LDES Server (by String). -->
-
-        <send id="step4" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
-            <input name="contentType">"application/turtle"</input>
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-        </send>       
         <process desc="crawl geo data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
-            <input name="endpointType">'by-name'</input>
-            <input name="contentType">"application/turtle"</input>
-            <input name="streamData">$step4{response}</input>
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
         </process>
 
         <!-- Step 5: The number of output LDES members must equal the number of input LDES members. -->
@@ -107,15 +88,9 @@ select DISTINCT ?VersionNumber where {
         </verify>
 
 
-    <!-- Step 6: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
-    <send id="step6" desc="Get View Page" from="DataProvider" to="LDESServer" handler="$DOMAIN{messagingServiceAddress}">
-            <input name="contentType">"application/turtle"</input>
-            <input name="endpoint">$SYSTEM{endpointByTime}</input>
-        </send>       
+        <!-- Step 6: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
         <process desc="crawl geo data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
-            <input name="endpointType">'by-time'</input>
-            <input name="contentType">"application/turtle"</input>
-            <input name="streamData">$step6{response}</input>
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
         </process>
 
         <!-- Step 7: The number of output LDES members must equal the number of input LDES members. -->
