@@ -61,10 +61,12 @@
             <input name="externalRules">$shapesToUse</input>
         </verify>
 
-        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
-            <input name="endpoint">$SYSTEM{endpointByTime}</input>
-            <input name="endpointType">'byTime'</input>
-        </call>
+
+        <log>"Process crawling data..."</log>
+        <process desc="crawl time fragmented data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
+
         <verify id="step5" desc="Validate crawled Time-based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledDataTime</input>
             <input name="contentSyntax">"application/turtle"</input>
@@ -73,10 +75,10 @@
             <input name="externalRules">$shapesToUse</input>
         </verify>
 
-        <call id="step6" path="scriptlets/fetchData.xml" output="crawledDataString">
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <input name="endpointType">'byName'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl string fragmented data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
         <verify id="step7" desc="Validate crawled String based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledDataString</input>
             <input name="contentSyntax">"application/turtle"</input>
