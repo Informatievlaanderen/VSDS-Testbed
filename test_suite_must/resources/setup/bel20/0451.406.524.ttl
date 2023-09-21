@@ -1,0 +1,42 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0451406524.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0451406524 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "AGEAS SA/NV" ;
+    legal:registeredAddress kbo:57df12d7229fb3447785 ;
+    kbo:activity kbo:2008_64200 ;
+    kbo:establishment kbo:2065760401 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2008_64200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_64200 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2065760401 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1994-02-25"^^xsd:date ;
+    locn:Address kbo:57df12d7229fb3447785 .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:57df12d7229fb3447785 a locn:Address ;
+    geo:asWKT "POINT (4.3582669 50.8473115)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Markiesstraat 1, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+

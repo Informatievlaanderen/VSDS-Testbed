@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e1baf71-3c92-44f1-897c-930c1df13e4c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/export.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/export_community.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/export_domain.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must.zip" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/handlers/RelationGeospatialValidationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/handlers/RelationGeospatialValidationHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/VSDS/VSDS-Testbed&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/EDC/data-space-examples&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,7 +87,10 @@
       <workItem from="1694156479356" duration="68000" />
       <workItem from="1694592112527" duration="3350000" />
       <workItem from="1695194604311" duration="1721000" />
-      <workItem from="1695201475750" duration="8288000" />
+      <workItem from="1695201475750" duration="9548000" />
+      <workItem from="1695279294857" duration="23243000" />
+      <workItem from="1695323273327" duration="1000" />
+      <workItem from="1695325616848" duration="147000" />
     </task>
     <servers />
   </component>

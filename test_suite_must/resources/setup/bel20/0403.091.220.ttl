@@ -1,0 +1,94 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0403091220.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0403091220 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "SOLVAY" ;
+    legal:registeredAddress kbo:ad6f7c6e1a796ad7697a ;
+    kbo:activity kbo:2003_24130,
+        kbo:2008_20130,
+        kbo:2008_70100 ;
+    kbo:establishment kbo:2102008707,
+        kbo:2102008905,
+        kbo:2102009301,
+        kbo:2102009497 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_24130 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_24130 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_20130 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_20130 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_70100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_70100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2102008707 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1963-12-01"^^xsd:date ;
+    locn:Address kbo:ad6f7c6e1a796ad7697a .
+
+kbo:2102008905 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1969-09-01"^^xsd:date ;
+    locn:Address kbo:b93ac46cd7d4f894eb96 .
+
+kbo:2102009301 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1900-01-01"^^xsd:date ;
+    locn:Address kbo:62ea9686bb800a8adab1 .
+
+kbo:2102009497 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2000-12-07"^^xsd:date ;
+    locn:Address kbo:c5a1618ae7e906c7c262 .
+
+kbo:62ea9686bb800a8adab1 a locn:Address ;
+    geo:asWKT "POINT (4.660150340071567 50.447114799999994)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Solvay 39, 5190 Jemeppe-sur-Sambre, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5190" ;
+    locn:postName "Jemeppe-sur-Sambre" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:b93ac46cd7d4f894eb96 a locn:Address ;
+    geo:asWKT "POINT (4.2858073 51.3233867)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Scheldelaan 2, 2040 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2040" ;
+    locn:postName "Antwerpen" .
+
+kbo:c5a1618ae7e906c7c262 a locn:Address ;
+    geo:asWKT "POINT (3.5962061 50.8633438)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Industriepark \"De Bruwaan\" 9, 9700 Oudenaarde, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9700" ;
+    locn:postName "Oudenaarde" .
+
+kbo:ad6f7c6e1a796ad7697a a locn:Address ;
+    geo:asWKT "POINT (4.400367848886249 50.901114199999995)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Ransbeekstraat 310, 1120 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1120" ;
+    locn:postName "Brussel" .
+

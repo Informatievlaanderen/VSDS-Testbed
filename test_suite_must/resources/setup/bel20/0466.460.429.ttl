@@ -1,0 +1,101 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0466460429.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0466460429 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "GALAPAGOS" ;
+    legal:registeredAddress kbo:d988b612b5f7989f91cd ;
+    kbo:activity kbo:2003_73100,
+        kbo:2008_72110,
+        kbo:2008_72190 ;
+    kbo:establishment kbo:2091954854,
+        kbo:2273734339,
+        kbo:2273734735,
+        kbo:2300081024 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_73100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_73100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_72110 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_72110 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_72190 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_72190 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2091954854 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-08-19"^^xsd:date ;
+    locn:Address kbo:37ad9aa8a825c7889443 .
+
+kbo:2273734339 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-01-01"^^xsd:date ;
+    locn:Address kbo:8636d28730a12062a4fe .
+
+kbo:2273734735 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-01-01"^^xsd:date ;
+    locn:Address kbo:60b40308fee9cc6e61c5 .
+
+kbo:2300081024 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2020-01-22"^^xsd:date ;
+    locn:Address kbo:53a8cd9ec32aa419cf44 .
+
+kbo:37ad9aa8a825c7889443 a locn:Address ;
+    geo:asWKT "POINT (4.4527760796172355 51.054789299999996)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Generaal De Wittelaan 11, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:53a8cd9ec32aa419cf44 a locn:Address ;
+    geo:asWKT "POINT (4.4589659 51.054942)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Schaliënhoevedreef 20, 2800 Mechelen, Belgium" ;
+    locn:poBox "F" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:60b40308fee9cc6e61c5 a locn:Address ;
+    geo:asWKT "POINT (4.453406415288631 51.05441545)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Generaal De Wittelaan 21, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:8636d28730a12062a4fe a locn:Address ;
+    geo:asWKT "POINT (4.4589659 51.054942)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Schaliënhoevedreef 20, 2800 Mechelen, Belgium" ;
+    locn:poBox "T" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:d988b612b5f7989f91cd a locn:Address ;
+    geo:asWKT "POINT (4.4567519 51.0535073)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Generaal De Wittelaan L11, 2800 Mechelen, Belgium" ;
+    locn:poBox "A3" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+

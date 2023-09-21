@@ -19,10 +19,10 @@
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <input name="endpointType">'byLocation'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl geo fragmented data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
+        </process>
 
          <!-- Step 3: In the crawled graph, each tree:Relation must have a tree:node -->    
          
@@ -95,14 +95,11 @@
         </verify>
 
 
-
-
-
         <!-- Step 5: Fetch the processed data from the endpoint of the LDES Server (by Time). -->
-        <call id="step5" path="scriptlets/fetchData.xml" output="crawledDataTime">
-            <input name="endpoint">$SYSTEM{endpointByTime}</input>
-            <input name="endpointType">'byTime'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl time fragmented data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByTime}</input>
+        </process>
 
          <!-- Step 7: In the crawled graph, each tree:Relation must have a tree:node -->    
          
@@ -161,10 +158,10 @@
 
 
        <!-- Step 9: Fetch the processed data from the endpoint of the LDES Server (by String). -->
-        <call id="step8" path="scriptlets/fetchData.xml" output="crawledDataString">
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <input name="endpointType">'byName'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl string fragmented data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
 
          <!-- Step 10: In the crawled graph, each tree:Relation must have a tree:node -->    
          

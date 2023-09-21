@@ -6,7 +6,7 @@
         TemplateProcessor) in test case 3.
     -->
     <imports>
-        <artifact type="binary" encoding="UTF-8" name="datasets">resources/setup/bel20.zip</artifact>
+        <artifact type="binary" encoding="UTF-8" name="datasets">resources/setup/bel18.zip</artifact>
         <artifact type="binary" encoding="UTF-8" name="streamDefinition">resources/setup/kbo.ttl</artifact>
         <artifact type="binary" encoding="UTF-8" name="viewLocationDefinition">resources/setup/kbo.by-location.ttl</artifact>
         <artifact type="binary" encoding="UTF-8" name="viewNameDefinition">resources/setup/kbo.by-name.ttl</artifact>
