@@ -42,16 +42,19 @@ public class RelationGeospatialValidationHandler {
         var errorMessages = new ArrayList<String>();
         var inputModel = ModelFactory.createModelForGraph(Factory.createDefaultGraph());
         var validValues = new ArrayList<String>();
+        var membersExist = false;
         try (var reader = new StringReader(content)) {
             inputModel.read(reader, null, RDFLanguages.contentTypeToLang(contentType).getName());
         }
         // Look up the geospatial relations to check.
         var relationsToCheck = getRelationsToCheck(inputModel);
+        System.out.println("relationsToCheck: "+relationsToCheck);
         for (var relation: relationsToCheck) {
             LOG.debug("Validating relation {}", relation);
             // Lookup the members of page referred to by a relation.
-            var members = getPageMembers(inputModel, relation.relatedPage());
+            var members = getPageMembers(inputModel, relation.relatedPage());              
             for (var member: members) {
+                membersExist = true;
                 // Look up the value of the member property referred to by the relation.               
                 var memberValues = getMemberValue(inputModel, member, relation.relationPath());
                 var isValid = false;
@@ -72,6 +75,10 @@ public class RelationGeospatialValidationHandler {
                 }
             }
         }
+        // if no member can be reached by geoSpatial relation, add error message
+        if(!membersExist){
+            errorMessages.add(String.format("No members found for the provided page(s) with GeoSpatial Semantic relation(s)."));
+        }   
         return errorMessages;
     }
 
@@ -124,12 +131,13 @@ public class RelationGeospatialValidationHandler {
     private List<String> getPageMembers(Model inputModel, String page) {
         var results = new ArrayList<String>();
         System.out.println("page: "+page);
+        //page = "http://ldes-server:8080/kbo/by-location?tile=15/16811/10986&pageNumber=1";
         String memberQuery = String.format("""
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                     PREFIX tree: <https://w3id.org/tree#>
                     PREFIX crawler: <http://example.org/>
                     PREFIX ldes: <https://w3id.org/ldes#>
-                    select DISTINCT ?PageMember where {
+                    select DISTINCT ?Page ?PageMember where {
                         ?Page rdf:type crawler:CrawledPage ;
                             crawler:has_contents ?PageContent .
                         ?PageContent rdf:type ldes:EventStream ;

@@ -6,28 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e1baf71-3c92-44f1-897c-930c1df13e4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/export.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/gitb/ValidationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/gitb/ValidationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/handlers/RelationGeospatialValidationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-services/src/main/java/be/vlaanderen/ldes/handlers/RelationGeospatialValidationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must.zip" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/scriptlets/ingestDataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/scriptlets/ingestDataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases.zip" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_must/test_cases/test_case_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_optional.zip" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_optional.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_optional/scriptlets/ingestDataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_optional/scriptlets/ingestDataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_optional/test_cases/test_case_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_optional/test_cases/test_case_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_should.zip" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_should.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_should/scriptlets/ingestDataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_should/scriptlets/ingestDataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite_should/test_cases/test_case_5.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +28,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/EDC/data-space-examples",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/EDC/data-space-examples&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -109,7 +88,9 @@
       <workItem from="1694592112527" duration="3350000" />
       <workItem from="1695194604311" duration="1721000" />
       <workItem from="1695201475750" duration="9548000" />
-      <workItem from="1695279294857" duration="21307000" />
+      <workItem from="1695279294857" duration="23243000" />
+      <workItem from="1695323273327" duration="1000" />
+      <workItem from="1695325616848" duration="147000" />
     </task>
     <servers />
   </component>

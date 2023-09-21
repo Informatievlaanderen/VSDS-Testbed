@@ -42,6 +42,7 @@ public class RelationTimestampValidationHandler {
     public List<String> validate(String content, String contentType, TestBedLogger logger) {
         var errorMessages = new ArrayList<String>();
         var inputModel = ModelFactory.createModelForGraph(Factory.createDefaultGraph());
+        var membersExist = false;
         try (var reader = new StringReader(content)) {
             inputModel.read(reader, null, RDFLanguages.contentTypeToLang(contentType).getName());
         }
@@ -52,6 +53,7 @@ public class RelationTimestampValidationHandler {
             // Lookup the members of page referred to by a relation.
             var members = getPageMembers(inputModel, relation.relatedPage());
             for (var member: members) {
+                membersExist = true;
                 // Look up the value of the member property referred to by the relation.
                 var memberValues = getMemberValue(inputModel, member, relation.relationPath());
                 var validValues = new ArrayList<String>();
@@ -75,6 +77,9 @@ public class RelationTimestampValidationHandler {
                 }
             }
         }
+        if(!membersExist){
+            errorMessages.add(String.format("No members found for the provided page(s) with Time Semantic relation(s)."));
+        }   
         return errorMessages;
     }
 
@@ -99,6 +104,7 @@ public class RelationTimestampValidationHandler {
                 result = OffsetDateTime.parse(parts[0], DateTimeFormatter.ofPattern(datePattern));
             }
         }
+        
         return result;
     }
 
@@ -137,6 +143,7 @@ public class RelationTimestampValidationHandler {
             }
             resultSet.close();
         }
+ 
         return results;
     }
 
@@ -156,7 +163,6 @@ public class RelationTimestampValidationHandler {
                 PREFIX ldes: <https://w3id.org/ldes#>
                 select DISTINCT ?PageMember where {
                     ?Page rdf:type crawler:CrawledPage ;
-                        crawler:hasPageSource ?PageSource ;
                         crawler:has_contents ?PageContent .
                     ?PageContent rdf:type ldes:EventStream ;
                          tree:member ?PageMember .
