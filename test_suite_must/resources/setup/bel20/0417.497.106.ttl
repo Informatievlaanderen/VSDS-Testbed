@@ -1,0 +1,133 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0417497106.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0417497106 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "AB Inbev",
+        "ANHEUSER-BUSCH INBEV",
+        "Anheuser-Busch InBev" ;
+    legal:registeredAddress kbo:988cdc80b564690633f7 ;
+    kbo:activity kbo:2003_74151,
+        kbo:2008_70100 ;
+    kbo:establishment kbo:2102217157,
+        kbo:2102217256,
+        kbo:2143775125,
+        kbo:2143775323,
+        kbo:2147197839,
+        kbo:2147198037,
+        kbo:2147842393 ;
+    kbo:status kbo:Status_AC .
+
+kbo:0f1f34cc28e060f22cfb a locn:Address ;
+    geo:asWKT "POINT (4.3121991 50.8269598)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Industrielaan 21, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+
+kbo:2003_74151 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74151 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_70100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_70100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2102217157 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1986-02-28"^^xsd:date ;
+    locn:Address kbo:7ffeeda89bf05cf5d1bc .
+
+kbo:2102217256 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1976-10-01"^^xsd:date ;
+    locn:Address kbo:efd0eb59b7075239577d .
+
+kbo:2143775125 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1988-04-30"^^xsd:date ;
+    locn:Address kbo:988cdc80b564690633f7 .
+
+kbo:2143775323 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1988-04-30"^^xsd:date ;
+    locn:Address kbo:224da66f0f40131b9df0 .
+
+kbo:2147197839 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2004-11-01"^^xsd:date ;
+    locn:Address kbo:0f1f34cc28e060f22cfb .
+
+kbo:2147198037 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2004-11-01"^^xsd:date ;
+    locn:Address kbo:2818fc37c2bd864a2e6d .
+
+kbo:2147842393 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2005-01-01"^^xsd:date ;
+    locn:Address kbo:27f80d1d9d9c8c94b30b .
+
+kbo:224da66f0f40131b9df0 a locn:Address ;
+    geo:asWKT "POINT (4.7070489 50.8865919)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Brouwerijplein 1, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:27f80d1d9d9c8c94b30b a locn:Address ;
+    geo:asWKT "POINT (4.7098152 50.8863637)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vuurkruisenlaan 1, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:2818fc37c2bd864a2e6d a locn:Address ;
+    geo:asWKT "POINT (4.7057969 50.8878139)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vaartkom 31, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:7ffeeda89bf05cf5d1bc a locn:Address ;
+    geo:asWKT "POINT (4.7013166 50.8856981)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vaartstraat 94, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:efd0eb59b7075239577d a locn:Address ;
+    geo:asWKT "POINT (5.6655704 50.6752898)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de Visé 243, 4020 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4020" ;
+    locn:postName "Liège" .
+
+kbo:988cdc80b564690633f7 a locn:Address ;
+    geo:asWKT "POINT (4.3520311556288025 50.84713485)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Grote Markt 1, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+

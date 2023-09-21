@@ -1,0 +1,62 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0403053608.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0403053608 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "U C B" ;
+    legal:registeredAddress kbo:6a4b10066ee5f892c094 ;
+    kbo:activity kbo:2003_74151,
+        kbo:2003_74879,
+        kbo:2008_21201,
+        kbo:2008_64200,
+        kbo:2008_82990 ;
+    kbo:establishment kbo:2142567276 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_74151 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74151 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_74879 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74879 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_21201 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_21201 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_64200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_64200 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_82990 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_82990 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2142567276 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-02-01"^^xsd:date ;
+    locn:Address kbo:6a4b10066ee5f892c094 .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:6a4b10066ee5f892c094 a locn:Address ;
+    geo:asWKT "POINT (4.275721857227438 50.8176796)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Researchdreef 60, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+

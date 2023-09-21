@@ -30,12 +30,10 @@
         -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by time). -->
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledData">
-            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
-            <input name="endpointType">'byLocation'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl geo fragmented data" output="crawledData" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
+        </process>
 
         <log>"Collecting all objects of tree:value of the tree:GeospatiallyContainsRelation..."</log>
                 <!-- 

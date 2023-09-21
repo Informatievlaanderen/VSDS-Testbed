@@ -1,0 +1,67 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0426184049.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0426184049 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "Cofinimmo" ;
+    legal:registeredAddress kbo:c13abd7474627a0311ef ;
+    kbo:activity kbo:2003_70113,
+        kbo:2003_70322,
+        kbo:2008_64999,
+        kbo:2008_68100,
+        kbo:2008_68201,
+        kbo:2008_70220 ;
+    kbo:establishment kbo:2037846769 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_70113 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_70113 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_70322 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_70322 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_64999 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_64999 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_68100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_68100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_68201 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_68201 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_70220 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_70220 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2037846769 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1984-03-01"^^xsd:date ;
+    locn:Address kbo:c13abd7474627a0311ef .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:c13abd7474627a0311ef a locn:Address ;
+    geo:asWKT "POINT (4.4363198 50.841018)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Woluwedal 58, 1200 Sint-Lambrechts-Woluwe, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1200" ;
+    locn:postName "Sint-Lambrechts-Woluwe" .
+

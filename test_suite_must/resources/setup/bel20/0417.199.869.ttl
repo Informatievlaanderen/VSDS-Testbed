@@ -1,0 +1,48 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0417199869.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0417199869 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "WAREHOUSES DE PAUW",
+        "WDP" ;
+    legal:registeredAddress kbo:90bf93ec289a49764d95 ;
+    kbo:activity kbo:2003_70203,
+        kbo:2008_68203 ;
+    kbo:establishment kbo:2102213296 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_70203 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_70203 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_68203 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_68203 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2102213296 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1977-05-27"^^xsd:date ;
+    locn:Address kbo:90bf93ec289a49764d95 .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:90bf93ec289a49764d95 a locn:Address ;
+    geo:asWKT "POINT (4.2824053 50.9607946)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Blakebergen 15, 1861 Meise, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1861" ;
+    locn:postName "Meise" .
+

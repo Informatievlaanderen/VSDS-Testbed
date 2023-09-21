@@ -25,6 +25,16 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.ArrayList;
 
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Implementation of the GITB validation API to handle custom validations.
@@ -127,6 +137,24 @@ public class ValidationServiceImpl implements ValidationService {
           validateRequest.getInput(),
           "contentType"
         );
+         String filePath = "crawled.ttl";
+         try {
+           String content_a = content.toString();
+           // Create a FileWriter object to write to the file
+           FileWriter fileWriter = new FileWriter(filePath);
+
+           // Wrap the FileWriter in a BufferedWriter for better performance
+           BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+           // Write the string to the file
+           bufferedWriter.write(content_a);
+
+           // Close the BufferedWriter to flush and close the file
+           bufferedWriter.close();
+
+           System.out.println("String has been written to the file successfully.");
+         } catch (IOException e) {
+           e.printStackTrace();
+         }
         // To illustrate the logging capabilities we will use this class to add log statements to the test session's log.
         var logger = new ValidationServiceLogger(
           validateRequest.getSessionId(),

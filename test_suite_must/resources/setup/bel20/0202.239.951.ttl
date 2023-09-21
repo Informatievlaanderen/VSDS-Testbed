@@ -1,0 +1,2610 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0202239951.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0202239951 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_114 ;
+    legal:legalName "PROXIMUS" ;
+    legal:registeredAddress kbo:bc1be641749ab0cb440f ;
+    kbo:activity kbo:2003_32202,
+        kbo:2003_64200,
+        kbo:2008_26300,
+        kbo:2008_61100,
+        kbo:2008_61200 ;
+    kbo:establishment kbo:2102964255,
+        kbo:2102964651,
+        kbo:2102964750,
+        kbo:2102965047,
+        kbo:2102965146,
+        kbo:2102965245,
+        kbo:2102965344,
+        kbo:2102965443,
+        kbo:2102965542,
+        kbo:2102965641,
+        kbo:2102965740,
+        kbo:2102965839,
+        kbo:2102965938,
+        kbo:2102966037,
+        kbo:2102966235,
+        kbo:2102966532,
+        kbo:2102966928,
+        kbo:2102967027,
+        kbo:2102967423,
+        kbo:2102967522,
+        kbo:2102967621,
+        kbo:2102968215,
+        kbo:2102968314,
+        kbo:2102968413,
+        kbo:2102968710,
+        kbo:2102969007,
+        kbo:2102969205,
+        kbo:2102969403,
+        kbo:2102969502,
+        kbo:2102969797,
+        kbo:2102969896,
+        kbo:2102969995,
+        kbo:2102970094,
+        kbo:2102970193,
+        kbo:2102970292,
+        kbo:2102970490,
+        kbo:2102970589,
+        kbo:2102970688,
+        kbo:2102970787,
+        kbo:2102970985,
+        kbo:2102971183,
+        kbo:2102971282,
+        kbo:2102971381,
+        kbo:2102971480,
+        kbo:2102971579,
+        kbo:2102971876,
+        kbo:2102971975,
+        kbo:2102972173,
+        kbo:2102972272,
+        kbo:2102972470,
+        kbo:2102972668,
+        kbo:2102972866,
+        kbo:2102972965,
+        kbo:2102973064,
+        kbo:2102973262,
+        kbo:2102973361,
+        kbo:2102973460,
+        kbo:2102973559,
+        kbo:2102973658,
+        kbo:2102973757,
+        kbo:2102973856,
+        kbo:2102973955,
+        kbo:2102974252,
+        kbo:2102974549,
+        kbo:2102974648,
+        kbo:2102974846,
+        kbo:2102974945,
+        kbo:2102975143,
+        kbo:2102975242,
+        kbo:2102975341,
+        kbo:2102975539,
+        kbo:2102975836,
+        kbo:2102975935,
+        kbo:2102976034,
+        kbo:2102976133,
+        kbo:2102976232,
+        kbo:2102976430,
+        kbo:2102976529,
+        kbo:2102976628,
+        kbo:2102976727,
+        kbo:2102976925,
+        kbo:2102977024,
+        kbo:2102977123,
+        kbo:2102977222,
+        kbo:2133609525,
+        kbo:2133610020,
+        kbo:2133611208,
+        kbo:2133611703,
+        kbo:2133612196,
+        kbo:2133612790,
+        kbo:2133613087,
+        kbo:2134034246,
+        kbo:2153240048,
+        kbo:2153240147,
+        kbo:2153240642,
+        kbo:2153240741,
+        kbo:2153240840,
+        kbo:2153240939,
+        kbo:2153241137,
+        kbo:2153241434,
+        kbo:2153241533,
+        kbo:2153241632,
+        kbo:2153241731,
+        kbo:2153241830,
+        kbo:2153241929,
+        kbo:2153242226,
+        kbo:2153242325,
+        kbo:2153242424,
+        kbo:2153242523,
+        kbo:2153242721,
+        kbo:2153242820,
+        kbo:2153242919,
+        kbo:2153243018,
+        kbo:2153243117,
+        kbo:2153243315,
+        kbo:2153243909,
+        kbo:2153244107,
+        kbo:2153244206,
+        kbo:2153244305,
+        kbo:2153244602,
+        kbo:2153245293,
+        kbo:2153245392,
+        kbo:2153245491,
+        kbo:2153245689,
+        kbo:2153245986,
+        kbo:2153246085,
+        kbo:2153246283,
+        kbo:2153246580,
+        kbo:2153246778,
+        kbo:2153246877,
+        kbo:2153247174,
+        kbo:2153247273,
+        kbo:2153247768,
+        kbo:2153248164,
+        kbo:2153248263,
+        kbo:2153248659,
+        kbo:2153248758,
+        kbo:2153249055,
+        kbo:2153249352,
+        kbo:2160609474,
+        kbo:2160612048,
+        kbo:2174815917,
+        kbo:2174823142,
+        kbo:2177924667,
+        kbo:2181462494,
+        kbo:2186642096,
+        kbo:2186643779,
+        kbo:2187794913,
+        kbo:2209570522,
+        kbo:2210681072,
+        kbo:2210722050,
+        kbo:2210722149,
+        kbo:2211072339,
+        kbo:2244500519,
+        kbo:2250632897,
+        kbo:2250632996,
+        kbo:2250633095,
+        kbo:2260501955,
+        kbo:2260502054,
+        kbo:2260502153,
+        kbo:2260502252,
+        kbo:2260502351,
+        kbo:2260502450,
+        kbo:2260502747,
+        kbo:2260503143,
+        kbo:2260503737,
+        kbo:2260503836,
+        kbo:2260503935,
+        kbo:2260504133,
+        kbo:2260504232,
+        kbo:2260504529,
+        kbo:2260504727,
+        kbo:2260505024,
+        kbo:2260505123,
+        kbo:2260506707,
+        kbo:2268680441,
+        kbo:2273122546,
+        kbo:2285962079,
+        kbo:2298528331,
+        kbo:2311167728,
+        kbo:2311168619,
+        kbo:2316676239,
+        kbo:2331252369 ;
+    kbo:status kbo:Status_AC .
+
+kbo:00e768b56e187eefbd8c a locn:Address ;
+    geo:asWKT "POINT (4.099388677580767 51.02802455)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Oude Vest (DEN) 5/7, 9200 Dendermonde, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9200" ;
+    locn:postName "Dendermonde" .
+
+kbo:01f1214d6e4b41469ce1 a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Cour de l'Hôtel de ville 3, 4970 Stavelot, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4970" ;
+    locn:postName "Stavelot" .
+
+kbo:023de01935c8d30dc229 a locn:Address ;
+    geo:asWKT "POINT (5.592700205308042 50.61644865)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Quai des Vennes 1, 4020 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4020" ;
+    locn:postName "Liège" .
+
+kbo:07305749080602a88747 a locn:Address ;
+    geo:asWKT "POINT (4.442625580168709 50.394761700000004)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Eugène Mascaux 223, 6001 Charleroi, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6001" ;
+    locn:postName "Charleroi" .
+
+kbo:0768710a3d42b1589157 a locn:Address ;
+    geo:asWKT "POINT (3.246248227877948 51.2049757)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Matmeers 2, 8310 Brugge, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8310" ;
+    locn:postName "Brugge" .
+
+kbo:0a2d4bc5d17d63311162 a locn:Address ;
+    geo:asWKT "POINT (4.3969409 50.8439485)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Olmstraat 14, 1030 Schaarbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1030" ;
+    locn:postName "Schaarbeek" .
+
+kbo:0c4dbb37bd1830634953 a locn:Address ;
+    geo:asWKT "POINT (4.8656044 50.4637222)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de l'Ange 61-63, 5000 Namur, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5000" ;
+    locn:postName "Namur" .
+
+kbo:0d8aa64ca923d64cb116 a locn:Address ;
+    geo:asWKT "POINT (3.991331892002675 51.10375485)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Markt 56, 9160 Lokeren, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9160" ;
+    locn:postName "Lokeren" .
+
+kbo:114d7ac74743645e4080 a locn:Address ;
+    geo:asWKT "POINT (4.4874226 51.2891252)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Leopoldslei 13, 2930 Brasschaat, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2930" ;
+    locn:postName "Brasschaat" .
+
+kbo:1412a4bbb750860d42d3 a locn:Address ;
+    geo:asWKT "POINT (3.9541007 50.4554238)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue des Fossés 7, 7000 Mons, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7000" ;
+    locn:postName "Mons" .
+
+kbo:14f5c771709507c5faf3 a locn:Address ;
+    geo:asWKT "POINT (6.1240165086819704 50.28384965)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Malmedyer Strasse 22, 4780 Sankt Vith, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4780" ;
+    locn:postName "Sankt Vith" .
+
+kbo:163b33a3482179f96ada a locn:Address ;
+    geo:asWKT "POINT (5.0509431 50.9838589)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Sint-Jan Berchmansstraat 3, 3290 Diest, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3290" ;
+    locn:postName "Diest" .
+
+kbo:17695fd72d9bbf0aaf28 a locn:Address ;
+    geo:asWKT "POINT (3.2886222 51.3474601)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Lippenslaan 176, 8300 Knokke-Heist, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8300" ;
+    locn:postName "Knokke-Heist" .
+
+kbo:18c924ecc8fdb154bbae a locn:Address ;
+    geo:asWKT "POINT (4.445487116710946 50.410709)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Science 2, 6000 Charleroi, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6000" ;
+    locn:postName "Charleroi" .
+
+kbo:1acea881b5e087f97493 a locn:Address ;
+    geo:asWKT "POINT (3.2132468 50.7442454)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kleinestraat 2, 7700 Mouscron, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7700" ;
+    locn:postName "Mouscron" .
+
+kbo:1c2b49ca54f8166d7da5 a locn:Address ;
+    geo:asWKT "POINT (5.821082181780389 49.671536700000004)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Pietro-Ferrero 1, 6700 Arlon, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6700" ;
+    locn:postName "Arlon" .
+
+kbo:2003_32202 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_32202 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2003_64200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_64200 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_26300 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_26300 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_61100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_61100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_61200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_61200 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2102964255 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1995-01-11"^^xsd:date ;
+    locn:Address kbo:bc1be641749ab0cb440f .
+
+kbo:2102964651 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:c7b9a79e99100703a214 .
+
+kbo:2102964750 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:7b8fab9debbdf69a0e21 .
+
+kbo:2102965047 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:90f69d24372f5d2e06b3 .
+
+kbo:2102965146 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:632b1d16e0a5f666a81c .
+
+kbo:2102965245 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:bea5054aac0ce3570be7 .
+
+kbo:2102965344 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:0a2d4bc5d17d63311162 .
+
+kbo:2102965443 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:39ba9521aa89e99525e2 .
+
+kbo:2102965542 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:b551fa5a2ab4a6c007e4 .
+
+kbo:2102965641 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:92f5075045799adf61ab .
+
+kbo:2102965740 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:8a6b9f290c0d0e3d392a .
+
+kbo:2102965839 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:d971077483127c2d883d .
+
+kbo:2102965938 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:5f00ca55afaeb954d7e0 .
+
+kbo:2102966037 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:bc0c557a586754a2beb9 .
+
+kbo:2102966235 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:cb75e2fa9a49046396ce .
+
+kbo:2102966532 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:6dcb86d583fefb569747 .
+
+kbo:2102966928 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:a01abff33dd2138ef803 .
+
+kbo:2102967027 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:cada54920ea7c745852e .
+
+kbo:2102967423 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-27"^^xsd:date ;
+    locn:Address kbo:b5eff2a7f468e5e35033 .
+
+kbo:2102967522 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-12"^^xsd:date ;
+    locn:Address kbo:c5c76707fa8c38230006 .
+
+kbo:2102967621 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-12"^^xsd:date ;
+    locn:Address kbo:1c2b49ca54f8166d7da5 .
+
+kbo:2102968215 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:17695fd72d9bbf0aaf28 .
+
+kbo:2102968314 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:d8139d47d26d78d184bc .
+
+kbo:2102968413 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-03"^^xsd:date ;
+    locn:Address kbo:ff526f21cc84712c52ee .
+
+kbo:2102968710 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-03"^^xsd:date ;
+    locn:Address kbo:07305749080602a88747 .
+
+kbo:2102969007 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-03"^^xsd:date ;
+    locn:Address kbo:77b548922614f52ca62f .
+
+kbo:2102969205 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-04"^^xsd:date ;
+    locn:Address kbo:00e768b56e187eefbd8c .
+
+kbo:2102969403 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-27"^^xsd:date ;
+    locn:Address kbo:c015b59602fd617dcfe7 .
+
+kbo:2102969502 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-17"^^xsd:date ;
+    locn:Address kbo:67078889f810e8634ae7 .
+
+kbo:2102969797 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-17"^^xsd:date ;
+    locn:Address kbo:cb77ea448e00292e120b .
+
+kbo:2102969896 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-17"^^xsd:date ;
+    locn:Address kbo:46bd2a2239c33c62044f .
+
+kbo:2102969995 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-08-14"^^xsd:date ;
+    locn:Address kbo:37cc1089b3a14db35244 .
+
+kbo:2102970094 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:aef00342ee98eb9b7143 .
+
+kbo:2102970193 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:41c883a3721e4e84750d .
+
+kbo:2102970292 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:da86e3af3f793ab6bc2c .
+
+kbo:2102970490 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-03-23"^^xsd:date ;
+    locn:Address kbo:31e4f783c1609d0e22ee .
+
+kbo:2102970589 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-02"^^xsd:date ;
+    locn:Address kbo:844882833ab540d11b28 .
+
+kbo:2102970688 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-09"^^xsd:date ;
+    locn:Address kbo:cc6545f34558fd67cd60 .
+
+kbo:2102970787 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-09"^^xsd:date ;
+    locn:Address kbo:804a2276576c61678f1c .
+
+kbo:2102970985 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-09"^^xsd:date ;
+    locn:Address kbo:ebab8e57d21b2dc9b03f .
+
+kbo:2102971183 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-09"^^xsd:date ;
+    locn:Address kbo:59d6f1b4bcfa65c1390c .
+
+kbo:2102971282 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:732b0c1a7c9239076e4a .
+
+kbo:2102971381 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:c80c99b75e45699501d2 .
+
+kbo:2102971480 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:163b33a3482179f96ada .
+
+kbo:2102971579 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:93847202e7b05dd19b1f .
+
+kbo:2102971876 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-28"^^xsd:date ;
+    locn:Address kbo:834426c3ac0d517a599a .
+
+kbo:2102971975 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-28"^^xsd:date ;
+    locn:Address kbo:e0aae24706fa35dcdd7d .
+
+kbo:2102972173 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-28"^^xsd:date ;
+    locn:Address kbo:8e8f5087f89c2a0a5df6 .
+
+kbo:2102972272 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-28"^^xsd:date ;
+    locn:Address kbo:023de01935c8d30dc229 .
+
+kbo:2102972470 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-28"^^xsd:date ;
+    locn:Address kbo:a52d869af25c0e272151 .
+
+kbo:2102972668 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-02"^^xsd:date ;
+    locn:Address kbo:6b7c9b1542b09297d8ef .
+
+kbo:2102972866 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-27"^^xsd:date ;
+    locn:Address kbo:7e2525def4cb3e7ef83d .
+
+kbo:2102972965 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-27"^^xsd:date ;
+    locn:Address kbo:cb44029ad40d245fa186 .
+
+kbo:2102973064 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-03-23"^^xsd:date ;
+    locn:Address kbo:8d031b6b2b01b4c661b9 .
+
+kbo:2102973262 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-13"^^xsd:date ;
+    locn:Address kbo:9e935e0acf54955517f4 .
+
+kbo:2102973361 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-13"^^xsd:date ;
+    locn:Address kbo:6957c84d2010fc5e27df .
+
+kbo:2102973460 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-01-13"^^xsd:date ;
+    locn:Address kbo:1412a4bbb750860d42d3 .
+
+kbo:2102973559 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:4937c20c3f10caaa5c33 .
+
+kbo:2102973658 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:28dcf605855f59f6a5f4 .
+
+kbo:2102973757 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:63b570ca085718ff61b3 .
+
+kbo:2102973856 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-01"^^xsd:date ;
+    locn:Address kbo:52f3879c563d75be15c2 .
+
+kbo:2102973955 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:0c4dbb37bd1830634953 .
+
+kbo:2102974252 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-27"^^xsd:date ;
+    locn:Address kbo:8e1851f87b24030464c3 .
+
+kbo:2102974549 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-10"^^xsd:date ;
+    locn:Address kbo:b2b2a0f500b9b8cbe92b .
+
+kbo:2102974648 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-10"^^xsd:date ;
+    locn:Address kbo:d5509d38e41b762d46f7 .
+
+kbo:2102974846 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-10"^^xsd:date ;
+    locn:Address kbo:3aaa268254f2808f1b2c .
+
+kbo:2102974945 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-03-22"^^xsd:date ;
+    locn:Address kbo:f48b03c230d347554bcd .
+
+kbo:2102975143 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-01"^^xsd:date ;
+    locn:Address kbo:d026387373ffe49192f1 .
+
+kbo:2102975242 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:39d60e34478e5c3b93e4 .
+
+kbo:2102975341 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-25"^^xsd:date ;
+    locn:Address kbo:0d8aa64ca923d64cb116 .
+
+kbo:2102975539 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:c99162dd106fb0d99bcd .
+
+kbo:2102975836 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-03-23"^^xsd:date ;
+    locn:Address kbo:32aaaeaa3e3e50476085 .
+
+kbo:2102975935 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:57c197d75f51e7d4aeec .
+
+kbo:2102976034 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:d8be74225da944fcdfe1 .
+
+kbo:2102976133 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:eed71eb0f0f3d73490fa .
+
+kbo:2102976232 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-26"^^xsd:date ;
+    locn:Address kbo:54b96717fa1681ae35f2 .
+
+kbo:2102976430 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-24"^^xsd:date ;
+    locn:Address kbo:ddbfa1271ed17dd065b0 .
+
+kbo:2102976529 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-24"^^xsd:date ;
+    locn:Address kbo:b998ad8216bf964e99ce .
+
+kbo:2102976628 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-24"^^xsd:date ;
+    locn:Address kbo:c2db730aee44c209bcf8 .
+
+kbo:2102976727 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-11-24"^^xsd:date ;
+    locn:Address kbo:7c77bde35252c7f5fe11 .
+
+kbo:2102976925 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:d441397f08a192c53fb9 .
+
+kbo:2102977024 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-18"^^xsd:date ;
+    locn:Address kbo:2618fc06ab4d7ebc17f4 .
+
+kbo:2102977123 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-01"^^xsd:date ;
+    locn:Address kbo:80c5d3f53fd57a0fca66 .
+
+kbo:2102977222 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-11"^^xsd:date ;
+    locn:Address kbo:d93a3ebbe07789822d2a .
+
+kbo:2133609525 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1999-12-01"^^xsd:date ;
+    locn:Address kbo:c9ed8208d3f4116bf903 .
+
+kbo:2133610020 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-04-01"^^xsd:date ;
+    locn:Address kbo:7c85c210f87564cad0bf .
+
+kbo:2133611208 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2002-05-29"^^xsd:date ;
+    locn:Address kbo:7918675c11a7ace68d18 .
+
+kbo:2133611703 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2002-09-07"^^xsd:date ;
+    locn:Address kbo:6e7ac6fba01c56737ab3 .
+
+kbo:2133612196 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2000-11-02"^^xsd:date ;
+    locn:Address kbo:83b86cd5bc317489e9a7 .
+
+kbo:2133612790 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-10-01"^^xsd:date ;
+    locn:Address kbo:96b8935bf70f557f9f04 .
+
+kbo:2133613087 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1997-12-01"^^xsd:date ;
+    locn:Address kbo:5985726a2732fa6ab993 .
+
+kbo:2134034246 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2003-11-18"^^xsd:date ;
+    locn:Address kbo:8638f56c538bb2b582f1 .
+
+kbo:2153240048 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:29c52a86b779b0ca22e1 .
+
+kbo:2153240147 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:75f75228a4581a79f5a4 .
+
+kbo:2153240642 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:451ee50056761d157d1c .
+
+kbo:2153240741 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:fade8d83f22fefa3d641 .
+
+kbo:2153240840 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:e5239e22a2c967c65fe8 .
+
+kbo:2153240939 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:8eafed047a173411bd0d .
+
+kbo:2153241137 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:935918f2e7f377751e3f .
+
+kbo:2153241434 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:aaa7d08a28aff7b9f3d1 .
+
+kbo:2153241533 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:49a6b51ac908d8402ca0 .
+
+kbo:2153241632 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:114d7ac74743645e4080 .
+
+kbo:2153241731 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:d8a525cd993febcb33d1 .
+
+kbo:2153241830 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:72fcd847e2d74085de5c .
+
+kbo:2153241929 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:df8f7a12598f7f6db333 .
+
+kbo:2153242226 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:577618379a29dc857a9d .
+
+kbo:2153242325 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:c9f96e59309e492ff286 .
+
+kbo:2153242424 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:d73abcf443e36913607a .
+
+kbo:2153242523 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:58043a950a54f0d075dd .
+
+kbo:2153242721 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:4366ec280ddee0880dd9 .
+
+kbo:2153242820 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:d1f39513a71f9016ca90 .
+
+kbo:2153242919 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:4432cc41e6c3e74451f4 .
+
+kbo:2153243018 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:26f17093888ae93541cd .
+
+kbo:2153243117 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:0768710a3d42b1589157 .
+
+kbo:2153243315 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:441e3e676e5305210a35 .
+
+kbo:2153243909 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:e248daacd2953261768b .
+
+kbo:2153244107 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:e08753f376d4b93aa998 .
+
+kbo:2153244206 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:b96e512cad150f834763 .
+
+kbo:2153244305 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:404c084373f69e86503f .
+
+kbo:2153244602 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:a7785e44f2fa738cc89d .
+
+kbo:2153245293 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:fdbdf570d1984349517b .
+
+kbo:2153245392 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:f4b632cd1508a60d77b5 .
+
+kbo:2153245491 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:2d0aeb69e416e5dec5c5 .
+
+kbo:2153245689 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:a9b1c4f4d2791c93289f .
+
+kbo:2153245986 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:d86df375119d04212b67 .
+
+kbo:2153246085 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:e7d8b977f02fc0cb6fe0 .
+
+kbo:2153246283 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:18c924ecc8fdb154bbae .
+
+kbo:2153246580 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:80503671d3f47c603d9c .
+
+kbo:2153246778 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:01f1214d6e4b41469ce1 .
+
+kbo:2153246877 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:842d7d1f4041f1ebe8ff .
+
+kbo:2153247174 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:855202a6056a939cb5c7 .
+
+kbo:2153247273 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:6590097a447c7640b8ce .
+
+kbo:2153247768 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:448592ced6d42cee29e2 .
+
+kbo:2153248164 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:6a43b6aff7de46b8276d .
+
+kbo:2153248263 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:c81845c95e00a1d8d6f9 .
+
+kbo:2153248659 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:478583ae1a4e9bcb679b .
+
+kbo:2153248758 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:873d4472326b12c88031 .
+
+kbo:2153249055 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:80281242d950c8aef85f .
+
+kbo:2153249352 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-04-28"^^xsd:date ;
+    locn:Address kbo:14f5c771709507c5faf3 .
+
+kbo:21555b7e1302165e856a a locn:Address ;
+    geo:asWKT "POINT (3.2191918 51.1961408)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Frank Van Ackerpromenade 15, 8000 Brugge, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8000" ;
+    locn:postName "Brugge" .
+
+kbo:2160609474 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-11-01"^^xsd:date ;
+    locn:Address kbo:72277939c4841bc09a1f .
+
+kbo:2160612048 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-11-01"^^xsd:date ;
+    locn:Address kbo:3eeddd94266503578258 .
+
+kbo:2174815917 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2008-10-01"^^xsd:date ;
+    locn:Address kbo:8c3c7ae29778f81c0a3c .
+
+kbo:2174823142 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2007-07-27"^^xsd:date ;
+    locn:Address kbo:729b5580a2239ac582e0 .
+
+kbo:2177924667 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2009-05-01"^^xsd:date ;
+    locn:Address kbo:86287faaa71b020a4779 .
+
+kbo:2181462494 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2009-09-01"^^xsd:date ;
+    locn:Address kbo:d7084f8c09592be4c4fc .
+
+kbo:2186642096 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2010-04-01"^^xsd:date ;
+    locn:Address kbo:877c4fedcb5aa5a4a16e .
+
+kbo:2186643779 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2010-04-01"^^xsd:date ;
+    locn:Address kbo:661426774c0e10b98826 .
+
+kbo:2187794913 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2010-04-01"^^xsd:date ;
+    locn:Address kbo:7b6cc040cc2cb0bb6c67 .
+
+kbo:2209570522 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2011-09-01"^^xsd:date ;
+    locn:Address kbo:3db240b57d98f2353038 .
+
+kbo:2210681072 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2011-08-01"^^xsd:date ;
+    locn:Address kbo:9e5edc4ac91ef6ed9ac9 .
+
+kbo:2210722050 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2012-04-26"^^xsd:date ;
+    locn:Address kbo:d27ea903e187fa6b62e8 .
+
+kbo:2210722149 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2012-04-26"^^xsd:date ;
+    locn:Address kbo:7266ab807dab1f1dec43 .
+
+kbo:2211072339 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2012-04-01"^^xsd:date ;
+    locn:Address kbo:44668221be41158a1676 .
+
+kbo:2244500519 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2014-08-01"^^xsd:date ;
+    locn:Address kbo:5af40189d0555fd9e119 .
+
+kbo:2250632897 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-01-01"^^xsd:date ;
+    locn:Address kbo:cee64edf7ab6db8dd452 .
+
+kbo:2250632996 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-01-01"^^xsd:date ;
+    locn:Address kbo:7608cc272a0b84503e07 .
+
+kbo:2250633095 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-01-01"^^xsd:date ;
+    locn:Address kbo:2288aca3c1fda7ba6de8 .
+
+kbo:2260501955 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:8acb516ffd3e443a3abe .
+
+kbo:2260502054 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:5085a62ebc0913bd468c .
+
+kbo:2260502153 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:5ed764ed206f575acb6d .
+
+kbo:2260502252 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:256f93270d0ea84c286a .
+
+kbo:2260502351 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:38730a0ce6d0dece69f4 .
+
+kbo:2260502450 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:e2b67f95d148227f47c8 .
+
+kbo:2260502747 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:a146ded378bec9cad394 .
+
+kbo:2260503143 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:722af252cafa0a3127ca .
+
+kbo:2260503737 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:fa134b565aaf59ac6374 .
+
+kbo:2260503836 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:e49b7cd7cf8f6179e87e .
+
+kbo:2260503935 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:a2c9eea3f9510292c56a .
+
+kbo:2260504133 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:fce0562fb363fef569fc .
+
+kbo:2260504232 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:1acea881b5e087f97493 .
+
+kbo:2260504529 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:a5d8b9e1b50072028af0 .
+
+kbo:2260504727 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:c26602d653d332faa008 .
+
+kbo:2260505024 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:51c7232c4799168e47d5 .
+
+kbo:2260505123 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:f01bbbb991e7817ea8bf .
+
+kbo:2260506707 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2016-10-01"^^xsd:date ;
+    locn:Address kbo:9edd67c64cc58fbfb8a7 .
+
+kbo:2268680441 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2017-10-01"^^xsd:date ;
+    locn:Address kbo:4af6d24fb79f6d1dfdbd .
+
+kbo:2273122546 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-02-01"^^xsd:date ;
+    locn:Address kbo:21555b7e1302165e856a .
+
+kbo:2285962079 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2019-01-01"^^xsd:date ;
+    locn:Address kbo:7e092ec521ad7d37fbb1 .
+
+kbo:2288aca3c1fda7ba6de8 a locn:Address ;
+    geo:asWKT "POINT (3.2226588 51.2070578)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Steenstraat 22-24, 8000 Brugge, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8000" ;
+    locn:postName "Brugge" .
+
+kbo:2298528331 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2020-02-01"^^xsd:date ;
+    locn:Address kbo:fd952ba9ad070dc3346c .
+
+kbo:2311167728 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2021-01-01"^^xsd:date ;
+    locn:Address kbo:6fc7e51d2b3a71833706 .
+
+kbo:2311168619 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2021-01-01"^^xsd:date ;
+    locn:Address kbo:d45e27d446f7a7fb9f1a .
+
+kbo:2316676239 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2021-05-01"^^xsd:date ;
+    locn:Address kbo:90125aadeb618654c69e .
+
+kbo:2331252369 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2022-06-01"^^xsd:date ;
+    locn:Address kbo:ae9e9b2d1f640ef3e60a .
+
+kbo:256f93270d0ea84c286a a locn:Address ;
+    geo:asWKT "POINT (4.2794024 50.8173497)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Olympische dreef 13, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+
+kbo:2618fc06ab4d7ebc17f4 a locn:Address ;
+    geo:asWKT "POINT (6.0281175 50.4262665)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Place du Châtelet 1, 4960 Malmedy, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4960" ;
+    locn:postName "Malmedy" .
+
+kbo:26f17093888ae93541cd a locn:Address ;
+    geo:asWKT "POINT (5.634450893847773 50.66786465)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Pépin de Herstal 16, 4040 Herstal, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4040" ;
+    locn:postName "Herstal" .
+
+kbo:28dcf605855f59f6a5f4 a locn:Address ;
+    geo:asWKT "POINT (4.613453864106146 50.431942750000005)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Saint Jean-Baptiste(TAM) 1, 5060 Sambreville, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5060" ;
+    locn:postName "Sambreville" .
+
+kbo:29c52a86b779b0ca22e1 a locn:Address ;
+    geo:asWKT "POINT (4.325928980873147 50.83184765)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Tweestationsstraat 84, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+
+kbo:2d0aeb69e416e5dec5c5 a locn:Address ;
+    geo:asWKT "POINT (2.9167119 51.2300087)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Wittenonnenstraat 44, 8400 Oostende, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8400" ;
+    locn:postName "Oostende" .
+
+kbo:31e4f783c1609d0e22ee a locn:Address ;
+    geo:asWKT "POINT (5.2406563 50.5183088)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grand'Place 26, 4500 Huy, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4500" ;
+    locn:postName "Huy" .
+
+kbo:32aaaeaa3e3e50476085 a locn:Address ;
+    geo:asWKT "POINT (5.467752474120232 50.782659550000005)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Maastrichterstraat 94, 3700 Tongeren, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3700" ;
+    locn:postName "Tongeren" .
+
+kbo:37cc1089b3a14db35244 a locn:Address ;
+    geo:asWKT "POINT (3.725280703055711 51.0502506)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kouter 1, 9000 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9000" ;
+    locn:postName "Gent" .
+
+kbo:38730a0ce6d0dece69f4 a locn:Address ;
+    geo:asWKT "POINT (4.3530122 50.8486767)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grétrystraat 12, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:39ba9521aa89e99525e2 a locn:Address ;
+    geo:asWKT "POINT (4.357319056330753 50.83591105)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Gulden-Vlieslaan 40, 1060 Sint-Gillis (bij-Brussel), Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1060" ;
+    locn:postName "Sint-Gillis (bij-Brussel)" .
+
+kbo:39d60e34478e5c3b93e4 a locn:Address ;
+    geo:asWKT "POINT (4.1636695 51.1711979)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Passtraat 1C, 9100 Sint-Niklaas, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9100" ;
+    locn:postName "Sint-Niklaas" .
+
+kbo:3aaa268254f2808f1b2c a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Technique 11, 1400 Nivelles, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1400" ;
+    locn:postName "Nivelles" .
+
+kbo:3db240b57d98f2353038 a locn:Address ;
+    geo:asWKT "POINT (3.1999779000482946 51.186088049999995)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Koningin Astridlaan 97, 8200 Brugge, Belgium" ;
+    locn:poBox "6" ;
+    locn:postCode "8200" ;
+    locn:postName "Brugge" .
+
+kbo:3eeddd94266503578258 a locn:Address ;
+    geo:asWKT "POINT (5.571531834775211 50.64148165)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vinâve d'Ile 25, 4000 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4000" ;
+    locn:postName "Liège" .
+
+kbo:404c084373f69e86503f a locn:Address ;
+    geo:asWKT "POINT (3.271207 50.8253334)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Sint-Janslaan(Kor) 8, 8500 Kortrijk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8500" ;
+    locn:postName "Kortrijk" .
+
+kbo:41c883a3721e4e84750d a locn:Address ;
+    geo:asWKT "POINT (5.4324095329979425 51.22878335)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kerkstraat 22, 3910 Pelt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3910" ;
+    locn:postName "Pelt" .
+
+kbo:4366ec280ddee0880dd9 a locn:Address ;
+    geo:asWKT "POINT (4.809980538694767 50.979401249999995)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Gaston Geenslaan 17, 3200 Aarschot, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3200" ;
+    locn:postName "Aarschot" .
+
+kbo:441e3e676e5305210a35 a locn:Address ;
+    geo:asWKT "POINT (3.1307150210327466 50.957836)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Beversesteenweg 189, 8800 Roeselare, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8800" ;
+    locn:postName "Roeselare" .
+
+kbo:4432cc41e6c3e74451f4 a locn:Address ;
+    geo:asWKT "POINT (5.5675236 50.6256864)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Impasse Jonckeu 12, 4000 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4000" ;
+    locn:postName "Liège" .
+
+kbo:44668221be41158a1676 a locn:Address ;
+    geo:asWKT "POINT (3.1852832223637493 50.8532938)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Oostlaan 6, 8560 Wevelgem, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8560" ;
+    locn:postName "Wevelgem" .
+
+kbo:448592ced6d42cee29e2 a locn:Address ;
+    geo:asWKT "POINT (5.2334052 50.5192446)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Vieux-Pont 16, 4500 Huy, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4500" ;
+    locn:postName "Huy" .
+
+kbo:451ee50056761d157d1c a locn:Address ;
+    geo:asWKT "POINT (4.394317010733527 50.8797838)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Carlistraat 2, 1140 Evere, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1140" ;
+    locn:postName "Evere" .
+
+kbo:46bd2a2239c33c62044f a locn:Address ;
+    geo:asWKT "POINT (3.7160871 51.038787)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kortrijksesteenweg 543, 9000 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9000" ;
+    locn:postName "Gent" .
+
+kbo:478583ae1a4e9bcb679b a locn:Address ;
+    geo:asWKT "POINT (3.5696284 51.1771045)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Euerardstraat 39, 9900 Eeklo, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9900" ;
+    locn:postName "Eeklo" .
+
+kbo:4937c20c3f10caaa5c33 a locn:Address ;
+    geo:asWKT "POINT (4.857251431018515 50.472218749999996)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Marie Henriette 60, 5000 Namur, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5000" ;
+    locn:postName "Namur" .
+
+kbo:49a6b51ac908d8402ca0 a locn:Address ;
+    geo:asWKT "POINT (4.5547894 51.1406636)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bollaarstraat 8A+B, 2500 Lier, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2500" ;
+    locn:postName "Lier" .
+
+kbo:4af6d24fb79f6d1dfdbd a locn:Address ;
+    geo:asWKT "POINT (5.319535540517181 50.94141465)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Herkenrodesingel 6/B, 3500 Hasselt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3500" ;
+    locn:postName "Hasselt" .
+
+kbo:5085a62ebc0913bd468c a locn:Address ;
+    geo:asWKT "POINT (4.4055695 51.2180466)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Meir 12, 2000 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2000" ;
+    locn:postName "Antwerpen" .
+
+kbo:51c7232c4799168e47d5 a locn:Address ;
+    geo:asWKT "POINT (4.6141301 50.6697734)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Charlemagne 31, 1348 Ottignies-Louvain-la-Neuve, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1348" ;
+    locn:postName "Ottignies-Louvain-la-Neuve" .
+
+kbo:52f3879c563d75be15c2 a locn:Address ;
+    geo:asWKT "POINT (4.8765518 50.460948)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Pont des Ardennes(JB) 6, 5100 Namur, Belgium" ;
+    locn:poBox "14" ;
+    locn:postCode "5100" ;
+    locn:postName "Namur" .
+
+kbo:54b96717fa1681ae35f2 a locn:Address ;
+    geo:asWKT "POINT (3.4045078 50.6024969)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Boulevard Walter de Marvis(TOU) 22, 7500 Tournai, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7500" ;
+    locn:postName "Tournai" .
+
+kbo:577618379a29dc857a9d a locn:Address ;
+    geo:asWKT "POINT (5.429621400647354 51.225958399999996)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Koning Albertlaan 1, 3900 Overpelt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3900" ;
+    locn:postName "Overpelt" .
+
+kbo:57c197d75f51e7d4aeec a locn:Address ;
+    geo:asWKT "POINT (3.3919543 50.6135755)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Boulevard des Nerviens(TOU) 1, 7500 Tournai, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7500" ;
+    locn:postName "Tournai" .
+
+kbo:58043a950a54f0d075dd a locn:Address ;
+    geo:asWKT "POINT (4.497031823283097 51.01228205)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Dellingstraat 52, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:5985726a2732fa6ab993 a locn:Address ;
+    geo:asWKT "POINT (4.3379130783981665 50.80369605)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Xavier De Buestraat 52, 1180 Ukkel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1180" ;
+    locn:postName "Ukkel" .
+
+kbo:59d6f1b4bcfa65c1390c a locn:Address ;
+    geo:asWKT "POINT (3.4315466 50.8869546)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Markt 21, 8790 Waregem, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8790" ;
+    locn:postName "Waregem" .
+
+kbo:5af40189d0555fd9e119 a locn:Address ;
+    geo:asWKT "POINT (5.8747732 50.6386143)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue des Waides 12-14, 4890 Thimister-Clermont, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4890" ;
+    locn:postName "Thimister-Clermont" .
+
+kbo:5ed764ed206f575acb6d a locn:Address ;
+    geo:asWKT "POINT (4.358407941071476 50.854298)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Nieuwstraat 123, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:5f00ca55afaeb954d7e0 a locn:Address ;
+    geo:asWKT "POINT (4.025678650709606 50.8359106)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Graanmarkt 38, 9400 Ninove, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9400" ;
+    locn:postName "Ninove" .
+
+kbo:632b1d16e0a5f666a81c a locn:Address ;
+    geo:asWKT "POINT (4.3844922 50.8138464)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Hogeschoollaan 11-13, 1050 Elsene, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1050" ;
+    locn:postName "Elsene" .
+
+kbo:63b570ca085718ff61b3 a locn:Address ;
+    geo:asWKT "POINT (4.6967493 50.5613678)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grand'Rue 18, 5030 Gembloux, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5030" ;
+    locn:postName "Gembloux" .
+
+kbo:6590097a447c7640b8ce a locn:Address ;
+    geo:asWKT "POINT (5.281754154259266 50.173762350000004)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "On, Rue Delvigne 102, 6900 Marche-en-Famenne, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6900" ;
+    locn:postName "Marche-en-Famenne" .
+
+kbo:661426774c0e10b98826 a locn:Address ;
+    geo:asWKT "POINT (5.3841733000639405 49.91884695)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Libramont,Avenue de Bouillon 5, 6800 Libramont-Chevigny, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6800" ;
+    locn:postName "Libramont-Chevigny" .
+
+kbo:67078889f810e8634ae7 a locn:Address ;
+    geo:asWKT "POINT (3.7318353073039425 51.053748299999995)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Keizer Karelstraat 1, 9000 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9000" ;
+    locn:postName "Gent" .
+
+kbo:6957c84d2010fc5e27df a locn:Address ;
+    geo:asWKT "POINT (3.939505105776763 50.45849145)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Edison 1, 7000 Mons, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7000" ;
+    locn:postName "Mons" .
+
+kbo:6a43b6aff7de46b8276d a locn:Address ;
+    geo:asWKT "POINT (5.8634253 50.5952517)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Thil Lorrain 6, 4800 Verviers, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4800" ;
+    locn:postName "Verviers" .
+
+kbo:6b7c9b1542b09297d8ef a locn:Address ;
+    geo:asWKT "POINT (5.3090833 50.2327165)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Marche, Rue de la Pirire 3, 6900 Marche-en-Famenne, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6900" ;
+    locn:postName "Marche-en-Famenne" .
+
+kbo:6dcb86d583fefb569747 a locn:Address ;
+    geo:asWKT "POINT (4.467700236106182 51.2022526)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Van den Hautelei 171, 2100 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2100" ;
+    locn:postName "Antwerpen" .
+
+kbo:6e7ac6fba01c56737ab3 a locn:Address ;
+    geo:asWKT "POINT (4.021229461901909 50.8347993)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kaardeloodstraat 62, 9400 Ninove, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9400" ;
+    locn:postName "Ninove" .
+
+kbo:6fc7e51d2b3a71833706 a locn:Address ;
+    geo:asWKT "POINT (5.7697236 49.6875265)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Stockem, rue de l'Hydrion 131, 6700 Arlon, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6700" ;
+    locn:postName "Arlon" .
+
+kbo:72277939c4841bc09a1f a locn:Address ;
+    geo:asWKT "POINT (6.0341083 50.6310042)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Klötzerbahn 24, 4700 Eupen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4700" ;
+    locn:postName "Eupen" .
+
+kbo:722af252cafa0a3127ca a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Basse Campagne 1, 4040 Herstal, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4040" ;
+    locn:postName "Herstal" .
+
+kbo:7266ab807dab1f1dec43 a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Koning AlbertII laan 27, 1030 Schaarbeek, Belgium" ;
+    locn:poBox "." ;
+    locn:postCode "1030" ;
+    locn:postName "Schaarbeek" .
+
+kbo:729b5580a2239ac582e0 a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Place des Grands Prés 1, 7000 Mons, Belgium" ;
+    locn:poBox "30" ;
+    locn:postCode "7000" ;
+    locn:postName "Mons" .
+
+kbo:72fcd847e2d74085de5c a locn:Address ;
+    geo:asWKT "POINT (4.4503982 51.1740039)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Hendrik Consciencelaan 62, 2640 Mortsel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2640" ;
+    locn:postName "Mortsel" .
+
+kbo:732b0c1a7c9239076e4a a locn:Address ;
+    geo:asWKT "POINT (4.6999812 50.8818656)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vismarkt 17, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:75f75228a4581a79f5a4 a locn:Address ;
+    geo:asWKT "POINT (4.325954049510037 50.846789599999994)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Birminghamstraat 66, 1080 Sint-Jans-Molenbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1080" ;
+    locn:postName "Sint-Jans-Molenbeek" .
+
+kbo:7608cc272a0b84503e07 a locn:Address ;
+    geo:asWKT "POINT (6.074388180987352 50.346427)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Blausteinstraße,Recht 20, 4780 Sankt Vith, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4780" ;
+    locn:postName "Sankt Vith" .
+
+kbo:77b548922614f52ca62f a locn:Address ;
+    geo:asWKT "POINT (4.4970474 50.4091214)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Trieu-Kaisin 71, 6200 Châtelet, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6200" ;
+    locn:postName "Châtelet" .
+
+kbo:7918675c11a7ace68d18 a locn:Address ;
+    geo:asWKT "POINT (3.7224014 51.0533936)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Veldstraat 9-11, 9000 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9000" ;
+    locn:postName "Gent" .
+
+kbo:7b6cc040cc2cb0bb6c67 a locn:Address ;
+    geo:asWKT "POINT (3.1377857 50.9696821)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Wijnendalestraat 160, 8800 Roeselare, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8800" ;
+    locn:postName "Roeselare" .
+
+kbo:7b8fab9debbdf69a0e21 a locn:Address ;
+    geo:asWKT "POINT (4.4234689 50.8132957)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vorstlaan 240, 1160 Oudergem, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1160" ;
+    locn:postName "Oudergem" .
+
+kbo:7c77bde35252c7f5fe11 a locn:Address ;
+    geo:asWKT "POINT (4.945540845785081 51.3220894)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Gasthuisstraat 29, 2300 Turnhout, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2300" ;
+    locn:postName "Turnhout" .
+
+kbo:7c85c210f87564cad0bf a locn:Address ;
+    geo:asWKT "POINT (3.9511542 50.4531231)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Chaussée 42, 7000 Mons, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7000" ;
+    locn:postName "Mons" .
+
+kbo:7e092ec521ad7d37fbb1 a locn:Address ;
+    geo:asWKT "POINT (4.9902509 51.1663011)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Heidebloemstraat 2, 2440 Geel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2440" ;
+    locn:postName "Geel" .
+
+kbo:7e2525def4cb3e7ef83d a locn:Address ;
+    geo:asWKT "POINT (4.569066753770241 51.13216285)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Antwerpsestraat 14, 2500 Lier, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2500" ;
+    locn:postName "Lier" .
+
+kbo:80281242d950c8aef85f a locn:Address ;
+    geo:asWKT "POINT (3.8825835 51.0018903)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Stationsplein 10, 9230 Wetteren, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9230" ;
+    locn:postName "Wetteren" .
+
+kbo:804a2276576c61678f1c a locn:Address ;
+    geo:asWKT "POINT (3.1251541 50.946002)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ooststraat 23, 8800 Roeselare, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8800" ;
+    locn:postName "Roeselare" .
+
+kbo:80503671d3f47c603d9c a locn:Address ;
+    geo:asWKT "POINT (4.4304785 50.4588795)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Carrosse 2, 6041 Charleroi, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6041" ;
+    locn:postName "Charleroi" .
+
+kbo:80c5d3f53fd57a0fca66 a locn:Address ;
+    geo:asWKT "POINT (2.6538716 51.0765548)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Pannestraat 1, 8630 Veurne, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8630" ;
+    locn:postName "Veurne" .
+
+kbo:834426c3ac0d517a599a a locn:Address ;
+    geo:asWKT "POINT (5.5725376 50.641347)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Sirène 7, 4000 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4000" ;
+    locn:postName "Liège" .
+
+kbo:83b86cd5bc317489e9a7 a locn:Address ;
+    geo:asWKT "POINT (4.400996 50.8403124)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Tongerenstraat 63, 1040 Etterbeek, Belgium" ;
+    locn:poBox "65" ;
+    locn:postCode "1040" ;
+    locn:postName "Etterbeek" .
+
+kbo:842d7d1f4041f1ebe8ff a locn:Address ;
+    geo:asWKT "POINT (4.8237651 50.449867)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Tir de Ronet(FW) 5, 5020 Namur, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5020" ;
+    locn:postName "Namur" .
+
+kbo:844882833ab540d11b28 a locn:Address ;
+    geo:asWKT "POINT (2.8890116317831196 50.85142535)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Menenstraat 14, 8900 Ieper, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8900" ;
+    locn:postName "Ieper" .
+
+kbo:855202a6056a939cb5c7 a locn:Address ;
+    geo:asWKT "POINT (5.2638725 50.1603886)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Joseph Wauters,Jemelle S/N, 5580 Rochefort, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5580" ;
+    locn:postName "Rochefort" .
+
+kbo:86287faaa71b020a4779 a locn:Address ;
+    geo:asWKT "POINT (4.267248539604148 50.817447)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Researchdreef 20, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+
+kbo:8638f56c538bb2b582f1 a locn:Address ;
+    geo:asWKT "POINT (2.9143377 51.2304646)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Marie-Joséplein 12, 8400 Oostende, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8400" ;
+    locn:postName "Oostende" .
+
+kbo:873d4472326b12c88031 a locn:Address ;
+    geo:asWKT "POINT (3.8341195773696684 51.0937268)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Dekenijstraat 11, 9080 Lochristi, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9080" ;
+    locn:postName "Lochristi" .
+
+kbo:877c4fedcb5aa5a4a16e a locn:Address ;
+    geo:asWKT "POINT (5.7200429 50.0042961)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Sablon 125-127, 6600 Bastogne, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6600" ;
+    locn:postName "Bastogne" .
+
+kbo:8a6b9f290c0d0e3d392a a locn:Address ;
+    geo:asWKT "POINT (4.4373607 50.8447584)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Sint-Lambertusstraat 202, 1200 Sint-Lambrechts-Woluwe, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1200" ;
+    locn:postName "Sint-Lambrechts-Woluwe" .
+
+kbo:8acb516ffd3e443a3abe a locn:Address ;
+    geo:asWKT "POINT (4.4187724 51.2172757)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "De Keyserlei 56, 2018 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2018" ;
+    locn:postName "Antwerpen" .
+
+kbo:8c3c7ae29778f81c0a3c a locn:Address ;
+    geo:asWKT "POINT (4.7278605 50.8457396)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Geldenaaksebaan 335, 3001 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3001" ;
+    locn:postName "Leuven" .
+
+kbo:8d031b6b2b01b4c661b9 a locn:Address ;
+    geo:asWKT "POINT (4.4818387 51.024052)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bruul 112, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:8e1851f87b24030464c3 a locn:Address ;
+    geo:asWKT "POINT (5.356019637252018 49.92559005)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Libramont,Rue des Alliés 1, 6800 Libramont-Chevigny, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6800" ;
+    locn:postName "Libramont-Chevigny" .
+
+kbo:8e8f5087f89c2a0a5df6 a locn:Address ;
+    geo:asWKT "POINT (5.5441201 50.6688486)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Chaussée de Tongres 269, 4000 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4000" ;
+    locn:postName "Liège" .
+
+kbo:8eafed047a173411bd0d a locn:Address ;
+    geo:asWKT "POINT (4.4346347 50.9278912)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Leuvensestraat 7-9, 1800 Vilvoorde, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1800" ;
+    locn:postName "Vilvoorde" .
+
+kbo:90125aadeb618654c69e a locn:Address ;
+    geo:asWKT "POINT (4.3377784 51.1830403)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Smallandlaan 14, 2660 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2660" ;
+    locn:postName "Antwerpen" .
+
+kbo:90f69d24372f5d2e06b3 a locn:Address ;
+    geo:asWKT "POINT (4.2370427 50.7328394)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Basiliekstraat 30-32, 1500 Halle, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1500" ;
+    locn:postName "Halle" .
+
+kbo:92f5075045799adf61ab a locn:Address ;
+    geo:asWKT "POINT (4.4244135 50.9267206)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Portaelsplein 68, 1800 Vilvoorde, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1800" ;
+    locn:postName "Vilvoorde" .
+
+kbo:935918f2e7f377751e3f a locn:Address ;
+    geo:asWKT "POINT (4.3548263 50.8428014)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Lebeaustraat 2, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:93847202e7b05dd19b1f a locn:Address ;
+    geo:asWKT "POINT (4.7067131 50.8799526)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bondgenotenlaan 55, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:96b8935bf70f557f9f04 a locn:Address ;
+    geo:asWKT "POINT (4.2963134 50.8718658)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Keizer Karellaan 420, 1082 Sint-Agatha-Berchem, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1082" ;
+    locn:postName "Sint-Agatha-Berchem" .
+
+kbo:9e5edc4ac91ef6ed9ac9 a locn:Address ;
+    geo:asWKT "POINT (4.3638661 50.4699671)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de Liège(CO) 70, 6180 Courcelles, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6180" ;
+    locn:postName "Courcelles" .
+
+kbo:9e935e0acf54955517f4 a locn:Address ;
+    geo:asWKT "POINT (4.2032744 50.4853123)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Franco-Belge(L.L) 28, 7100 La Louvière, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7100" ;
+    locn:postName "La Louvière" .
+
+kbo:9edd67c64cc58fbfb8a7 a locn:Address ;
+    geo:asWKT "POINT (4.3619507 50.8381126)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Elsense Steenweg 32, 1050 Elsene, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1050" ;
+    locn:postName "Elsene" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:a01abff33dd2138ef803 a locn:Address ;
+    geo:asWKT "POINT (4.392866400331243 51.17040255)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bist 36, 2610 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2610" ;
+    locn:postName "Antwerpen" .
+
+kbo:a146ded378bec9cad394 a locn:Address ;
+    geo:asWKT "POINT (5.5030296 50.9646256)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rootenstraat 1, 3600 Genk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3600" ;
+    locn:postName "Genk" .
+
+kbo:a2c9eea3f9510292c56a a locn:Address ;
+    geo:asWKT "POINT (4.489427100000004 51.288813149999996)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bredabaan 319, 2930 Brasschaat, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2930" ;
+    locn:postName "Brasschaat" .
+
+kbo:a52d869af25c0e272151 a locn:Address ;
+    geo:asWKT "POINT (5.25214649333871 50.69569415)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Reine Astrid 10, 4300 Waremme, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4300" ;
+    locn:postName "Waremme" .
+
+kbo:a5d8b9e1b50072028af0 a locn:Address ;
+    geo:asWKT "POINT (2.9187546 51.2302945)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kapellestraat 43, 8400 Oostende, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8400" ;
+    locn:postName "Oostende" .
+
+kbo:a7785e44f2fa738cc89d a locn:Address ;
+    geo:asWKT "POINT (3.2204512 50.7434677)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Keizer Karelstraat 90, 7700 Mouscron, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7700" ;
+    locn:postName "Mouscron" .
+
+kbo:a9b1c4f4d2791c93289f a locn:Address ;
+    geo:asWKT "POINT (4.1887503 50.4799028)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Anatole France(L.L) 16, 7100 La Louvière, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7100" ;
+    locn:postName "La Louvière" .
+
+kbo:aaa7d08a28aff7b9f3d1 a locn:Address ;
+    geo:asWKT "POINT (4.435926490890857 51.1929523)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Karel Coggestraat 2, 2600 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2600" ;
+    locn:postName "Antwerpen" .
+
+kbo:ae9e9b2d1f640ef3e60a a locn:Address ;
+    geo:asWKT "POINT (4.353869432534527 50.8501786)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Muntplein 4, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:aef00342ee98eb9b7143 a locn:Address ;
+    geo:asWKT "POINT (5.3384284 50.932453)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Demerstraat 65, 3500 Hasselt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3500" ;
+    locn:postName "Hasselt" .
+
+kbo:b2b2a0f500b9b8cbe92b a locn:Address ;
+    geo:asWKT "POINT (4.608039726470832 50.717702)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue de la Limite 2, 1300 Wavre, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1300" ;
+    locn:postName "Wavre" .
+
+kbo:b551fa5a2ab4a6c007e4 a locn:Address ;
+    geo:asWKT "POINT (4.343789248124903 50.81696845)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rodenbachstraat 133, 1190 Vorst, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1190" ;
+    locn:postName "Vorst" .
+
+kbo:b5eff2a7f468e5e35033 a locn:Address ;
+    geo:asWKT "POINT (4.365701415398887 51.0865548)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Antwerpsestraat 11, 2850 Boom, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2850" ;
+    locn:postName "Boom" .
+
+kbo:b96e512cad150f834763 a locn:Address ;
+    geo:asWKT "POINT (3.6020547 50.7439024)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Politiekegevangenenstraat 14, 9600 Ronse, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9600" ;
+    locn:postName "Ronse" .
+
+kbo:b998ad8216bf964e99ce a locn:Address ;
+    geo:asWKT "POINT (4.833941656972373 51.176637)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Zandstraat(HRT) 27, 2200 Herentals, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2200" ;
+    locn:postName "Herentals" .
+
+kbo:bc0c557a586754a2beb9 a locn:Address ;
+    geo:asWKT "POINT (4.4355353 51.1996798)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Borsbeeksebrug 24, 2600 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2600" ;
+    locn:postName "Antwerpen" .
+
+kbo:bea5054aac0ce3570be7 a locn:Address ;
+    geo:asWKT "POINT (3.7671095 50.98796)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Industriepark 4A, 9820 Merelbeke, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9820" ;
+    locn:postName "Merelbeke" .
+
+kbo:c015b59602fd617dcfe7 a locn:Address ;
+    geo:asWKT "POINT (4.934450540845658 50.266161)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Saint-Jacques 337, 5500 Dinant, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5500" ;
+    locn:postName "Dinant" .
+
+kbo:c26602d653d332faa008 a locn:Address ;
+    geo:asWKT "POINT (4.153538218494281 51.15326385)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kapelstraat 100, 9100 Sint-Niklaas, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9100" ;
+    locn:postName "Sint-Niklaas" .
+
+kbo:c2db730aee44c209bcf8 a locn:Address ;
+    geo:asWKT "POINT (5.119002810978617 51.1890535)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Statiestraat 38 A, 2400 Mol, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2400" ;
+    locn:postName "Mol" .
+
+kbo:c5c76707fa8c38230006 a locn:Address ;
+    geo:asWKT "POINT (5.808744350761206 49.68179995)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Jean-Baptiste-Nothomb 40, 6700 Arlon, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6700" ;
+    locn:postName "Arlon" .
+
+kbo:c7b9a79e99100703a214 a locn:Address ;
+    geo:asWKT "POINT (4.287999 50.8384161)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Sylvain Dupuislaan 433, 1070 Anderlecht, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1070" ;
+    locn:postName "Anderlecht" .
+
+kbo:c80c99b75e45699501d2 a locn:Address ;
+    geo:asWKT "POINT (4.8367438 50.984201)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grote Markt 23, 3200 Aarschot, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3200" ;
+    locn:postName "Aarschot" .
+
+kbo:c81845c95e00a1d8d6f9 a locn:Address ;
+    geo:asWKT "POINT (3.5314273850468654 50.97773585)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ommegangstraat 24, 9800 Deinze, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9800" ;
+    locn:postName "Deinze" .
+
+kbo:c99162dd106fb0d99bcd a locn:Address ;
+    geo:asWKT "POINT (5.490867977394636 50.96691325)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Europalaan 27, 3600 Genk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3600" ;
+    locn:postName "Genk" .
+
+kbo:c9ed8208d3f4116bf903 a locn:Address ;
+    geo:asWKT "POINT (4.6098735 50.717099)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Place Cardinal Mercier 1, 1300 Wavre, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1300" ;
+    locn:postName "Wavre" .
+
+kbo:c9f96e59309e492ff286 a locn:Address ;
+    geo:asWKT "POINT (5.180354719411971 50.81707645)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rijschoolstraat 49, 3800 Sint-Truiden, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3800" ;
+    locn:postName "Sint-Truiden" .
+
+kbo:cada54920ea7c745852e a locn:Address ;
+    geo:asWKT "POINT (4.501580108016817 51.22222845)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Turnhoutsebaan 5, 2110 Wijnegem, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2110" ;
+    locn:postName "Wijnegem" .
+
+kbo:cb44029ad40d245fa186 a locn:Address ;
+    geo:asWKT "POINT (4.4806194 51.0166452)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Stationsstraat 58, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:cb75e2fa9a49046396ce a locn:Address ;
+    geo:asWKT "POINT (4.412846291339214 51.21935035)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Lange Nieuwstraat 106, 2000 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2000" ;
+    locn:postName "Antwerpen" .
+
+kbo:cb77ea448e00292e120b a locn:Address ;
+    geo:asWKT "POINT (3.5681032 51.1834681)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Stationsstraat 36, 9900 Eeklo, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9900" ;
+    locn:postName "Eeklo" .
+
+kbo:cc6545f34558fd67cd60 a locn:Address ;
+    geo:asWKT "POINT (3.2673301088639 50.82606095)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Doorniksestraat(Kor) 35, 8500 Kortrijk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8500" ;
+    locn:postName "Kortrijk" .
+
+kbo:cee64edf7ab6db8dd452 a locn:Address ;
+    geo:asWKT "POINT (3.7680404697220222 50.98701155)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Industriepark 2, 9820 Merelbeke, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9820" ;
+    locn:postName "Merelbeke" .
+
+kbo:d026387373ffe49192f1 a locn:Address ;
+    geo:asWKT "POINT (3.6048724 50.8433204)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Markt 13, 9700 Oudenaarde, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9700" ;
+    locn:postName "Oudenaarde" .
+
+kbo:d1f39513a71f9016ca90 a locn:Address ;
+    geo:asWKT "POINT (4.7301201 50.8810287)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Lolanden 1, 3010 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3010" ;
+    locn:postName "Leuven" .
+
+kbo:d27ea903e187fa6b62e8 a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Koning AlbertII laan 27 GLV, 1030 Schaarbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1030" ;
+    locn:postName "Schaarbeek" .
+
+kbo:d441397f08a192c53fb9 a locn:Address ;
+    geo:asWKT "POINT (5.863904432638298 50.5929516)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Crapaurue 126, 4800 Verviers, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4800" ;
+    locn:postName "Verviers" .
+
+kbo:d45e27d446f7a7fb9f1a a locn:Address ;
+    geo:asWKT "POINT (5.719224961227612 50.003808250000006)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Sablon 155, 6600 Bastogne, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6600" ;
+    locn:postName "Bastogne" .
+
+kbo:d5509d38e41b762d46f7 a locn:Address ;
+    geo:asWKT "POINT (4.376235453609251 50.68419455)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Albert 1er 117, 1420 Braine-l'Alleud, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1420" ;
+    locn:postName "Braine-l'Alleud" .
+
+kbo:d7084f8c09592be4c4fc a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rakestraat 27A, 8750 Wingene, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8750" ;
+    locn:postName "Wingene" .
+
+kbo:d73abcf443e36913607a a locn:Address ;
+    geo:asWKT "POINT (5.051353142794582 50.9891976)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ferdinand Allenstraat 38, 3290 Diest, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3290" ;
+    locn:postName "Diest" .
+
+kbo:d8139d47d26d78d184bc a locn:Address ;
+    geo:asWKT "POINT (3.326764 50.9989629)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kortrijkstraat 29, 8700 Tielt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8700" ;
+    locn:postName "Tielt" .
+
+kbo:d86df375119d04212b67 a locn:Address ;
+    geo:asWKT "POINT (4.4906883 50.7311888)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Place Albert-Ier 3-5, 1400 Nivelles, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1400" ;
+    locn:postName "Nivelles" .
+
+kbo:d8a525cd993febcb33d1 a locn:Address ;
+    geo:asWKT "POINT (4.3218742 51.338809)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Antwerpsebaan 105, 2040 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2040" ;
+    locn:postName "Antwerpen" .
+
+kbo:d8be74225da944fcdfe1 a locn:Address ;
+    geo:asWKT "POINT (3.7761528 50.6300355)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue aux Gâdes 10, 7800 Ath, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7800" ;
+    locn:postName "Ath" .
+
+kbo:d93a3ebbe07789822d2a a locn:Address ;
+    geo:asWKT "POINT (6.0336933 50.6297812)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bergstrasse 14, 4700 Eupen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4700" ;
+    locn:postName "Eupen" .
+
+kbo:d971077483127c2d883d a locn:Address ;
+    geo:asWKT "POINT (4.037953022221606 50.9381889)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grote Markt 25, 9300 Aalst, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9300" ;
+    locn:postName "Aalst" .
+
+kbo:da86e3af3f793ab6bc2c a locn:Address ;
+    geo:asWKT "POINT (5.18721578487322 50.814692949999994)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Luikerstraat 23, 3800 Sint-Truiden, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3800" ;
+    locn:postName "Sint-Truiden" .
+
+kbo:ddbfa1271ed17dd065b0 a locn:Address ;
+    geo:asWKT "POINT (4.936807676439881 51.31187225)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Parklaan 34, 2300 Turnhout, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2300" ;
+    locn:postName "Turnhout" .
+
+kbo:df8f7a12598f7f6db333 a locn:Address ;
+    geo:asWKT "POINT (5.3380414 50.9319672)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Paardsdemerstraat 8-10, 3500 Hasselt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3500" ;
+    locn:postName "Hasselt" .
+
+kbo:e08753f376d4b93aa998 a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ed. Schelfhoutstraat 232, 1770 Liedekerke, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1770" ;
+    locn:postName "Liedekerke" .
+
+kbo:e0aae24706fa35dcdd7d a locn:Address ;
+    geo:asWKT "POINT (5.5817951 50.6324999)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue du Nord-Belge 6, 4020 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4020" ;
+    locn:postName "Liège" .
+
+kbo:e248daacd2953261768b a locn:Address ;
+    geo:asWKT "POINT (4.0349209 50.9393489)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "De Ridderstraat 41, 9300 Aalst, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9300" ;
+    locn:postName "Aalst" .
+
+kbo:e2b67f95d148227f47c8 a locn:Address ;
+    geo:asWKT "POINT (4.3566618155519485 50.85378745)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Nieuwstraat 98, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:e49b7cd7cf8f6179e87e a locn:Address ;
+    geo:asWKT "POINT (4.722616043892751 51.0758916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bergstraat 55, 2220 Heist-op-den-Berg, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2220" ;
+    locn:postName "Heist-op-den-Berg" .
+
+kbo:e5239e22a2c967c65fe8 a locn:Address ;
+    geo:asWKT "POINT (4.376625202132283 50.8262068)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Borrensstraat 16, 1050 Elsene, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1050" ;
+    locn:postName "Elsene" .
+
+kbo:e7d8b977f02fc0cb6fe0 a locn:Address ;
+    geo:asWKT "POINT (3.7837074 50.6284121)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue Jean Jaurès 11, 7800 Ath, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7800" ;
+    locn:postName "Ath" .
+
+kbo:ebab8e57d21b2dc9b03f a locn:Address ;
+    geo:asWKT "POINT (3.262529 50.845671)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ringlaan(Kor) 34, 8500 Kortrijk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8500" ;
+    locn:postName "Kortrijk" .
+
+kbo:eed71eb0f0f3d73490fa a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Pater Damiaanstraat 8, 7700 Mouscron, Belgium" ;
+    locn:poBox "3" ;
+    locn:postCode "7700" ;
+    locn:postName "Mouscron" .
+
+kbo:f01bbbb991e7817ea8bf a locn:Address ;
+    geo:asWKT "POINT (4.5000212 51.2521257)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Paalstraat 43, 2900 Schoten, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2900" ;
+    locn:postName "Schoten" .
+
+kbo:f48b03c230d347554bcd a locn:Address ;
+    geo:asWKT "POINT (4.3976639 50.7192771)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Chaussée de Bruxelles 219A, 1410 Waterloo, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1410" ;
+    locn:postName "Waterloo" .
+
+kbo:f4b632cd1508a60d77b5 a locn:Address ;
+    geo:asWKT "POINT (2.961047156153975 51.1525805)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Nieuwpoortse Steenweg 15, 8470 Gistel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8470" ;
+    locn:postName "Gistel" .
+
+kbo:fa134b565aaf59ac6374 a locn:Address ;
+    geo:asWKT "POINT (5.579612022366074 50.63248765)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Boulevard Raymond-Poincaré 7, 4020 Liège, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "4020" ;
+    locn:postName "Liège" .
+
+kbo:fade8d83f22fefa3d641 a locn:Address ;
+    geo:asWKT "POINT (4.2383349 50.7403139)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Jacminstraat (Jean) 14, 1500 Halle, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1500" ;
+    locn:postName "Halle" .
+
+kbo:fce0562fb363fef569fc a locn:Address ;
+    geo:asWKT "POINT (3.8390559 50.4379635)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Route de Mons 163, 7390 Quaregnon, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "7390" ;
+    locn:postName "Quaregnon" .
+
+kbo:fd952ba9ad070dc3346c a locn:Address ;
+    geo:asWKT "POINT (3.681079 51.019668)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kortrijksesteenweg 1098, 9051 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9051" ;
+    locn:postName "Gent" .
+
+kbo:fdbdf570d1984349517b a locn:Address ;
+    geo:asWKT "POINT (2.881313588237209 50.84857355)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Vooruitgangstraat 1, 8900 Ieper, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8900" ;
+    locn:postName "Ieper" .
+
+kbo:ff526f21cc84712c52ee a locn:Address ;
+    geo:asWKT "POINT (4.4417004 50.4077116)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Place Verte 20, 6000 Charleroi, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6000" ;
+    locn:postName "Charleroi" .
+
+kbo:bc1be641749ab0cb440f a locn:Address ;
+    geo:asWKT "POINT (5.6477718 50.685916)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Koning AlbertII laan 27, 1030 Schaarbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1030" ;
+    locn:postName "Schaarbeek" .
+

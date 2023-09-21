@@ -1,0 +1,42 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0818292196.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0818292196 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_610 ;
+    legal:legalName "argenx" ;
+    legal:registeredAddress kbo:5ce2e40e4d5fceb92279 ;
+    kbo:activity kbo:2008_72110 ;
+    kbo:establishment kbo:2182789911 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2008_72110 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_72110 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2182789911 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2009-09-28"^^xsd:date ;
+    locn:Address kbo:5ce2e40e4d5fceb92279 .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:5ce2e40e4d5fceb92279 a locn:Address ;
+    geo:asWKT "POINT (3.723707084315696 51.0093251)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Industriepark-Zwijnaarde 7, 9052 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9052" ;
+    locn:postName "Gent" .
+

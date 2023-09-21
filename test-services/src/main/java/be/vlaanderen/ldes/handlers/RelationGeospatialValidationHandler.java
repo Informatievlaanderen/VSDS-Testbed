@@ -123,25 +123,26 @@ public class RelationGeospatialValidationHandler {
      */
     private List<String> getPageMembers(Model inputModel, String page) {
         var results = new ArrayList<String>();
+        System.out.println("page: "+page);
         String memberQuery = String.format("""
-                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-                PREFIX tree: <https://w3id.org/tree#>
-                PREFIX crawler: <http://example.org/>
-                PREFIX ldes: <https://w3id.org/ldes#>
-                select DISTINCT ?PageMember where {
-                    ?Page rdf:type crawler:CrawledPage ;
-                        crawler:hasPageSource ?PageSource ;
-                        crawler:has_contents ?PageContent .
-                    ?PageContent rdf:type ldes:EventStream ;
-                         tree:member ?PageMember .
-                    FILTER(?PageSource = "%s")
-                }
-            """, page);
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX tree: <https://w3id.org/tree#>
+                    PREFIX crawler: <http://example.org/>
+                    PREFIX ldes: <https://w3id.org/ldes#>
+                    select DISTINCT ?PageMember where {
+                        ?Page rdf:type crawler:CrawledPage ;
+                            crawler:has_contents ?PageContent .
+                        ?PageContent rdf:type ldes:EventStream ;
+                              tree:member ?PageMember .
+                        FILTER (STR(?Page) = "%s")
+                    }
+                """, page);
         try (var queryExecution = QueryExecutionFactory.create(memberQuery, inputModel)) {
             var resultSet = queryExecution.execSelect();
             resultSet.forEachRemaining(entry -> results.add(entry.get("PageMember").toString()));
             resultSet.close();
         }
+        System.out.println("results: "+results);
         return results;
     }
 

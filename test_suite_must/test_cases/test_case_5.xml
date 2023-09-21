@@ -26,14 +26,11 @@
         -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-        <log>"Fetch Geospatial fragmentation graph.."</log>
-        <call id="step2" path="scriptlets/fetchData.xml" output="crawledDataGeo">
-            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
-            <input name="endpoint">$SYSTEM{endpointByLocation}</input>
-            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
-            <input name="endpointType">'byLocation'</input>
-        </call>
-        
+        <log>"Fetch Geospatial fragmentation graph."</log>
+        <process desc="crawl geo fragmented data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
+        </process>
+
 
         <!-- Step 3: Check geospatial relation consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
@@ -46,12 +43,9 @@
         
         <!-- Step 4: Fetch the processed data from the endpoint of the LDES Server (by time). -->
         <log>"Fetch time-based fragmentation graph.."</log>
-        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
-            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
-            <input name="endpoint">$SYSTEM{endpointByTime}</input>
-            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
-            <input name="endpointType">'byTime'</input>
-        </call> 
+        <process desc="crawl time fragmented data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+               <input name="viewURI">$SYSTEM{endpointByTime}</input>
+        </process>
     
         <!-- Step 5: Check relation timestamp consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
@@ -62,12 +56,9 @@
         </verify>
 
         <log>"Fetch String fragmentation graph.."</log>
-        <call id="step6" path="scriptlets/fetchData.xml" output="crawledDataString">
-            <!-- Notice here how we refer to the system-level configuration property with key "endpointByTime". -->
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <!-- When defining a string literal make sure to add it in quotes as everything is considered an XPath expression. -->
-            <input name="endpointType">'byName'</input>
-        </call> 
+        <process desc="crawl string fragmented data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
 
         <!-- Step 7: Check relation timestamp consistency. -->
         <!-- Notice here how we refer to the address of the validation service using the domain-level "validationServiceAddress" configuration property. -->
@@ -103,12 +94,10 @@
                 <message>"Inconsistencies found when validating your geo-based page relations."</message>
             </case>
             
-              <case>
+            <case>
                 <cond>$STEP_STATUS{step4} = 'ERROR'</cond>
                 <message>"An error occurred when fetching the data from your endpoint."</message>
             </case>
-
-
             
             <case>
                 <cond>$STEP_STATUS{step5} = 'ERROR'</cond>

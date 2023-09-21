@@ -16,9 +16,11 @@
         <!-- Step 1: Data provider posts KBO dataset to the LDES Server. -->
         <call id="step1" path="scriptlets/ingestDataset.xml"/>
         <!-- Step 2: Fetch the processed data from the endpoint of the LDES Server (by location). -->
-         <process desc="crawl geo data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
-            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl geo fragmented data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
         </process>
+
         <log>"Validating the TreeNode to TreeCollection relation with the crawled data..."</log>
         <!-- Step 3: Validate the fetched view page of the LDES Server with SHACL. -->
         <!-- 
@@ -51,19 +53,23 @@
             Here we are creating a list named "shapesToUse" and adding as the first element the map "shape1" we created just before. We could add
             more maps here if we wanted to add additional shape files for the validation.
          -->
+        <log>"Process crawling data..."</log>
+        <process desc="crawl geo fragmented data" output="crawledDataGeo" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByLocation}</input>
+        </process>         
         <assign to="shapesToUse" append="true">$shape1</assign>
         <verify id="step3" desc="Validate crawled geospatial graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
-            <input name="contentToValidate">$crawledDataTime</input>
+            <input name="contentToValidate">$crawledDataGeo</input>
             <input name="contentSyntax">"application/turtle"</input>
             <input name="addInputToReport">true()</input>
             <input name="addRulesToReport">true()</input>
             <input name="externalRules">$shapesToUse</input>
         </verify>
 
-        <call id="step4" path="scriptlets/fetchData.xml" output="crawledDataTime">
-            <input name="endpoint">$SYSTEM{endpointByTime}</input>
-            <input name="endpointType">'byTime'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl time fragmented data" output="crawledDataTime" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByTime}</input>
+        </process>
         <verify id="step5" desc="Validate crawled Time-based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledDataTime</input>
             <input name="contentSyntax">"application/turtle"</input>
@@ -72,10 +78,10 @@
             <input name="externalRules">$shapesToUse</input>
         </verify>
 
-        <call id="step6" path="scriptlets/fetchData.xml" output="crawledDataString">
-            <input name="endpoint">$SYSTEM{endpointByName}</input>
-            <input name="endpointType">'byName'</input>
-        </call>
+        <log>"Process crawling data..."</log>
+        <process desc="crawl string fragmented data" output="crawledDataString" handler="$DOMAIN{processingServiceAddress}" operation="crawl">
+            <input name="viewURI">$SYSTEM{endpointByName}</input>
+        </process>
         <verify id="step7" desc="Validate crawled String based graph" handler="$DOMAIN{shaclValidatorServiceAddress}">
             <input name="contentToValidate">$crawledDataString</input>
             <input name="contentSyntax">"application/turtle"</input>

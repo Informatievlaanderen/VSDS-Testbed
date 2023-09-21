@@ -1,0 +1,134 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0401574852.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0401574852 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "UM",
+        "UMICORE" ;
+    legal:registeredAddress kbo:a38b155532fe3062214d ;
+    kbo:activity kbo:2003_13200,
+        kbo:2003_27431,
+        kbo:2003_27432,
+        kbo:2008_20140,
+        kbo:2008_24410,
+        kbo:2008_24430,
+        kbo:2008_24450,
+        kbo:2008_70100 ;
+    kbo:establishment kbo:2105027979,
+        kbo:2105028474,
+        kbo:2105029959,
+        kbo:2273298433,
+        kbo:2319223676 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_13200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_13200 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2003_27431 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_27431 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_27432 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_27432 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_20140 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_20140 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_24410 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_24410 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_24430 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_24430 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_24450 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_24450 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_70100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_70100 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2105027979 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1919-12-01"^^xsd:date ;
+    locn:Address kbo:a38b155532fe3062214d .
+
+kbo:2105028474 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1989-12-28"^^xsd:date ;
+    locn:Address kbo:96ac4a016d7c655f1ac5 .
+
+kbo:2105029959 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1990-02-01"^^xsd:date ;
+    locn:Address kbo:ef3ab0a78635faf387a5 .
+
+kbo:2273298433 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-02-20"^^xsd:date ;
+    locn:Address kbo:a57c491e7b92f6e9be0b .
+
+kbo:2319223676 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2021-06-01"^^xsd:date ;
+    locn:Address kbo:38b4ec8887b43213df3d .
+
+kbo:38b4ec8887b43213df3d a locn:Address ;
+    geo:asWKT "POINT (4.875528 51.1769809)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Watertorenstraat 37A, 2250 Olen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2250" ;
+    locn:postName "Olen" .
+
+kbo:96ac4a016d7c655f1ac5 a locn:Address ;
+    geo:asWKT "POINT (4.334850070864558 51.16773455)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Adolf Greinerstraat 14, 2660 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2660" ;
+    locn:postName "Antwerpen" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:a57c491e7b92f6e9be0b a locn:Address ;
+    geo:asWKT "POINT (4.713745517254136 51.1819214)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Industrieweg 34, 2280 Grobbendonk, Belgium" ;
+    locn:poBox "3" ;
+    locn:postCode "2280" ;
+    locn:postName "Grobbendonk" .
+
+kbo:ef3ab0a78635faf387a5 a locn:Address ;
+    geo:asWKT "POINT (4.893131165411165 51.18053655)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Watertorenstraat 33, 2250 Olen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2250" ;
+    locn:postName "Olen" .
+
+kbo:a38b155532fe3062214d a locn:Address ;
+    geo:asWKT "POINT (4.3583312 50.850838)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Broekstraat 31, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+

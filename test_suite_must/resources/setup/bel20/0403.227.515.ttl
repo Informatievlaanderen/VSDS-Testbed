@@ -1,0 +1,298 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0403227515.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0403227515 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "KBC Groep",
+        "KBC Group",
+        "KBC Groupe",
+        "KBC Gruppe" ;
+    legal:registeredAddress kbo:4894047789ab0f161254 ;
+    kbo:activity kbo:2003_65120,
+        kbo:2003_65231,
+        kbo:2008_64190,
+        kbo:2008_70100 ;
+    kbo:establishment kbo:2127571769,
+        kbo:2127607601,
+        kbo:2152438611,
+        kbo:2152439304,
+        kbo:2152440787,
+        kbo:2152450487,
+        kbo:2152451081,
+        kbo:2152452071,
+        kbo:2152452467,
+        kbo:2152452962,
+        kbo:2155795702,
+        kbo:2155797383,
+        kbo:2172430905,
+        kbo:2217795825,
+        kbo:2241912795,
+        kbo:2277810517,
+        kbo:2278346688,
+        kbo:2322992226 ;
+    kbo:status kbo:Status_AC .
+
+kbo:058b43a6ce024a1c7226 a locn:Address ;
+    geo:asWKT "POINT (4.7070323 50.878807)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Monseigneur Ladeuzeplein 15, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:0beeffde4fe17c2b8dc4 a locn:Address ;
+    geo:asWKT "POINT (4.468842348634596 51.00464375)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Geerdegemdries 29, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:2003_65120 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_65120 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_65231 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_65231 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_64190 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_64190 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_70100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_70100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2127571769 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1998-10-05"^^xsd:date ;
+    locn:Address kbo:4894047789ab0f161254 .
+
+kbo:2127607601 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1935-02-01"^^xsd:date ;
+    locn:Address kbo:a467dbbe772f2968ca42 .
+
+kbo:2152438611 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:ab93acb3d3bc5928d356 .
+
+kbo:2152439304 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:cdc6fbe2282c7583bce0 .
+
+kbo:2152440787 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:876c1f999920f7f6c460 .
+
+kbo:2152450487 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:cbd62742dd4d7fdc0c85 .
+
+kbo:2152451081 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:058b43a6ce024a1c7226 .
+
+kbo:2152452071 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:0beeffde4fe17c2b8dc4 .
+
+kbo:2152452467 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:d7680f0a2848c2a75fc5 .
+
+kbo:2152452962 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-03-24"^^xsd:date ;
+    locn:Address kbo:abff6f72501beb37dd6c .
+
+kbo:2155795702 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-08-17"^^xsd:date ;
+    locn:Address kbo:d764f3ba2da243aa7967 .
+
+kbo:2155797383 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-08-17"^^xsd:date ;
+    locn:Address kbo:957d88645b7b38444a02 .
+
+kbo:2172430905 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2008-08-19"^^xsd:date ;
+    locn:Address kbo:bfb37a23a23c0f08ae15 .
+
+kbo:2217795825 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2013-03-28"^^xsd:date ;
+    locn:Address kbo:3003a821952231707cc7 .
+
+kbo:2241912795 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2015-04-30"^^xsd:date ;
+    locn:Address kbo:91df141f6387713bbe08 .
+
+kbo:2277810517 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-07-18"^^xsd:date ;
+    locn:Address kbo:2730d4171a45175182b8 .
+
+kbo:2278346688 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2018-04-01"^^xsd:date ;
+    locn:Address kbo:7da822f315b3e993391d .
+
+kbo:2322992226 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2021-01-01"^^xsd:date ;
+    locn:Address kbo:defb6da6597efd6640a0 .
+
+kbo:2730d4171a45175182b8 a locn:Address ;
+    geo:asWKT "POINT (4.438867708075451 51.1904013)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Roderveldlaan 4, 2600 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2600" ;
+    locn:postName "Antwerpen" .
+
+kbo:3003a821952231707cc7 a locn:Address ;
+    geo:asWKT "POINT (3.686794511837455 51.0215496)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Kortrijksesteenweg 1100, 9051 Gent, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "9051" ;
+    locn:postName "Gent" .
+
+kbo:7da822f315b3e993391d a locn:Address ;
+    geo:asWKT "POINT (4.882300552195767 50.46610685)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Avenue Albert 1er 60, 5000 Namur, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "5000" ;
+    locn:postName "Namur" .
+
+kbo:876c1f999920f7f6c460 a locn:Address ;
+    geo:asWKT "POINT (4.3530763 50.8463568)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Grote Markt 18, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:91df141f6387713bbe08 a locn:Address ;
+    geo:asWKT "POINT (4.3720406 50.8437143)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Wetenschapsstraat 23-25, 1000 Brussel, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1000" ;
+    locn:postName "Brussel" .
+
+kbo:957d88645b7b38444a02 a locn:Address ;
+    geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Havenlaan 6, 1080 Sint-Jans-Molenbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1080" ;
+    locn:postName "Sint-Jans-Molenbeek" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:a467dbbe772f2968ca42 a locn:Address ;
+    geo:asWKT "POINT (5.360089542956215 50.92810625)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Gouverneur Verwilghensingel 100, 3500 Hasselt, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3500" ;
+    locn:postName "Hasselt" .
+
+kbo:ab93acb3d3bc5928d356 a locn:Address ;
+    geo:asWKT "POINT (4.4060796 51.2217275)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Keizerstraat 10, 2000 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2000" ;
+    locn:postName "Antwerpen" .
+
+kbo:abff6f72501beb37dd6c a locn:Address ;
+    geo:asWKT "POINT (4.465623567286145 51.00723045)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Egide Walschaertsstraat 3, 2800 Mechelen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:bfb37a23a23c0f08ae15 a locn:Address ;
+    geo:asWKT "POINT (4.7160023 50.8796423)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Professor Van Overstraetenplein 2, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:cbd62742dd4d7fdc0c85 a locn:Address ;
+    geo:asWKT "POINT (4.677564060444151 50.88611805)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Brusselsesteenweg 100, 3000 Leuven, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3000" ;
+    locn:postName "Leuven" .
+
+kbo:cdc6fbe2282c7583bce0 a locn:Address ;
+    geo:asWKT "POINT (4.403938413879004 51.2188297)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Schoenmarkt 35, 2000 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2000" ;
+    locn:postName "Antwerpen" .
+
+kbo:d764f3ba2da243aa7967 a locn:Address ;
+    geo:asWKT "POINT (3.1011004857238005 50.95721705)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Ter Reigerie 1, 8800 Roeselare, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "8800" ;
+    locn:postName "Roeselare" .
+
+kbo:d7680f0a2848c2a75fc5 a locn:Address ;
+    geo:asWKT "POINT (4.46939785 51.006352750000005)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Geerdegemdries 28, 2800 Mechelen, Belgium" ;
+    locn:poBox "1" ;
+    locn:postCode "2800" ;
+    locn:postName "Mechelen" .
+
+kbo:defb6da6597efd6640a0 a locn:Address ;
+    geo:asWKT "POINT (4.4222243 51.2115271)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Delacenseriestraat 1, 2018 Antwerpen, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "2018" ;
+    locn:postName "Antwerpen" .
+
+kbo:4894047789ab0f161254 a locn:Address ;
+    geo:asWKT "POINT (4.3474925 50.8612311)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Havenlaan 2, 1080 Sint-Jans-Molenbeek, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "1080" ;
+    locn:postName "Sint-Jans-Molenbeek" .
+

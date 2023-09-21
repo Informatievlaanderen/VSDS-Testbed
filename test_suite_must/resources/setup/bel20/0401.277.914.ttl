@@ -1,0 +1,92 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0401277914.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0401277914 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "APERAM STAINLESS BELGIUM" ;
+    legal:registeredAddress kbo:b63391125982112d94fa ;
+    kbo:activity kbo:2003_27100,
+        kbo:2003_27310,
+        kbo:2008_24100,
+        kbo:2008_24310 ;
+    kbo:establishment kbo:2005456093,
+        kbo:2155832423,
+        kbo:2169037883 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_27100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_27100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_27310 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_27310 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2005456093 a org:Site,
+        kbo:Establishment ;
+    terms:issued "1970-09-01"^^xsd:date ;
+    vcard:email "peter.vreven@aperam.com" ;
+    vcard:tel "089 302282" ;
+    locn:Address kbo:b63391125982112d94fa .
+
+kbo:2008_24100 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_24100 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2008_24310 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_24310 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2155832423 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-07-01"^^xsd:date ;
+    locn:Address kbo:9abaa753536e393cc6a2 .
+
+kbo:2169037883 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2006-10-02"^^xsd:date ;
+    vcard:email "helga.baeten@aperam.com",
+        "helga.baeten@arcelormittal.com" ;
+    vcard:tel "089 365600",
+        "089/365623" ;
+    locn:Address kbo:8bd3bcc78c6789d2322d .
+
+kbo:8bd3bcc78c6789d2322d a locn:Address ;
+    geo:asWKT "POINT (5.477029544396573 50.94246365)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Bosdel 87, 3600 Genk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3600" ;
+    locn:postName "Genk" .
+
+kbo:9abaa753536e393cc6a2 a locn:Address ;
+    geo:asWKT "POINT (4.5223714 50.4099313)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET ;
+    locn:fullAddress "Rue des Ateliers 14, 6200 Châtelet, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "6200" ;
+    locn:postName "Châtelet" .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:b63391125982112d94fa a locn:Address ;
+    geo:asWKT "POINT (5.5092156 50.9405572)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Swinnenwijerweg 5, 3600 Genk, Belgium" ;
+    locn:poBox "None" ;
+    locn:postCode "3600" ;
+    locn:postName "Genk" .
+

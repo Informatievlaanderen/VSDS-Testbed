@@ -1,0 +1,63 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix kbo: <https://kbopub.economie.fgov.be/kbo#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <https://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbo:0887216042.2022.11 a legal:legalEntity,
+        kbo:Enterprise ;
+    terms:isVersionOf kbo:0887216042 ;
+    legal:companyStatus kbo:JuridicalSituation_000 ;
+    legal:companyType kbo:JuridicalForm_014 ;
+    legal:legalName "VGP" ;
+    legal:registeredAddress kbo:2ad9324271a74bba3baf ;
+    kbo:activity kbo:2003_74124,
+        kbo:2003_74142,
+        kbo:2003_74151,
+        kbo:2003_74879,
+        kbo:2008_64200 ;
+    kbo:establishment kbo:2160071917 ;
+    kbo:status kbo:Status_AC .
+
+kbo:2003_74124 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74124 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2003_74142 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74142 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2003_74151 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74151 ;
+    kbo:classification kbo:Classification_MAIN,
+        kbo:Classification_SECO .
+
+kbo:2003_74879 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2003_74879 ;
+    kbo:classification kbo:Classification_SECO .
+
+kbo:2008_64200 a kbo:Activity ;
+    legal:companyActivity kbo:Nace2008_64200 ;
+    kbo:classification kbo:Classification_MAIN .
+
+kbo:2160071917 a org:Site,
+        kbo:Establishment ;
+    terms:issued "2007-02-06"^^xsd:date ;
+    locn:Address kbo:2ad9324271a74bba3baf .
+
+kbo:Status_AC a kbo:Code ;
+    kbo:codeDescription "Actif"@FR,
+        "Actief"@NL ;
+    kbo:codeValue "AC" .
+
+kbo:2ad9324271a74bba3baf a locn:Address ;
+    geo:asWKT "POINT (4.4104638 51.1975987)"^^geo:wktLiteral ;
+    kbo:addressType kbo:TypeOfAddress_BAET,
+        kbo:TypeOfAddress_REGO ;
+    locn:fullAddress "Generaal Lemanstraat 55, 2018 Antwerpen, Belgium" ;
+    locn:poBox "4" ;
+    locn:postCode "2018" ;
+    locn:postName "Antwerpen" .
+
