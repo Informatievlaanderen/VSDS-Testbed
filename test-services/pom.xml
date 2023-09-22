@@ -74,6 +74,18 @@
                     </execution>
                 </executions>
             </plugin>
+ 
+
+                <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version> <!-- Replace with a version that supports Java 17 -->
+                <configuration>
+                    <release>17</release>
+                </configuration>
+                </plugin>
+
+
         </plugins>
         <finalName>test-services</finalName>
     </build>
