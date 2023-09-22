@@ -19,6 +19,7 @@ jobs:
           fetch-depth: 0
 
     - name: Build with Maven
+      run: cd test-services
       run: mvn clean install -DskipTests=true
 
     - uses: actions/setup-java@v2
