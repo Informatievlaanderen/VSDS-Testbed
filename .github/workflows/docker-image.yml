@@ -29,4 +29,6 @@ jobs:
        - name: Build the Docker image
          run: |
           cd test-services
-          docker build . --file Dockerfile --tag vsds-testbed-service:$(date +%s)
+          docker build . --file Dockerfile --tag ghcr.io/vsds-testbed-service:$(date +%s)
+          docker run ghcr.io/vsds-testbed-service:$(date +%s)
+          docker push ghcr.io/vsds-testbed-service:$(date +%s)
