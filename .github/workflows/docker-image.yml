@@ -13,22 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-    - uses: actions/checkout@v4
-      with:
-          fetch-depth: 0
-
-    - name: Set up JDK and Maven
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-
-    - name: Build with Maven
-      run:  |
+       - uses: actions/checkout@v3
+       - uses: actions/setup-java@v3
+           with:
+              distribution: 'temurin'
+              java-version: '17'
+              cache: 'maven'
+       - name: Build with Maven
+          run: mvn -B package --file pom.xml
+       run:  |
         cd test-services
         mvn clean install -DskipTests=true
 
 
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file test-services\Dockerfile --tag vsds-testbed-service:$(date +%s)
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file test-services\Dockerfile --tag vsds-testbed-service:$(date +%s)
