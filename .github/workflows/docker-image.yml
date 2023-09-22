@@ -30,5 +30,4 @@ jobs:
          run: |
           cd test-services
           docker build . --file Dockerfile --tag ghcr.io/vsds-testbed-service:1.0.0
-          docker run ghcr.io/vsds-testbed-service:1.0.0
           docker push ghcr.io/vsds-testbed-service:1.0.0
