@@ -14,9 +14,9 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
       with:
           fetch-depth: 0
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file test-services/Dockerfile --tag vsds-testbed-service:$(date +%s)
+      run: docker build . --file test-services\Dockerfile --tag vsds-testbed-service:$(date +%s)
