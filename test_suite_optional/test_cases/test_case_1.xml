@@ -1,6 +1,6 @@
 <testcase id="ts3_tc1" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC1] ShEx shape compatibility </gitb:name>
+        <gitb:name>[TC1] ShEx shape compatibility [SPEC in progress] </gitb:name>
         <gitb:version>1.0</gitb:version>
         <gitb:description>For compatibility with the Solid specifications, a ShEx shape may also be given. 【Not LDES Server Scope, ShEx might be not supported by tree SPEC (living standard).】</gitb:description>
         <gitb:documentation import="docs/test_case_2.html"/>

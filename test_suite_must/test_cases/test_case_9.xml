@@ -2,7 +2,7 @@
     <metadata>
         <gitb:name>[TC9] Time-based relation consistency</gitb:name>
         <gitb:version>1.0</gitb:version>
-        <gitb:description>When using relations such as tree:LessThanRelation or tree:GreaterThanRelation, the time literals need to be compared according to these three possible data types: xsd:date, xsd:dateTime or xsd:dateTimeStamp.</gitb:description>
+        <gitb:description>When using relations such as tree:LessThanRelation or tree:GreaterThanRelation, the Time-literals need to be compared according to these three possible data types: xsd:date, xsd:dateTime or xsd:dateTimeStamp.</gitb:description>
         <!-- 
             You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
             HTML content to include in the referenced file.

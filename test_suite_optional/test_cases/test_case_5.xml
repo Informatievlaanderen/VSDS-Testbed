@@ -1,6 +1,6 @@
 <testcase id="ts3_tc5" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC5] Implicit property tree:path </gitb:name>
+        <gitb:name>[TC5] Implicit property tree:path [SPEC in progress]</gitb:name>
         <gitb:version>1.0</gitb:version>
         <gitb:description>A `tree:path` MAY refer to an implicit property.【Not LDES Server Scope】</gitb:description>
         <gitb:documentation import="docs/test_case_3.html"/>
