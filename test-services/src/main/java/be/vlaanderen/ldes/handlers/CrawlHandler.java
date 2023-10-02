@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
  * Handle data crawling.
  */
 @Component
+@Deprecated
 public class CrawlHandler {
 
   /** Logger. */

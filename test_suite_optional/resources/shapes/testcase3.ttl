@@ -2,17 +2,17 @@
 @prefix ldes: <https://w3id.org/ldes#> .
 @prefix tree: <https://w3id.org/tree#> .
 
-#
 # SPEC for Tree Spec
-# SHOULD test case - 11
+# OPTIONAL test case - 9
 # SPEC Conform:
-# The tree:Relation’s tree:value SHOULD be set.
+# A tree:Node element MAY have one or more tree:relation properties.
 #
 # Verify:
-# Each tree:Relation has one tree:value set.
-#
+# Check that if LDES Server supports multiple relations (e.g., by using geospatial or substring fragmentation).
 
-tree:EachRelationHasOneTreeValue  a sh:NodeShape ;
+
+tree:SupportMultiRelation
+	a sh:NodeShape ;
     sh:targetClass tree:relation ;
     sh:property [
         sh:path tree:value ;

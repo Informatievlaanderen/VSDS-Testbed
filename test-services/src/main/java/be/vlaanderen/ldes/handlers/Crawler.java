@@ -19,6 +19,12 @@ import java.util.*;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
+/**
+ * Handle data crawling.
+ */
+
+
+@Component
 public class Crawler {
     private final Queue<String> urlQueue = new LinkedList<>();;
     private final List<String> visitedURLs = new ArrayList<>();

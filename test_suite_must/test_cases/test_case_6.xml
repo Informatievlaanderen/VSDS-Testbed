@@ -2,7 +2,7 @@
     <metadata>
         <gitb:name>[TC6] No tree:path define fallback </gitb:name>
         <gitb:version>1.0</gitb:version>
-        <gitb:description> When no tree:path is defined,the tree:value MUST be compared to all members’ triples that can be compared to the tree:value as defined by the type of the relation (or when no members or collection are defined, on every triple in the page). When due to rdfs:range incompatibility, the object cannot be compared, the object will not be considered for comparison.</gitb:description>
+        <gitb:description> When no tree:path is defined,the tree:value MUST be compared to all members’ triples that can be compared to the tree:value as defined by the type of the relation (or when no members or collection are defined, on every triple in the page). When due to rdfs:range incompatibility, the object cannot be compared, the object will not be considered for comparison.【Not LDES Server Scope】</gitb:description>
         <!-- 
             You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
             HTML content to include in the referenced file.
@@ -68,7 +68,7 @@
             This is achieved by setting 'hidden' explicitly to 'false'.
         -->
         <then hidden="false">
-        <verify id="step4" desc="Validate Relations #TODO" handler="$DOMAIN{validationServiceAddress}">
+        <verify id="step4" desc="Validate [where no tree:path is defined, but a tree:value exists] Relations #TODO" handler="$DOMAIN{validationServiceAddress}">
             <input name ="type">"string relations"</input>
             <input name="content">$crawledData</input>
         <input name="contentType">"application/turtle"</input>
