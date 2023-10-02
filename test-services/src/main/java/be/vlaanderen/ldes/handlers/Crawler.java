@@ -24,7 +24,7 @@ import static java.time.temporal.ChronoUnit.SECONDS;
  */
 
 
-@Component
+
 public class Crawler {
     private final Queue<String> urlQueue = new LinkedList<>();;
     private final List<String> visitedURLs = new ArrayList<>();
