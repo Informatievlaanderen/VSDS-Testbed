@@ -1,3 +1,4 @@
+![image](https://github.com/Informatievlaanderen/VSDS-Testbed/assets/15314807/5e483312-1b24-40da-837f-968df9528511)
 
 ##  PoC contents  
 
