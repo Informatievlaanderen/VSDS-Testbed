@@ -28,6 +28,10 @@
 		The test case IDs refer to the IDs of the relevant test cases (see their root element). You can place test cases anywhere you want in the test suite archive
 		and they will be picked up automatically when parsing the test suite.
 	-->
+	<testcase id="ts3_tc1"/>
 	<testcase id="ts3_tc2"/>
 	<testcase id="ts3_tc3"/>
+	<testcase id="ts3_tc4"/>
+	<testcase id="ts3_tc5"/>
+	<testcase id="ts3_tc6"/>
 </testsuite>
