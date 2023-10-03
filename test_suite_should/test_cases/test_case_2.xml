@@ -1,6 +1,6 @@
 <testcase id="ts2_tc2" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC2] The shape can be a blank node </gitb:name>
+        <gitb:name>[TC2] The shape can be a blank node [SPEC in progress] </gitb:name>
         <gitb:version>1.0</gitb:version>
         <gitb:description>The shape can be a blank node, or a named node on which you should follow your nose when it is defined at a different HTTP URL.【Not LDES Server Scope, SPEC in progressiong】</gitb:description>
         <gitb:documentation import="docs/test_case_3.html"/>

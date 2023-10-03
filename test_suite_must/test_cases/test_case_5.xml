@@ -7,7 +7,7 @@
             You can also define documentation via the UI but adding it here ensures that you will not overwrite it by accident. From the UI you can copy the
             HTML content to include in the referenced file.
         -->
-        <gitb:documentation import="docs/test_case_9.html"/>
+        <gitb:documentation import="docs/test_case_5.html"/>
     </metadata>
     <actors>
         <gitb:actor id="LDESServer" role="SUT"/>

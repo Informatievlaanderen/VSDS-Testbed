@@ -1,6 +1,6 @@
 <testcase id="ts3_tc6" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <metadata>
-        <gitb:name>[TC6] shacl:inLanguage in tree:Relation </gitb:name>
+        <gitb:name>[TC6] shacl:inLanguage in tree:Relation [SPEC in progress]</gitb:name>
         <gitb:version>1.0</gitb:version>
         <gitb:description>When a tree:path is defined, mind that you also may have to check the language of the element using the property
  shacl:inLanguage More languages MAY be set. When no language is set, all strings are compared.【SPEC progressiong https://github.com/TREEcg/specification/issues/80】</gitb:description>
