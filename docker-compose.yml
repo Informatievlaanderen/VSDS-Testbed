@@ -48,8 +48,8 @@ services:
     restart: unless-stopped
     # This is the only Test Bed component for which we currently add a host port mapping. If port 9000 on your
     # host is taken just replace "9000:9000" with say "9001:9000".
-    # ports:
-    #   - "9000:9000"
+    ports:
+      - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
       - DATA_ARCHIVE_KEY=ldes
