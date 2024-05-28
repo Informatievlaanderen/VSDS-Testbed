@@ -25,8 +25,8 @@ services:
       test: "/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute \"SHOW DATABASES;\""
       interval: 3s
       retries: 10
-    ports:
-      - "3307:3306"
+    # ports:
+    #   - "3307:3306"
   gitb-srv:
     # The test engine that executed the test sessions.
     image: isaitb/gitb-srv:nightly
@@ -40,16 +40,16 @@ services:
       # In the case of the PoC the only scenario we used callbacks in is when we post log messages from the
       # test-services component back to the test engine.
       - gitb.messaging.callbackURL=http://gitb-srv:8080/itbsrv/MessagingClient
-    ports:
-      - "10001:8080"
+    # ports:
+    #   - "10001:8080"
   gitb-ui:
     # The Test Bed's UI.
     image: isaitb/gitb-ui:nightly
     restart: unless-stopped
     # This is the only Test Bed component for which we currently add a host port mapping. If port 9000 on your
     # host is taken just replace "9000:9000" with say "9001:9000".
-    ports:
-      - "9000:9000"
+    # ports:
+    #   - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
       - DATA_ARCHIVE_KEY=ldes
@@ -100,8 +100,8 @@ services:
       - ./config/shacl-validator:/config
     environment:
       - validator.resourceRoot=/config
-    ports:
-      - 8081:8080
+    # ports:
+    #   - 8081:8080
   # 
   # PoC specific containers for the LDES server - START
   #
@@ -109,8 +109,8 @@ services:
   # When removing them remember to adapt the systems' configuration in the Test Bed UI to point to the new address of ldes-server.
   ldes-server:
     image: ldes/ldes-server:2.0.2-SNAPSHOT
-    ports:
-          - 8080:8080
+    # ports:
+    #       - 8080:8080
     environment:
     - SPRING_CONFIG_LOCATION=/config/
     volumes:
@@ -119,8 +119,8 @@ services:
     - ldes-mongodb
   ldes-mongodb:
     image: mongo:latest
-    ports:
-          - 27017:27017
+    # ports:
+    #       - 27017:27017
     
 
   # 
