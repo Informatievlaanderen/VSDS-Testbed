@@ -44,7 +44,7 @@ services:
     #   - "10001:8080"
   gitb-ui:
     # The Test Bed's UI.
-    image: isaitb/gitb-ui:nightly
+    image: isaitb/gitb-ui
     restart: unless-stopped
     # This is the only Test Bed component for which we currently add a host port mapping. If port 9000 on your
     # host is taken just replace "9000:9000" with say "9001:9000".
