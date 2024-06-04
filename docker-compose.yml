@@ -1,4 +1,4 @@
-version: '2.1'
+version: "2.1"
 
 # These volumes record all persistent data for the Test Bed instance.
 volumes:
@@ -14,25 +14,25 @@ services:
     image: redis:6.2.11
     restart: unless-stopped
   gitb-mysql:
-    # The Test Bed's DB. 
+    # The Test Bed's DB.
     image: isaitb/gitb-mysql:latest
     restart: unless-stopped
     volumes:
       - gitb-dbdata:/var/lib/mysql
     # We use a healthcheck to make sure the DB is up and running before we try to connect to it (this could
-    # take a few seconds after the container is up and running). 
+    # take a few seconds after the container is up and running).
     healthcheck:
-      test: "/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute \"SHOW DATABASES;\""
+      test: '/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute "SHOW DATABASES;"'
       interval: 3s
       retries: 10
     # ports:
     #   - "3307:3306"
   gitb-srv:
     # The test engine that executed the test sessions.
-    image: isaitb/gitb-srv:nightly
+    image: isaitb/gitb-srv
     restart: unless-stopped
     environment:
-      # This is used to define how external services (the test-services component) will make callbacks on the 
+      # This is used to define how external services (the test-services component) will make callbacks on the
       # test engine. The address here must be what the test-services component should use for the calls.
       # If you deploy the test-services outside the docker-compose service you would need to adapt this. For
       # example you would add a port mapping for port 8080 (this is currently not mapped to the host) and then
@@ -54,12 +54,15 @@ services:
       # This is the key to decrypt the initialisation data archive (see below).
       - DATA_ARCHIVE_KEY=ldes
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
-      - AUTOMATION_API_ENABLED=true  
+      - AUTOMATION_API_ENABLED=true
+      - AUTHENTICATION_COOKIE_PATH=/itb
+      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds-testbed/itb
+
       - THEME=ec
     volumes:
       - gitb-repo:/gitb-repository
       # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
-      - ./config/data/:/gitb-repository/data/in/:rw      
+      - ./config/data/:/gitb-repository/data/in/:rw
     depends_on:
       gitb-redis:
         condition: service_started
@@ -69,16 +72,16 @@ services:
         condition: service_started
 
   # Replace blue with yellow :)
-#  gitb-ui-proxy:
-#    build: proxy
-#    volumes:
-#     - ./proxy/overrides:/usr/local/apache2/htdocs/
-#     - ${PWD}/my-httpd.conf /usr/local/apache2/conf/httpd.conf
-#    ports:
-#     - "9001:80"
-#  #
-#  # Test Bed core components - END.
-#  #
+  #  gitb-ui-proxy:
+  #    build: proxy
+  #    volumes:
+  #     - ./proxy/overrides:/usr/local/apache2/htdocs/
+  #     - ${PWD}/my-httpd.conf /usr/local/apache2/conf/httpd.conf
+  #    ports:
+  #     - "9001:80"
+  #  #
+  #  # Test Bed core components - END.
+  #  #
   test-services:
     # The test-services component are the extension services supporting our test cases. Note how we have a "build" definition
     # here as we will build the component from the sources provided in directory "./test-services".
@@ -91,7 +94,7 @@ services:
     restart: unless-stopped
   shacl-validator:
     # A SHACL validator instance, configured to validate content against user-provided shapes. This could also be configured
-    # with predefined shapes and customised to be exposed to users as a standalone validation service. The validator's 
+    # with predefined shapes and customised to be exposed to users as a standalone validation service. The validator's
     # configuration file is at ./config/shacl-validator/any/config.properties.
     # This service is integrated via SOAP with the Test Bed via its API WSDL at http://shacl-validator:8080/shacl/soap/any/validation?wsdl.
     image: isaitb/shacl-validator:latest
@@ -102,7 +105,7 @@ services:
       - validator.resourceRoot=/config
     # ports:
     #   - 8081:8080
-  # 
+  #
   # PoC specific containers for the LDES server - START
   #
   # These are added here for the PoC's installation convenience to act as a SUT. Eventually these would be removed from this docker-compose file.
@@ -112,17 +115,16 @@ services:
     # ports:
     #       - 8080:8080
     environment:
-    - SPRING_CONFIG_LOCATION=/config/
+      - SPRING_CONFIG_LOCATION=/config/
     volumes:
-    - ./config/ldes-server/ldes-server.yml:/config/application.yml:ro
+      - ./config/ldes-server/ldes-server.yml:/config/application.yml:ro
     depends_on:
-    - ldes-mongodb
+      - ldes-mongodb
   ldes-mongodb:
     image: mongo:latest
     # ports:
     #       - 27017:27017
-    
 
-  # 
+  #
   # PoC specific containers for the LDES server - END
   #
