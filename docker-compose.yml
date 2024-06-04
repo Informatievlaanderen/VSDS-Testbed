@@ -56,7 +56,7 @@ services:
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
       - AUTHENTICATION_COOKIE_PATH=/itb
-      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds-testbed/itb
+      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/itb
 
       - THEME=ec
     volumes:
