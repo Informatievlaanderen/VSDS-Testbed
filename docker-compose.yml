@@ -70,6 +70,7 @@ services:
         condition: service_healthy
       gitb-srv:
         condition: service_started
+    command: ["-Dserver.tomcat.accesslog.enabled=true"]
 
   # Replace blue with yellow :)
   #  gitb-ui-proxy:
