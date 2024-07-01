@@ -52,6 +52,7 @@ services:
       - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
+      - TESTBED_MODE=production
       - DATA_ARCHIVE_KEY=ldes
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
