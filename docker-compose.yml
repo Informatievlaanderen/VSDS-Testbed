@@ -21,6 +21,9 @@ services:
       - gitb-dbdata:/var/lib/mysql
     # We use a healthcheck to make sure the DB is up and running before we try to connect to it (this could
     # take a few seconds after the container is up and running).
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     healthcheck:
       test: '/usr/bin/mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute "SHOW DATABASES;"'
       interval: 3s
@@ -40,6 +43,7 @@ services:
       # In the case of the PoC the only scenario we used callbacks in is when we post log messages from the
       # test-services component back to the test engine.
       - gitb.messaging.callbackURL=http://gitb-srv:8080/itbsrv/MessagingClient
+      - HMAC_KEY=${HMAC_KEY}
     # ports:
     #   - "10001:8080"
   gitb-ui:
@@ -52,12 +56,19 @@ services:
       - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
-      # TODO: LDES does not work for export_themes? Also 12345
       - DATA_ARCHIVE_KEY=12345
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
       - AUTHENTICATION_COOKIE_PATH=/vsds-testbed
+      - TESTBED_MODE=production
       - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds-testbed
+      - HMAC_KEY=${HMAC_KEY}
+      - APPLICATION_SECRET=${APPLICATION_SECRET}
+      - MASTER_PASSWORD=${MASTER_PASSWORD}
+      - DB_DEFAULT_PASSWORD=${MYSQL_PASSWORD}
+      # Disable this if you don't want to overrule the existing password:https://www.itb.ec.europa.eu/docs/guides/latest/installingTheTestBedProduction/index.html#updating-configuration-during-operation
+      - MASTER_PASSWORD_FORCE=true
+
     volumes:
       - gitb-repo:/gitb-repository
       # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
