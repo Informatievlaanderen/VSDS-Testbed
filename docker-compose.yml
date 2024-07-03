@@ -56,8 +56,8 @@ services:
       - DATA_ARCHIVE_KEY=12345
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
-      - AUTHENTICATION_COOKIE_PATH=/vsds
-      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds
+      - AUTHENTICATION_COOKIE_PATH=/itb
+      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/itb
     volumes:
       - gitb-repo:/gitb-repository
       # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
