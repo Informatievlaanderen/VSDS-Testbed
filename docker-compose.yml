@@ -11,7 +11,7 @@ services:
   #
   gitb-redis:
     # Internal component used to store users' UI sessions.
-    image: redis:6.2.11
+    image: redis:7.2.5
     restart: unless-stopped
   gitb-mysql:
     # The Test Bed's DB.
