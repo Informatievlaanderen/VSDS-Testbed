@@ -52,13 +52,11 @@ services:
       - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
-      - DATA_ARCHIVE_KEY=ldes
+      - DATA_ARCHIVE_KEY=12345
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
       - AUTHENTICATION_COOKIE_PATH=/vsds
       - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds
-
-      - THEME=ec
     volumes:
       - gitb-repo:/gitb-repository
       # This points to the folder from which the initialisation data archive specific to the PoC will be loaded from.
