@@ -55,8 +55,8 @@ services:
       - DATA_ARCHIVE_KEY=ldes
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
-      - AUTHENTICATION_COOKIE_PATH=/itb
-      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/itb
+      - AUTHENTICATION_COOKIE_PATH=/vsds
+      - TESTBED_HOME_LINK=https://data.dev-vlaanderen.be/vsds
 
       - THEME=ec
     volumes:
