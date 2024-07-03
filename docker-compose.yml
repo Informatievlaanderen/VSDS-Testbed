@@ -52,6 +52,7 @@ services:
       - "9000:9000"
     environment:
       # This is the key to decrypt the initialisation data archive (see below).
+      # TODO: LDES does not work for export_themes? Also 12345
       - DATA_ARCHIVE_KEY=12345
       # Flag to enable the Test Bed's REST API. This can be very useful for efficient test case development.
       - AUTOMATION_API_ENABLED=true
