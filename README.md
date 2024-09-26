@@ -27,3 +27,12 @@ To install and use the PoC follow these steps:
 	b. You will know that the Test Bed is ready to access by tailing the logs of the “gitb-ui” container. The first time you start this up it may take a couple of minutes as it will create the DB and populate everything using the PoC’s data. Once you see a message “Listening for HTTP on /0.0.0.0:9000” everything will be ready to use.
 
 5. Extract persisted export password: 12345
+
+## data.vlaanderen.be setup
+This repository has been defaulted for hosting the testbed on data.vlaanderen.be. Because of that, there are some hardcoded values in the `docker-compose.yml` file. If you want to host the testbed on a different domain, you will need to change the following values:
+
+- `AUTHENTICATION_COOKIE_PATH` should be set to the path where the testbed will be hosted. It can be omitted if the testbed is hosted on the root of the domain.
+- `TESTBED_HOME_LINK` should be set to the URL where the testbed will be hosted. It can be omitted if the testbed is hosted on the root of the domain.
+
+If you remove or tweak these values, you'll be able to start the testbed immediately. 
+
